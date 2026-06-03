@@ -16,8 +16,10 @@
   <meta name="twitter:title" content="One Life Advisory — Designed for your one life.">
   <meta name="twitter:description" content="Purposeful financial planning. One integrated plan, built around your purpose.">
   <meta name="twitter:image" content="https://one-life-advisory.vercel.app/assets/hero.jpg">
-  <!-- Favicon: "OL" monogram in gold on navy -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2316243f'/%3E%3Ctext x='32' y='44' font-family='Georgia,%20serif' font-size='30' font-weight='600' letter-spacing='-1' fill='%23C9A876' text-anchor='middle'%3EOL%3C/text%3E%3C/svg%3E">
+  <!-- Favicon / app icons (custom logo files) -->
+  <link rel="icon" type="image/svg+xml" href="/assets/logos/favicon.svg" data-cms-attr="href:global.faviconUrl">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/logos/favicon-32.png">
+  <link rel="apple-touch-icon" href="/assets/logos/favicon-180.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -150,6 +152,13 @@
     #nav.over-hero { background: linear-gradient(180deg, rgba(14,24,46,.45), transparent); }
     #nav.over-hero .nav-logo { color: #fff; }
     #nav.over-hero .nav-logo .brand-accent { color: var(--gold-lt); }
+    /* Logo images in the nav (swap by nav state) */
+    .nav-logo { display: flex; align-items: center; }
+    .nav-logo-img { height: 30px; width: auto; display: block; }
+    .nav-logo .nav-logo-on-dark { display: none; }
+    #nav.over-hero .nav-logo .nav-logo-on-light { display: none; }
+    #nav.over-hero .nav-logo .nav-logo-on-dark { display: block; }
+    @media (max-width: 768px) { .nav-logo-img { height: 26px; } }
     #nav.over-hero .nav-links a { color: rgba(255,255,255,.82); }
     #nav.over-hero .nav-links a:hover, #nav.over-hero .nav-links a.active { color: #fff; }
     #nav.over-hero .nav-links a::after { background: var(--gold-lt); }
@@ -700,6 +709,8 @@
       font-weight: 600; color: var(--white); margin-bottom: 12px;
     }
     .footer-logo .brand-accent { color: var(--gold); }
+    .footer-logo-img { height: 62px; width: auto; display: block; margin-bottom: 14px; }
+    @media (max-width: 768px) { .footer-logo-img { height: 54px; } }
     .footer-tagline { font-size: .875rem; color: rgba(255,255,255,.45); font-style: italic; }
     .footer-col h5 {
       font-size: .75rem; font-weight: 700; letter-spacing: .1em;
@@ -885,7 +896,10 @@
 <!-- ═══════════════════════════════ NAV ══════════════════════════════════ -->
 <nav id="nav">
   <div class="nav-inner">
-    <div class="nav-logo" onclick="go('home')"><span data-cms="global.brandLead">One Life</span> <span class="brand-accent" data-cms="global.brandAccent">Advisory</span></div>
+    <div class="nav-logo" onclick="go('home')" aria-label="One Life Advisory — home" role="link" tabindex="0">
+      <img class="nav-logo-img nav-logo-on-light" src="/assets/logos/logo-nav.svg" data-cms-attr="src:global.logoNav" alt="One Life Advisory">
+      <img class="nav-logo-img nav-logo-on-dark" src="/assets/logos/logo-nav-dark.svg" data-cms-attr="src:global.logoNavDark" alt="">
+    </div>
     <div class="nav-links">
       <a href="#" onclick="go('how-we-plan');return false;" id="nl-how-we-plan" data-cms="global.nav.howWePlan">How We Plan</a>
       <a href="#" onclick="go('what-we-do');return false;" id="nl-what-we-do" data-cms="global.nav.whatWeDo">What We Do</a>
@@ -1725,7 +1739,7 @@
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
-        <div class="footer-logo"><span data-cms="global.brandLead">One Life</span> <span class="brand-accent" data-cms="global.brandAccent">Advisory</span></div>
+        <img class="footer-logo-img" src="/assets/logos/logo-footer.svg" data-cms-attr="src:global.logoFooter" alt="One Life Advisory">
         <div class="footer-tagline" data-cms="global.footerTagline">Designed for your one life.</div>
       </div>
       <div class="footer-col">

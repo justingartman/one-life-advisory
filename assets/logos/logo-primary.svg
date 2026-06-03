@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 220" width="800" height="220">
+  <defs>
+    <style>
+      .name { font-family: 'Cormorant Garamond', 'Times New Roman', Georgia, serif; font-weight: 600; letter-spacing: -0.005em; }
+      .name-italic { font-family: 'Cormorant Garamond', 'Times New Roman', Georgia, serif; font-weight: 600; font-style: italic; letter-spacing: -0.005em; }
+      .mark { font-family: 'Cormorant Garamond', 'Times New Roman', Georgia, serif; font-weight: 500; }
+      .tag { font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif; font-weight: 500; letter-spacing: 0.28em; }
+    </style>
+  </defs>
+
+  <!-- OL Monogram badge: 120x120, OL centered as a group -->
+  <g transform="translate(40, 50)">
+    <rect width="120" height="120" rx="18" fill="#1A2845"/>
+    <!-- Use text-anchor="middle" to center the OL pair on x=60 (the badge center) -->
+    <text x="60" y="86" class="mark" font-size="82" fill="#EFE7D8" text-anchor="middle">
+      <tspan>O</tspan><tspan dx="2" fill="#A67C52">L</tspan>
+    </text>
+  </g>
+
+  <!-- Wordmark with centered tagline below -->
+  <g transform="translate(195, 0)">
+    <!-- The wordmark "One Life Advisory" at 68px serif spans about 0 to 520px -->
+    <text x="0" y="115" font-size="68">
+      <tspan class="name" fill="#1A2845">One Life </tspan><tspan class="name-italic" fill="#A67C52">Advisory</tspan>
+    </text>
+
+    <!-- Tagline group centered on the wordmark midpoint (x=260) -->
+    <!-- Tagline "PURPOSE-DRIVEN FINANCIAL PLANNING" at 11px with 0.28em tracking is about 280px wide -->
+    <!-- Half-width ~140px. Rules sit further out with 25px clearance, kept short (~35px). -->
+    <g transform="translate(260, 142)">
+      <!-- Tagline centered on local x=0 -->
+      <text x="0" y="5" class="tag" font-size="11" fill="#4A5670" text-anchor="middle">PURPOSE-DRIVEN FINANCIAL PLANNING</text>
+      <!-- Left rule: from -200 to -165, leaving 25px clearance to text -->
+      <line x1="-200" y1="0" x2="-165" y2="0" stroke="#A67C52" stroke-width="1.2"/>
+      <!-- Right rule -->
+      <line x1="165" y1="0" x2="200" y2="0" stroke="#A67C52" stroke-width="1.2"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 120" width="720" height="120">
+  <defs>
+    <style>
+      .name { font-family: 'Cormorant Garamond', 'Times New Roman', Georgia, serif; font-weight: 600; letter-spacing: -0.005em; }
+      .name-italic { font-family: 'Cormorant Garamond', 'Times New Roman', Georgia, serif; font-weight: 600; font-style: italic; letter-spacing: -0.005em; }
+    </style>
+  </defs>
+  <text x="20" y="78" font-size="64">
+    <tspan class="name" fill="#EFE7D8">One Life </tspan><tspan class="name-italic" fill="#A67C52">Advisory</tspan>
+  </text>
+  <line x1="20" y1="98" x2="60" y2="98" stroke="#A67C52" stroke-width="2"/>
+</svg>

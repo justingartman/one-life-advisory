@@ -41,6 +41,10 @@ collections:
         fields:
           - { name: brandLead, label: "Brand Name (dark part)", widget: string, hint: "e.g. 'One Life'" }
           - { name: brandAccent, label: "Brand Name (gold part)", widget: string, hint: "e.g. 'Advisory'" }
+          - { name: logoNav, label: "Nav Logo (on white bar)", widget: image, required: false, hint: "Shown in the top bar on interior pages / once you scroll. Use the dark/color version. Leave blank to show the text wordmark." }
+          - { name: logoNavDark, label: "Nav Logo (over hero photo)", widget: image, required: false, hint: "The light/reversed version, shown over the homepage photo." }
+          - { name: logoFooter, label: "Footer Logo (on navy)", widget: image, required: false, hint: "The reversed/on-dark logo for the footer." }
+          - { name: faviconUrl, label: "Favicon", widget: image, required: false, hint: "Browser tab icon (SVG or PNG)." }
           - { name: navCta, label: "Nav Button Label", widget: string }
           - { name: showClientLogin, label: "Show Client Login link", widget: boolean, default: true, hint: "Turn off to hide Client Login everywhere (nav + footer)." }
           - { name: clientLoginLabel, label: "Client Login Label", widget: string }

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <style>
+      .mark { font-family: 'Cormorant Garamond', 'Times New Roman', Georgia, serif; font-weight: 500; }
+    </style>
+  </defs>
+  <rect width="64" height="64" rx="10" fill="#1A2845"/>
+  <text x="32" y="46" class="mark" font-size="42" fill="#EFE7D8" text-anchor="middle">
+    <tspan>O</tspan><tspan dx="1" fill="#A67C52">L</tspan>
+  </text>
+</svg>
