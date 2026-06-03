@@ -1,0 +1,1836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>One Life Advisory — Designed for your one life.</title>
+  <meta name="description" content="One Life Advisory is a Registered Investment Advisor. We build financial plans around your purpose — coordinating cash flow, investments, protection, and legacy into one integrated plan.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ─── TOKENS ─────────────────────────────────────────────── */
+    :root {
+      --bg:        #FAF8F5;
+      --bg2:       #F2EFE9;
+      --white:     #FFFFFF;
+      --navy:      #1B3054;
+      --navy2:     #243D6A;
+      --gold:      #B8956A;
+      --gold-lt:   #D4B896;
+      --text:      #2A2520;
+      --text2:     #6B6158;
+      --text3:     #A49D97;
+      --border:    #E3DDD6;
+      --radius:    6px;
+      --radius-lg: 12px;
+      --shadow:    0 2px 12px rgba(27,48,84,.07);
+      --shadow-lg: 0 8px 40px rgba(27,48,84,.11);
+      --ease:      cubic-bezier(.4,0,.2,1);
+      --hero-image: url('assets/hero.jpg');
+    }
+
+    /* ─── RESET ──────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button { cursor: pointer; border: none; background: none; font: inherit; }
+    ul { list-style: none; }
+
+    /* ─── TYPOGRAPHY ─────────────────────────────────────────── */
+    .serif { font-family: 'Playfair Display', Georgia, serif; }
+    h1,h2,h3,h4 { font-family: 'Playfair Display', Georgia, serif; line-height: 1.2; font-weight: 600; color: var(--text); }
+    h1 { font-size: clamp(2.4rem,5vw,4rem); }
+    h2 { font-size: clamp(1.8rem,3.5vw,2.6rem); }
+    h3 { font-size: clamp(1.2rem,2vw,1.5rem); font-weight: 500; }
+    h4 { font-size: 1.1rem; font-weight: 600; font-family: 'Inter', sans-serif; letter-spacing: .01em; }
+    p { color: var(--text2); font-size: 1.0625rem; line-height: 1.8; }
+    .label {
+      font-size: .75rem; font-weight: 600; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--gold);
+    }
+
+    /* ─── LAYOUT ─────────────────────────────────────────────── */
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 32px; }
+    .container-sm { max-width: 760px; margin: 0 auto; padding: 0 32px; }
+    .section { padding: 96px 0; }
+    .section-sm { padding: 72px 0; }
+    .divider { width: 48px; height: 2px; background: var(--gold); margin-bottom: 24px; }
+    .divider-center { margin-left: auto; margin-right: auto; }
+
+    /* ─── NAV ────────────────────────────────────────────────── */
+    #nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      transition: background 300ms var(--ease), box-shadow 300ms var(--ease);
+    }
+    #nav.scrolled { background: var(--white); box-shadow: 0 1px 0 var(--border); }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      max-width: 1160px; margin: 0 auto; padding: 0 32px; height: 72px;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.15rem; font-weight: 600; color: var(--navy);
+      letter-spacing: .01em; cursor: pointer;
+    }
+    .nav-logo span { color: var(--gold); }
+    .nav-links { display: flex; align-items: center; gap: 8px; }
+    .nav-links a {
+      font-size: .875rem; font-weight: 500; color: var(--text2);
+      padding: 8px 14px; border-radius: var(--radius);
+      transition: color 200ms, background 200ms;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--navy); background: var(--bg2); }
+    .nav-cta {
+      font-size: .875rem; font-weight: 600; color: var(--white) !important;
+      background: var(--navy) !important; padding: 10px 20px !important;
+      border-radius: var(--radius) !important;
+      transition: background 200ms, transform 150ms !important;
+    }
+    .nav-cta:hover { background: var(--navy2) !important; transform: translateY(-1px); }
+    .nav-login {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: .8125rem !important; font-weight: 500; color: var(--text2);
+      padding: 8px 12px !important; border-radius: var(--radius);
+      transition: color 200ms, background 200ms;
+    }
+    .nav-login svg { width: 14px; height: 14px; opacity: .7; }
+    .nav-login:hover { color: var(--navy); background: var(--bg2); }
+    /* Nav over the photo hero (home, at top) */
+    #nav.over-hero { background: linear-gradient(180deg, rgba(14,24,46,.45), transparent); }
+    #nav.over-hero .nav-logo { color: #fff; }
+    #nav.over-hero .nav-logo span { color: var(--gold-lt); }
+    #nav.over-hero .nav-links a { color: rgba(255,255,255,.85); }
+    #nav.over-hero .nav-links a:hover, #nav.over-hero .nav-links a.active { color: #fff; background: rgba(255,255,255,.14); }
+    #nav.over-hero .nav-login { color: rgba(255,255,255,.82); }
+    #nav.over-hero .nav-login:hover { color: #fff; background: rgba(255,255,255,.14); }
+    #nav.over-hero .nav-cta { background: rgba(255,255,255,.16) !important; border: 1px solid rgba(255,255,255,.32); backdrop-filter: blur(6px); }
+    #nav.over-hero .nav-cta:hover { background: #fff !important; color: var(--navy) !important; }
+    #nav.over-hero .hamburger span { background: #fff; }
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      padding: 8px; border-radius: var(--radius); cursor: pointer;
+    }
+    .hamburger span {
+      display: block; width: 22px; height: 2px;
+      background: var(--text); border-radius: 2px;
+      transition: transform 300ms var(--ease), opacity 200ms;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile nav drawer */
+    .nav-drawer {
+      display: none; position: fixed; top: 72px; left: 0; right: 0; bottom: 0;
+      background: var(--white); z-index: 99; padding: 32px;
+      flex-direction: column; gap: 4px; overflow-y: auto;
+      transform: translateX(100%); transition: transform 300ms var(--ease);
+    }
+    .nav-drawer.open { transform: translateX(0); }
+    .nav-drawer a {
+      display: block; font-size: 1.1rem; font-weight: 500;
+      color: var(--text); padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-drawer .nav-cta {
+      margin-top: 16px; display: block; text-align: center;
+      background: var(--navy) !important; color: var(--white) !important;
+      padding: 16px !important; border-radius: var(--radius) !important;
+      font-size: 1rem !important; border-bottom: none !important;
+    }
+
+    /* ─── PAGE SYSTEM ────────────────────────────────────────── */
+    .page { display: none; }
+    .page.active { display: block; }
+
+    /* ─── ANIMATIONS ─────────────────────────────────────────── */
+    @media (prefers-reduced-motion: no-preference) {
+      .anim {
+        opacity: 0; transform: translateY(24px);
+        transition: opacity 600ms var(--ease), transform 600ms var(--ease);
+      }
+      .anim.visible { opacity: 1; transform: translateY(0); }
+      .anim-delay-1 { transition-delay: 120ms; }
+      .anim-delay-2 { transition-delay: 240ms; }
+      .anim-delay-3 { transition-delay: 360ms; }
+      .anim-delay-4 { transition-delay: 480ms; }
+      .anim-delay-5 { transition-delay: 600ms; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .anim { opacity: 1; transform: none; }
+    }
+
+    /* ─── PAGE FADE ──────────────────────────────────────────── */
+    .page-fade { animation: pagein 400ms var(--ease); }
+    @keyframes pagein { from { opacity: 0; } to { opacity: 1; } }
+
+    /* ─── BUTTONS ────────────────────────────────────────────── */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: .9375rem; font-weight: 600; padding: 14px 28px;
+      border-radius: var(--radius); cursor: pointer;
+      transition: background 200ms, transform 150ms, box-shadow 200ms;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary {
+      background: var(--navy); color: var(--white);
+      box-shadow: 0 4px 16px rgba(27,48,84,.2);
+    }
+    .btn-primary:hover { background: var(--navy2); box-shadow: 0 8px 24px rgba(27,48,84,.28); }
+    .btn-outline {
+      background: transparent; color: var(--navy);
+      border: 1.5px solid var(--navy);
+    }
+    .btn-outline:hover { background: var(--navy); color: var(--white); }
+    .btn-ghost { background: transparent; color: var(--gold); padding: 0; }
+    .btn-ghost:hover { transform: none; color: var(--text); }
+    .btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+    /* ─── HERO (full-bleed cinematic) ────────────────────────── */
+    .hero {
+      position: relative; min-height: 100vh; min-height: 100dvh;
+      display: flex; align-items: flex-end;
+      overflow: hidden; isolation: isolate;
+    }
+    /* Photo layer — swap in a real image by setting --hero-image and adding .has-photo to .hero */
+    .hero-bg, .hero-atmos {
+      position: absolute; inset: 0; z-index: -2;
+      background-size: cover; background-position: center;
+    }
+    .hero-bg { background-image: var(--hero-image, none); }
+    /* Premium navy/gold "dawn over a ridge" atmospheric default (shown until a photo is added) */
+    .hero-atmos {
+      z-index: -3;
+      background:
+        radial-gradient(120% 85% at 78% 14%, rgba(212,184,150,.32) 0%, transparent 46%),
+        radial-gradient(95% 75% at 10% 95%, rgba(27,48,84,.55) 0%, transparent 60%),
+        linear-gradient(180deg, #14274699 0%, #1B3054 40%, #243861 62%, #11203a 100%),
+        linear-gradient(180deg, #16294a, #16294a);
+    }
+    /* Home hero: photo sits above the atmospheric layer (atmos = automatic fallback if image fails). */
+    /* Interior page heroes: no photo — show the colored atmospheric background only. */
+    .page-hero .hero-bg { display: none; }
+    @media (prefers-reduced-motion: no-preference) {
+      .hero-bg, .hero-atmos {
+        animation: kenburns 30s ease-in-out infinite alternate;
+        transform-origin: 62% 42%; will-change: transform;
+      }
+    }
+    @keyframes kenburns {
+      0%   { transform: scale(1.06) translate3d(0, 0, 0); }
+      100% { transform: scale(1.16) translate3d(-1.4%, -1.4%, 0); }
+    }
+    /* Scrim for text legibility + vignette */
+    .hero-scrim {
+      position: absolute; inset: 0; z-index: -1;
+      background:
+        linear-gradient(180deg, rgba(14,24,46,.34) 0%, rgba(14,24,46,.04) 28%, rgba(14,24,46,.40) 72%, rgba(14,24,46,.86) 100%);
+    }
+    .hero-inner {
+      width: 100%; max-width: 1160px; margin: 0 auto;
+      padding: 0 32px 104px; position: relative; z-index: 1;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 12px;
+      font-size: .75rem; font-weight: 600; letter-spacing: .2em;
+      text-transform: uppercase; color: var(--gold-lt);
+      margin-bottom: 24px;
+    }
+    .hero-eyebrow::before { content: ''; width: 30px; height: 1px; background: var(--gold-lt); opacity: .65; }
+    .hero h1 {
+      color: #fff; max-width: 15ch; margin-bottom: 24px;
+      font-size: clamp(2.6rem, 6vw, 4.7rem); line-height: 1.06;
+      letter-spacing: -.01em; text-shadow: 0 2px 40px rgba(0,0,0,.28);
+    }
+    .hero h1 .accent {
+      position: relative; font-style: italic; color: var(--gold-lt); white-space: nowrap;
+    }
+    .hero h1 .accent svg {
+      position: absolute; left: -1%; right: -1%; bottom: -.16em;
+      width: 102%; height: .42em; color: var(--gold); overflow: visible;
+    }
+    .hero h1 .accent path { stroke-dasharray: 1; stroke-dashoffset: 1; }
+    @media (prefers-reduced-motion: no-preference) {
+      .hero h1.anim .accent path { transition: stroke-dashoffset 1000ms var(--ease) 650ms; }
+    }
+    .hero h1.visible .accent path { stroke-dashoffset: 0; }
+    .hero-sub {
+      font-size: 1.15rem; color: rgba(255,255,255,.86);
+      line-height: 1.75; max-width: 540px; margin-bottom: 36px;
+      text-shadow: 0 1px 18px rgba(0,0,0,.34);
+    }
+    .hero-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .hero .btn-outline { color: #fff; border-color: rgba(255,255,255,.55); }
+    .hero .btn-outline:hover { background: #fff; color: var(--navy); border-color: #fff; }
+    /* Scroll-down indicator */
+    .hero-scroll {
+      position: absolute; left: 50%; bottom: 26px; transform: translateX(-50%);
+      z-index: 2; color: rgba(255,255,255,.72); cursor: pointer;
+    }
+    .hero-scroll svg { width: 24px; height: 24px; }
+    @media (prefers-reduced-motion: no-preference) {
+      .hero-scroll { animation: bob 2.4s ease-in-out infinite; }
+    }
+    @keyframes bob { 0%,100% { transform: translate(-50%, 0); } 50% { transform: translate(-50%, 8px); } }
+
+    /* ─── PAGE HERO (interior pages — compact, same cinematic feel) ─── */
+    .page-hero {
+      position: relative; min-height: 46vh;
+      display: flex; align-items: flex-end; overflow: hidden; isolation: isolate;
+    }
+    .page-hero .hero-scrim {
+      background: linear-gradient(180deg, rgba(14,24,46,.62) 0%, rgba(14,24,46,.38) 44%, rgba(14,24,46,.82) 100%);
+    }
+    .page-hero-inner {
+      width: 100%; max-width: 1160px; margin: 0 auto;
+      padding: 124px 32px 52px; position: relative; z-index: 1;
+    }
+    .page-hero h1 {
+      color: #fff; max-width: 20ch; margin-bottom: 14px;
+      font-size: clamp(2.1rem, 4.4vw, 3.4rem); line-height: 1.1;
+      text-shadow: 0 2px 30px rgba(0,0,0,.32);
+    }
+    .page-hero-sub {
+      color: rgba(255,255,255,.88); font-size: 1.0625rem; line-height: 1.7;
+      max-width: 600px; text-shadow: 0 1px 14px rgba(0,0,0,.32);
+    }
+    @media (max-width: 768px) {
+      .page-hero { min-height: 40vh; }
+      .page-hero-inner { padding: 104px 20px 36px; }
+    }
+
+    /* ─── SECTION HEADER ─────────────────────────────────────── */
+    .section-header { margin-bottom: 56px; }
+    .section-header.center { text-align: center; }
+    .section-header.center .divider { margin-left: auto; margin-right: auto; }
+    .section-header h2 { margin-bottom: 16px; }
+    .section-header p { font-size: 1.0625rem; max-width: 600px; }
+    .section-header.center p { margin: 0 auto; }
+
+    /* ─── SERVICE CARDS ──────────────────────────────────────── */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .card {
+      background: var(--white); border-radius: var(--radius-lg);
+      border: 1px solid var(--border); padding: 32px;
+      transition: transform 250ms var(--ease), box-shadow 250ms var(--ease), border-color 250ms;
+      cursor: pointer;
+    }
+    .card:hover {
+      transform: translateY(-4px); box-shadow: var(--shadow-lg);
+      border-color: rgba(184,149,106,.3);
+    }
+    .card-icon {
+      width: 44px; height: 44px; border-radius: 10px;
+      background: rgba(27,48,84,.06);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px;
+    }
+    .card-icon svg { width: 22px; height: 22px; color: var(--navy); }
+    .card h4 { margin-bottom: 10px; color: var(--navy); }
+    .card p { font-size: .9375rem; line-height: 1.7; }
+
+    /* ─── ALT SECTION BG ─────────────────────────────────────── */
+    .bg-alt { background: var(--bg2); }
+    .bg-navy { background: var(--navy); }
+    .bg-navy h2, .bg-navy h3, .bg-navy h4 { color: var(--white); }
+    .bg-navy p { color: rgba(255,255,255,.7); }
+    .bg-navy .label { color: var(--gold-lt); }
+    .bg-navy .divider { background: var(--gold); }
+
+    /* ─── STEPS ──────────────────────────────────────────────── */
+    .steps { display: flex; flex-direction: column; gap: 0; }
+    .step {
+      display: grid; grid-template-columns: 64px 1fr; gap: 32px;
+      padding-bottom: 48px; position: relative;
+    }
+    .step:not(:last-child)::before {
+      content: ''; position: absolute; left: 31px; top: 56px; bottom: 0;
+      width: 1px; background: var(--border);
+    }
+    .step-num {
+      width: 64px; height: 64px; border-radius: 50%;
+      border: 1.5px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem; font-weight: 600; color: var(--navy);
+      background: var(--white); flex-shrink: 0; position: relative; z-index: 1;
+    }
+    .step-body { padding-top: 16px; }
+    .step-body h3 { margin-bottom: 8px; color: var(--navy); }
+    .step-outcome {
+      margin-top: 16px; display: flex; align-items: flex-start; gap: 10px;
+      font-size: .875rem; color: var(--text2); font-style: italic;
+    }
+    .step-outcome::before {
+      content: '→'; color: var(--gold); flex-shrink: 0; font-style: normal;
+    }
+
+    /* ─── ACCORDION ──────────────────────────────────────────── */
+    .accordion { border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
+    .accordion + .accordion { margin-top: 12px; }
+    .acc-trigger {
+      width: 100%; display: flex; align-items: center; justify-content: space-between;
+      padding: 24px 28px; background: var(--white); cursor: pointer;
+      transition: background 200ms;
+    }
+    .acc-trigger:hover { background: var(--bg); }
+    .acc-trigger.open { background: var(--navy); }
+    .acc-trigger.open .acc-title { color: var(--white); }
+    .acc-trigger.open .acc-sub { color: rgba(255,255,255,.6); }
+    .acc-trigger.open .acc-icon { color: var(--gold-lt); transform: rotate(180deg); }
+    .acc-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem; font-weight: 600; color: var(--navy);
+      text-align: left;
+    }
+    .acc-sub { font-size: .875rem; color: var(--text3); margin-top: 2px; text-align: left; }
+    .acc-icon {
+      color: var(--text3); flex-shrink: 0; margin-left: 16px;
+      transition: transform 300ms var(--ease), color 200ms;
+    }
+    .acc-icon svg { width: 20px; height: 20px; }
+    .acc-body {
+      max-height: 0; overflow: hidden;
+      transition: max-height 500ms var(--ease);
+      background: var(--white); border-top: 1px solid var(--border);
+    }
+    .acc-body.open { max-height: 3000px; }
+    .acc-body-inner { padding: 32px 28px; }
+    .acc-body p { margin-bottom: 16px; }
+    .acc-body p:last-child { margin-bottom: 0; }
+    .acc-subhead {
+      font-weight: 600; color: var(--navy); font-size: .9375rem;
+      margin: 24px 0 8px;
+    }
+    .acc-list { display: flex; flex-direction: column; gap: 10px; margin-top: 16px; }
+    .acc-list li {
+      display: flex; align-items: flex-start; gap: 12px;
+      font-size: .9375rem; color: var(--text2);
+    }
+    .acc-list li::before {
+      content: ''; flex-shrink: 0; width: 16px; height: 16px; margin-top: 3px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2 8h12M9 4l4 4-4 4' stroke='%23B8956A' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;
+    }
+    .acc-walkaway {
+      margin-top: 28px; padding: 24px; background: var(--bg);
+      border-radius: var(--radius); border-left: 3px solid var(--gold);
+    }
+    .acc-walkaway h4 {
+      font-size: .8125rem; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 12px;
+    }
+    .acc-walkaway ul { display: flex; flex-direction: column; gap: 8px; }
+    .acc-walkaway li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: .9rem; color: var(--text2);
+    }
+    .acc-walkaway li::before {
+      content: '✓'; color: var(--gold); font-weight: 700; flex-shrink: 0;
+    }
+
+    /* ─── WHO WE HELP CARDS ──────────────────────────────────── */
+    .who-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 32px; }
+    .who-card {
+      background: var(--white); border-radius: var(--radius-lg);
+      border: 1px solid var(--border); padding: 40px 32px; position: relative;
+      overflow: hidden;
+    }
+    .who-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: var(--navy);
+    }
+    .who-card h3 { color: var(--navy); margin-bottom: 16px; }
+    .who-card > p { margin-bottom: 24px; }
+    .who-list { display: flex; flex-direction: column; gap: 10px; }
+    .who-list li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: .9rem; color: var(--text2);
+    }
+    .who-list li::before {
+      content: '—'; color: var(--gold); flex-shrink: 0; font-weight: 600;
+    }
+
+    /* ─── BELIEFS ────────────────────────────────────────────── */
+    .beliefs { display: flex; flex-direction: column; gap: 0; }
+    .belief {
+      display: grid; grid-template-columns: 48px 1fr; gap: 28px;
+      padding: 36px 0; border-bottom: 1px solid var(--border);
+    }
+    .belief:first-child { padding-top: 0; }
+    .belief-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem; font-weight: 700; color: var(--gold);
+      padding-top: 2px;
+    }
+    .belief h4 { font-size: 1.1rem; margin-bottom: 8px; color: var(--navy); }
+
+    /* ─── FAQ ────────────────────────────────────────────────── */
+    .faq-section { margin-bottom: 56px; }
+    .faq-section-title {
+      font-size: .75rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 20px; padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-q {
+      width: 100%; display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 0; cursor: pointer; text-align: left;
+      font-size: 1rem; font-weight: 600; color: var(--navy);
+      transition: color 200ms;
+    }
+    .faq-q:hover { color: var(--gold); }
+    .faq-q svg { width: 18px; height: 18px; flex-shrink: 0; margin-left: 16px; transition: transform 300ms var(--ease); color: var(--text3); }
+    .faq-q.open svg { transform: rotate(180deg); }
+    .faq-a {
+      max-height: 0; overflow: hidden;
+      transition: max-height 400ms var(--ease);
+    }
+    .faq-a.open { max-height: 1000px; }
+    .faq-a-inner { padding-bottom: 20px; }
+    .faq-a-inner p { font-size: .9375rem; }
+
+    /* ─── PHILOSOPHY SECTION ─────────────────────────────────── */
+    .philosophy {
+      text-align: center; padding: 96px 32px;
+      background: var(--navy); position: relative; overflow: hidden;
+    }
+    .philosophy::before {
+      content: '"'; font-family: 'Playfair Display', serif;
+      font-size: 20rem; line-height: 1; color: rgba(255,255,255,.03);
+      position: absolute; top: -60px; left: 50%;
+      transform: translateX(-50%); pointer-events: none;
+    }
+    .philosophy blockquote {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 400;
+      font-style: italic; color: var(--white); line-height: 1.6;
+      max-width: 800px; margin: 0 auto 32px; position: relative;
+    }
+    .philosophy cite { font-size: .875rem; color: rgba(255,255,255,.5); font-style: normal; letter-spacing: .06em; }
+
+    /* ─── CTA BAND ────────────────────────────────────────────── */
+    .cta-band {
+      background: var(--bg2); border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border); padding: 72px 32px;
+      text-align: center;
+    }
+    .cta-band h2 { margin-bottom: 12px; }
+    .cta-band p { margin-bottom: 28px; }
+
+    /* ─── NOT A FIT ──────────────────────────────────────────── */
+    .not-fit {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 40px; margin-top: 48px;
+    }
+    .not-fit h3 { color: var(--navy); margin-bottom: 12px; }
+
+    /* ─── TEAM PLACEHOLDER ───────────────────────────────────── */
+    .team-placeholder {
+      background: var(--bg2); border: 2px dashed var(--border);
+      border-radius: var(--radius-lg); padding: 60px 40px; text-align: center;
+    }
+    .team-placeholder p { font-size: .9375rem; }
+
+    /* ─── SCHEDULE PAGE ──────────────────────────────────────── */
+    .schedule-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    .schedule-features { display: flex; flex-direction: column; gap: 24px; margin-top: 32px; }
+    .sched-feat { display: flex; gap: 16px; }
+    .sched-feat-icon {
+      flex-shrink: 0; width: 40px; height: 40px; border-radius: 10px;
+      background: rgba(27,48,84,.07); display: flex; align-items: center; justify-content: center;
+    }
+    .sched-feat-icon svg { width: 20px; height: 20px; color: var(--navy); }
+    .sched-feat h4 { margin-bottom: 4px; }
+    .calendly-placeholder {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 40px; text-align: center;
+      min-height: 500px; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 16px;
+    }
+    .calendly-placeholder p { font-size: .9375rem; max-width: 280px; }
+
+    /* ─── FOOTER ─────────────────────────────────────────────── */
+    footer {
+      background: var(--text); color: rgba(255,255,255,.7);
+      padding: 72px 0 0; margin-top: 0;
+    }
+    .footer-top {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px; padding-bottom: 56px;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+    .footer-brand { }
+    .footer-logo {
+      font-family: 'Playfair Display', serif; font-size: 1.1rem;
+      font-weight: 600; color: var(--white); margin-bottom: 12px;
+    }
+    .footer-logo span { color: var(--gold); }
+    .footer-tagline { font-size: .875rem; color: rgba(255,255,255,.45); font-style: italic; }
+    .footer-col h5 {
+      font-size: .75rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: rgba(255,255,255,.4);
+      margin-bottom: 16px;
+    }
+    .footer-col a {
+      display: block; font-size: .875rem; color: rgba(255,255,255,.6);
+      padding: 5px 0; transition: color 200ms; cursor: pointer;
+    }
+    .footer-col a:hover { color: var(--gold); }
+    .footer-disclosures {
+      padding: 40px 0; border-bottom: 1px solid rgba(255,255,255,.1);
+      font-size: .8125rem; line-height: 1.8; color: rgba(255,255,255,.35);
+    }
+    .footer-disclosures p { margin-bottom: 12px; color: rgba(255,255,255,.35); }
+    .footer-bottom {
+      padding: 24px 0; display: flex; align-items: center;
+      justify-content: space-between; flex-wrap: gap;
+    }
+    .footer-bottom p { font-size: .8125rem; color: rgba(255,255,255,.35); }
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+    .footer-links a {
+      font-size: .8125rem; color: rgba(255,255,255,.35); transition: color 200ms;
+    }
+    .footer-links a:hover { color: rgba(255,255,255,.7); }
+
+    /* ─── INLINE CTA SECTION ─────────────────────────────────── */
+    .inline-cta {
+      display: flex; flex-direction: column; align-items: flex-start;
+      gap: 8px; margin-top: 48px; padding: 40px;
+      background: var(--navy); border-radius: var(--radius-lg);
+      color: var(--white);
+    }
+    .inline-cta p { color: rgba(255,255,255,.7); margin-bottom: 16px; }
+    .inline-cta .btn-primary { background: var(--white); color: var(--navy); }
+    .inline-cta .btn-primary:hover { background: var(--bg2); }
+
+    /* ─── HOMEPAGE PROCESS PREVIEW ───────────────────────────── */
+    .process-preview { display: flex; flex-direction: column; gap: 0; }
+    .pp-step {
+      display: flex; gap: 24px; padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .pp-step:last-child { border-bottom: none; }
+    .pp-num {
+      flex-shrink: 0; width: 36px; height: 36px; border-radius: 50%;
+      border: 1.5px solid var(--border); display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif; font-size: .9rem;
+      font-weight: 600; color: var(--navy); background: var(--white);
+    }
+    .pp-body h4 { margin-bottom: 4px; }
+    .pp-body p { font-size: .9rem; }
+
+    /* ─── STATS ──────────────────────────────────────────────── */
+    .stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); }
+    .stat { background: var(--white); padding: 40px 32px; text-align: center; }
+    .stat-num { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 700; color: var(--navy); }
+    .stat-label { font-size: .875rem; color: var(--text2); margin-top: 6px; }
+
+    /* ─── IMAGE PLACEHOLDERS ─────────────────────────────────── */
+    .img-ph {
+      position: relative; overflow: hidden; border-radius: var(--radius-lg);
+      background:
+        linear-gradient(135deg, rgba(27,48,84,.06), rgba(184,149,106,.08)),
+        repeating-linear-gradient(45deg, transparent, transparent 18px, rgba(27,48,84,.025) 18px, rgba(27,48,84,.025) 19px);
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .img-ph::after {
+      content: attr(data-label);
+      position: absolute; bottom: 14px; left: 14px;
+      font-size: .7rem; font-weight: 600; letter-spacing: .08em;
+      text-transform: uppercase; color: var(--text3);
+      background: rgba(255,255,255,.7); padding: 4px 10px; border-radius: 100px;
+      backdrop-filter: blur(4px);
+    }
+    .img-ph svg { width: 40px; height: 40px; color: var(--gold-lt); opacity: .8; }
+    .img-ph-hero { aspect-ratio: 4/5; width: 100%; max-width: 420px; box-shadow: var(--shadow-lg); }
+    .img-ph-about { aspect-ratio: 5/4; width: 100%; }
+    .img-ph-wide { aspect-ratio: 21/9; width: 100%; }
+
+    /* Hero now: content | image, with process card floating */
+    .hero-figure { position: relative; display: flex; align-items: center; justify-content: center; }
+    .hero-figure .hero-card {
+      position: absolute; bottom: -28px; left: -28px; max-width: 280px;
+      padding: 24px; z-index: 2;
+    }
+    .hero-figure .hero-card .hero-steps-preview { gap: 12px; }
+    .hero-figure .hero-card .hero-card-footer { margin-top: 18px; padding-top: 14px; }
+
+    /* ─── TEAM CARDS ─────────────────────────────────────────── */
+    .team-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+    .team-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); overflow: hidden;
+      transition: transform 250ms var(--ease), box-shadow 250ms var(--ease);
+    }
+    .team-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .team-card .img-ph { border-radius: 0; border: none; border-bottom: 1px solid var(--border); aspect-ratio: 1/1; }
+    .team-card-body { padding: 24px; }
+    .team-card-body h4 { color: var(--navy); margin-bottom: 2px; }
+    .team-card-role { font-size: .8125rem; color: var(--gold); font-weight: 600; letter-spacing: .04em; margin-bottom: 12px; }
+    .team-card-body p { font-size: .875rem; }
+
+    /* ─── STATS COUNT-UP ─────────────────────────────────────── */
+    .stat-num .suffix { font-size: 1.4rem; color: var(--gold); }
+
+    /* ─── HEADING UNDERLINE DRAW ─────────────────────────────── */
+    @media (prefers-reduced-motion: no-preference) {
+      .divider { width: 0; transition: width 700ms var(--ease) 200ms; }
+      .anim.visible .divider,
+      .divider.anim.visible { width: 48px; }
+    }
+
+    /* ─── TIMELINE LINE-DRAW ─────────────────────────────────── */
+    @media (prefers-reduced-motion: no-preference) {
+      .step:not(:last-child)::before { transform: scaleY(0); transform-origin: top; transition: transform 600ms var(--ease); }
+      .step.visible:not(:last-child)::before { transform: scaleY(1); }
+    }
+
+    /* ─── PARALLAX ───────────────────────────────────────────── */
+    @media (prefers-reduced-motion: reduce) {
+      .parallax { transform: none !important; }
+    }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .cards-grid { grid-template-columns: repeat(2,1fr); }
+      .who-grid { grid-template-columns: repeat(2,1fr); }
+      .team-grid { grid-template-columns: repeat(3,1fr); }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .hero-inner { grid-template-columns: 1fr; gap: 64px; }
+      .hero-figure { display: none; }
+      .schedule-grid { grid-template-columns: 1fr; gap: 48px; }
+    }
+    @media (max-width: 768px) {
+      .container, .container-sm { padding: 0 20px; }
+      .section { padding: 64px 0; }
+      .cards-grid { grid-template-columns: 1fr; }
+      .who-grid { grid-template-columns: 1fr; }
+      .team-grid { grid-template-columns: 1fr; }
+      .stats { grid-template-columns: repeat(3,1fr); }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .nav-drawer { display: flex; }
+      .footer-top { grid-template-columns: 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; gap: 16px; align-items: flex-start; }
+      .stats { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      h1 { font-size: 2.2rem; }
+      .hero-inner { padding: 60px 20px; }
+      .btn { padding: 13px 22px; font-size: .875rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════ NAV ══════════════════════════════════ -->
+<nav id="nav">
+  <div class="nav-inner">
+    <div class="nav-logo" onclick="go('home')">One Life <span>Advisory</span></div>
+    <div class="nav-links">
+      <a href="#" onclick="go('how-we-plan');return false;" id="nl-how-we-plan">How We Plan</a>
+      <a href="#" onclick="go('what-we-do');return false;" id="nl-what-we-do">What We Do</a>
+      <a href="#" onclick="go('who-we-help');return false;" id="nl-who-we-help">Who We Help</a>
+      <a href="#" onclick="go('about');return false;" id="nl-about">About</a>
+      <a href="#" onclick="go('faq');return false;" id="nl-faq">FAQ</a>
+      <a href="#" class="nav-login" title="Client portal login" data-cms-attr="href:global.clientLoginUrl">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+        <span data-cms="global.clientLoginLabel">Client Login</span>
+      </a>
+      <a href="#" onclick="go('schedule');return false;" class="nav-cta" data-cms="global.navCta">Schedule a Clarity Call</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="nav-drawer" id="nav-drawer">
+  <a href="#" onclick="go('how-we-plan');closeMenu();return false;">How We Plan</a>
+  <a href="#" onclick="go('what-we-do');closeMenu();return false;">What We Do</a>
+  <a href="#" onclick="go('who-we-help');closeMenu();return false;">Who We Help</a>
+  <a href="#" onclick="go('about');closeMenu();return false;">About</a>
+  <a href="#" onclick="go('faq');closeMenu();return false;">FAQ</a>
+  <a href="#">Client Login</a>
+  <a href="#" onclick="go('schedule');closeMenu();return false;" class="nav-cta">Schedule a Clarity Call</a>
+</div>
+
+<!-- ═══════════════════════════════ PAGES ════════════════════════════════ -->
+
+<!-- ── HOME ─────────────────────────────────────────────────────────────── -->
+<div class="page active" id="page-home">
+
+  <section class="hero has-photo" id="home-hero">
+    <!-- Background photo comes from the --hero-image token (assets/hero.jpg). Swap that file or the token to change it. -->
+    <div class="hero-bg"></div>
+    <div class="hero-atmos"></div>
+    <div class="hero-scrim"></div>
+    <div class="hero-inner">
+      <div class="hero-eyebrow anim" data-cms="home.hero.eyebrow">Purposeful Financial Planning</div>
+      <h1 class="anim anim-delay-1"><span data-cms="home.hero.headlineLead">Designed for your</span> <span class="accent"><span data-cms="home.hero.headlineAccent">one life</span><svg viewBox="0 0 300 14" preserveAspectRatio="none" fill="none"><path pathLength="1" d="M4 9 C 60 3, 120 3, 182 7 S 268 11, 296 5" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/></svg></span>.</h1>
+      <p class="hero-sub anim anim-delay-2" data-cms="home.hero.sub">A financial plan isn't about ending up with the biggest number. It's about your money supporting the life you actually want to live — today and every year going forward.</p>
+      <div class="hero-actions anim anim-delay-3">
+        <button class="btn btn-primary" onclick="go('schedule')" data-cms="home.hero.ctaPrimary">Schedule a Clarity Call</button>
+        <button class="btn btn-outline" onclick="go('how-we-plan')" data-cms="home.hero.ctaSecondary">See how we plan</button>
+      </div>
+    </div>
+    <div class="hero-scroll" onclick="document.querySelector('#page-home .bg-alt').scrollIntoView({behavior:'smooth'})" aria-label="Scroll down">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+    </div>
+  </section>
+
+  <!-- Who We Serve -->
+  <section class="section bg-alt">
+    <div class="container-sm" style="text-align:center;">
+      <div class="divider divider-center anim"></div>
+      <h2 class="anim anim-delay-1" data-cms="home.whoWeServe.heading">We work with people who want their money to mean something.</h2>
+      <p class="anim anim-delay-2" style="margin:20px auto 0;font-size:1.125rem;" data-cms="home.whoWeServe.body">Whether you're just entering retirement, already there, or still building toward it, the work is the same. We help you turn what you've saved into income you can count on, decisions you feel good about, and a plan that supports your purpose — not someone else's.</p>
+    </div>
+  </section>
+
+  <!-- What a Plan Covers -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header center anim">
+        <div class="label" data-cms="home.covers.label">What We Do</div>
+        <div class="divider divider-center"></div>
+        <h2 data-cms="home.covers.heading">What a plan with us covers</h2>
+        <p data-cms="home.covers.sub">Six pieces, one integrated plan. Each part coordinates with the others because that's what a real plan requires.</p>
+      </div>
+      <div class="cards-grid">
+        <div class="card anim" onclick="goAccordion('liquidity')">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <h4 data-cms="home.covers.cards.0.title">Liquidity &amp; Cash Flow</h4>
+          <p data-cms="home.covers.cards.0.desc">Understanding what your money is doing today, and designing future cash flow that supports your life for every year going forward.</p>
+        </div>
+        <div class="card anim anim-delay-1" onclick="goAccordion('protection')">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h4 data-cms="home.covers.cards.1.title">Protection</h4>
+          <p data-cms="home.covers.cards.1.desc">Life insurance, disability, long-term care, and the coverage in between. A plan that holds up no matter what life brings.</p>
+        </div>
+        <div class="card anim anim-delay-2" onclick="goAccordion('investments')">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <h4 data-cms="home.covers.cards.2.title">Investments</h4>
+          <p data-cms="home.covers.cards.2.desc">Portfolios built to support the income your plan needs to produce — not the other way around.</p>
+        </div>
+        <div class="card anim anim-delay-1" onclick="goAccordion('retirement')">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h4 data-cms="home.covers.cards.3.title">Retirement Income</h4>
+          <p data-cms="home.covers.cards.3.desc">A personalized strategy to turn your savings into a paycheck designed to last a lifetime.</p>
+        </div>
+        <div class="card anim anim-delay-2" onclick="goAccordion('tax')">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <h4 data-cms="home.covers.cards.4.title">Tax-Aware Planning</h4>
+          <p data-cms="home.covers.cards.4.desc">Most planning decisions carry tax consequences. We weigh them every step of the way so they're built into the plan, not handled after the fact.</p>
+        </div>
+        <div class="card anim anim-delay-3" onclick="goAccordion('legacy')">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <h4 data-cms="home.covers.cards.5.title">Legacy</h4>
+          <p data-cms="home.covers.cards.5.desc">What you leave behind, and to whom, and how. Family, the people you love, the causes that matter to you.</p>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:40px;" class="anim">
+        <button class="btn btn-outline" onclick="go('what-we-do')">See the full plan</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- How We Plan Preview -->
+  <section class="section bg-alt">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;" class="two-col-stack">
+        <div>
+          <div class="anim"><div class="label" data-cms="home.planPreview.label">How We Plan</div>
+          <div class="divider"></div>
+          <h2 data-cms="home.planPreview.heading">Our planning process starts with you, not your accounts.</h2>
+          <p style="margin-top:16px;" data-cms="home.planPreview.body">It begins with a free Clarity Call to see if we're the right fit. From there, the work runs through five steps.</p>
+          <button class="btn btn-outline" style="margin-top:28px;" onclick="go('how-we-plan')">See the full process</button>
+          </div>
+        </div>
+        <div class="process-preview anim anim-delay-1">
+          <div class="pp-step">
+            <div class="pp-num">1</div>
+            <div class="pp-body"><h4 data-cms="home.planPreview.steps.0.title">Clarify Your Vision</h4><p data-cms="home.planPreview.steps.0.desc">What you want this life and this next season to look like.</p></div>
+          </div>
+          <div class="pp-step">
+            <div class="pp-num">2</div>
+            <div class="pp-body"><h4 data-cms="home.planPreview.steps.1.title">Organize Your Financial Picture</h4><p data-cms="home.planPreview.steps.1.desc">Where you are today, top to bottom.</p></div>
+          </div>
+          <div class="pp-step">
+            <div class="pp-num">3</div>
+            <div class="pp-body"><h4 data-cms="home.planPreview.steps.2.title">Design Your Cash Flow Plan</h4><p data-cms="home.planPreview.steps.2.desc">Income, growth, protection, legacy.</p></div>
+          </div>
+          <div class="pp-step">
+            <div class="pp-num">4</div>
+            <div class="pp-body"><h4 data-cms="home.planPreview.steps.3.title">Put the Plan into Motion</h4><p data-cms="home.planPreview.steps.3.desc">Open the accounts, make the moves.</p></div>
+          </div>
+          <div class="pp-step">
+            <div class="pp-num">5</div>
+            <div class="pp-body"><h4 data-cms="home.planPreview.steps.4.title">Monitor and Adjust as Life Evolves</h4><p data-cms="home.planPreview.steps.4.desc">An advisor who's still paying attention five, ten, twenty years from now.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Philosophy -->
+  <section class="philosophy">
+    <div class="label anim" style="color:var(--gold-lt);" data-cms="home.philosophy.label">Why We Exist</div>
+    <blockquote class="anim anim-delay-1">
+      "<span data-cms="home.philosophy.quote">Money on its own doesn't mean much. What matters is what it lets you do, who it lets you take care of, and the life it helps you live.</span>"
+    </blockquote>
+    <p class="anim anim-delay-2" style="color:rgba(255,255,255,.65);max-width:680px;margin:0 auto 28px;font-size:1.0625rem;" data-cms="home.philosophy.body">We started One Life Advisory because we believe a financial plan should start with purpose, not products. One plan. Built around your purpose. Designed to help you live the life you actually want.</p>
+    <button class="btn anim anim-delay-3" style="background:transparent;border:1.5px solid rgba(255,255,255,.35);color:var(--white);margin-top:8px;" onclick="go('about')" data-cms="home.philosophy.button">Our story →</button>
+  </section>
+
+  <!-- Ready to Start -->
+  <section class="cta-band">
+    <div class="container-sm">
+      <div class="label anim" data-cms="home.finalCta.label">Get Started</div>
+      <h2 class="anim anim-delay-1" data-cms="home.finalCta.heading">Ready to build a plan with purpose?</h2>
+      <p class="anim anim-delay-2" data-cms="home.finalCta.sub">The first step is a free Clarity Call. No pressure. No pitch.</p>
+      <button class="btn btn-primary anim anim-delay-3" onclick="go('schedule')" data-cms="home.finalCta.button">Schedule a Clarity Call</button>
+    </div>
+  </section>
+
+  <footer id="footer-home"></footer>
+</div>
+
+<!-- ── HOW WE PLAN ────────────────────────────────────────────────────────── -->
+<div class="page" id="page-how-we-plan">
+  <section class="page-hero">
+    <div class="hero-bg"></div><div class="hero-atmos"></div><div class="hero-scrim"></div>
+    <div class="page-hero-inner">
+      <div class="hero-eyebrow anim" data-cms="how_we_plan.heroEyebrow">The Future Cash Flow Process</div>
+      <h1 class="anim anim-delay-1" data-cms="how_we_plan.heroTitle">How we plan.</h1>
+      <p class="page-hero-sub anim anim-delay-2" data-cms="how_we_plan.heroSub">A personalized process to turn your savings into lifetime income — designed around the life you actually want to live, every year going forward.</p>
+    </div>
+  </section>
+
+  <!-- Clarity Call Entry -->
+  <section class="section-sm bg-alt">
+    <div class="container-sm">
+      <div class="anim">
+        <div class="label" data-cms="how_we_plan.clarityLabel">Start Here</div>
+        <div class="divider"></div>
+        <h2 data-cms="how_we_plan.clarityHeading">The Clarity Call</h2>
+        <p style="margin-top:16px;" data-cms="how_we_plan.clarityP1">Every relationship starts with a free, no-pressure conversation. You tell us what's on your mind. We tell you whether we can help and what working together looks like. If we're not the right fit, we'll say so and point you toward someone who is.</p>
+        <p style="margin-top:12px;" data-cms="how_we_plan.clarityP2">Once we both agree we're a fit, the work begins with Step 1.</p>
+        <button class="btn btn-primary" style="margin-top:28px;" onclick="go('schedule')" data-cms="how_we_plan.clarityButton">Schedule a Clarity Call</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 Steps -->
+  <section class="section">
+    <div class="container-sm">
+      <div class="steps">
+
+        <div class="step anim">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h3 data-cms="how_we_plan.steps.0.title">Clarify Your Vision</h3>
+            <p data-cms="how_we_plan.steps.0.p1">We start by understanding what this season of life truly means to you. Your values, your priorities, what you want the next chapter to look like, and what you want your money to be doing while you're living it.</p>
+            <p style="margin-top:12px;" data-cms="how_we_plan.steps.0.p2">This is where purpose begins. Every step that follows is built on what we learn here.</p>
+            <div class="step-outcome" data-cms="how_we_plan.steps.0.outcome">You walk away with a clear picture of what your plan is for.</div>
+          </div>
+        </div>
+
+        <div class="step anim">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h3 data-cms="how_we_plan.steps.1.title">Organize Your Financial Picture</h3>
+            <p data-cms="how_we_plan.steps.1.p1">Before we can design where you're going, we have to understand where you are. We gather and organize your full financial picture: current assets, income sources, expenses, liabilities, employee benefits, insurance, estate documents — and the things that don't show up on a statement.</p>
+            <p style="margin-top:12px;" data-cms="how_we_plan.steps.1.p2">What are you worried about? What would you change if you could? Who are you trying to take care of?</p>
+            <div class="step-outcome" data-cms="how_we_plan.steps.1.outcome">You walk away with a complete, organized view of your financial life — probably for the first time.</div>
+          </div>
+        </div>
+
+        <div class="step anim">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h3 data-cms="how_we_plan.steps.2.title">Design Your Cash Flow Plan</h3>
+            <p data-cms="how_we_plan.steps.2.p1">Now we build the plan. A personalized strategy that takes the resources you've built and turns them into income that supports your life — every year going forward. Inside that plan, we coordinate income, growth, protection, and legacy.</p>
+            <p style="margin-top:12px;" data-cms="how_we_plan.steps.2.p2">Taxes aren't a separate step because taxes touch every step. We evaluate how each decision affects what you owe — both now and in the years ahead — and we factor that into the plan so the strategy already accounts for it.</p>
+            <div class="step-outcome" data-cms="how_we_plan.steps.2.outcome">You walk away with a plan that's coordinated, clear, and built around your purpose.</div>
+          </div>
+        </div>
+
+        <div class="step anim">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <h3 data-cms="how_we_plan.steps.3.title">Put the Plan into Motion</h3>
+            <p data-cms="how_we_plan.steps.3.p1">A plan only works if it gets executed. We don't just hand you a binder and wish you luck. We open the accounts. We coordinate the transfers. We submit the applications. We update the beneficiaries. We make the moves the plan calls for, alongside you, so the strategy actually becomes reality.</p>
+            <div class="step-outcome" data-cms="how_we_plan.steps.3.outcome">You walk away with a plan that's actually in motion — not sitting in a drawer.</div>
+          </div>
+        </div>
+
+        <div class="step anim">
+          <div class="step-num">5</div>
+          <div class="step-body">
+            <h3 data-cms="how_we_plan.steps.4.title">Monitor and Adjust as Life Evolves</h3>
+            <p data-cms="how_we_plan.steps.4.p1">Life will change. Income changes. Markets change. So does what matters to you. The plan has to change with it, or it stops working.</p>
+            <p style="margin-top:12px;" data-cms="how_we_plan.steps.4.p2">Through ongoing check-ins and plan updates, we make sure your income stays reliable, your plan stays aligned with your purpose, and your decisions still serve the life you actually want. We meet with you on a regular cadence. Between meetings, we're paying attention — and we're a phone call away when something comes up.</p>
+            <p style="margin-top:12px;" data-cms="how_we_plan.steps.4.p3">New job, new house, new grandchild, inheritance, market drop, business sale. We take the call.</p>
+            <div class="step-outcome" data-cms="how_we_plan.steps.4.outcome">You walk away with an advisor who's still paying attention five, ten, twenty years from now.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="container-sm">
+      <p class="serif" style="font-size:1.4rem;color:var(--navy);font-style:italic;margin-bottom:16px;" data-cms="how_we_plan.closingQuote">"This is your one life. Let's design the future income to support it — with confidence, clarity, and intention."</p>
+      <p style="margin-bottom:28px;" data-cms="how_we_plan.closingSub">The first step is a free Clarity Call. No pressure. No pitch.</p>
+      <button class="btn btn-primary" onclick="go('schedule')" data-cms="how_we_plan.closingButton">Schedule a Clarity Call</button>
+    </div>
+  </section>
+
+  <footer id="footer-plan"></footer>
+</div>
+
+<!-- ── WHAT WE DO ─────────────────────────────────────────────────────────── -->
+<div class="page" id="page-what-we-do">
+  <section class="page-hero">
+    <div class="hero-bg"></div><div class="hero-atmos"></div><div class="hero-scrim"></div>
+    <div class="page-hero-inner">
+      <div class="hero-eyebrow anim" data-cms="what_we_do.heroEyebrow">What We Do</div>
+      <h1 class="anim anim-delay-1" data-cms="what_we_do.heroTitle">One plan. Built around your purpose.</h1>
+      <p class="page-hero-sub anim anim-delay-2" data-cms="what_we_do.heroSub">Not six separate services — one integrated plan with six parts that talk to each other, all built on what you want your money to do.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+
+      <!-- It Starts With Clarity -->
+      <div style="background:var(--bg2);border-radius:var(--radius-lg);padding:48px;margin-bottom:48px;" class="anim">
+        <div class="label" data-cms="what_we_do.clarityLabel">Before anything else</div>
+        <h3 style="color:var(--navy);margin:12px 0 16px;" data-cms="what_we_do.clarityHeading">It starts with clarity.</h3>
+        <p data-cms="what_we_do.clarityBody">Before any of the work below matters, we have to understand two things: What do you want your money to be doing? And what does the life you want it to support actually look like? Those questions sound simple. They aren't. Most people have never been asked them in a way that demanded a real answer. We start there — because every other decision depends on it.</p>
+      </div>
+
+      <!-- Accordions -->
+      <div id="accordions">
+
+        <div class="accordion anim" id="acc-liquidity">
+          <button class="acc-trigger open" onclick="toggleAcc('liquidity')">
+            <div>
+              <div class="acc-title" data-cms="what_we_do.acc.liquidity.title">Liquidity &amp; Cash Flow</div>
+              <div class="acc-sub" data-cms="what_we_do.acc.liquidity.sub">Where the plan takes shape.</div>
+            </div>
+            <div class="acc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+          </button>
+          <div class="acc-body open" id="body-liquidity">
+            <div class="acc-body-inner">
+              <p data-cms="what_we_do.acc.liquidity.intro">Once we know what you want your money to do, cash flow is the foundation everything else is built on. It tells us how much you have to work with, what's already committed, what's available to save or invest, how much income your plan needs to produce later, and how resilient your life is to the unexpected.</p>
+              <div class="acc-subhead" data-cms="what_we_do.acc.liquidity.heads.0">What this looks like today</div>
+              <p data-cms="what_we_do.acc.liquidity.paras.0">The first thing we do is understand what your money is actually doing right now. Not what you think it's doing. Not what the budget on paper says it's doing. What it's actually doing. We map your income, your fixed expenses, your variable spending, your saving, your debt payments, and the dollars that disappear without a clear job. By the end, you have a clear, organized picture of where your money is going and why. For most people, this is the first time they've actually seen it.</p>
+              <div class="acc-subhead" data-cms="what_we_do.acc.liquidity.heads.1">Designing Future Cash Flow</div>
+              <p data-cms="what_we_do.acc.liquidity.paras.1">Once we understand today, we design tomorrow. Future Cash Flow is how we turn what you have into what your life will need — every year going forward. We build a year-by-year picture of how income, savings, and assets work together to support the life you want. Then we stress-test it against the things that could go wrong, so the plan you walk away with isn't just a plan for a good day. It's a plan for the real ones.</p>
+              <div class="acc-subhead" data-cms="what_we_do.acc.liquidity.heads.2">How liquidity fits in</div>
+              <p data-cms="what_we_do.acc.liquidity.paras.2">Not every dollar should be invested for the long term, and not every dollar should be sitting idle in cash. The right balance depends on your income, your obligations, your risk tolerance, and what you might need to do in the next month, the next year, and the next five years. Liquidity isn't exciting. It's the thing that lets you say yes to opportunities and absorb the things you didn't see coming — without having to dismantle the rest of the plan to do it.</p>
+              <div class="acc-walkaway">
+                <h4>What you walk away with</h4>
+                <ul>
+                  <li data-cms="what_we_do.acc.liquidity.walkaway.0">A clear picture of where your money is going today</li>
+                  <li data-cms="what_we_do.acc.liquidity.walkaway.1">A plan for where it's going from here, year by year</li>
+                  <li data-cms="what_we_do.acc.liquidity.walkaway.2">The right amount of cash and liquidity for the life you live</li>
+                  <li data-cms="what_we_do.acc.liquidity.walkaway.3">A foundation the rest of your financial life can actually stand on</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion anim" id="acc-protection">
+          <button class="acc-trigger" onclick="toggleAcc('protection')">
+            <div>
+              <div class="acc-title" data-cms="what_we_do.acc.protection.title">Protection</div>
+              <div class="acc-sub" data-cms="what_we_do.acc.protection.sub">A plan that holds up no matter what life brings.</div>
+            </div>
+            <div class="acc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+          </button>
+          <div class="acc-body" id="body-protection">
+            <div class="acc-body-inner">
+              <p data-cms="what_we_do.acc.protection.intro">The best plan in the world doesn't matter if one unexpected event can undo it. Protection is what keeps your plan standing when life doesn't go the way you drew it up.</p>
+              <div class="acc-subhead" data-cms="what_we_do.acc.protection.heads.0">Why protection belongs inside the plan</div>
+              <p data-cms="what_we_do.acc.protection.paras.0">In most of the industry, insurance and planning live in two different rooms. The planner builds the plan. Someone else sells the products. Neither one is really looking at how the two fit together. That's not how we do it. Protection is part of the plan, designed in from the beginning. Every piece of coverage we recommend has a specific job. If we can't explain why a piece of coverage is there in plain language, it doesn't belong in your plan.</p>
+              <div class="acc-subhead" data-cms="what_we_do.acc.protection.heads.1">What we look at</div>
+              <p data-cms="what_we_do.acc.protection.paras.1" data-cms-html><strong style="color:var(--navy);">Life Insurance.</strong> If something happens to you, who depends on the income you were going to earn? We look at how much, what kind, and how it's structured. That includes both term and permanent coverage. Term solves for the years when the need is largest and time-limited. Permanent, in the right situations, does more than provide a death benefit — the cash value can become an asset inside the plan.</p>
+              <p data-cms="what_we_do.acc.protection.paras.2" data-cms-html><strong style="color:var(--navy);">Disability Insurance.</strong> Your ability to earn an income is usually your largest asset, and the most overlooked one. We look at what you have through work, what you have on your own, and where the gaps are.</p>
+              <p data-cms="what_we_do.acc.protection.paras.3" data-cms-html><strong style="color:var(--navy);">Long-Term Care.</strong> The cost of care later in life is one of the biggest unplanned expenses people face. We look at how to plan for it — through insurance, dedicated assets, or a combination.</p>
+              <p data-cms="what_we_do.acc.protection.paras.4" data-cms-html><strong style="color:var(--navy);">Other Coverage.</strong> Property, liability, umbrella, and the policies that don't always get a second look. We make sure what you have lines up with the life you actually live.</p>
+              <div class="acc-walkaway">
+                <h4>What you walk away with</h4>
+                <ul>
+                  <li data-cms="what_we_do.acc.protection.walkaway.0">A clear picture of every risk that could affect your plan</li>
+                  <li data-cms="what_we_do.acc.protection.walkaway.1">Coverage sized to your actual life and the people who depend on you</li>
+                  <li data-cms="what_we_do.acc.protection.walkaway.2">A review of what you already have and whether it's still working for you</li>
+                  <li data-cms="what_we_do.acc.protection.walkaway.3">A protection plan built into your overall financial plan — not bolted on the side</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion anim" id="acc-retirement">
+          <button class="acc-trigger" onclick="toggleAcc('retirement')">
+            <div>
+              <div class="acc-title" data-cms="what_we_do.acc.retirement.title">Retirement Income</div>
+              <div class="acc-sub" data-cms="what_we_do.acc.retirement.sub">Turning what you've saved into a paycheck you can live on.</div>
+            </div>
+            <div class="acc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+          </button>
+          <div class="acc-body" id="body-retirement">
+            <div class="acc-body-inner">
+              <p data-cms="what_we_do.acc.retirement.intro">Retirement isn't the finish line of saving. It's the start of a different question: how do you take what you've built and turn it into income that supports the life you want — every year, for the rest of your life?</p>
+              <div class="acc-subhead" data-cms="what_we_do.acc.retirement.heads.0">The shift most people don't see coming</div>
+              <p data-cms="what_we_do.acc.retirement.paras.0">You've spent decades learning how to save. Then the rules change. The day you stop earning a paycheck, the work of your money flips. Now it has to produce income instead of just growing. It has to last decades, not just gain ground. It has to keep up with inflation, taxes, market drops, and a life that doesn't stay still. The skills that got you here are not the same skills the next chapter requires.</p>
+              <div class="acc-subhead" data-cms="what_we_do.acc.retirement.heads.1">How the pieces work together</div>
+              <p data-cms="what_we_do.acc.retirement.paras.1" data-cms-html><strong style="color:var(--navy);">Income Sources.</strong> Social Security, pensions, withdrawals, and annuities where they fit. Each one has a role. We figure out the right mix, the right order, and the right timing.</p>
+              <p data-cms="what_we_do.acc.retirement.paras.2" data-cms-html><strong style="color:var(--navy);">Growth.</strong> A portion of your assets still needs to grow, because retirement can last thirty years or more and inflation doesn't take a break.</p>
+              <p data-cms="what_we_do.acc.retirement.paras.3" data-cms-html><strong style="color:var(--navy);">Protection &amp; Tax Awareness.</strong> Which account you draw from in which year has a real impact on what you actually keep. We weigh that into every decision.</p>
+              <div class="acc-subhead" data-cms="what_we_do.acc.retirement.heads.2">How we stress-test it</div>
+              <p data-cms="what_we_do.acc.retirement.paras.4">We test against bad market years early in retirement, higher inflation, living longer than you expect, and the kinds of events that have actually broken retirement plans in the past. The plan you walk away with isn't a forecast. It's a plan built to flex.</p>
+              <div class="acc-walkaway">
+                <h4>What you walk away with</h4>
+                <ul>
+                  <li data-cms="what_we_do.acc.retirement.walkaway.0">A clear answer to "can I retire when I want to, and how do I know?"</li>
+                  <li data-cms="what_we_do.acc.retirement.walkaway.1">A year-by-year picture of where your income comes from</li>
+                  <li data-cms="what_we_do.acc.retirement.walkaway.2">A coordinated strategy for Social Security, account withdrawals, and other income sources</li>
+                  <li data-cms="what_we_do.acc.retirement.walkaway.3">A plan stress-tested against the things that could go wrong</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion anim" id="acc-investments">
+          <button class="acc-trigger" onclick="toggleAcc('investments')">
+            <div>
+              <div class="acc-title" data-cms="what_we_do.acc.investments.title">Investments</div>
+              <div class="acc-sub" data-cms="what_we_do.acc.investments.sub">Built to support your plan, not the other way around.</div>
+            </div>
+            <div class="acc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+          </button>
+          <div class="acc-body" id="body-investments">
+            <div class="acc-body-inner">
+              <p data-cms="what_we_do.acc.investments.intro">Most people think investing is the plan. It isn't. Investing is one of the tools the plan uses to do its job. We treat it that way.</p>
+              <div class="acc-subhead" data-cms="what_we_do.acc.investments.heads.0">How we think about it</div>
+              <p data-cms="what_we_do.acc.investments.paras.0">The point of an investment portfolio isn't to beat the market, win an argument, or chase a return that sounded good in a podcast. The point is to do the specific job your plan needs it to do. Once we know what your plan needs your money to do, the portfolio almost designs itself. The strategy follows the plan — not the other way around.</p>
+              <div class="acc-subhead" data-cms="what_we_do.acc.investments.heads.1">What that looks like in practice</div>
+              <p data-cms="what_we_do.acc.investments.paras.1">When we build a portfolio, we start from the plan and work backward. What does this money need to do? When does it need to do it? How much risk does the plan actually require — and how much risk are you comfortable taking? Those aren't always the same number. We size the portfolio to both.</p>
+              <div class="acc-subhead" data-cms="what_we_do.acc.investments.heads.2">What we don't do</div>
+              <p data-cms="what_we_do.acc.investments.paras.2">We don't try to predict the market. We don't move your money around because something happened on the news. We don't chase what worked last year. We don't promise returns we can't deliver, and we don't sell products that pay us more than they earn you.</p>
+              <div class="acc-walkaway">
+                <h4>What you walk away with</h4>
+                <ul>
+                  <li data-cms="what_we_do.acc.investments.walkaway.0">A portfolio built around what your plan actually needs</li>
+                  <li data-cms="what_we_do.acc.investments.walkaway.1">The right level of risk for the work the money has to do</li>
+                  <li data-cms="what_we_do.acc.investments.walkaway.2">Investments coordinated with cash flow, taxes, and the rest of your financial life</li>
+                  <li data-cms="what_we_do.acc.investments.walkaway.3">A clear answer to "why do I own what I own?"</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion anim" id="acc-tax">
+          <button class="acc-trigger" onclick="toggleAcc('tax')">
+            <div>
+              <div class="acc-title" data-cms="what_we_do.acc.tax.title">Tax-Aware Planning</div>
+              <div class="acc-sub" data-cms="what_we_do.acc.tax.sub">Most planning decisions have a tax impact. We treat them that way.</div>
+            </div>
+            <div class="acc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+          </button>
+          <div class="acc-body" id="body-tax">
+            <div class="acc-body-inner">
+              <p data-cms="what_we_do.acc.tax.intro">Taxes aren't a separate part of the plan. They run through every part of it. The work isn't to file your return. The work is to make sure the decisions inside your plan account for what they'll cost you — this year and in the years ahead.</p>
+              <div class="acc-subhead" data-cms="what_we_do.acc.tax.heads.0">Why it matters</div>
+              <p data-cms="what_we_do.acc.tax.paras.0">Almost every meaningful financial decision changes what you owe: when to take Social Security, which account to draw from first, how you handle a Roth conversion, a stock vesting, a business sale, an inheritance. Each one has a tax consequence — and the consequences compound. Get them right and the plan stretches further. Get them wrong and you can leave years of work on the table without realizing it.</p>
+              <div class="acc-subhead" data-cms="what_we_do.acc.tax.heads.1">What we are, and what we're not</div>
+              <p data-cms="what_we_do.acc.tax.paras.1">We're financial planners, not tax preparers. We don't file your return, and we don't give formal tax advice. What we do is build the kind of plan that accounts for taxes at every step, and we work alongside your CPA where it makes sense so the planning and the filing line up. If you don't have a CPA, we can point you toward people we trust.</p>
+              <div class="acc-walkaway">
+                <h4>What you walk away with</h4>
+                <ul>
+                  <li data-cms="what_we_do.acc.tax.walkaway.0">A plan built with the tax impact of every major decision already factored in</li>
+                  <li data-cms="what_we_do.acc.tax.walkaway.1">Decisions made on a long enough timeline to actually be the right ones</li>
+                  <li data-cms="what_we_do.acc.tax.walkaway.2">Coordination between your plan and your CPA</li>
+                  <li data-cms="what_we_do.acc.tax.walkaway.3">A clearer view of what your choices actually cost — not just this year, but over time</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion anim" id="acc-legacy">
+          <button class="acc-trigger" onclick="toggleAcc('legacy')">
+            <div>
+              <div class="acc-title" data-cms="what_we_do.acc.legacy.title">Legacy</div>
+              <div class="acc-sub" data-cms="what_we_do.acc.legacy.sub">What you leave behind, and to whom, and how.</div>
+            </div>
+            <div class="acc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+          </button>
+          <div class="acc-body" id="body-legacy">
+            <div class="acc-body-inner">
+              <p data-cms="what_we_do.acc.legacy.intro">A legacy isn't just what's in the accounts when you're gone. It's the people you take care of, the causes you stand behind, and the way your life keeps showing up after you do.</p>
+              <div class="acc-subhead" data-cms="what_we_do.acc.legacy.heads.0">Why it belongs in the plan</div>
+              <p data-cms="what_we_do.acc.legacy.paras.0">For most people, legacy gets put off. It feels far away. It feels uncomfortable. Later usually doesn't come. The result is families left with paperwork that doesn't reflect what their loved one actually wanted, money that ends up in the wrong place, taxes that didn't have to be paid, and decisions that have to be made in the middle of grief by people who shouldn't have to make them then. A plan that doesn't end well isn't a finished plan.</p>
+              <div class="acc-subhead" data-cms="what_we_do.acc.legacy.heads.1">What we look at</div>
+              <p data-cms="what_we_do.acc.legacy.paras.1" data-cms-html><strong style="color:var(--navy);">The People.</strong> Who you want to take care of, and how — spouses, children, grandchildren, parents.</p>
+              <p data-cms="what_we_do.acc.legacy.paras.2" data-cms-html><strong style="color:var(--navy);">The Causes.</strong> The churches, communities, organizations, and causes that have mattered to you while you were here.</p>
+              <p data-cms="what_we_do.acc.legacy.paras.3" data-cms-html><strong style="color:var(--navy);">The Structure.</strong> The accounts, beneficiary designations, titling, and estate documents that determine where everything actually ends up. We make sure what's on paper matches what you actually want.</p>
+              <p data-cms="what_we_do.acc.legacy.paras.4" data-cms-html><strong style="color:var(--navy);">The Conversation.</strong> What your family knows, doesn't know, and should know. Some of the hardest moments in estate transitions come not from the legal documents but from the assumptions that never got talked about.</p>
+              <div class="acc-walkaway">
+                <h4>What you walk away with</h4>
+                <ul>
+                  <li data-cms="what_we_do.acc.legacy.walkaway.0">A clear picture of who and what you want to take care of, and how</li>
+                  <li data-cms="what_we_do.acc.legacy.walkaway.1">Accounts, beneficiaries, and titling that actually match your wishes</li>
+                  <li data-cms="what_we_do.acc.legacy.walkaway.2">A coordinated plan between your finances and your estate documents</li>
+                  <li data-cms="what_we_do.acc.legacy.walkaway.3">The clarity of knowing the people you love won't be left figuring it out alone</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /accordions -->
+
+      <!-- One Plan Coordinated -->
+      <div style="margin-top:64px;padding:48px;background:var(--bg2);border-radius:var(--radius-lg);border:1px solid var(--border);" class="anim">
+        <div class="label" data-cms="what_we_do.coordinatedLabel">One Plan, Coordinated</div>
+        <h3 style="color:var(--navy);margin:12px 0 16px;" data-cms="what_we_do.coordinatedHeading">All six pieces are part of one plan.</h3>
+        <p data-cms="what_we_do.coordinatedBody">Cash flow affects investments. Investments affect taxes. Taxes affect what you can spend. Protection determines whether any of it survives the unexpected. Legacy is the final piece, but it's shaped by every decision that came before it. We treat them as one plan because that's what they are.</p>
+        <button class="btn btn-primary" style="margin-top:24px;" onclick="go('schedule')" data-cms="what_we_do.coordinatedButton">Schedule a Clarity Call</button>
+      </div>
+
+    </div>
+  </section>
+  <footer id="footer-do"></footer>
+</div>
+
+<!-- ── WHO WE HELP ────────────────────────────────────────────────────────── -->
+<div class="page" id="page-who-we-help">
+  <section class="page-hero">
+    <div class="hero-bg"></div><div class="hero-atmos"></div><div class="hero-scrim"></div>
+    <div class="page-hero-inner">
+      <div class="hero-eyebrow anim" data-cms="who_we_help.heroEyebrow">Who We Help</div>
+      <h1 class="anim anim-delay-1" data-cms="who_we_help.heroTitle">We help people who want their money to mean something.</h1>
+      <p class="page-hero-sub anim anim-delay-2" data-cms="who_we_help.heroSub">The work changes depending on where you are in life. The starting point doesn't — we begin with what you want your money to be doing, then build the plan around it.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+
+      <div class="who-grid">
+        <div class="who-card anim">
+          <h3 data-cms="who_we_help.groups.0.title">In Retirement</h3>
+          <p data-cms="who_we_help.groups.0.p1">You've spent decades saving. Now the question is different. It's not how do I build this — it's how do I use it without running out, without leaving too much on the table, and without spending the next thirty years worrying about it.</p>
+          <p style="margin-bottom:24px;" data-cms="who_we_help.groups.0.p2">We help you turn what you've saved into reliable income, coordinate the moving pieces so they actually work together, and make sure the plan flexes as your life and the market do.</p>
+          <ul class="who-list">
+            <li data-cms="who_we_help.groups.0.items.0">A clear picture of how much income you can take, when, and from where</li>
+            <li data-cms="who_we_help.groups.0.items.1">A protection plan that holds up if health changes or you need long-term care</li>
+            <li data-cms="who_we_help.groups.0.items.2">Investments built to support the income the plan needs to produce</li>
+            <li data-cms="who_we_help.groups.0.items.3">A legacy plan for what stays behind, and for whom</li>
+            <li data-cms="who_we_help.groups.0.items.4">An advisor you can call when something happens</li>
+          </ul>
+        </div>
+
+        <div class="who-card anim anim-delay-1">
+          <h3 data-cms="who_we_help.groups.1.title">Approaching Retirement</h3>
+          <p data-cms="who_we_help.groups.1.p1">The last five to ten years before retirement are the years that shape the next thirty. The decisions you make now — when to retire, how to draw down, what to do with the 401(k), when to take Social Security, how much risk to carry — set the floor and the ceiling for everything that comes after.</p>
+          <p style="margin-bottom:24px;" data-cms="who_we_help.groups.1.p2">We help you map it out before you get there, so you walk into retirement with a plan instead of a question mark.</p>
+          <ul class="who-list">
+            <li data-cms="who_we_help.groups.1.items.0">A clear answer to "can I actually retire when I want to?"</li>
+            <li data-cms="who_we_help.groups.1.items.1">A transition strategy for the years between your last paycheck and full retirement</li>
+            <li data-cms="who_we_help.groups.1.items.2">A look at how to coordinate Social Security, pensions, and your own savings</li>
+            <li data-cms="who_we_help.groups.1.items.3">A protection review while you still have the most options available</li>
+            <li data-cms="who_we_help.groups.1.items.4">A plan that turns the years you have left into the most valuable planning years of your life</li>
+          </ul>
+        </div>
+
+        <div class="who-card anim anim-delay-2">
+          <h3 data-cms="who_we_help.groups.2.title">Still Building</h3>
+          <p data-cms="who_we_help.groups.2.p1">You're in your earning years. Income is good. Saving is happening, mostly. But the financial picture has gotten complicated, and the gap between "we're doing okay" and "we have a real plan" is wider than it should be.</p>
+          <p style="margin-bottom:24px;" data-cms="who_we_help.groups.2.p2">We help you build the plan now, while there's still time for it to compound.</p>
+          <ul class="who-list">
+            <li data-cms="who_we_help.groups.2.items.0">A cash flow plan that gives every dollar a job</li>
+            <li data-cms="who_we_help.groups.2.items.1">A protection plan sized to the life you have and the people who depend on you</li>
+            <li data-cms="who_we_help.groups.2.items.2">Investment guidance aligned with where you're going</li>
+            <li data-cms="who_we_help.groups.2.items.3">A foundation that turns "we're doing okay" into a real, written plan</li>
+            <li data-cms="who_we_help.groups.2.items.4">An advisor who grows with you instead of one you replace later</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="not-fit anim">
+        <h3 data-cms="who_we_help.notFitHeading">Who we're not the right fit for</h3>
+        <p data-cms="who_we_help.notFitBody">We're not the right fit for everyone, and that's okay. If you're looking for someone to pick hot stocks, beat the market, or hand you a product without understanding your life first — that's not the work we do. If you want a plan built around your purpose, with an advisor who'll be in your corner for the long run — that's exactly the work we do.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="container-sm">
+      <h2 class="anim" data-cms="who_we_help.closingHeading">Ready to see if we're a fit?</h2>
+      <p class="anim anim-delay-1" data-cms="who_we_help.closingSub">The first step is a free Clarity Call. No pressure. No pitch. Just a conversation to see if the work we do matches what you're looking for.</p>
+      <button class="btn btn-primary anim anim-delay-2" onclick="go('schedule')" data-cms="who_we_help.closingButton">Schedule a Clarity Call</button>
+    </div>
+  </section>
+  <footer id="footer-who"></footer>
+</div>
+
+<!-- ── ABOUT ──────────────────────────────────────────────────────────────── -->
+<div class="page" id="page-about">
+  <section class="page-hero">
+    <div class="hero-bg"></div><div class="hero-atmos"></div><div class="hero-scrim"></div>
+    <div class="page-hero-inner">
+      <div class="hero-eyebrow anim" data-cms="about.heroEyebrow">About</div>
+      <h1 class="anim anim-delay-1" data-cms="about.heroTitle">A financial plan should start with your life, not your accounts.</h1>
+      <p class="page-hero-sub anim anim-delay-2" data-cms="about.heroSub">One Life Advisory was built around that idea.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;" class="two-col-stack">
+        <div class="anim">
+          <h3 style="color:var(--navy);margin-bottom:16px;" data-cms="about.whyHeading">Why we exist</h3>
+          <p data-cms="about.whyP1">We started One Life Advisory because we kept seeing the same gap. People with real responsibility and real resources, but with a financial life made up of pieces that didn't add up to a plan. Cash flow that wasn't coordinated with the investments. Investments that weren't coordinated with the protection. Protection that hadn't been looked at in years. A vague sense of where it was all going, but no clear answer to the question that actually matters: is this money supporting the life I want to live?</p>
+          <p style="margin-top:12px;" data-cms="about.whyP2">We built One Life to close that gap. Planning, investments, protection, and the way taxes affect every move you make — all under one roof, all coordinated, all built around what you actually want out of this life.</p>
+        </div>
+        <div class="img-ph img-ph-about anim anim-delay-1" data-label="Firm / lifestyle image">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.25"><rect x="6" y="10" width="36" height="28" rx="3"/><circle cx="17" cy="20" r="3.5"/><path d="M6 33l10-9 7 6 6-5 13 11"/></svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Believe -->
+  <section class="section bg-alt">
+    <div class="container-sm">
+      <div class="anim">
+        <div class="label" data-cms="about.believeLabel">What We Believe</div>
+        <div class="divider"></div>
+        <h2 data-cms="about.believeHeading">The beliefs behind the work.</h2>
+      </div>
+      <div class="beliefs" style="margin-top:40px;">
+        <div class="belief anim">
+          <div class="belief-num">01</div>
+          <div>
+            <h4 data-cms="about.beliefs.0.title">A plan should start with purpose, not products.</h4>
+            <p data-cms="about.beliefs.0.body">What you want your money to do is the foundation. Everything else is built on top of it.</p>
+          </div>
+        </div>
+        <div class="belief anim">
+          <div class="belief-num">02</div>
+          <div>
+            <h4 data-cms="about.beliefs.1.title">Everything connects to everything.</h4>
+            <p data-cms="about.beliefs.1.body">Cash flow affects investments. Investments affect taxes. Taxes affect what you can spend. Protection determines whether any of it survives the unexpected. We treat them as one plan because that's what they are.</p>
+          </div>
+        </div>
+        <div class="belief anim">
+          <div class="belief-num">03</div>
+          <div>
+            <h4 data-cms="about.beliefs.2.title">Money is a tool, not the goal.</h4>
+            <p data-cms="about.beliefs.2.body">The goal is the life you want to live. The work we do is to make sure your money is good enough at its job that you can stop worrying about it and get on with the life.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How We're Different -->
+  <section class="section">
+    <div class="container-sm">
+      <div class="anim">
+        <div class="label" data-cms="about.differentLabel">How We're Different</div>
+        <div class="divider"></div>
+        <h2 data-cms="about.differentHeading">We're organized around you, not around a sale.</h2>
+        <p style="margin-top:16px;" data-cms="about.differentP1">Most of the industry is organized around selling things. Investments. Insurance. Products. The plan, if there is one, exists to justify the sale. We're organized the other way around. We start with what you want, build the plan to support it, and then make whatever decisions and moves the plan actually calls for.</p>
+        <p style="margin-top:12px;" data-cms="about.differentP2">No script. No cookie cutter. No plan that looks like the one we built for the person before you. Your life is yours. The plan should reflect that.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section class="section bg-alt">
+    <div class="container-sm">
+      <div class="anim">
+        <div class="label" data-cms="about.teamLabel">The Team</div>
+        <div class="divider"></div>
+        <h2 data-cms="about.teamHeading">Meet the people behind One Life Advisory.</h2>
+      </div>
+      <div class="team-grid" style="margin-top:40px;">
+        <div class="team-card anim">
+          <div class="img-ph" data-label="Photo">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.25"><circle cx="24" cy="18" r="9"/><path d="M7 42c0-9.4 7.6-17 17-17s17 7.6 17 17"/></svg>
+          </div>
+          <div class="team-card-body">
+            <h4 data-cms="about.team.0.name">[Advisor Name]</h4>
+            <div class="team-card-role" data-cms="about.team.0.role">Founder &amp; Financial Planner</div>
+            <p data-cms="about.team.0.bio">Short bio goes here — something human, not just a resume. Send your details and this will be written in the site's voice.</p>
+          </div>
+        </div>
+        <div class="team-card anim anim-delay-1">
+          <div class="img-ph" data-label="Photo">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.25"><circle cx="24" cy="18" r="9"/><path d="M7 42c0-9.4 7.6-17 17-17s17 7.6 17 17"/></svg>
+          </div>
+          <div class="team-card-body">
+            <h4 data-cms="about.team.1.name">[Team Member]</h4>
+            <div class="team-card-role" data-cms="about.team.1.role">Role / Credentials</div>
+            <p data-cms="about.team.1.bio">Short bio goes here. Add or remove cards as your team grows.</p>
+          </div>
+        </div>
+        <div class="team-card anim anim-delay-2">
+          <div class="img-ph" data-label="Photo">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.25"><circle cx="24" cy="18" r="9"/><path d="M7 42c0-9.4 7.6-17 17-17s17 7.6 17 17"/></svg>
+          </div>
+          <div class="team-card-body">
+            <h4 data-cms="about.team.2.name">[Team Member]</h4>
+            <div class="team-card-role" data-cms="about.team.2.role">Role / Credentials</div>
+            <p data-cms="about.team.2.bio">Short bio goes here. Add or remove cards as your team grows.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="container-sm">
+      <h2 class="anim" data-cms="about.closingHeading">Ready to talk?</h2>
+      <p class="anim anim-delay-1" data-cms="about.closingSub">The first step is a free Clarity Call. No pressure. No pitch. Just a conversation about where you are and where you'd like to go.</p>
+      <button class="btn btn-primary anim anim-delay-2" onclick="go('schedule')" data-cms="about.closingButton">Schedule a Clarity Call</button>
+    </div>
+  </section>
+  <footer id="footer-about"></footer>
+</div>
+
+<!-- ── FAQ ───────────────────────────────────────────────────────────────── -->
+<div class="page" id="page-faq">
+  <section class="page-hero">
+    <div class="hero-bg"></div><div class="hero-atmos"></div><div class="hero-scrim"></div>
+    <div class="page-hero-inner">
+      <div class="hero-eyebrow anim" data-cms="faq.heroEyebrow">FAQ</div>
+      <h1 class="anim anim-delay-1" data-cms="faq.heroTitle">Questions worth answering before we ever get on a call.</h1>
+      <p class="page-hero-sub anim anim-delay-2" data-cms="faq.heroSub">If something isn't covered here, ask us on the Clarity Call. The whole point of that conversation is to make sure your questions get real answers.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container-sm">
+
+      <div class="faq-section anim">
+        <div class="faq-section-title" data-cms="faq.sections.0.title">About Working With Us</div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)"><span data-cms="faq.sections.0.items.0.q">Who do you typically work with?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <div class="faq-a"><div class="faq-a-inner"><p data-cms="faq.sections.0.items.0.a">We work with people who want their money to mean something. That includes pre-retirees who are mapping out the next thirty years, retirees who want to make sure what they've built actually supports the life they want, and people still in their working years who want a real plan instead of a pile of accounts. The thread isn't a net worth number. It's people who want a plan that reflects what they care about and an advisor who actually pays attention.</p></div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)"><span data-cms="faq.sections.0.items.1.q">Do you have a minimum?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <div class="faq-a"><div class="faq-a-inner"><p data-cms="faq.sections.0.items.1.a">We're more interested in whether we're the right fit for what you're trying to do than in a specific number. The Clarity Call is how we figure that out together.</p></div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)"><span data-cms="faq.sections.0.items.2.q">Are you a fiduciary?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <div class="faq-a"><div class="faq-a-inner"><p data-cms="faq.sections.0.items.2.a">Yes. One Life Advisory is a Registered Investment Advisor, and we have a legal obligation to act in your best interest. It's not a marketing line — it's a standard. It also shapes how we work: when we make a recommendation, it's because the math is convenient for you, not for us.</p></div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)"><span data-cms="faq.sections.0.items.3.q">How are you different from the advisor I already have?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <div class="faq-a"><div class="faq-a-inner"><p data-cms="faq.sections.0.items.3.a">The honest answer is that we might not be, and we'll tell you that on the call if that's what we see. Where we tend to be different is that we treat planning as the work and investments as one of the tools. A lot of advisors lead with the portfolio and add planning on the side. We lead with the plan, build everything around it, and coordinate the pieces other firms tend to leave to someone else. If that sounds like what you've been looking for, we should talk.</p></div></div>
+        </div>
+      </div>
+
+      <div class="faq-section anim">
+        <div class="faq-section-title" data-cms="faq.sections.1.title">About the Process</div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)"><span data-cms="faq.sections.1.items.0.q">What is a Clarity Call?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <div class="faq-a"><div class="faq-a-inner"><p data-cms="faq.sections.1.items.0.a">A free, no-pressure conversation. Usually 20 to 30 minutes. You tell us what's on your mind. We tell you whether we can help and what working with us looks like. If we're not the right fit, we'll say so and point you toward someone who is. No pitch. No homework. No obligation to do anything next.</p></div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)"><span data-cms="faq.sections.1.items.1.q">What happens after a Clarity Call?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <div class="faq-a"><div class="faq-a-inner"><p data-cms="faq.sections.1.items.1.a">If we both agree we're a fit, the work starts with Step 1 of our planning process: Clarify Your Vision. From there we organize your financial picture, design the plan, put it into motion, and stay with you as life changes.</p></div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)"><span data-cms="faq.sections.1.items.2.q">How long does it take to build a plan?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <div class="faq-a"><div class="faq-a-inner"><p data-cms="faq.sections.1.items.2.a">Most plans take a few weeks from the first deep-dive meeting to a finished version we can act on. Some take longer if the financial picture is complicated, or if we're waiting on documents from other places. We move at the pace your situation actually requires — not a fixed timeline.</p></div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)"><span data-cms="faq.sections.1.items.3.q">Do I have to move all my accounts to you?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <div class="faq-a"><div class="faq-a-inner"><p data-cms="faq.sections.1.items.3.a">Not necessarily. Some accounts we'll manage directly. Some make more sense to leave where they are. Some sit at an employer and can't be moved anyway. We work with what you actually have and figure out the right structure based on the plan — not based on what's convenient for us to manage.</p></div></div>
+        </div>
+      </div>
+
+      <div class="faq-section anim">
+        <div class="faq-section-title" data-cms="faq.sections.2.title">About Fees</div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)"><span data-cms="faq.sections.2.items.0.q">How do you charge?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <div class="faq-a"><div class="faq-a-inner"><p data-cms="faq.sections.2.items.0.a">We walk through fees in detail on the Clarity Call so you know exactly what you're paying for and why. Our goal is for the relationship to be worth more than it costs — and that's the actual standard we hold ourselves to.</p></div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)"><span data-cms="faq.sections.2.items.1.q">Are there any commissions or product-related compensation?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <div class="faq-a"><div class="faq-a-inner"><p data-cms="faq.sections.2.items.1.a">We'll be transparent about how we're compensated on the Clarity Call and in our disclosure documents. As a fiduciary, our obligation is to act in your best interest regardless of how any product is structured.</p></div></div>
+        </div>
+      </div>
+
+      <div class="faq-section anim">
+        <div class="faq-section-title" data-cms="faq.sections.3.title">About What We Do and Don't Do</div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)"><span data-cms="faq.sections.3.items.0.q">Do you give tax advice?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <div class="faq-a"><div class="faq-a-inner"><p data-cms="faq.sections.3.items.0.a">We're not tax preparers, and we don't file returns. What we do is build plans that account for the tax impact of every meaningful decision, and we coordinate with your CPA so the planning and the filing line up. If you don't have a CPA, we can point you toward people we trust.</p></div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)"><span data-cms="faq.sections.3.items.1.q">Do you handle estate planning?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <div class="faq-a"><div class="faq-a-inner"><p data-cms="faq.sections.3.items.1.a">We're not estate attorneys, and we don't draft documents. What we do is build the plan around what you want your legacy to look like, make sure every account, beneficiary, and title actually matches your wishes, and coordinate with the attorney who handles the documents. If you don't have one, we can point you toward people we trust.</p></div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)"><span data-cms="faq.sections.3.items.2.q">What about my 401(k) at work?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <div class="faq-a"><div class="faq-a-inner"><p data-cms="faq.sections.3.items.2.a">Yes. Even though it stays at your employer's plan, it's still part of your financial picture and your plan. We help you think through contribution levels, investment selections inside the plan, how it fits with everything else you're saving and investing, and what to do with it when you eventually leave the employer.</p></div></div>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:48px;" class="anim">
+        <p style="margin-bottom:20px;font-size:1.0625rem;" data-cms="faq.closingNote">Still have questions? Bring them to the Clarity Call.</p>
+        <button class="btn btn-primary" onclick="go('schedule')" data-cms="faq.closingButton">Schedule a Clarity Call</button>
+      </div>
+
+    </div>
+  </section>
+  <footer id="footer-faq"></footer>
+</div>
+
+<!-- ── SCHEDULE ───────────────────────────────────────────────────────────── -->
+<div class="page" id="page-schedule">
+  <section class="page-hero">
+    <div class="hero-bg"></div><div class="hero-atmos"></div><div class="hero-scrim"></div>
+    <div class="page-hero-inner">
+      <div class="hero-eyebrow anim" data-cms="schedule.heroEyebrow">Get Started</div>
+      <h1 class="anim anim-delay-1" data-cms="schedule.heroTitle">Schedule a Clarity Call.</h1>
+      <p class="page-hero-sub anim anim-delay-2" data-cms="schedule.heroSub">A free, no-pressure conversation — usually 20 to 30 minutes. You tell us what's on your mind. We tell you whether we can help and what working together looks like.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="schedule-grid">
+        <div>
+          <div class="schedule-features" style="margin-top:0;">
+            <div class="sched-feat anim anim-delay-1">
+              <div class="sched-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+              <div><h4 data-cms="schedule.features.0.title">20–30 minutes</h4><p data-cms="schedule.features.0.desc">A focused conversation, not a lengthy intake.</p></div>
+            </div>
+            <div class="sched-feat anim anim-delay-2">
+              <div class="sched-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+              <div><h4 data-cms="schedule.features.1.title">No pressure. No pitch.</h4><p data-cms="schedule.features.1.desc">If we're not the right fit, we'll say so and point you in the right direction.</p></div>
+            </div>
+            <div class="sched-feat anim anim-delay-3">
+              <div class="sched-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+              <div><h4 data-cms="schedule.features.2.title">100% free</h4><p data-cms="schedule.features.2.desc">No commitment required. Just a real conversation.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="anim anim-delay-1">
+          <div class="calendly-placeholder">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" style="width:48px;height:48px;color:var(--text3);"><rect x="4" y="8" width="40" height="36" rx="4"/><path d="M32 4v8M16 4v8M4 20h40"/></svg>
+            <h4 style="color:var(--navy);">Calendly Booking</h4>
+            <p>Replace this box with your Calendly embed code. Add: &lt;!-- Calendly inline widget --&gt; here.</p>
+            <div style="font-size:.75rem;color:var(--text3);background:var(--bg);padding:12px 16px;border-radius:var(--radius);margin-top:8px;font-family:monospace;">&lt;div class="calendly-inline-widget" data-url="https://calendly.com/your-link"&gt;&lt;/div&gt;</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer id="footer-schedule"></footer>
+</div>
+
+<!-- ═══════════════════════════════ FOOTER TEMPLATE ══════════════════════ -->
+<template id="footer-template">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">One Life <span>Advisory</span></div>
+        <div class="footer-tagline" data-cms="global.footerTagline">Designed for your one life.</div>
+      </div>
+      <div class="footer-col">
+        <h5>Plan</h5>
+        <a onclick="go('how-we-plan')">How We Plan</a>
+        <a onclick="go('what-we-do')">What We Do</a>
+        <a onclick="go('who-we-help')">Who We Help</a>
+      </div>
+      <div class="footer-col">
+        <h5>Firm</h5>
+        <a onclick="go('about')">About</a>
+        <a onclick="go('faq')">FAQ</a>
+        <a onclick="go('schedule')" data-cms="global.navCta">Schedule a Clarity Call</a>
+        <a href="#" data-cms="global.clientLoginLabel" data-cms-attr="href:global.clientLoginUrl">Client Login</a>
+      </div>
+      <div class="footer-col">
+        <h5>Connect</h5>
+        <a href="mailto:hello@onelifeadvisory.com" data-cms="global.contactEmail">hello@onelifeadvisory.com</a>
+        <a href="tel:+10000000000" data-cms="global.contactPhone">[Phone Number]</a>
+      </div>
+    </div>
+    <div class="footer-disclosures">
+      <p data-cms="global.disclosures.0">One Life Advisory is a Registered Investment Advisor. Advisory services are offered through One Life Advisory. Registration does not imply a certain level of skill or training.</p>
+      <p data-cms="global.disclosures.1">The information on this website is for general informational and educational purposes only. It is not intended as, and should not be construed as, personalized investment, tax, or legal advice. One Life Advisory does not provide tax or legal advice. Clients should consult with a qualified tax professional or attorney regarding their specific situation.</p>
+      <p data-cms="global.disclosures.2">Investing involves risk, including the possible loss of principal. Past performance is not a guarantee of future results.</p>
+      <p data-cms="global.disclosures.3">Any references to guaranteed income or safe accumulation in connection with annuities or insurance products refer to contractual guarantees of the issuing insurance company. Such guarantees are subject to the claims-paying ability of the issuer.</p>
+    </div>
+    <div class="footer-bottom">
+      <p data-cms="global.copyright">© 2026 One Life Advisory. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#">Form ADV Part 2A</a>
+        <a href="#">Form ADV Part 2B</a>
+        <a href="#">Form CRS</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+      </div>
+    </div>
+  </div>
+</template>
+
+<!-- ═══════════════════════════════ SCRIPT ════════════════════════════════ -->
+<script>
+  // ── Router ──────────────────────────────────────────────────────────────
+  const PAGES = {
+    'home':         'page-home',
+    'how-we-plan':  'page-how-we-plan',
+    'what-we-do':   'page-what-we-do',
+    'who-we-help':  'page-who-we-help',
+    'about':        'page-about',
+    'faq':          'page-faq',
+    'schedule':     'page-schedule'
+  };
+
+  function go(pageId) {
+    const pages = document.querySelectorAll('.page');
+    pages.forEach(p => p.classList.remove('active'));
+    const target = document.getElementById(PAGES[pageId]);
+    if (!target) return;
+    target.classList.add('active');
+    target.classList.remove('page-fade');
+    void target.offsetWidth;
+    target.classList.add('page-fade');
+    window.scrollTo({ top: 0 });
+    updateNav(pageId);
+    // Ensure footer is populated
+    populateFooter(pageId);
+    // Trigger animations for elements in viewport
+    setTimeout(() => observeAnimations(), 50);
+  }
+
+  function updateNav(activeId) {
+    document.querySelectorAll('.nav-links a[id^="nl-"]').forEach(a => {
+      a.classList.toggle('active', a.id === 'nl-' + activeId);
+    });
+    syncNav(activeId);
+  }
+
+  // Single source of truth for nav appearance
+  function syncNav(activeId) {
+    const nav = document.getElementById('nav');
+    activeId = activeId || (document.querySelector('.page.active') || {}).id?.replace('page-', '');
+    const isHome = activeId === 'home';
+    const atTop = window.scrollY < 60;
+    if (isHome && atTop) {
+      nav.classList.remove('scrolled');
+      nav.classList.add('over-hero');
+    } else {
+      nav.classList.add('scrolled');
+      nav.classList.remove('over-hero');
+    }
+  }
+
+  // ── Footer injection ─────────────────────────────────────────────────────
+  function populateFooter(pageId) {
+    const map = { home: 'footer-home', 'how-we-plan': 'footer-plan', 'what-we-do': 'footer-do', 'who-we-help': 'footer-who', about: 'footer-about', faq: 'footer-faq', schedule: 'footer-schedule' };
+    const fid = map[pageId];
+    if (!fid) return;
+    const el = document.getElementById(fid);
+    if (!el || el.children.length > 0) return;
+    const tmpl = document.getElementById('footer-template');
+    el.appendChild(tmpl.content.cloneNode(true));
+    if (window.cmsHydrate) window.cmsHydrate(el);
+  }
+
+  // ── Scroll nav effect ────────────────────────────────────────────────────
+  window.addEventListener('scroll', () => { syncNav(); }, { passive: true });
+
+  // ── Mobile menu ──────────────────────────────────────────────────────────
+  function toggleMenu() {
+    const h = document.getElementById('hamburger');
+    const d = document.getElementById('nav-drawer');
+    h.classList.toggle('open');
+    d.classList.toggle('open');
+    if (d.classList.contains('open')) {
+      d.style.display = 'flex';
+    } else {
+      setTimeout(() => { if (!d.classList.contains('open')) d.style.display = 'none'; }, 300);
+    }
+  }
+  function closeMenu() {
+    document.getElementById('hamburger').classList.remove('open');
+    const d = document.getElementById('nav-drawer');
+    d.classList.remove('open');
+    setTimeout(() => { d.style.display = 'none'; }, 300);
+  }
+
+  // ── Scroll animations (Intersection Observer) ────────────────────────────
+  let observer;
+  function observeAnimations() {
+    if (observer) observer.disconnect();
+    observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          // Count-up any stat numbers within
+          e.target.querySelectorAll('[data-count]').forEach(countUp);
+          if (e.target.hasAttribute && e.target.hasAttribute('data-count')) countUp(e.target);
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.page.active .anim').forEach(el => {
+      if (!el.classList.contains('visible')) {
+        observer.observe(el);
+      }
+    });
+  }
+
+  // ── Accordion (What We Do) ────────────────────────────────────────────────
+  const accState = { liquidity: true };
+  function toggleAcc(key) {
+    const trigger = document.querySelector(`#acc-${key} .acc-trigger`);
+    const body = document.getElementById(`body-${key}`);
+    if (!trigger || !body) return;
+    const isOpen = body.classList.contains('open');
+    // Close all
+    ['liquidity','protection','retirement','investments','tax','legacy'].forEach(k => {
+      const t = document.querySelector(`#acc-${k} .acc-trigger`);
+      const b = document.getElementById(`body-${k}`);
+      if (t && b) { t.classList.remove('open'); b.classList.remove('open'); }
+    });
+    // Open target if was closed
+    if (!isOpen) {
+      trigger.classList.add('open');
+      body.classList.add('open');
+    }
+  }
+
+  function goAccordion(key) {
+    go('what-we-do');
+    setTimeout(() => {
+      // Close all first, then open target
+      ['liquidity','protection','retirement','investments','tax','legacy'].forEach(k => {
+        const t = document.querySelector(`#acc-${k} .acc-trigger`);
+        const b = document.getElementById(`body-${k}`);
+        if (t && b) { t.classList.remove('open'); b.classList.remove('open'); }
+      });
+      const trigger = document.querySelector(`#acc-${key} .acc-trigger`);
+      const body = document.getElementById(`body-${key}`);
+      if (trigger && body) {
+        trigger.classList.add('open');
+        body.classList.add('open');
+        setTimeout(() => {
+          const el = document.getElementById(`acc-${key}`);
+          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+      }
+    }, 150);
+  }
+
+  // ── FAQ Accordion ─────────────────────────────────────────────────────────
+  function toggleFaq(btn) {
+    const answer = btn.nextElementSibling;
+    const isOpen = btn.classList.contains('open');
+    // Close all in same section
+    btn.closest('.faq-section').querySelectorAll('.faq-q').forEach(q => {
+      q.classList.remove('open');
+      q.nextElementSibling.classList.remove('open');
+    });
+    if (!isOpen) {
+      btn.classList.add('open');
+      answer.classList.add('open');
+    }
+  }
+
+  // ── Count-up animation ────────────────────────────────────────────────────
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function countUp(el) {
+    if (el.dataset.counted) return;
+    el.dataset.counted = '1';
+    const target = parseInt(el.dataset.count, 10);
+    if (reduceMotion || isNaN(target)) { el.textContent = target || el.textContent; return; }
+    const dur = 1100, start = performance.now();
+    function tick(now) {
+      const p = Math.min((now - start) / dur, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(eased * target);
+      if (p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  // ── Hero parallax (subtle, rAF-throttled) ──────────────────────────────────
+  let parallaxTicking = false;
+  function updateParallax() {
+    if (reduceMotion) return;
+    const y = window.scrollY;
+    document.querySelectorAll('.page.active .parallax').forEach(el => {
+      const speed = parseFloat(el.dataset.speed) || 0;
+      el.style.transform = `translate3d(0, ${y * speed}px, 0)`;
+    });
+    parallaxTicking = false;
+  }
+  window.addEventListener('scroll', () => {
+    if (!parallaxTicking) { requestAnimationFrame(updateParallax); parallaxTicking = true; }
+  }, { passive: true });
+
+  // ── Responsive: fix two-col-stack on mobile ───────────────────────────────
+  function applyResponsive() {
+    const isMobile = window.innerWidth < 768;
+    document.querySelectorAll('.two-col-stack').forEach(el => {
+      el.style.gridTemplateColumns = isMobile ? '1fr' : '1fr 1fr';
+      el.style.gap = isMobile ? '40px' : '80px';
+    });
+  }
+  window.addEventListener('resize', applyResponsive);
+  applyResponsive();
+
+  // ── Init ──────────────────────────────────────────────────────────────────
+  document.addEventListener('DOMContentLoaded', () => {
+    const hash = window.location.hash.slice(1);
+    const startPage = PAGES[hash] ? hash : 'home';
+    go(startPage);
+  });
+</script>
+<!-- CMS content hydration (reads /content/*.json edited via Decap at /admin) -->
+<script src="/assets/cms-hydrate.js"></script>
+</body>
+</html>

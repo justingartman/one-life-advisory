@@ -1,0 +1,29 @@
+{
+  "heroEyebrow": "About",
+  "heroTitle": "A financial plan should start with your life, not your accounts.",
+  "heroSub": "One Life Advisory was built around that idea.",
+  "whyHeading": "Why we exist",
+  "whyP1": "We started One Life Advisory because we kept seeing the same gap. People with real responsibility and real resources, but with a financial life made up of pieces that didn't add up to a plan. Cash flow that wasn't coordinated with the investments. Investments that weren't coordinated with the protection. Protection that hadn't been looked at in years. A vague sense of where it was all going, but no clear answer to the question that actually matters: is this money supporting the life I want to live?",
+  "whyP2": "We built One Life to close that gap. Planning, investments, protection, and the way taxes affect every move you make — all under one roof, all coordinated, all built around what you actually want out of this life.",
+  "believeLabel": "What We Believe",
+  "believeHeading": "The beliefs behind the work.",
+  "beliefs": [
+    { "title": "A plan should start with purpose, not products.", "body": "What you want your money to do is the foundation. Everything else is built on top of it." },
+    { "title": "Everything connects to everything.", "body": "Cash flow affects investments. Investments affect taxes. Taxes affect what you can spend. Protection determines whether any of it survives the unexpected. We treat them as one plan because that's what they are." },
+    { "title": "Money is a tool, not the goal.", "body": "The goal is the life you want to live. The work we do is to make sure your money is good enough at its job that you can stop worrying about it and get on with the life." }
+  ],
+  "differentLabel": "How We're Different",
+  "differentHeading": "We're organized around you, not around a sale.",
+  "differentP1": "Most of the industry is organized around selling things. Investments. Insurance. Products. The plan, if there is one, exists to justify the sale. We're organized the other way around. We start with what you want, build the plan to support it, and then make whatever decisions and moves the plan actually calls for.",
+  "differentP2": "No script. No cookie cutter. No plan that looks like the one we built for the person before you. Your life is yours. The plan should reflect that.",
+  "teamLabel": "The Team",
+  "teamHeading": "Meet the people behind One Life Advisory.",
+  "team": [
+    { "name": "[Advisor Name]", "role": "Founder & Financial Planner", "bio": "Short bio goes here — something human, not just a resume. Send your details and this will be written in the site's voice." },
+    { "name": "[Team Member]", "role": "Role / Credentials", "bio": "Short bio goes here. Add or remove cards as your team grows." },
+    { "name": "[Team Member]", "role": "Role / Credentials", "bio": "Short bio goes here. Add or remove cards as your team grows." }
+  ],
+  "closingHeading": "Ready to talk?",
+  "closingSub": "The first step is a free Clarity Call. No pressure. No pitch. Just a conversation about where you are and where you'd like to go.",
+  "closingButton": "Schedule a Clarity Call"
+}

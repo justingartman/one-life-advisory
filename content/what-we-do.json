@@ -1,0 +1,121 @@
+{
+  "heroEyebrow": "What We Do",
+  "heroTitle": "One plan. Built around your purpose.",
+  "heroSub": "Not six separate services — one integrated plan with six parts that talk to each other, all built on what you want your money to do.",
+  "clarityLabel": "Before anything else",
+  "clarityHeading": "It starts with clarity.",
+  "clarityBody": "Before any of the work below matters, we have to understand two things: What do you want your money to be doing? And what does the life you want it to support actually look like? Those questions sound simple. They aren't. Most people have never been asked them in a way that demanded a real answer. We start there — because every other decision depends on it.",
+  "acc": {
+    "liquidity": {
+      "title": "Liquidity & Cash Flow",
+      "sub": "Where the plan takes shape.",
+      "intro": "Once we know what you want your money to do, cash flow is the foundation everything else is built on. It tells us how much you have to work with, what's already committed, what's available to save or invest, how much income your plan needs to produce later, and how resilient your life is to the unexpected.",
+      "heads": ["What this looks like today", "Designing Future Cash Flow", "How liquidity fits in"],
+      "paras": [
+        "The first thing we do is understand what your money is actually doing right now. Not what you think it's doing. Not what the budget on paper says it's doing. What it's actually doing. We map your income, your fixed expenses, your variable spending, your saving, your debt payments, and the dollars that disappear without a clear job. By the end, you have a clear, organized picture of where your money is going and why. For most people, this is the first time they've actually seen it.",
+        "Once we understand today, we design tomorrow. Future Cash Flow is how we turn what you have into what your life will need — every year going forward. We build a year-by-year picture of how income, savings, and assets work together to support the life you want. Then we stress-test it against the things that could go wrong, so the plan you walk away with isn't just a plan for a good day. It's a plan for the real ones.",
+        "Not every dollar should be invested for the long term, and not every dollar should be sitting idle in cash. The right balance depends on your income, your obligations, your risk tolerance, and what you might need to do in the next month, the next year, and the next five years. Liquidity isn't exciting. It's the thing that lets you say yes to opportunities and absorb the things you didn't see coming — without having to dismantle the rest of the plan to do it."
+      ],
+      "walkaway": [
+        "A clear picture of where your money is going today",
+        "A plan for where it's going from here, year by year",
+        "The right amount of cash and liquidity for the life you live",
+        "A foundation the rest of your financial life can actually stand on"
+      ]
+    },
+    "protection": {
+      "title": "Protection",
+      "sub": "A plan that holds up no matter what life brings.",
+      "intro": "The best plan in the world doesn't matter if one unexpected event can undo it. Protection is what keeps your plan standing when life doesn't go the way you drew it up.",
+      "heads": ["Why protection belongs inside the plan", "What we look at"],
+      "paras": [
+        "In most of the industry, insurance and planning live in two different rooms. The planner builds the plan. Someone else sells the products. Neither one is really looking at how the two fit together. That's not how we do it. Protection is part of the plan, designed in from the beginning. Every piece of coverage we recommend has a specific job. If we can't explain why a piece of coverage is there in plain language, it doesn't belong in your plan.",
+        "<strong style=\"color:var(--navy);\">Life Insurance.</strong> If something happens to you, who depends on the income you were going to earn? We look at how much, what kind, and how it's structured. That includes both term and permanent coverage. Term solves for the years when the need is largest and time-limited. Permanent, in the right situations, does more than provide a death benefit — the cash value can become an asset inside the plan.",
+        "<strong style=\"color:var(--navy);\">Disability Insurance.</strong> Your ability to earn an income is usually your largest asset, and the most overlooked one. We look at what you have through work, what you have on your own, and where the gaps are.",
+        "<strong style=\"color:var(--navy);\">Long-Term Care.</strong> The cost of care later in life is one of the biggest unplanned expenses people face. We look at how to plan for it — through insurance, dedicated assets, or a combination.",
+        "<strong style=\"color:var(--navy);\">Other Coverage.</strong> Property, liability, umbrella, and the policies that don't always get a second look. We make sure what you have lines up with the life you actually live."
+      ],
+      "walkaway": [
+        "A clear picture of every risk that could affect your plan",
+        "Coverage sized to your actual life and the people who depend on you",
+        "A review of what you already have and whether it's still working for you",
+        "A protection plan built into your overall financial plan — not bolted on the side"
+      ]
+    },
+    "retirement": {
+      "title": "Retirement Income",
+      "sub": "Turning what you've saved into a paycheck you can live on.",
+      "intro": "Retirement isn't the finish line of saving. It's the start of a different question: how do you take what you've built and turn it into income that supports the life you want — every year, for the rest of your life?",
+      "heads": ["The shift most people don't see coming", "How the pieces work together", "How we stress-test it"],
+      "paras": [
+        "You've spent decades learning how to save. Then the rules change. The day you stop earning a paycheck, the work of your money flips. Now it has to produce income instead of just growing. It has to last decades, not just gain ground. It has to keep up with inflation, taxes, market drops, and a life that doesn't stay still. The skills that got you here are not the same skills the next chapter requires.",
+        "<strong style=\"color:var(--navy);\">Income Sources.</strong> Social Security, pensions, withdrawals, and annuities where they fit. Each one has a role. We figure out the right mix, the right order, and the right timing.",
+        "<strong style=\"color:var(--navy);\">Growth.</strong> A portion of your assets still needs to grow, because retirement can last thirty years or more and inflation doesn't take a break.",
+        "<strong style=\"color:var(--navy);\">Protection &amp; Tax Awareness.</strong> Which account you draw from in which year has a real impact on what you actually keep. We weigh that into every decision.",
+        "We test against bad market years early in retirement, higher inflation, living longer than you expect, and the kinds of events that have actually broken retirement plans in the past. The plan you walk away with isn't a forecast. It's a plan built to flex."
+      ],
+      "walkaway": [
+        "A clear answer to \"can I retire when I want to, and how do I know?\"",
+        "A year-by-year picture of where your income comes from",
+        "A coordinated strategy for Social Security, account withdrawals, and other income sources",
+        "A plan stress-tested against the things that could go wrong"
+      ]
+    },
+    "investments": {
+      "title": "Investments",
+      "sub": "Built to support your plan, not the other way around.",
+      "intro": "Most people think investing is the plan. It isn't. Investing is one of the tools the plan uses to do its job. We treat it that way.",
+      "heads": ["How we think about it", "What that looks like in practice", "What we don't do"],
+      "paras": [
+        "The point of an investment portfolio isn't to beat the market, win an argument, or chase a return that sounded good in a podcast. The point is to do the specific job your plan needs it to do. Once we know what your plan needs your money to do, the portfolio almost designs itself. The strategy follows the plan — not the other way around.",
+        "When we build a portfolio, we start from the plan and work backward. What does this money need to do? When does it need to do it? How much risk does the plan actually require — and how much risk are you comfortable taking? Those aren't always the same number. We size the portfolio to both.",
+        "We don't try to predict the market. We don't move your money around because something happened on the news. We don't chase what worked last year. We don't promise returns we can't deliver, and we don't sell products that pay us more than they earn you."
+      ],
+      "walkaway": [
+        "A portfolio built around what your plan actually needs",
+        "The right level of risk for the work the money has to do",
+        "Investments coordinated with cash flow, taxes, and the rest of your financial life",
+        "A clear answer to \"why do I own what I own?\""
+      ]
+    },
+    "tax": {
+      "title": "Tax-Aware Planning",
+      "sub": "Most planning decisions have a tax impact. We treat them that way.",
+      "intro": "Taxes aren't a separate part of the plan. They run through every part of it. The work isn't to file your return. The work is to make sure the decisions inside your plan account for what they'll cost you — this year and in the years ahead.",
+      "heads": ["Why it matters", "What we are, and what we're not"],
+      "paras": [
+        "Almost every meaningful financial decision changes what you owe: when to take Social Security, which account to draw from first, how you handle a Roth conversion, a stock vesting, a business sale, an inheritance. Each one has a tax consequence — and the consequences compound. Get them right and the plan stretches further. Get them wrong and you can leave years of work on the table without realizing it.",
+        "We're financial planners, not tax preparers. We don't file your return, and we don't give formal tax advice. What we do is build the kind of plan that accounts for taxes at every step, and we work alongside your CPA where it makes sense so the planning and the filing line up. If you don't have a CPA, we can point you toward people we trust."
+      ],
+      "walkaway": [
+        "A plan built with the tax impact of every major decision already factored in",
+        "Decisions made on a long enough timeline to actually be the right ones",
+        "Coordination between your plan and your CPA",
+        "A clearer view of what your choices actually cost — not just this year, but over time"
+      ]
+    },
+    "legacy": {
+      "title": "Legacy",
+      "sub": "What you leave behind, and to whom, and how.",
+      "intro": "A legacy isn't just what's in the accounts when you're gone. It's the people you take care of, the causes you stand behind, and the way your life keeps showing up after you do.",
+      "heads": ["Why it belongs in the plan", "What we look at"],
+      "paras": [
+        "For most people, legacy gets put off. It feels far away. It feels uncomfortable. Later usually doesn't come. The result is families left with paperwork that doesn't reflect what their loved one actually wanted, money that ends up in the wrong place, taxes that didn't have to be paid, and decisions that have to be made in the middle of grief by people who shouldn't have to make them then. A plan that doesn't end well isn't a finished plan.",
+        "<strong style=\"color:var(--navy);\">The People.</strong> Who you want to take care of, and how — spouses, children, grandchildren, parents.",
+        "<strong style=\"color:var(--navy);\">The Causes.</strong> The churches, communities, organizations, and causes that have mattered to you while you were here.",
+        "<strong style=\"color:var(--navy);\">The Structure.</strong> The accounts, beneficiary designations, titling, and estate documents that determine where everything actually ends up. We make sure what's on paper matches what you actually want.",
+        "<strong style=\"color:var(--navy);\">The Conversation.</strong> What your family knows, doesn't know, and should know. Some of the hardest moments in estate transitions come not from the legal documents but from the assumptions that never got talked about."
+      ],
+      "walkaway": [
+        "A clear picture of who and what you want to take care of, and how",
+        "Accounts, beneficiaries, and titling that actually match your wishes",
+        "A coordinated plan between your finances and your estate documents",
+        "The clarity of knowing the people you love won't be left figuring it out alone"
+      ]
+    }
+  },
+  "coordinatedLabel": "One Plan, Coordinated",
+  "coordinatedHeading": "All six pieces are part of one plan.",
+  "coordinatedBody": "Cash flow affects investments. Investments affect taxes. Taxes affect what you can spend. Protection determines whether any of it survives the unexpected. Legacy is the final piece, but it's shaped by every decision that came before it. We treat them as one plan because that's what they are.",
+  "coordinatedButton": "Schedule a Clarity Call"
+}

@@ -1,0 +1,51 @@
+{
+  "hero": {
+    "eyebrow": "Purposeful Financial Planning",
+    "headlineLead": "Designed for your",
+    "headlineAccent": "one life",
+    "sub": "A financial plan isn't about ending up with the biggest number. It's about your money supporting the life you actually want to live — today and every year going forward.",
+    "ctaPrimary": "Schedule a Clarity Call",
+    "ctaSecondary": "See how we plan"
+  },
+  "whoWeServe": {
+    "heading": "We work with people who want their money to mean something.",
+    "body": "Whether you're just entering retirement, already there, or still building toward it, the work is the same. We help you turn what you've saved into income you can count on, decisions you feel good about, and a plan that supports your purpose — not someone else's."
+  },
+  "covers": {
+    "label": "What We Do",
+    "heading": "What a plan with us covers",
+    "sub": "Six pieces, one integrated plan. Each part coordinates with the others because that's what a real plan requires.",
+    "cards": [
+      { "title": "Liquidity & Cash Flow", "desc": "Understanding what your money is doing today, and designing future cash flow that supports your life for every year going forward." },
+      { "title": "Protection", "desc": "Life insurance, disability, long-term care, and the coverage in between. A plan that holds up no matter what life brings." },
+      { "title": "Investments", "desc": "Portfolios built to support the income your plan needs to produce — not the other way around." },
+      { "title": "Retirement Income", "desc": "A personalized strategy to turn your savings into a paycheck designed to last a lifetime." },
+      { "title": "Tax-Aware Planning", "desc": "Most planning decisions carry tax consequences. We weigh them every step of the way so they're built into the plan, not handled after the fact." },
+      { "title": "Legacy", "desc": "What you leave behind, and to whom, and how. Family, the people you love, the causes that matter to you." }
+    ]
+  },
+  "planPreview": {
+    "label": "How We Plan",
+    "heading": "Our planning process starts with you, not your accounts.",
+    "body": "It begins with a free Clarity Call to see if we're the right fit. From there, the work runs through five steps.",
+    "steps": [
+      { "title": "Clarify Your Vision", "desc": "What you want this life and this next season to look like." },
+      { "title": "Organize Your Financial Picture", "desc": "Where you are today, top to bottom." },
+      { "title": "Design Your Cash Flow Plan", "desc": "Income, growth, protection, legacy." },
+      { "title": "Put the Plan into Motion", "desc": "Open the accounts, make the moves." },
+      { "title": "Monitor and Adjust as Life Evolves", "desc": "An advisor who's still paying attention five, ten, twenty years from now." }
+    ]
+  },
+  "philosophy": {
+    "label": "Why We Exist",
+    "quote": "Money on its own doesn't mean much. What matters is what it lets you do, who it lets you take care of, and the life it helps you live.",
+    "body": "We started One Life Advisory because we believe a financial plan should start with purpose, not products. One plan. Built around your purpose. Designed to help you live the life you actually want.",
+    "button": "Our story →"
+  },
+  "finalCta": {
+    "label": "Get Started",
+    "heading": "Ready to build a plan with purpose?",
+    "sub": "The first step is a free Clarity Call. No pressure. No pitch.",
+    "button": "Schedule a Clarity Call"
+  }
+}

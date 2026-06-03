@@ -1,0 +1,48 @@
+{
+  "heroEyebrow": "Who We Help",
+  "heroTitle": "We help people who want their money to mean something.",
+  "heroSub": "The work changes depending on where you are in life. The starting point doesn't — we begin with what you want your money to be doing, then build the plan around it.",
+  "groups": [
+    {
+      "title": "In Retirement",
+      "p1": "You've spent decades saving. Now the question is different. It's not how do I build this — it's how do I use it without running out, without leaving too much on the table, and without spending the next thirty years worrying about it.",
+      "p2": "We help you turn what you've saved into reliable income, coordinate the moving pieces so they actually work together, and make sure the plan flexes as your life and the market do.",
+      "items": [
+        "A clear picture of how much income you can take, when, and from where",
+        "A protection plan that holds up if health changes or you need long-term care",
+        "Investments built to support the income the plan needs to produce",
+        "A legacy plan for what stays behind, and for whom",
+        "An advisor you can call when something happens"
+      ]
+    },
+    {
+      "title": "Approaching Retirement",
+      "p1": "The last five to ten years before retirement are the years that shape the next thirty. The decisions you make now — when to retire, how to draw down, what to do with the 401(k), when to take Social Security, how much risk to carry — set the floor and the ceiling for everything that comes after.",
+      "p2": "We help you map it out before you get there, so you walk into retirement with a plan instead of a question mark.",
+      "items": [
+        "A clear answer to \"can I actually retire when I want to?\"",
+        "A transition strategy for the years between your last paycheck and full retirement",
+        "A look at how to coordinate Social Security, pensions, and your own savings",
+        "A protection review while you still have the most options available",
+        "A plan that turns the years you have left into the most valuable planning years of your life"
+      ]
+    },
+    {
+      "title": "Still Building",
+      "p1": "You're in your earning years. Income is good. Saving is happening, mostly. But the financial picture has gotten complicated, and the gap between \"we're doing okay\" and \"we have a real plan\" is wider than it should be.",
+      "p2": "We help you build the plan now, while there's still time for it to compound.",
+      "items": [
+        "A cash flow plan that gives every dollar a job",
+        "A protection plan sized to the life you have and the people who depend on you",
+        "Investment guidance aligned with where you're going",
+        "A foundation that turns \"we're doing okay\" into a real, written plan",
+        "An advisor who grows with you instead of one you replace later"
+      ]
+    }
+  ],
+  "notFitHeading": "Who we're not the right fit for",
+  "notFitBody": "We're not the right fit for everyone, and that's okay. If you're looking for someone to pick hot stocks, beat the market, or hand you a product without understanding your life first — that's not the work we do. If you want a plan built around your purpose, with an advisor who'll be in your corner for the long run — that's exactly the work we do.",
+  "closingHeading": "Ready to see if we're a fit?",
+  "closingSub": "The first step is a free Clarity Call. No pressure. No pitch. Just a conversation to see if the work we do matches what you're looking for.",
+  "closingButton": "Schedule a Clarity Call"
+}

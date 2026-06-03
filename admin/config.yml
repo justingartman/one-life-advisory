@@ -1,0 +1,314 @@
+# ─────────────────────────────────────────────────────────────────────────
+# Decap CMS configuration — One Life Advisory
+#
+# BEFORE THIS WORKS, edit the two placeholders below:
+#   1. backend.repo     →  your-github-username/your-repo-name
+#   2. backend.base_url →  your live Vercel URL (e.g. https://onelife.vercel.app)
+# See CMS-SETUP.md for the full walkthrough (GitHub OAuth app + Vercel env vars).
+# ─────────────────────────────────────────────────────────────────────────
+
+backend:
+  name: github
+  repo: justingartman/one-life-advisory
+  branch: main                  # ← the branch the CMS commits to
+  base_url: https://one-life-advisory.vercel.app   # your deployed Vercel domain
+  auth_endpoint: api/auth       # our Vercel OAuth function (see /api/auth.js)
+  commit_messages:
+    create: 'Create {{collection}} "{{slug}}" (via CMS)'
+    update: 'Update {{collection}} "{{slug}}" (via CMS)'
+    delete: 'Delete {{collection}} "{{slug}}" (via CMS)'
+    uploadMedia: 'Upload "{{path}}" (via CMS)'
+    deleteMedia: 'Delete "{{path}}" (via CMS)'
+
+# Where uploaded images are stored in the repo, and how they're referenced on the site
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+# Simple publish (commits straight to the branch). Switch to "editorial_workflow"
+# later if you want a draft → review → publish flow via Pull Requests.
+publish_mode: simple
+
+collections:
+  # ───────────────────────── GLOBAL ─────────────────────────
+  - name: "global"
+    label: "Global — Nav, Footer & Contact"
+    description: "Brand-wide settings shown on every page."
+    editor: { preview: false }
+    files:
+      - name: "global"
+        label: "Global Settings"
+        file: "content/global.json"
+        fields:
+          - { name: brandName, label: "Brand Name", widget: string }
+          - { name: navCta, label: "Nav Button Label", widget: string }
+          - { name: clientLoginLabel, label: "Client Login Label", widget: string }
+          - { name: clientLoginUrl, label: "Client Login URL", widget: string, required: false }
+          - { name: contactEmail, label: "Contact Email", widget: string }
+          - { name: contactPhone, label: "Contact Phone", widget: string }
+          - { name: footerTagline, label: "Footer Tagline", widget: string }
+          - name: disclosures
+            label: "Footer Disclosure Paragraphs"
+            widget: list
+            field: { name: text, label: "Paragraph", widget: text }
+          - { name: copyright, label: "Copyright Line", widget: string }
+
+  # ───────────────────────── PAGES ─────────────────────────
+  - name: "pages"
+    label: "Pages"
+    description: "Page-by-page text content."
+    editor: { preview: false }
+    files:
+
+      # ---- HOME ----
+      - name: "home"
+        label: "Home Page"
+        file: "content/home.json"
+        fields:
+          - name: hero
+            label: "Hero"
+            widget: object
+            fields:
+              - { name: eyebrow, label: "Eyebrow", widget: string }
+              - { name: headlineLead, label: "Headline (lead words)", widget: string, hint: "e.g. 'Designed for your'" }
+              - { name: headlineAccent, label: "Headline (gold accent words)", widget: string, hint: "e.g. 'one life'" }
+              - { name: sub, label: "Subheadline", widget: text }
+              - { name: ctaPrimary, label: "Primary Button", widget: string }
+              - { name: ctaSecondary, label: "Secondary Button", widget: string }
+          - name: whoWeServe
+            label: "Who We Serve"
+            widget: object
+            fields:
+              - { name: heading, label: "Heading", widget: string }
+              - { name: body, label: "Body", widget: text }
+          - name: covers
+            label: "What a Plan Covers"
+            widget: object
+            fields:
+              - { name: label, label: "Eyebrow", widget: string }
+              - { name: heading, label: "Heading", widget: string }
+              - { name: sub, label: "Subheading", widget: text }
+              - name: cards
+                label: "Service Cards"
+                widget: list
+                fields:
+                  - { name: title, label: "Title", widget: string }
+                  - { name: desc, label: "Description", widget: text }
+          - name: planPreview
+            label: "How We Plan (preview)"
+            widget: object
+            fields:
+              - { name: label, label: "Eyebrow", widget: string }
+              - { name: heading, label: "Heading", widget: string }
+              - { name: body, label: "Body", widget: text }
+              - name: steps
+                label: "Steps"
+                widget: list
+                fields:
+                  - { name: title, label: "Title", widget: string }
+                  - { name: desc, label: "Description", widget: text }
+          - name: philosophy
+            label: "Why We Exist"
+            widget: object
+            fields:
+              - { name: label, label: "Eyebrow", widget: string }
+              - { name: quote, label: "Quote", widget: text }
+              - { name: body, label: "Body", widget: text }
+              - { name: button, label: "Button", widget: string }
+          - name: finalCta
+            label: "Closing CTA"
+            widget: object
+            fields:
+              - { name: label, label: "Eyebrow", widget: string }
+              - { name: heading, label: "Heading", widget: string }
+              - { name: sub, label: "Subheading", widget: text }
+              - { name: button, label: "Button", widget: string }
+
+      # ---- HOW WE PLAN ----
+      - name: "how-we-plan"
+        label: "How We Plan"
+        file: "content/how-we-plan.json"
+        fields:
+          - { name: heroEyebrow, label: "Header — Eyebrow", widget: string }
+          - { name: heroTitle, label: "Header — Title", widget: string }
+          - { name: heroSub, label: "Header — Subtitle", widget: text }
+          - { name: clarityLabel, label: "Clarity Call — Eyebrow", widget: string }
+          - { name: clarityHeading, label: "Clarity Call — Heading", widget: string }
+          - { name: clarityP1, label: "Clarity Call — Paragraph 1", widget: text }
+          - { name: clarityP2, label: "Clarity Call — Paragraph 2", widget: text }
+          - { name: clarityButton, label: "Clarity Call — Button", widget: string }
+          - name: steps
+            label: "Steps"
+            widget: list
+            fields:
+              - { name: title, label: "Title", widget: string }
+              - { name: p1, label: "Paragraph 1", widget: text, required: false }
+              - { name: p2, label: "Paragraph 2", widget: text, required: false }
+              - { name: p3, label: "Paragraph 3", widget: text, required: false }
+              - { name: outcome, label: "Outcome (italic line)", widget: text }
+          - { name: closingQuote, label: "Closing Quote", widget: text }
+          - { name: closingSub, label: "Closing Subtext", widget: text }
+          - { name: closingButton, label: "Closing Button", widget: string }
+
+      # ---- WHAT WE DO ----
+      - name: "what-we-do"
+        label: "What We Do"
+        file: "content/what-we-do.json"
+        fields:
+          - { name: heroEyebrow, label: "Header — Eyebrow", widget: string }
+          - { name: heroTitle, label: "Header — Title", widget: string }
+          - { name: heroSub, label: "Header — Subtitle", widget: text }
+          - { name: clarityLabel, label: "It Starts With Clarity — Eyebrow", widget: string }
+          - { name: clarityHeading, label: "It Starts With Clarity — Heading", widget: string }
+          - { name: clarityBody, label: "It Starts With Clarity — Body", widget: text }
+          - name: acc
+            label: "The Six Pieces (accordions)"
+            widget: object
+            collapsed: true
+            fields:
+              - { name: liquidity, label: "Liquidity & Cash Flow", widget: object, collapsed: true, fields: [
+                  { name: title, label: Title, widget: string },
+                  { name: sub, label: Subtitle, widget: string },
+                  { name: intro, label: Intro, widget: text },
+                  { name: heads, label: Subheadings, widget: list, field: { name: text, label: Subheading, widget: string } },
+                  { name: paras, label: Paragraphs, widget: list, field: { name: text, label: Paragraph, widget: text } },
+                  { name: walkaway, label: "Walk-away list", widget: list, field: { name: text, label: Item, widget: string } }
+                ] }
+              - { name: protection, label: "Protection", widget: object, collapsed: true, fields: [
+                  { name: title, label: Title, widget: string },
+                  { name: sub, label: Subtitle, widget: string },
+                  { name: intro, label: Intro, widget: text },
+                  { name: heads, label: Subheadings, widget: list, field: { name: text, label: Subheading, widget: string } },
+                  { name: paras, label: "Paragraphs (may contain HTML)", widget: list, field: { name: text, label: Paragraph, widget: text } },
+                  { name: walkaway, label: "Walk-away list", widget: list, field: { name: text, label: Item, widget: string } }
+                ] }
+              - { name: retirement, label: "Retirement Income", widget: object, collapsed: true, fields: [
+                  { name: title, label: Title, widget: string },
+                  { name: sub, label: Subtitle, widget: string },
+                  { name: intro, label: Intro, widget: text },
+                  { name: heads, label: Subheadings, widget: list, field: { name: text, label: Subheading, widget: string } },
+                  { name: paras, label: "Paragraphs (may contain HTML)", widget: list, field: { name: text, label: Paragraph, widget: text } },
+                  { name: walkaway, label: "Walk-away list", widget: list, field: { name: text, label: Item, widget: string } }
+                ] }
+              - { name: investments, label: "Investments", widget: object, collapsed: true, fields: [
+                  { name: title, label: Title, widget: string },
+                  { name: sub, label: Subtitle, widget: string },
+                  { name: intro, label: Intro, widget: text },
+                  { name: heads, label: Subheadings, widget: list, field: { name: text, label: Subheading, widget: string } },
+                  { name: paras, label: Paragraphs, widget: list, field: { name: text, label: Paragraph, widget: text } },
+                  { name: walkaway, label: "Walk-away list", widget: list, field: { name: text, label: Item, widget: string } }
+                ] }
+              - { name: tax, label: "Tax-Aware Planning", widget: object, collapsed: true, fields: [
+                  { name: title, label: Title, widget: string },
+                  { name: sub, label: Subtitle, widget: string },
+                  { name: intro, label: Intro, widget: text },
+                  { name: heads, label: Subheadings, widget: list, field: { name: text, label: Subheading, widget: string } },
+                  { name: paras, label: Paragraphs, widget: list, field: { name: text, label: Paragraph, widget: text } },
+                  { name: walkaway, label: "Walk-away list", widget: list, field: { name: text, label: Item, widget: string } }
+                ] }
+              - { name: legacy, label: "Legacy", widget: object, collapsed: true, fields: [
+                  { name: title, label: Title, widget: string },
+                  { name: sub, label: Subtitle, widget: string },
+                  { name: intro, label: Intro, widget: text },
+                  { name: heads, label: Subheadings, widget: list, field: { name: text, label: Subheading, widget: string } },
+                  { name: paras, label: "Paragraphs (may contain HTML)", widget: list, field: { name: text, label: Paragraph, widget: text } },
+                  { name: walkaway, label: "Walk-away list", widget: list, field: { name: text, label: Item, widget: string } }
+                ] }
+          - { name: coordinatedLabel, label: "One Plan Coordinated — Eyebrow", widget: string }
+          - { name: coordinatedHeading, label: "One Plan Coordinated — Heading", widget: string }
+          - { name: coordinatedBody, label: "One Plan Coordinated — Body", widget: text }
+          - { name: coordinatedButton, label: "One Plan Coordinated — Button", widget: string }
+
+      # ---- WHO WE HELP ----
+      - name: "who-we-help"
+        label: "Who We Help"
+        file: "content/who-we-help.json"
+        fields:
+          - { name: heroEyebrow, label: "Header — Eyebrow", widget: string }
+          - { name: heroTitle, label: "Header — Title", widget: string }
+          - { name: heroSub, label: "Header — Subtitle", widget: text }
+          - name: groups
+            label: "Client Groups"
+            widget: list
+            fields:
+              - { name: title, label: Title, widget: string }
+              - { name: p1, label: "Paragraph 1", widget: text }
+              - { name: p2, label: "Paragraph 2", widget: text }
+              - { name: items, label: "Bullet list", widget: list, field: { name: text, label: Item, widget: string } }
+          - { name: notFitHeading, label: "Not a Fit — Heading", widget: string }
+          - { name: notFitBody, label: "Not a Fit — Body", widget: text }
+          - { name: closingHeading, label: "Closing — Heading", widget: string }
+          - { name: closingSub, label: "Closing — Subtext", widget: text }
+          - { name: closingButton, label: "Closing — Button", widget: string }
+
+      # ---- ABOUT ----
+      - name: "about"
+        label: "About"
+        file: "content/about.json"
+        fields:
+          - { name: heroEyebrow, label: "Header — Eyebrow", widget: string }
+          - { name: heroTitle, label: "Header — Title", widget: string }
+          - { name: heroSub, label: "Header — Subtitle", widget: text }
+          - { name: whyHeading, label: "Why We Exist — Heading", widget: string }
+          - { name: whyP1, label: "Why We Exist — Paragraph 1", widget: text }
+          - { name: whyP2, label: "Why We Exist — Paragraph 2", widget: text }
+          - { name: believeLabel, label: "What We Believe — Eyebrow", widget: string }
+          - { name: believeHeading, label: "What We Believe — Heading", widget: string }
+          - name: beliefs
+            label: "Beliefs"
+            widget: list
+            fields:
+              - { name: title, label: Title, widget: string }
+              - { name: body, label: Body, widget: text }
+          - { name: differentLabel, label: "How We're Different — Eyebrow", widget: string }
+          - { name: differentHeading, label: "How We're Different — Heading", widget: string }
+          - { name: differentP1, label: "How We're Different — Paragraph 1", widget: text }
+          - { name: differentP2, label: "How We're Different — Paragraph 2", widget: text }
+          - { name: teamLabel, label: "Team — Eyebrow", widget: string }
+          - { name: teamHeading, label: "Team — Heading", widget: string }
+          - name: team
+            label: "Team Members"
+            widget: list
+            fields:
+              - { name: name, label: Name, widget: string }
+              - { name: role, label: Role / Credentials, widget: string }
+              - { name: bio, label: Bio, widget: text }
+          - { name: closingHeading, label: "Closing — Heading", widget: string }
+          - { name: closingSub, label: "Closing — Subtext", widget: text }
+          - { name: closingButton, label: "Closing — Button", widget: string }
+
+      # ---- FAQ ----
+      - name: "faq"
+        label: "FAQ"
+        file: "content/faq.json"
+        fields:
+          - { name: heroEyebrow, label: "Header — Eyebrow", widget: string }
+          - { name: heroTitle, label: "Header — Title", widget: string }
+          - { name: heroSub, label: "Header — Subtitle", widget: text }
+          - name: sections
+            label: "FAQ Sections"
+            widget: list
+            fields:
+              - { name: title, label: "Section Title", widget: string }
+              - name: items
+                label: "Questions"
+                widget: list
+                fields:
+                  - { name: q, label: Question, widget: string }
+                  - { name: a, label: Answer, widget: text }
+          - { name: closingNote, label: "Closing Note", widget: string }
+          - { name: closingButton, label: "Closing Button", widget: string }
+
+      # ---- SCHEDULE ----
+      - name: "schedule"
+        label: "Schedule"
+        file: "content/schedule.json"
+        fields:
+          - { name: heroEyebrow, label: "Header — Eyebrow", widget: string }
+          - { name: heroTitle, label: "Header — Title", widget: string }
+          - { name: heroSub, label: "Header — Subtitle", widget: text }
+          - name: features
+            label: "Highlights"
+            widget: list
+            fields:
+              - { name: title, label: Title, widget: string }
+              - { name: desc, label: Description, widget: text }

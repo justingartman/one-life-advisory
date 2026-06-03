@@ -1,0 +1,10 @@
+# Local preview helper (not needed on Vercel)
+serve.py
+
+# OS / editor cruft
+.DS_Store
+node_modules/
+.vercel
+
+# Local editor/agent tooling
+.claude/

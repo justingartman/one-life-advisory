@@ -1,0 +1,42 @@
+{
+  "heroEyebrow": "FAQ",
+  "heroTitle": "Questions worth answering before we ever get on a call.",
+  "heroSub": "If something isn't covered here, ask us on the Clarity Call. The whole point of that conversation is to make sure your questions get real answers.",
+  "sections": [
+    {
+      "title": "About Working With Us",
+      "items": [
+        { "q": "Who do you typically work with?", "a": "We work with people who want their money to mean something. That includes pre-retirees who are mapping out the next thirty years, retirees who want to make sure what they've built actually supports the life they want, and people still in their working years who want a real plan instead of a pile of accounts. The thread isn't a net worth number. It's people who want a plan that reflects what they care about and an advisor who actually pays attention." },
+        { "q": "Do you have a minimum?", "a": "We're more interested in whether we're the right fit for what you're trying to do than in a specific number. The Clarity Call is how we figure that out together." },
+        { "q": "Are you a fiduciary?", "a": "Yes. One Life Advisory is a Registered Investment Advisor, and we have a legal obligation to act in your best interest. It's not a marketing line — it's a standard. It also shapes how we work: when we make a recommendation, it's because the math is convenient for you, not for us." },
+        { "q": "How are you different from the advisor I already have?", "a": "The honest answer is that we might not be, and we'll tell you that on the call if that's what we see. Where we tend to be different is that we treat planning as the work and investments as one of the tools. A lot of advisors lead with the portfolio and add planning on the side. We lead with the plan, build everything around it, and coordinate the pieces other firms tend to leave to someone else. If that sounds like what you've been looking for, we should talk." }
+      ]
+    },
+    {
+      "title": "About the Process",
+      "items": [
+        { "q": "What is a Clarity Call?", "a": "A free, no-pressure conversation. Usually 20 to 30 minutes. You tell us what's on your mind. We tell you whether we can help and what working with us looks like. If we're not the right fit, we'll say so and point you toward someone who is. No pitch. No homework. No obligation to do anything next." },
+        { "q": "What happens after a Clarity Call?", "a": "If we both agree we're a fit, the work starts with Step 1 of our planning process: Clarify Your Vision. From there we organize your financial picture, design the plan, put it into motion, and stay with you as life changes." },
+        { "q": "How long does it take to build a plan?", "a": "Most plans take a few weeks from the first deep-dive meeting to a finished version we can act on. Some take longer if the financial picture is complicated, or if we're waiting on documents from other places. We move at the pace your situation actually requires — not a fixed timeline." },
+        { "q": "Do I have to move all my accounts to you?", "a": "Not necessarily. Some accounts we'll manage directly. Some make more sense to leave where they are. Some sit at an employer and can't be moved anyway. We work with what you actually have and figure out the right structure based on the plan — not based on what's convenient for us to manage." }
+      ]
+    },
+    {
+      "title": "About Fees",
+      "items": [
+        { "q": "How do you charge?", "a": "We walk through fees in detail on the Clarity Call so you know exactly what you're paying for and why. Our goal is for the relationship to be worth more than it costs — and that's the actual standard we hold ourselves to." },
+        { "q": "Are there any commissions or product-related compensation?", "a": "We'll be transparent about how we're compensated on the Clarity Call and in our disclosure documents. As a fiduciary, our obligation is to act in your best interest regardless of how any product is structured." }
+      ]
+    },
+    {
+      "title": "About What We Do and Don't Do",
+      "items": [
+        { "q": "Do you give tax advice?", "a": "We're not tax preparers, and we don't file returns. What we do is build plans that account for the tax impact of every meaningful decision, and we coordinate with your CPA so the planning and the filing line up. If you don't have a CPA, we can point you toward people we trust." },
+        { "q": "Do you handle estate planning?", "a": "We're not estate attorneys, and we don't draft documents. What we do is build the plan around what you want your legacy to look like, make sure every account, beneficiary, and title actually matches your wishes, and coordinate with the attorney who handles the documents. If you don't have one, we can point you toward people we trust." },
+        { "q": "What about my 401(k) at work?", "a": "Yes. Even though it stays at your employer's plan, it's still part of your financial picture and your plan. We help you think through contribution levels, investment selections inside the plan, how it fits with everything else you're saving and investing, and what to do with it when you eventually leave the employer." }
+      ]
+    }
+  ],
+  "closingNote": "Still have questions? Bring them to the Clarity Call.",
+  "closingButton": "Schedule a Clarity Call"
+}
