@@ -5,6 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>One Life Advisory — Designed for your one life.</title>
   <meta name="description" content="One Life Advisory is a Registered Investment Advisor. We build financial plans around your purpose — coordinating cash flow, investments, protection, and legacy into one integrated plan.">
+  <meta name="theme-color" content="#16243f">
+  <!-- Social link previews -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="One Life Advisory — Designed for your one life.">
+  <meta property="og:description" content="Purposeful financial planning. We build one integrated plan around the life you actually want to live.">
+  <meta property="og:url" content="https://one-life-advisory.vercel.app/">
+  <meta property="og:image" content="https://one-life-advisory.vercel.app/assets/hero.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="One Life Advisory — Designed for your one life.">
+  <meta name="twitter:description" content="Purposeful financial planning. One integrated plan, built around your purpose.">
+  <meta name="twitter:image" content="https://one-life-advisory.vercel.app/assets/hero.jpg">
+  <!-- Favicon: a small gold peak on navy -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='13' fill='%2316243f'/%3E%3Cpath d='M11 45 L26 21 L34 33 L43 19 L53 45 Z' fill='none' stroke='%23C9A876' stroke-width='3.2' stroke-linejoin='round'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -51,6 +64,9 @@
     a { color: inherit; text-decoration: none; }
     button { cursor: pointer; border: none; background: none; font: inherit; }
     ul { list-style: none; }
+    /* Keyboard focus: clear gold ring for keyboard users, none for mouse clicks */
+    :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 3px; }
+    :focus:not(:focus-visible) { outline: none; }
 
     /* ─── TYPOGRAPHY ─────────────────────────────────────────── */
     /* Display = Fraunces (optical-sized literary serif). Body = Hanken Grotesk. */
@@ -324,6 +340,7 @@
     .hero h1 .accent {
       position: relative; font-style: italic; color: var(--gold-lt); white-space: nowrap;
     }
+    .hero h1 .hero-dot { color: var(--gold-lt); }
     .hero h1 .accent svg {
       position: absolute; left: -1%; right: -1%; bottom: -.16em;
       width: 102%; height: .42em; color: var(--gold); overflow: visible;
@@ -917,7 +934,7 @@
     <div class="hero-scrim"></div>
     <div class="hero-inner">
       <div class="hero-eyebrow anim" data-cms="home.hero.eyebrow">Purposeful Financial Planning</div>
-      <h1 class="reveal-mask anim-delay-1"><span data-cms="home.hero.headlineLead">Designed for your</span> <span class="accent"><span data-cms="home.hero.headlineAccent">one life</span><svg viewBox="0 0 300 14" preserveAspectRatio="none" fill="none"><path pathLength="1" d="M4 9 C 60 3, 120 3, 182 7 S 268 11, 296 5" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/></svg></span>.</h1>
+      <h1 class="reveal-mask anim-delay-1"><span data-cms="home.hero.headlineLead">Designed for your</span> <span class="accent"><span data-cms="home.hero.headlineAccent">one life</span><svg viewBox="0 0 300 14" preserveAspectRatio="none" fill="none"><path pathLength="1" d="M4 9 C 60 3, 120 3, 182 7 S 268 11, 296 5" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/></svg></span><span class="hero-dot">.</span></h1>
       <p class="hero-sub anim anim-delay-2" data-cms="home.hero.sub">A financial plan isn't about ending up with the biggest number. It's about your money supporting the life you actually want to live — today and every year going forward.</p>
       <div class="hero-actions anim anim-delay-3">
         <button class="btn btn-primary" onclick="go('schedule')" data-cms="home.hero.ctaPrimary">Schedule a Clarity Call</button>
