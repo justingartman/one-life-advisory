@@ -7,7 +7,7 @@
   <meta name="description" content="One Life Advisory is a Registered Investment Advisor. We build financial plans around your purpose — coordinating cash flow, investments, protection, and legacy into one integrated plan.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     /* ─── TOKENS ─────────────────────────────────────────────── */
     :root {
@@ -27,18 +27,25 @@
       --shadow:    0 2px 12px rgba(27,48,84,.07);
       --shadow-lg: 0 8px 40px rgba(27,48,84,.11);
       --ease:      cubic-bezier(.4,0,.2,1);
+      --ease-expo: cubic-bezier(.16,1,.3,1);   /* slow, refined settle for reveals */
+      --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+      --font-body:    'Hanken Grotesk', system-ui, -apple-system, sans-serif;
       --hero-image: url('assets/hero.jpg');
+      /* Topographic contour motif — elevation lines of a peak (the site's signature mark) */
+      --topo: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='620' height='480' viewBox='0 0 620 480'%3E%3Cg fill='none' stroke='%23C9A876' stroke-width='1.2'%3E%3Cellipse cx='320' cy='250' rx='250' ry='165'/%3E%3Cellipse cx='311' cy='242' rx='203' ry='134'/%3E%3Cellipse cx='303' cy='234' rx='159' ry='105'/%3E%3Cellipse cx='296' cy='227' rx='117' ry='77'/%3E%3Cellipse cx='290' cy='221' rx='78' ry='51'/%3E%3Cellipse cx='285' cy='216' rx='43' ry='28'/%3E%3C/g%3E%3C/svg%3E");
     }
 
     /* ─── RESET ──────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; font-size: 16px; }
     body {
-      font-family: 'Inter', system-ui, sans-serif;
+      font-family: var(--font-body);
       background: var(--bg);
       color: var(--text);
       line-height: 1.7;
+      font-weight: 400;
       -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
     img { display: block; max-width: 100%; }
     a { color: inherit; text-decoration: none; }
@@ -46,13 +53,23 @@
     ul { list-style: none; }
 
     /* ─── TYPOGRAPHY ─────────────────────────────────────────── */
-    .serif { font-family: 'Playfair Display', Georgia, serif; }
-    h1,h2,h3,h4 { font-family: 'Playfair Display', Georgia, serif; line-height: 1.2; font-weight: 600; color: var(--text); }
-    h1 { font-size: clamp(2.4rem,5vw,4rem); }
-    h2 { font-size: clamp(1.8rem,3.5vw,2.6rem); }
-    h3 { font-size: clamp(1.2rem,2vw,1.5rem); font-weight: 500; }
-    h4 { font-size: 1.1rem; font-weight: 600; font-family: 'Inter', sans-serif; letter-spacing: .01em; }
-    p { color: var(--text2); font-size: 1.0625rem; line-height: 1.8; }
+    /* Display = Fraunces (optical-sized literary serif). Body = Hanken Grotesk. */
+    .serif { font-family: var(--font-display); }
+    h1,h2,h3 {
+      font-family: var(--font-display);
+      font-optical-sizing: auto;
+      font-variation-settings: "SOFT" 0, "WONK" 0;
+      line-height: 1.08;
+      font-weight: 500;
+      letter-spacing: -0.018em;
+      color: var(--text);
+    }
+    h1 { font-size: clamp(2.5rem,5.2vw,4.2rem); font-weight: 480; }
+    h2 { font-size: clamp(1.9rem,3.6vw,2.7rem); }
+    h3 { font-size: clamp(1.25rem,2vw,1.55rem); font-weight: 500; line-height: 1.18; letter-spacing: -0.01em; }
+    /* h4 stays in the grotesk — used for labels/small titles */
+    h4 { font-size: 1.05rem; font-weight: 600; font-family: var(--font-body); letter-spacing: -0.005em; line-height: 1.3; color: var(--text); }
+    p { color: var(--text2); font-size: 1.0625rem; line-height: 1.78; }
     .label {
       font-size: .75rem; font-weight: 600; letter-spacing: .12em;
       text-transform: uppercase; color: var(--gold);
@@ -77,18 +94,27 @@
       max-width: 1160px; margin: 0 auto; padding: 0 32px; height: 72px;
     }
     .nav-logo {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 1.15rem; font-weight: 600; color: var(--navy);
-      letter-spacing: .01em; cursor: pointer;
+      font-family: var(--font-display);
+      font-size: 1.2rem; font-weight: 500; color: var(--navy);
+      letter-spacing: -0.01em; cursor: pointer;
     }
     .nav-logo .brand-accent { color: var(--gold); }
     .nav-links { display: flex; align-items: center; gap: 8px; }
     .nav-links a {
-      font-size: .875rem; font-weight: 500; color: var(--text2);
-      padding: 8px 14px; border-radius: var(--radius);
-      transition: color 200ms, background 200ms;
+      position: relative;
+      font-size: .8125rem; font-weight: 500; letter-spacing: .01em; color: var(--text2);
+      padding: 8px 4px; margin: 0 10px;
+      transition: color 220ms var(--ease);
     }
-    .nav-links a:hover, .nav-links a.active { color: var(--navy); background: var(--bg2); }
+    /* hand-drawn-feeling underline that wipes in from the left */
+    .nav-links a:not(.nav-cta):not(.nav-login)::after {
+      content: ''; position: absolute; left: 4px; right: 4px; bottom: 2px; height: 1.5px;
+      background: var(--gold); transform: scaleX(0); transform-origin: left center;
+      transition: transform 340ms var(--ease-expo);
+    }
+    .nav-links a:not(.nav-cta):not(.nav-login):hover::after,
+    .nav-links a.active::after { transform: scaleX(1); }
+    .nav-links a:hover, .nav-links a.active { color: var(--navy); }
     .nav-cta {
       font-size: .875rem; font-weight: 600; color: var(--white) !important;
       background: var(--navy) !important; padding: 10px 20px !important;
@@ -108,8 +134,9 @@
     #nav.over-hero { background: linear-gradient(180deg, rgba(14,24,46,.45), transparent); }
     #nav.over-hero .nav-logo { color: #fff; }
     #nav.over-hero .nav-logo .brand-accent { color: var(--gold-lt); }
-    #nav.over-hero .nav-links a { color: rgba(255,255,255,.85); }
-    #nav.over-hero .nav-links a:hover, #nav.over-hero .nav-links a.active { color: #fff; background: rgba(255,255,255,.14); }
+    #nav.over-hero .nav-links a { color: rgba(255,255,255,.82); }
+    #nav.over-hero .nav-links a:hover, #nav.over-hero .nav-links a.active { color: #fff; }
+    #nav.over-hero .nav-links a::after { background: var(--gold-lt); }
     #nav.over-hero .nav-login { color: rgba(255,255,255,.82); }
     #nav.over-hero .nav-login:hover { color: #fff; background: rgba(255,255,255,.14); }
     #nav.over-hero .nav-cta { background: rgba(255,255,255,.16) !important; border: 1px solid rgba(255,255,255,.32); backdrop-filter: blur(6px); }
@@ -137,36 +164,49 @@
     }
     .nav-drawer.open { transform: translateX(0); }
     .nav-drawer a {
-      display: block; font-size: 1.1rem; font-weight: 500;
-      color: var(--text); padding: 14px 0;
+      display: block; font-family: var(--font-display);
+      font-size: 1.65rem; font-weight: 480; letter-spacing: -0.015em;
+      color: var(--navy); padding: 18px 0;
       border-bottom: 1px solid var(--border);
     }
     .nav-drawer .nav-cta {
-      margin-top: 16px; display: block; text-align: center;
+      margin-top: 24px; display: block; text-align: center;
+      font-family: var(--font-body); font-weight: 600;
       background: var(--navy) !important; color: var(--white) !important;
-      padding: 16px !important; border-radius: var(--radius) !important;
-      font-size: 1rem !important; border-bottom: none !important;
+      padding: 18px !important; border-radius: var(--radius) !important;
+      font-size: 1rem !important; letter-spacing: 0; border-bottom: none !important;
     }
 
     /* ─── PAGE SYSTEM ────────────────────────────────────────── */
-    .page { display: none; }
+    .page { display: none; position: relative; }
     .page.active { display: block; }
 
     /* ─── ANIMATIONS ─────────────────────────────────────────── */
     @media (prefers-reduced-motion: no-preference) {
+      /* Default reveal: a quiet rise on a slow expo curve (not a generic fade-up). */
       .anim {
-        opacity: 0; transform: translateY(24px);
-        transition: opacity 600ms var(--ease), transform 600ms var(--ease);
+        opacity: 0; transform: translateY(14px);
+        transition: opacity 900ms var(--ease-expo), transform 900ms var(--ease-expo);
+        will-change: opacity, transform;
       }
       .anim.visible { opacity: 1; transform: translateY(0); }
-      .anim-delay-1 { transition-delay: 120ms; }
-      .anim-delay-2 { transition-delay: 240ms; }
-      .anim-delay-3 { transition-delay: 360ms; }
-      .anim-delay-4 { transition-delay: 480ms; }
-      .anim-delay-5 { transition-delay: 600ms; }
+      .anim-delay-1 { transition-delay: 90ms; }
+      .anim-delay-2 { transition-delay: 180ms; }
+      .anim-delay-3 { transition-delay: 270ms; }
+      .anim-delay-4 { transition-delay: 360ms; }
+      .anim-delay-5 { transition-delay: 450ms; }
+
+      /* Headline mask-reveal: type rises from behind an edge instead of fading. */
+      .reveal-mask {
+        clip-path: inset(0 -8% 102% -8%);
+        transform: translateY(0.18em);
+        transition: clip-path 1100ms var(--ease-expo), transform 1100ms var(--ease-expo), opacity 600ms var(--ease-expo);
+        will-change: clip-path, transform;
+      }
+      .reveal-mask.visible { clip-path: inset(-12% -8% -12% -8%); transform: translateY(0); }
     }
     @media (prefers-reduced-motion: reduce) {
-      .anim { opacity: 1; transform: none; }
+      .anim, .reveal-mask { opacity: 1; transform: none; clip-path: none; }
     }
 
     /* ─── PAGE FADE ──────────────────────────────────────────── */
@@ -175,17 +215,26 @@
 
     /* ─── BUTTONS ────────────────────────────────────────────── */
     .btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-size: .9375rem; font-weight: 600; padding: 14px 28px;
-      border-radius: var(--radius); cursor: pointer;
-      transition: background 200ms, transform 150ms, box-shadow 200ms;
+      display: inline-flex; align-items: center; gap: 9px;
+      font-family: var(--font-body);
+      font-size: .9375rem; font-weight: 600; letter-spacing: .005em;
+      padding: 14px 28px; border-radius: var(--radius); cursor: pointer;
+      transition: background 260ms var(--ease), color 260ms var(--ease),
+                  transform 400ms var(--ease-expo), box-shadow 400ms var(--ease-expo), border-color 260ms;
     }
     .btn:hover { transform: translateY(-2px); }
+    .btn:active { transform: translateY(0); transition-duration: 80ms; }
+    /* outline buttons get an arrow that nudges forward on hover */
+    .btn-outline::after {
+      content: '\2192'; /* → */ display: inline-block; margin-left: -2px;
+      transition: transform 400ms var(--ease-expo);
+    }
+    .btn-outline:hover::after { transform: translateX(5px); }
     .btn-primary {
       background: var(--navy); color: var(--white);
       box-shadow: 0 4px 16px rgba(27,48,84,.2);
     }
-    .btn-primary:hover { background: var(--navy2); box-shadow: 0 8px 24px rgba(27,48,84,.28); }
+    .btn-primary:hover { background: var(--navy2); box-shadow: 0 10px 30px rgba(27,48,84,.30); }
     .btn-outline {
       background: transparent; color: var(--navy);
       border: 1.5px solid var(--navy);
@@ -235,17 +284,38 @@
       background:
         linear-gradient(180deg, rgba(14,24,46,.34) 0%, rgba(14,24,46,.04) 28%, rgba(14,24,46,.40) 72%, rgba(14,24,46,.86) 100%);
     }
+    /* "Clarity emerging": a band of mist over the cloud-sea that lifts and clears as
+       you scroll. Sits BEHIND the scrim (z-2) so it never reduces text contrast. */
+    .hero-fog {
+      position: absolute; inset: 0; z-index: -2; pointer-events: none;
+      background: linear-gradient(to top,
+        rgba(225,229,236,.18) 0%,
+        rgba(227,231,238,.62) 22%,
+        rgba(233,236,241,.86) 42%,
+        rgba(235,238,242,.92) 52%,
+        rgba(230,233,239,.66) 66%,
+        rgba(226,230,237,.30) 80%,
+        rgba(224,228,235,.08) 100%);
+      opacity: 1; transform: translateY(0);
+      transition: opacity 2600ms var(--ease-expo), transform 2800ms var(--ease-expo);
+      will-change: opacity, transform;
+    }
+    /* On arrival the fog lifts and clears — clarity emerging from the cloud sea. */
+    .hero-fog.lifted { opacity: .10; transform: translateY(-7%); }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-fog { opacity: .18 !important; transform: none !important; transition: none; }
+    }
     .hero-inner {
       width: 100%; max-width: 1160px; margin: 0 auto;
       padding: 0 32px 104px; position: relative; z-index: 1;
     }
     .hero-eyebrow {
-      display: inline-flex; align-items: center; gap: 12px;
-      font-size: .75rem; font-weight: 600; letter-spacing: .2em;
-      text-transform: uppercase; color: var(--gold-lt);
-      margin-bottom: 24px;
+      display: inline-flex; align-items: center; gap: 14px;
+      font-size: .95rem; font-weight: 600; letter-spacing: .12em;
+      text-transform: uppercase; color: #E8D4B5;
+      margin-bottom: 22px; text-shadow: 0 1px 14px rgba(0,0,0,.45);
     }
-    .hero-eyebrow::before { content: ''; width: 30px; height: 1px; background: var(--gold-lt); opacity: .65; }
+    .hero-eyebrow::before { content: ''; width: 34px; height: 1.5px; background: #E8D4B5; opacity: .8; }
     .hero h1 {
       color: #fff; max-width: 15ch; margin-bottom: 24px;
       font-size: clamp(2.6rem, 6vw, 4.7rem); line-height: 1.06;
@@ -260,7 +330,8 @@
     }
     .hero h1 .accent path { stroke-dasharray: 1; stroke-dashoffset: 1; }
     @media (prefers-reduced-motion: no-preference) {
-      .hero h1.anim .accent path { transition: stroke-dashoffset 1000ms var(--ease) 650ms; }
+      /* Slow, deliberate hand-drawn underline — starts after the headline settles */
+      .hero h1 .accent path { transition: stroke-dashoffset 2000ms cubic-bezier(.45,.05,.25,1) 1100ms; }
     }
     .hero h1.visible .accent path { stroke-dashoffset: 0; }
     .hero-sub {
@@ -287,6 +358,14 @@
       position: relative; min-height: 46vh;
       display: flex; align-items: flex-end; overflow: hidden; isolation: isolate;
     }
+    /* Topographic contour mark on every interior header (signature identity) */
+    .page-hero .hero-atmos::after {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: var(--topo) no-repeat;
+      background-position: 118% 34%;
+      background-size: 62% auto;
+      opacity: .16;
+    }
     .page-hero .hero-scrim {
       background: linear-gradient(180deg, rgba(14,24,46,.62) 0%, rgba(14,24,46,.38) 44%, rgba(14,24,46,.82) 100%);
     }
@@ -306,6 +385,31 @@
     @media (max-width: 768px) {
       .page-hero { min-height: 40vh; }
       .page-hero-inner { padding: 104px 20px 36px; }
+    }
+
+    /* ─── THE THROUGHLINE ──────────────────────────────────────
+       A finite gold path that draws down the left margin as you scroll and
+       curves in to point at the Clarity Call — guiding you to the first step.
+       Positioned in JS (see layoutThroughline). Desktop only. */
+    .throughline, .tl-cap { display: none; }
+    @media (min-width: 1240px) and (prefers-reduced-motion: no-preference) {
+      .throughline {
+        display: block; position: absolute; top: 0; left: 0;
+        z-index: 5; pointer-events: none; overflow: visible;
+      }
+      #tl-track { stroke: rgba(27,48,84,.09); stroke-width: 2; }
+      #tl-draw  {
+        stroke: var(--gold); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+        filter: drop-shadow(0 0 4px rgba(184,149,106,.45));
+      }
+      #tl-head  { fill: var(--gold-lt); filter: drop-shadow(0 0 7px rgba(184,149,106,.85)); }
+      .tl-cap {
+        display: block; position: absolute; z-index: 6; pointer-events: none;
+        writing-mode: vertical-rl;
+        font-family: var(--font-body); font-size: .8rem; font-weight: 600;
+        letter-spacing: .26em; text-transform: uppercase; color: var(--gold);
+        white-space: nowrap; opacity: .85;
+      }
     }
 
     /* ─── SECTION HEADER ─────────────────────────────────────── */
@@ -364,7 +468,7 @@
       width: 64px; height: 64px; border-radius: 50%;
       border: 1.5px solid var(--border);
       display: flex; align-items: center; justify-content: center;
-      font-family: 'Playfair Display', serif;
+      font-family: var(--font-display);
       font-size: 1.25rem; font-weight: 600; color: var(--navy);
       background: var(--white); flex-shrink: 0; position: relative; z-index: 1;
     }
@@ -392,7 +496,7 @@
     .acc-trigger.open .acc-sub { color: rgba(255,255,255,.6); }
     .acc-trigger.open .acc-icon { color: var(--gold-lt); transform: rotate(180deg); }
     .acc-title {
-      font-family: 'Playfair Display', serif;
+      font-family: var(--font-display);
       font-size: 1.15rem; font-weight: 600; color: var(--navy);
       text-align: left;
     }
@@ -471,7 +575,7 @@
     }
     .belief:first-child { padding-top: 0; }
     .belief-num {
-      font-family: 'Playfair Display', serif;
+      font-family: var(--font-display);
       font-size: 1.5rem; font-weight: 700; color: var(--gold);
       padding-top: 2px;
     }
@@ -509,13 +613,13 @@
       background: var(--navy); position: relative; overflow: hidden;
     }
     .philosophy::before {
-      content: '"'; font-family: 'Playfair Display', serif;
+      content: '"'; font-family: var(--font-display);
       font-size: 20rem; line-height: 1; color: rgba(255,255,255,.03);
       position: absolute; top: -60px; left: 50%;
       transform: translateX(-50%); pointer-events: none;
     }
     .philosophy blockquote {
-      font-family: 'Playfair Display', serif;
+      font-family: var(--font-display);
       font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 400;
       font-style: italic; color: var(--white); line-height: 1.6;
       max-width: 800px; margin: 0 auto 32px; position: relative;
@@ -575,7 +679,7 @@
     }
     .footer-brand { }
     .footer-logo {
-      font-family: 'Playfair Display', serif; font-size: 1.1rem;
+      font-family: var(--font-display); font-size: 1.1rem;
       font-weight: 600; color: var(--white); margin-bottom: 12px;
     }
     .footer-logo .brand-accent { color: var(--gold); }
@@ -627,7 +731,7 @@
     .pp-num {
       flex-shrink: 0; width: 36px; height: 36px; border-radius: 50%;
       border: 1.5px solid var(--border); display: flex; align-items: center; justify-content: center;
-      font-family: 'Playfair Display', serif; font-size: .9rem;
+      font-family: var(--font-display); font-size: .9rem;
       font-weight: 600; color: var(--navy); background: var(--white);
     }
     .pp-body h4 { margin-bottom: 4px; }
@@ -636,7 +740,7 @@
     /* ─── STATS ──────────────────────────────────────────────── */
     .stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); }
     .stat { background: var(--white); padding: 40px 32px; text-align: center; }
-    .stat-num { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 700; color: var(--navy); }
+    .stat-num { font-family: var(--font-display); font-size: 2.5rem; font-weight: 700; color: var(--navy); }
     .stat-label { font-size: .875rem; color: var(--text2); margin-top: 6px; }
 
     /* ─── IMAGE PLACEHOLDERS ─────────────────────────────────── */
@@ -706,33 +810,56 @@
     }
 
     /* ─── RESPONSIVE ─────────────────────────────────────────── */
+    /* ─── RESPONSIVE ─────────────────────────────────────────────
+       Mobile is designed, not shrunk: nav collapses before it can crowd,
+       the hero is recomposed for portrait, type is recalibrated, and
+       primary actions become full-width thumb targets. */
     @media (max-width: 1024px) {
       .cards-grid { grid-template-columns: repeat(2,1fr); }
-      .who-grid { grid-template-columns: repeat(2,1fr); }
-      .team-grid { grid-template-columns: repeat(3,1fr); }
-      .footer-top { grid-template-columns: 1fr 1fr; }
-      .hero-inner { grid-template-columns: 1fr; gap: 64px; }
-      .hero-figure { display: none; }
+      .who-grid   { grid-template-columns: 1fr; }
+      .team-grid  { grid-template-columns: repeat(3,1fr); }
+      .footer-top { grid-template-columns: 1.4fr 1fr 1fr; }
       .schedule-grid { grid-template-columns: 1fr; gap: 48px; }
     }
-    @media (max-width: 768px) {
-      .container, .container-sm { padding: 0 20px; }
-      .section { padding: 64px 0; }
-      .cards-grid { grid-template-columns: 1fr; }
-      .who-grid { grid-template-columns: 1fr; }
-      .team-grid { grid-template-columns: 1fr; }
-      .stats { grid-template-columns: repeat(3,1fr); }
+    /* Collapse to the mobile menu well before the desktop nav would wrap. */
+    @media (max-width: 920px) {
       .nav-links { display: none; }
       .hamburger { display: flex; }
       .nav-drawer { display: flex; }
-      .footer-top { grid-template-columns: 1fr; gap: 32px; }
+    }
+    @media (max-width: 768px) {
+      .container, .container-sm { padding: 0 22px; }
+      .section { padding: 68px 0; }
+      .section-sm { padding: 52px 0; }
+      .cards-grid { grid-template-columns: 1fr; }
+      .team-grid  { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; gap: 36px; }
       .footer-bottom { flex-direction: column; gap: 16px; align-items: flex-start; }
       .stats { grid-template-columns: 1fr; }
+
+      /* Hero — recomposed for a tall screen */
+      .hero { min-height: 90svh; }
+      .hero-bg, .hero-atmos { background-position: 66% 30%; }  /* hold the peaks + warm light */
+      .hero-inner { padding: 0 22px 64px; }
+      .hero h1 { font-size: clamp(2.5rem, 11.5vw, 3.4rem); line-height: 1.05; letter-spacing: -0.02em; }
+      .hero-sub { font-size: 1.0625rem; max-width: 34ch; line-height: 1.7; }
+      .hero-eyebrow { font-size: .82rem; letter-spacing: .1em; margin-bottom: 18px; }
+      .hero-actions { flex-direction: column; align-items: stretch; gap: 12px; width: 100%; max-width: 360px; }
+      .hero-actions .btn { width: 100%; justify-content: center; padding: 16px 24px; }
+
+      /* Interior page headers */
+      .page-hero { min-height: 38svh; }
+      .page-hero-inner { padding: 100px 22px 34px; }
+
+      /* Comfortable touch rhythm */
+      .accordion .acc-trigger { padding-top: 22px; padding-bottom: 22px; }
+      .btn { padding: 15px 24px; }
     }
     @media (max-width: 480px) {
-      h1 { font-size: 2.2rem; }
-      .hero-inner { padding: 60px 20px; }
-      .btn { padding: 13px 22px; font-size: .875rem; }
+      .container, .container-sm { padding: 0 18px; }
+      .section { padding: 56px 0; }
+      .hero h1 { font-size: clamp(2.25rem, 12.5vw, 3rem); }
+      .hero-inner { padding: 0 18px 56px; }
     }
   </style>
 </head>
@@ -774,14 +901,23 @@
 <!-- ── HOME ─────────────────────────────────────────────────────────────── -->
 <div class="page active" id="page-home">
 
+  <!-- The throughline: a finite path that draws down the margin and curves to the CTA -->
+  <svg class="throughline" id="tl-svg" aria-hidden="true" fill="none">
+    <path id="tl-track"></path>
+    <path id="tl-draw"></path>
+    <circle id="tl-head" r="5.5" style="opacity:0"></circle>
+  </svg>
+  <div class="tl-cap" id="tl-cap" aria-hidden="true" data-cms="global.throughlineCap">The plan, forward</div>
+
   <section class="hero has-photo" id="home-hero">
     <!-- Background photo comes from the --hero-image token (assets/hero.jpg). Swap that file or the token to change it. -->
     <div class="hero-bg" data-cms-bg="home.heroImage"></div>
+    <div class="hero-fog" id="hero-fog"></div>
     <div class="hero-atmos"></div>
     <div class="hero-scrim"></div>
     <div class="hero-inner">
       <div class="hero-eyebrow anim" data-cms="home.hero.eyebrow">Purposeful Financial Planning</div>
-      <h1 class="anim anim-delay-1"><span data-cms="home.hero.headlineLead">Designed for your</span> <span class="accent"><span data-cms="home.hero.headlineAccent">one life</span><svg viewBox="0 0 300 14" preserveAspectRatio="none" fill="none"><path pathLength="1" d="M4 9 C 60 3, 120 3, 182 7 S 268 11, 296 5" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/></svg></span>.</h1>
+      <h1 class="reveal-mask anim-delay-1"><span data-cms="home.hero.headlineLead">Designed for your</span> <span class="accent"><span data-cms="home.hero.headlineAccent">one life</span><svg viewBox="0 0 300 14" preserveAspectRatio="none" fill="none"><path pathLength="1" d="M4 9 C 60 3, 120 3, 182 7 S 268 11, 296 5" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/></svg></span>.</h1>
       <p class="hero-sub anim anim-delay-2" data-cms="home.hero.sub">A financial plan isn't about ending up with the biggest number. It's about your money supporting the life you actually want to live — today and every year going forward.</p>
       <div class="hero-actions anim anim-delay-3">
         <button class="btn btn-primary" onclick="go('schedule')" data-cms="home.hero.ctaPrimary">Schedule a Clarity Call</button>
@@ -797,7 +933,7 @@
   <section class="section bg-alt">
     <div class="container-sm" style="text-align:center;">
       <div class="divider divider-center anim"></div>
-      <h2 class="anim anim-delay-1" data-cms="home.whoWeServe.heading">We work with people who want their money to mean something.</h2>
+      <h2 class="reveal-mask anim-delay-1" data-cms="home.whoWeServe.heading">We work with people who want their money to mean something.</h2>
       <p class="anim anim-delay-2" style="margin:20px auto 0;font-size:1.125rem;" data-cms="home.whoWeServe.body">Whether you're just entering retirement, already there, or still building toward it, the work is the same. We help you turn what you've saved into income you can count on, decisions you feel good about, and a plan that supports your purpose — not someone else's.</p>
     </div>
   </section>
@@ -913,9 +1049,9 @@
   <section class="cta-band">
     <div class="container-sm">
       <div class="label anim" data-cms="home.finalCta.label">Get Started</div>
-      <h2 class="anim anim-delay-1" data-cms="home.finalCta.heading">Ready to build a plan with purpose?</h2>
+      <h2 class="reveal-mask anim-delay-1" data-cms="home.finalCta.heading">Ready to build a plan with purpose?</h2>
       <p class="anim anim-delay-2" data-cms="home.finalCta.sub">The first step is a free Clarity Call. No pressure. No pitch.</p>
-      <button class="btn btn-primary anim anim-delay-3" onclick="go('schedule')" data-cms="home.finalCta.button">Schedule a Clarity Call</button>
+      <button class="btn btn-primary anim anim-delay-3" id="home-cta-btn" onclick="go('schedule')" data-cms="home.finalCta.button">Schedule a Clarity Call</button>
     </div>
   </section>
 
@@ -928,7 +1064,7 @@
     <div class="hero-bg"></div><div class="hero-atmos"></div><div class="hero-scrim"></div>
     <div class="page-hero-inner">
       <div class="hero-eyebrow anim" data-cms="how_we_plan.heroEyebrow">The Future Cash Flow Process</div>
-      <h1 class="anim anim-delay-1" data-cms="how_we_plan.heroTitle">How we plan.</h1>
+      <h1 class="reveal-mask anim-delay-1" data-cms="how_we_plan.heroTitle">How we plan.</h1>
       <p class="page-hero-sub anim anim-delay-2" data-cms="how_we_plan.heroSub">A personalized process to turn your savings into lifetime income — designed around the life you actually want to live, every year going forward.</p>
     </div>
   </section>
@@ -1023,7 +1159,7 @@
     <div class="hero-bg"></div><div class="hero-atmos"></div><div class="hero-scrim"></div>
     <div class="page-hero-inner">
       <div class="hero-eyebrow anim" data-cms="what_we_do.heroEyebrow">What We Do</div>
-      <h1 class="anim anim-delay-1" data-cms="what_we_do.heroTitle">One plan. Built around your purpose.</h1>
+      <h1 class="reveal-mask anim-delay-1" data-cms="what_we_do.heroTitle">One plan. Built around your purpose.</h1>
       <p class="page-hero-sub anim anim-delay-2" data-cms="what_we_do.heroSub">Not six separate services — one integrated plan with six parts that talk to each other, all built on what you want your money to do.</p>
     </div>
   </section>
@@ -1058,7 +1194,7 @@
               <div class="acc-subhead" data-cms="what_we_do.acc.liquidity.heads.2">How liquidity fits in</div>
               <p data-cms="what_we_do.acc.liquidity.paras.2">Not every dollar should be invested for the long term, and not every dollar should be sitting idle in cash. The right balance depends on your income, your obligations, your risk tolerance, and what you might need to do in the next month, the next year, and the next five years. Liquidity isn't exciting. It's the thing that lets you say yes to opportunities and absorb the things you didn't see coming — without having to dismantle the rest of the plan to do it.</p>
               <div class="acc-walkaway">
-                <h4>What you walk away with</h4>
+                <h4 data-cms="what_we_do.walkawayLabel">What you walk away with</h4>
                 <ul>
                   <li data-cms="what_we_do.acc.liquidity.walkaway.0">A clear picture of where your money is going today</li>
                   <li data-cms="what_we_do.acc.liquidity.walkaway.1">A plan for where it's going from here, year by year</li>
@@ -1089,7 +1225,7 @@
               <p data-cms="what_we_do.acc.protection.paras.3" data-cms-html><strong style="color:var(--navy);">Long-Term Care.</strong> The cost of care later in life is one of the biggest unplanned expenses people face. We look at how to plan for it — through insurance, dedicated assets, or a combination.</p>
               <p data-cms="what_we_do.acc.protection.paras.4" data-cms-html><strong style="color:var(--navy);">Other Coverage.</strong> Property, liability, umbrella, and the policies that don't always get a second look. We make sure what you have lines up with the life you actually live.</p>
               <div class="acc-walkaway">
-                <h4>What you walk away with</h4>
+                <h4 data-cms="what_we_do.walkawayLabel">What you walk away with</h4>
                 <ul>
                   <li data-cms="what_we_do.acc.protection.walkaway.0">A clear picture of every risk that could affect your plan</li>
                   <li data-cms="what_we_do.acc.protection.walkaway.1">Coverage sized to your actual life and the people who depend on you</li>
@@ -1121,7 +1257,7 @@
               <div class="acc-subhead" data-cms="what_we_do.acc.retirement.heads.2">How we stress-test it</div>
               <p data-cms="what_we_do.acc.retirement.paras.4">We test against bad market years early in retirement, higher inflation, living longer than you expect, and the kinds of events that have actually broken retirement plans in the past. The plan you walk away with isn't a forecast. It's a plan built to flex.</p>
               <div class="acc-walkaway">
-                <h4>What you walk away with</h4>
+                <h4 data-cms="what_we_do.walkawayLabel">What you walk away with</h4>
                 <ul>
                   <li data-cms="what_we_do.acc.retirement.walkaway.0">A clear answer to "can I retire when I want to, and how do I know?"</li>
                   <li data-cms="what_we_do.acc.retirement.walkaway.1">A year-by-year picture of where your income comes from</li>
@@ -1151,7 +1287,7 @@
               <div class="acc-subhead" data-cms="what_we_do.acc.investments.heads.2">What we don't do</div>
               <p data-cms="what_we_do.acc.investments.paras.2">We don't try to predict the market. We don't move your money around because something happened on the news. We don't chase what worked last year. We don't promise returns we can't deliver, and we don't sell products that pay us more than they earn you.</p>
               <div class="acc-walkaway">
-                <h4>What you walk away with</h4>
+                <h4 data-cms="what_we_do.walkawayLabel">What you walk away with</h4>
                 <ul>
                   <li data-cms="what_we_do.acc.investments.walkaway.0">A portfolio built around what your plan actually needs</li>
                   <li data-cms="what_we_do.acc.investments.walkaway.1">The right level of risk for the work the money has to do</li>
@@ -1179,7 +1315,7 @@
               <div class="acc-subhead" data-cms="what_we_do.acc.tax.heads.1">What we are, and what we're not</div>
               <p data-cms="what_we_do.acc.tax.paras.1">We're financial planners, not tax preparers. We don't file your return, and we don't give formal tax advice. What we do is build the kind of plan that accounts for taxes at every step, and we work alongside your CPA where it makes sense so the planning and the filing line up. If you don't have a CPA, we can point you toward people we trust.</p>
               <div class="acc-walkaway">
-                <h4>What you walk away with</h4>
+                <h4 data-cms="what_we_do.walkawayLabel">What you walk away with</h4>
                 <ul>
                   <li data-cms="what_we_do.acc.tax.walkaway.0">A plan built with the tax impact of every major decision already factored in</li>
                   <li data-cms="what_we_do.acc.tax.walkaway.1">Decisions made on a long enough timeline to actually be the right ones</li>
@@ -1210,7 +1346,7 @@
               <p data-cms="what_we_do.acc.legacy.paras.3" data-cms-html><strong style="color:var(--navy);">The Structure.</strong> The accounts, beneficiary designations, titling, and estate documents that determine where everything actually ends up. We make sure what's on paper matches what you actually want.</p>
               <p data-cms="what_we_do.acc.legacy.paras.4" data-cms-html><strong style="color:var(--navy);">The Conversation.</strong> What your family knows, doesn't know, and should know. Some of the hardest moments in estate transitions come not from the legal documents but from the assumptions that never got talked about.</p>
               <div class="acc-walkaway">
-                <h4>What you walk away with</h4>
+                <h4 data-cms="what_we_do.walkawayLabel">What you walk away with</h4>
                 <ul>
                   <li data-cms="what_we_do.acc.legacy.walkaway.0">A clear picture of who and what you want to take care of, and how</li>
                   <li data-cms="what_we_do.acc.legacy.walkaway.1">Accounts, beneficiaries, and titling that actually match your wishes</li>
@@ -1243,7 +1379,7 @@
     <div class="hero-bg"></div><div class="hero-atmos"></div><div class="hero-scrim"></div>
     <div class="page-hero-inner">
       <div class="hero-eyebrow anim" data-cms="who_we_help.heroEyebrow">Who We Help</div>
-      <h1 class="anim anim-delay-1" data-cms="who_we_help.heroTitle">We help people who want their money to mean something.</h1>
+      <h1 class="reveal-mask anim-delay-1" data-cms="who_we_help.heroTitle">We help people who want their money to mean something.</h1>
       <p class="page-hero-sub anim anim-delay-2" data-cms="who_we_help.heroSub">The work changes depending on where you are in life. The starting point doesn't — we begin with what you want your money to be doing, then build the plan around it.</p>
     </div>
   </section>
@@ -1315,7 +1451,7 @@
     <div class="hero-bg"></div><div class="hero-atmos"></div><div class="hero-scrim"></div>
     <div class="page-hero-inner">
       <div class="hero-eyebrow anim" data-cms="about.heroEyebrow">About</div>
-      <h1 class="anim anim-delay-1" data-cms="about.heroTitle">A financial plan should start with your life, not your accounts.</h1>
+      <h1 class="reveal-mask anim-delay-1" data-cms="about.heroTitle">A financial plan should start with your life, not your accounts.</h1>
       <p class="page-hero-sub anim anim-delay-2" data-cms="about.heroSub">One Life Advisory was built around that idea.</p>
     </div>
   </section>
@@ -1440,7 +1576,7 @@
     <div class="hero-bg"></div><div class="hero-atmos"></div><div class="hero-scrim"></div>
     <div class="page-hero-inner">
       <div class="hero-eyebrow anim" data-cms="faq.heroEyebrow">FAQ</div>
-      <h1 class="anim anim-delay-1" data-cms="faq.heroTitle">Questions worth answering before we ever get on a call.</h1>
+      <h1 class="reveal-mask anim-delay-1" data-cms="faq.heroTitle">Questions worth answering before we ever get on a call.</h1>
       <p class="page-hero-sub anim anim-delay-2" data-cms="faq.heroSub">If something isn't covered here, ask us on the Clarity Call. The whole point of that conversation is to make sure your questions get real answers.</p>
     </div>
   </section>
@@ -1531,7 +1667,7 @@
     <div class="hero-bg"></div><div class="hero-atmos"></div><div class="hero-scrim"></div>
     <div class="page-hero-inner">
       <div class="hero-eyebrow anim" data-cms="schedule.heroEyebrow">Get Started</div>
-      <h1 class="anim anim-delay-1" data-cms="schedule.heroTitle">Schedule a Clarity Call.</h1>
+      <h1 class="reveal-mask anim-delay-1" data-cms="schedule.heroTitle">Schedule a Clarity Call.</h1>
       <p class="page-hero-sub anim anim-delay-2" data-cms="schedule.heroSub">A free, no-pressure conversation — usually 20 to 30 minutes. You tell us what's on your mind. We tell you whether we can help and what working together looks like.</p>
     </div>
   </section>
@@ -1643,7 +1779,19 @@
     if (pageId === 'schedule') initCalendly();
     // Trigger animations for elements in viewport
     setTimeout(() => observeAnimations(), 50);
+    // Initialise scroll-driven effects (throughline) for the new page
+    if (typeof updateParallax === 'function') requestAnimationFrame(updateParallax);
+    // Clarity emerging: let the hero mist lift in shortly after the page settles
+    if (pageId === 'home') {
+      const fog = document.getElementById('hero-fog');
+      if (fog) { fog.classList.remove('lifted'); requestAnimationFrame(() => requestAnimationFrame(() => fog.classList.add('lifted'))); }
+      if (typeof layoutThroughline === 'function') {
+        requestAnimationFrame(layoutThroughline);
+        setTimeout(layoutThroughline, 450);   // re-measure once fonts/images settle
+      }
+    }
   }
+  window.addEventListener('load', () => { if (typeof layoutThroughline === 'function') layoutThroughline(); });
 
   // ── Calendly embed (driven by content/schedule.json → calendlyUrl) ────────
   function initCalendly() {
@@ -1747,8 +1895,12 @@
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
-    document.querySelectorAll('.page.active .anim').forEach(el => {
-      if (!el.classList.contains('visible')) {
+    document.querySelectorAll('.page.active .anim, .page.active .reveal-mask').forEach(el => {
+      if (el.classList.contains('visible')) return;
+      // Already on screen (e.g. the hero) → reveal immediately so it never waits on a scroll.
+      if (el.getBoundingClientRect().top < window.innerHeight * 0.95) {
+        requestAnimationFrame(() => el.classList.add('visible'));
+      } else {
         observer.observe(el);
       }
     });
@@ -1831,14 +1983,93 @@
   // ── Hero parallax (subtle, rAF-throttled) ──────────────────────────────────
   let parallaxTicking = false;
   function updateParallax() {
-    if (reduceMotion) return;
+    if (reduceMotion) { parallaxTicking = false; return; }
     const y = window.scrollY;
     document.querySelectorAll('.page.active .parallax').forEach(el => {
       const speed = parseFloat(el.dataset.speed) || 0;
       el.style.transform = `translate3d(0, ${y * speed}px, 0)`;
     });
+    updateThroughlineDraw();
     parallaxTicking = false;
   }
+
+  // ── The throughline (home, desktop): build the path, then draw it on scroll ──
+  function layoutThroughline() {
+    const svg = document.getElementById('tl-svg');
+    const cap = document.getElementById('tl-cap');
+    if (!svg) return;
+    const page = document.getElementById('page-home');
+    const ok = page && page.classList.contains('active')
+      && window.matchMedia('(min-width:1240px)').matches && !reduceMotion;
+    if (!ok) { svg.style.display = 'none'; if (cap) cap.style.display = 'none'; return; }
+    svg.style.display = 'block'; if (cap) cap.style.display = 'block';
+
+    const pageW = page.offsetWidth, pageH = page.offsetHeight;
+    const cRect = page.getBoundingClientRect();
+    const hero = document.getElementById('home-hero');
+    const heroH = hero ? hero.offsetHeight : 0;
+    const lineX = Math.max(28, (pageW - 1160) / 2 - 32);   // pushed out into the margin
+
+    // Cap sits above where the line begins, so the line never runs through it
+    const capTop = heroH + 56;
+    cap.style.left = (lineX - 8) + 'px';
+    cap.style.top  = capTop + 'px';
+    const capH = cap.offsetHeight || 120;
+    const startY = capTop + capH + 30;
+
+    // Target: the Clarity Call button — approach from its left at mid-height
+    const btn = document.getElementById('home-cta-btn');
+    let endX, endY;
+    if (btn) {
+      const b = btn.getBoundingClientRect();
+      endX = (b.left - cRect.left) - 16;
+      endY = (b.top - cRect.top) + b.height / 2;
+    } else { endX = pageW / 2; endY = pageH * 0.8; }
+
+    const turnY = endY - 96;
+    const cx = lineX + (endX - lineX) * 0.5;
+    // down the margin, curve in to the button, then a small arrowhead pointing at it
+    const d = `M ${lineX} ${startY} L ${lineX} ${turnY} `
+            + `C ${lineX} ${endY} ${cx} ${endY} ${endX} ${endY} `
+            + `m -8 -6 l 8 6 l -8 6`;
+
+    svg.setAttribute('width', pageW);
+    svg.setAttribute('height', pageH);
+    svg.setAttribute('viewBox', `0 0 ${pageW} ${pageH}`);
+    const track = document.getElementById('tl-track');
+    const draw  = document.getElementById('tl-draw');
+    track.setAttribute('d', d);
+    draw.setAttribute('d', d);
+    const L = draw.getTotalLength();
+    draw.style.strokeDasharray = L;
+    draw.dataset.len = L; draw.dataset.startY = startY; draw.dataset.endY = endY;
+    updateThroughlineDraw();
+  }
+
+  function updateThroughlineDraw() {
+    const draw = document.getElementById('tl-draw');
+    const head = document.getElementById('tl-head');
+    if (!draw || !draw.dataset.len) return;
+    const L = parseFloat(draw.dataset.len);
+    const startY = parseFloat(draw.dataset.startY);
+    const endY = parseFloat(draw.dataset.endY);
+    const denom = (endY - startY) || 1;
+    // completes as the Clarity Call rises into the middle of the viewport
+    const prog = Math.min(Math.max((window.scrollY + window.innerHeight * 0.55 - startY) / denom, 0), 1);
+    draw.style.strokeDashoffset = L * (1 - prog);
+    if (head) {
+      if (prog > 0.003 && prog < 0.985) {
+        const pt = draw.getPointAtLength(L * prog);
+        head.setAttribute('cx', pt.x); head.setAttribute('cy', pt.y);
+        head.style.opacity = '1';
+      } else { head.style.opacity = '0'; }
+    }
+  }
+  let _tlResize;
+  window.addEventListener('resize', () => {
+    clearTimeout(_tlResize);
+    _tlResize = setTimeout(layoutThroughline, 180);
+  });
   window.addEventListener('scroll', () => {
     if (!parallaxTicking) { requestAnimationFrame(updateParallax); parallaxTicking = true; }
   }, { passive: true });

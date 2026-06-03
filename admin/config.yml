@@ -57,6 +57,7 @@ collections:
               - { name: faq, label: "FAQ", widget: string }
           - { name: contactEmail, label: "Contact Email", widget: string }
           - { name: contactPhone, label: "Contact Phone", widget: string }
+          - { name: throughlineCap, label: "Throughline Label (gold line on home)", widget: string, hint: "The small vertical label beside the gold line on the homepage." }
           - { name: footerTagline, label: "Footer Tagline", widget: string }
           - name: footerCols
             label: "Footer Column Headings"
@@ -190,6 +191,7 @@ collections:
           - { name: clarityLabel, label: "It Starts With Clarity — Eyebrow", widget: string }
           - { name: clarityHeading, label: "It Starts With Clarity — Heading", widget: string }
           - { name: clarityBody, label: "It Starts With Clarity — Body", widget: text }
+          - { name: walkawayLabel, label: "\"What you walk away with\" label", widget: string, hint: "The heading above each accordion's bullet list." }
           - name: acc
             label: "The Six Pieces (accordions)"
             widget: object
