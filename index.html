@@ -81,7 +81,7 @@
       font-size: 1.15rem; font-weight: 600; color: var(--navy);
       letter-spacing: .01em; cursor: pointer;
     }
-    .nav-logo span { color: var(--gold); }
+    .nav-logo .brand-accent { color: var(--gold); }
     .nav-links { display: flex; align-items: center; gap: 8px; }
     .nav-links a {
       font-size: .875rem; font-weight: 500; color: var(--text2);
@@ -107,7 +107,7 @@
     /* Nav over the photo hero (home, at top) */
     #nav.over-hero { background: linear-gradient(180deg, rgba(14,24,46,.45), transparent); }
     #nav.over-hero .nav-logo { color: #fff; }
-    #nav.over-hero .nav-logo span { color: var(--gold-lt); }
+    #nav.over-hero .nav-logo .brand-accent { color: var(--gold-lt); }
     #nav.over-hero .nav-links a { color: rgba(255,255,255,.85); }
     #nav.over-hero .nav-links a:hover, #nav.over-hero .nav-links a.active { color: #fff; background: rgba(255,255,255,.14); }
     #nav.over-hero .nav-login { color: rgba(255,255,255,.82); }
@@ -578,7 +578,7 @@
       font-family: 'Playfair Display', serif; font-size: 1.1rem;
       font-weight: 600; color: var(--white); margin-bottom: 12px;
     }
-    .footer-logo span { color: var(--gold); }
+    .footer-logo .brand-accent { color: var(--gold); }
     .footer-tagline { font-size: .875rem; color: rgba(255,255,255,.45); font-style: italic; }
     .footer-col h5 {
       font-size: .75rem; font-weight: 700; letter-spacing: .1em;
@@ -741,7 +741,7 @@
 <!-- ═══════════════════════════════ NAV ══════════════════════════════════ -->
 <nav id="nav">
   <div class="nav-inner">
-    <div class="nav-logo" onclick="go('home')"><span data-cms="global.brandLead">One Life</span> <span data-cms="global.brandAccent">Advisory</span></div>
+    <div class="nav-logo" onclick="go('home')"><span data-cms="global.brandLead">One Life</span> <span class="brand-accent" data-cms="global.brandAccent">Advisory</span></div>
     <div class="nav-links">
       <a href="#" onclick="go('how-we-plan');return false;" id="nl-how-we-plan" data-cms="global.nav.howWePlan">How We Plan</a>
       <a href="#" onclick="go('what-we-do');return false;" id="nl-what-we-do" data-cms="global.nav.whatWeDo">What We Do</a>
@@ -1572,7 +1572,7 @@
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
-        <div class="footer-logo"><span data-cms="global.brandLead">One Life</span> <span data-cms="global.brandAccent">Advisory</span></div>
+        <div class="footer-logo"><span data-cms="global.brandLead">One Life</span> <span class="brand-accent" data-cms="global.brandAccent">Advisory</span></div>
         <div class="footer-tagline" data-cms="global.footerTagline">Designed for your one life.</div>
       </div>
       <div class="footer-col">
