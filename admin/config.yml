@@ -39,18 +39,45 @@ collections:
         label: "Global Settings"
         file: "content/global.json"
         fields:
-          - { name: brandName, label: "Brand Name", widget: string }
+          - { name: brandLead, label: "Brand Name (dark part)", widget: string, hint: "e.g. 'One Life'" }
+          - { name: brandAccent, label: "Brand Name (gold part)", widget: string, hint: "e.g. 'Advisory'" }
           - { name: navCta, label: "Nav Button Label", widget: string }
+          - { name: showClientLogin, label: "Show Client Login link", widget: boolean, default: true, hint: "Turn off to hide Client Login everywhere (nav + footer)." }
           - { name: clientLoginLabel, label: "Client Login Label", widget: string }
           - { name: clientLoginUrl, label: "Client Login URL", widget: string, required: false }
+          - name: nav
+            label: "Navigation Labels"
+            widget: object
+            collapsed: true
+            fields:
+              - { name: howWePlan, label: "How We Plan", widget: string }
+              - { name: whatWeDo, label: "What We Do", widget: string }
+              - { name: whoWeHelp, label: "Who We Help", widget: string }
+              - { name: about, label: "About", widget: string }
+              - { name: faq, label: "FAQ", widget: string }
           - { name: contactEmail, label: "Contact Email", widget: string }
           - { name: contactPhone, label: "Contact Phone", widget: string }
           - { name: footerTagline, label: "Footer Tagline", widget: string }
+          - name: footerCols
+            label: "Footer Column Headings"
+            widget: object
+            collapsed: true
+            fields:
+              - { name: plan, label: "Column 1 Heading", widget: string }
+              - { name: firm, label: "Column 2 Heading", widget: string }
+              - { name: connect, label: "Column 3 Heading", widget: string }
           - name: disclosures
             label: "Footer Disclosure Paragraphs"
             widget: list
             field: { name: text, label: "Paragraph", widget: text }
           - { name: copyright, label: "Copyright Line", widget: string }
+          - name: legalLinks
+            label: "Footer Legal / Disclosure Links"
+            widget: list
+            hint: "ADV, CRS, Privacy Policy, etc. Paste the URL or link to a PDF you upload via the Media library."
+            fields:
+              - { name: label, label: "Link Text", widget: string }
+              - { name: url, label: "URL", widget: string }
 
   # ───────────────────────── PAGES ─────────────────────────
   - name: "pages"
@@ -64,6 +91,7 @@ collections:
         label: "Home Page"
         file: "content/home.json"
         fields:
+          - { name: heroImage, label: "Hero Background Image", widget: image, required: false, hint: "Upload a landscape photo for the homepage background. Leave blank to use the built-in gradient." }
           - name: hero
             label: "Hero"
             widget: object
@@ -87,6 +115,7 @@ collections:
               - { name: label, label: "Eyebrow", widget: string }
               - { name: heading, label: "Heading", widget: string }
               - { name: sub, label: "Subheading", widget: text }
+              - { name: button, label: "Button", widget: string }
               - name: cards
                 label: "Service Cards"
                 widget: list
@@ -100,6 +129,7 @@ collections:
               - { name: label, label: "Eyebrow", widget: string }
               - { name: heading, label: "Heading", widget: string }
               - { name: body, label: "Body", widget: text }
+              - { name: button, label: "Button", widget: string }
               - name: steps
                 label: "Steps"
                 widget: list
@@ -306,6 +336,7 @@ collections:
           - { name: heroEyebrow, label: "Header — Eyebrow", widget: string }
           - { name: heroTitle, label: "Header — Title", widget: string }
           - { name: heroSub, label: "Header — Subtitle", widget: text }
+          - { name: calendlyUrl, label: "Scheduling link (Calendly URL)", widget: string, required: false, hint: "Paste your full Calendly link, e.g. https://calendly.com/yourname/clarity-call — leave blank to keep the placeholder." }
           - name: features
             label: "Highlights"
             widget: list

@@ -1,4 +1,5 @@
 {
+  "heroImage": "/assets/hero.jpg",
   "hero": {
     "eyebrow": "Purposeful Financial Planning",
     "headlineLead": "Designed for your",
@@ -22,12 +23,14 @@
       { "title": "Retirement Income", "desc": "A personalized strategy to turn your savings into a paycheck designed to last a lifetime." },
       { "title": "Tax-Aware Planning", "desc": "Most planning decisions carry tax consequences. We weigh them every step of the way so they're built into the plan, not handled after the fact." },
       { "title": "Legacy", "desc": "What you leave behind, and to whom, and how. Family, the people you love, the causes that matter to you." }
-    ]
+    ],
+    "button": "See the full plan"
   },
   "planPreview": {
     "label": "How We Plan",
     "heading": "Our planning process starts with you, not your accounts.",
     "body": "It begins with a free Clarity Call to see if we're the right fit. From there, the work runs through five steps.",
+    "button": "See the full process",
     "steps": [
       { "title": "Clarify Your Vision", "desc": "What you want this life and this next season to look like." },
       { "title": "Organize Your Financial Picture", "desc": "Where you are today, top to bottom." },

@@ -43,6 +43,30 @@
       if (el.hasAttribute("data-cms-html")) el.innerHTML = val;
       else el.textContent = val;
     });
+    // Email links: set both the visible text and the mailto: href
+    root.querySelectorAll("[data-cms-mailto]").forEach(function (el) {
+      var v = resolve(CACHE, el.getAttribute("data-cms-mailto"));
+      if (v == null) return;
+      el.textContent = v;
+      el.setAttribute("href", "mailto:" + v);
+    });
+    // Phone links: set the visible text and a tel: href (digits/+ only)
+    root.querySelectorAll("[data-cms-tel]").forEach(function (el) {
+      var v = resolve(CACHE, el.getAttribute("data-cms-tel"));
+      if (v == null) return;
+      el.textContent = v;
+      el.setAttribute("href", "tel:" + String(v).replace(/[^+\d]/g, ""));
+    });
+    // Background image: data-cms-bg="home.heroImage"
+    root.querySelectorAll("[data-cms-bg]").forEach(function (el) {
+      var v = resolve(CACHE, el.getAttribute("data-cms-bg"));
+      if (v) el.style.backgroundImage = "url('" + v + "')";
+    });
+    // Show/hide: data-cms-show="global.showClientLogin" — hides the element when the value is false
+    root.querySelectorAll("[data-cms-show]").forEach(function (el) {
+      var v = resolve(CACHE, el.getAttribute("data-cms-show"));
+      if (v === false) el.style.display = "none";
+    });
     // Attribute bindings: data-cms-attr="href:global.clientLoginUrl;title:home.hero.eyebrow"
     root.querySelectorAll("[data-cms-attr]").forEach(function (el) {
       el.getAttribute("data-cms-attr").split(";").forEach(function (pair) {
@@ -66,7 +90,12 @@
         .then(function (r) { return r.ok ? r.json() : null; })
         .then(function (json) { if (json) data[keyFor(f)] = json; })
         .catch(function () { /* keep original HTML on failure */ });
-    })).then(function () { CACHE = data; apply(document); });
+    })).then(function () {
+      CACHE = data;
+      window.__cmsContent = data;          // exposed for other scripts (e.g. Calendly embed)
+      apply(document);
+      document.dispatchEvent(new Event("cms:content"));
+    });
   }
 
   if (document.readyState === "loading") {

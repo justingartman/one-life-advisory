@@ -741,14 +741,14 @@
 <!-- ═══════════════════════════════ NAV ══════════════════════════════════ -->
 <nav id="nav">
   <div class="nav-inner">
-    <div class="nav-logo" onclick="go('home')">One Life <span>Advisory</span></div>
+    <div class="nav-logo" onclick="go('home')"><span data-cms="global.brandLead">One Life</span> <span data-cms="global.brandAccent">Advisory</span></div>
     <div class="nav-links">
-      <a href="#" onclick="go('how-we-plan');return false;" id="nl-how-we-plan">How We Plan</a>
-      <a href="#" onclick="go('what-we-do');return false;" id="nl-what-we-do">What We Do</a>
-      <a href="#" onclick="go('who-we-help');return false;" id="nl-who-we-help">Who We Help</a>
-      <a href="#" onclick="go('about');return false;" id="nl-about">About</a>
-      <a href="#" onclick="go('faq');return false;" id="nl-faq">FAQ</a>
-      <a href="#" class="nav-login" title="Client portal login" data-cms-attr="href:global.clientLoginUrl">
+      <a href="#" onclick="go('how-we-plan');return false;" id="nl-how-we-plan" data-cms="global.nav.howWePlan">How We Plan</a>
+      <a href="#" onclick="go('what-we-do');return false;" id="nl-what-we-do" data-cms="global.nav.whatWeDo">What We Do</a>
+      <a href="#" onclick="go('who-we-help');return false;" id="nl-who-we-help" data-cms="global.nav.whoWeHelp">Who We Help</a>
+      <a href="#" onclick="go('about');return false;" id="nl-about" data-cms="global.nav.about">About</a>
+      <a href="#" onclick="go('faq');return false;" id="nl-faq" data-cms="global.nav.faq">FAQ</a>
+      <a href="#" class="nav-login" title="Client portal login" data-cms-show="global.showClientLogin" data-cms-attr="href:global.clientLoginUrl">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
         <span data-cms="global.clientLoginLabel">Client Login</span>
       </a>
@@ -760,13 +760,13 @@
   </div>
 </nav>
 <div class="nav-drawer" id="nav-drawer">
-  <a href="#" onclick="go('how-we-plan');closeMenu();return false;">How We Plan</a>
-  <a href="#" onclick="go('what-we-do');closeMenu();return false;">What We Do</a>
-  <a href="#" onclick="go('who-we-help');closeMenu();return false;">Who We Help</a>
-  <a href="#" onclick="go('about');closeMenu();return false;">About</a>
-  <a href="#" onclick="go('faq');closeMenu();return false;">FAQ</a>
-  <a href="#">Client Login</a>
-  <a href="#" onclick="go('schedule');closeMenu();return false;" class="nav-cta">Schedule a Clarity Call</a>
+  <a href="#" onclick="go('how-we-plan');closeMenu();return false;" data-cms="global.nav.howWePlan">How We Plan</a>
+  <a href="#" onclick="go('what-we-do');closeMenu();return false;" data-cms="global.nav.whatWeDo">What We Do</a>
+  <a href="#" onclick="go('who-we-help');closeMenu();return false;" data-cms="global.nav.whoWeHelp">Who We Help</a>
+  <a href="#" onclick="go('about');closeMenu();return false;" data-cms="global.nav.about">About</a>
+  <a href="#" onclick="go('faq');closeMenu();return false;" data-cms="global.nav.faq">FAQ</a>
+  <a href="#" data-cms="global.clientLoginLabel" data-cms-show="global.showClientLogin" data-cms-attr="href:global.clientLoginUrl">Client Login</a>
+  <a href="#" onclick="go('schedule');closeMenu();return false;" class="nav-cta" data-cms="global.navCta">Schedule a Clarity Call</a>
 </div>
 
 <!-- ═══════════════════════════════ PAGES ════════════════════════════════ -->
@@ -776,7 +776,7 @@
 
   <section class="hero has-photo" id="home-hero">
     <!-- Background photo comes from the --hero-image token (assets/hero.jpg). Swap that file or the token to change it. -->
-    <div class="hero-bg"></div>
+    <div class="hero-bg" data-cms-bg="home.heroImage"></div>
     <div class="hero-atmos"></div>
     <div class="hero-scrim"></div>
     <div class="hero-inner">
@@ -856,7 +856,7 @@
         </div>
       </div>
       <div style="text-align:center;margin-top:40px;" class="anim">
-        <button class="btn btn-outline" onclick="go('what-we-do')">See the full plan</button>
+        <button class="btn btn-outline" onclick="go('what-we-do')" data-cms="home.covers.button">See the full plan</button>
       </div>
     </div>
   </section>
@@ -870,7 +870,7 @@
           <div class="divider"></div>
           <h2 data-cms="home.planPreview.heading">Our planning process starts with you, not your accounts.</h2>
           <p style="margin-top:16px;" data-cms="home.planPreview.body">It begins with a free Clarity Call to see if we're the right fit. From there, the work runs through five steps.</p>
-          <button class="btn btn-outline" style="margin-top:28px;" onclick="go('how-we-plan')">See the full process</button>
+          <button class="btn btn-outline" style="margin-top:28px;" onclick="go('how-we-plan')" data-cms="home.planPreview.button">See the full process</button>
           </div>
         </div>
         <div class="process-preview anim anim-delay-1">
@@ -1555,11 +1555,10 @@
           </div>
         </div>
         <div class="anim anim-delay-1">
-          <div class="calendly-placeholder">
+          <div id="calendly-embed" class="calendly-placeholder">
             <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" style="width:48px;height:48px;color:var(--text3);"><rect x="4" y="8" width="40" height="36" rx="4"/><path d="M32 4v8M16 4v8M4 20h40"/></svg>
-            <h4 style="color:var(--navy);">Calendly Booking</h4>
-            <p>Replace this box with your Calendly embed code. Add: &lt;!-- Calendly inline widget --&gt; here.</p>
-            <div style="font-size:.75rem;color:var(--text3);background:var(--bg);padding:12px 16px;border-radius:var(--radius);margin-top:8px;font-family:monospace;">&lt;div class="calendly-inline-widget" data-url="https://calendly.com/your-link"&gt;&lt;/div&gt;</div>
+            <h4 style="color:var(--navy);">Booking calendar</h4>
+            <p>Add your scheduling link in the CMS (Schedule → "Scheduling link"), publish, and your calendar will appear here automatically.</p>
           </div>
         </div>
       </div>
@@ -1573,26 +1572,26 @@
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
-        <div class="footer-logo">One Life <span>Advisory</span></div>
+        <div class="footer-logo"><span data-cms="global.brandLead">One Life</span> <span data-cms="global.brandAccent">Advisory</span></div>
         <div class="footer-tagline" data-cms="global.footerTagline">Designed for your one life.</div>
       </div>
       <div class="footer-col">
-        <h5>Plan</h5>
-        <a onclick="go('how-we-plan')">How We Plan</a>
-        <a onclick="go('what-we-do')">What We Do</a>
-        <a onclick="go('who-we-help')">Who We Help</a>
+        <h5 data-cms="global.footerCols.plan">Plan</h5>
+        <a onclick="go('how-we-plan')" data-cms="global.nav.howWePlan">How We Plan</a>
+        <a onclick="go('what-we-do')" data-cms="global.nav.whatWeDo">What We Do</a>
+        <a onclick="go('who-we-help')" data-cms="global.nav.whoWeHelp">Who We Help</a>
       </div>
       <div class="footer-col">
-        <h5>Firm</h5>
-        <a onclick="go('about')">About</a>
-        <a onclick="go('faq')">FAQ</a>
+        <h5 data-cms="global.footerCols.firm">Firm</h5>
+        <a onclick="go('about')" data-cms="global.nav.about">About</a>
+        <a onclick="go('faq')" data-cms="global.nav.faq">FAQ</a>
         <a onclick="go('schedule')" data-cms="global.navCta">Schedule a Clarity Call</a>
-        <a href="#" data-cms="global.clientLoginLabel" data-cms-attr="href:global.clientLoginUrl">Client Login</a>
+        <a href="#" data-cms="global.clientLoginLabel" data-cms-show="global.showClientLogin" data-cms-attr="href:global.clientLoginUrl">Client Login</a>
       </div>
       <div class="footer-col">
-        <h5>Connect</h5>
-        <a href="mailto:hello@onelifeadvisory.com" data-cms="global.contactEmail">hello@onelifeadvisory.com</a>
-        <a href="tel:+10000000000" data-cms="global.contactPhone">[Phone Number]</a>
+        <h5 data-cms="global.footerCols.connect">Connect</h5>
+        <a href="mailto:hello@onelifeadvisory.com" data-cms-mailto="global.contactEmail">hello@onelifeadvisory.com</a>
+        <a href="tel:+10000000000" data-cms-tel="global.contactPhone">[Phone Number]</a>
       </div>
     </div>
     <div class="footer-disclosures">
@@ -1604,11 +1603,11 @@
     <div class="footer-bottom">
       <p data-cms="global.copyright">© 2026 One Life Advisory. All rights reserved.</p>
       <div class="footer-links">
-        <a href="#">Form ADV Part 2A</a>
-        <a href="#">Form ADV Part 2B</a>
-        <a href="#">Form CRS</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Use</a>
+        <a href="#" data-cms="global.legalLinks.0.label" data-cms-attr="href:global.legalLinks.0.url">Form ADV Part 2A</a>
+        <a href="#" data-cms="global.legalLinks.1.label" data-cms-attr="href:global.legalLinks.1.url">Form ADV Part 2B</a>
+        <a href="#" data-cms="global.legalLinks.2.label" data-cms-attr="href:global.legalLinks.2.url">Form CRS</a>
+        <a href="#" data-cms="global.legalLinks.3.label" data-cms-attr="href:global.legalLinks.3.url">Privacy Policy</a>
+        <a href="#" data-cms="global.legalLinks.4.label" data-cms-attr="href:global.legalLinks.4.url">Terms of Use</a>
       </div>
     </div>
   </div>
@@ -1640,9 +1639,41 @@
     updateNav(pageId);
     // Ensure footer is populated
     populateFooter(pageId);
+    // Load the booking calendar when entering the Schedule page
+    if (pageId === 'schedule') initCalendly();
     // Trigger animations for elements in viewport
     setTimeout(() => observeAnimations(), 50);
   }
+
+  // ── Calendly embed (driven by content/schedule.json → calendlyUrl) ────────
+  function initCalendly() {
+    const el = document.getElementById('calendly-embed');
+    const data = window.__cmsContent || {};
+    const url = data.schedule && data.schedule.calendlyUrl;
+    if (!el || !url || el.dataset.inited) return;          // no URL = keep placeholder
+    el.dataset.inited = '1';
+    el.classList.remove('calendly-placeholder');
+    el.innerHTML = '';
+    el.style.minWidth = '320px';
+    el.style.height = '700px';
+    const build = () => window.Calendly && window.Calendly.initInlineWidget({ url, parentElement: el });
+    if (window.Calendly) { build(); return; }
+    if (!document.getElementById('calendly-css')) {
+      const link = document.createElement('link');
+      link.id = 'calendly-css'; link.rel = 'stylesheet';
+      link.href = 'https://assets.calendly.com/assets/external/widget.css';
+      document.head.appendChild(link);
+    }
+    const s = document.createElement('script');
+    s.src = 'https://assets.calendly.com/assets/external/widget.js';
+    s.async = true; s.onload = build;
+    document.head.appendChild(s);
+  }
+  // If content finishes loading while already on the Schedule page, init then too
+  document.addEventListener('cms:content', () => {
+    const active = document.querySelector('.page.active');
+    if (active && active.id === 'page-schedule') initCalendly();
+  });
 
   function updateNav(activeId) {
     document.querySelectorAll('.nav-links a[id^="nl-"]').forEach(a => {
