@@ -1,10 +1,27 @@
 {
-  "brandLead": "One Life",
-  "brandAccent": "Advisory",
-  "navCta": "Schedule a Clarity Call",
+  "legalLinks": [
+    {
+      "label": "Form ADV Part 2A",
+      "url": "#"
+    },
+    {
+      "label": "Form ADV Part 2B",
+      "url": "#"
+    },
+    {
+      "label": "Form CRS",
+      "url": "#"
+    },
+    {
+      "label": "Privacy Policy",
+      "url": "#"
+    },
+    {
+      "label": "Terms of Use",
+      "url": "#"
+    }
+  ],
   "showClientLogin": true,
-  "clientLoginLabel": "Client Login",
-  "clientLoginUrl": "#",
   "nav": {
     "howWePlan": "How We Plan",
     "whatWeDo": "What We Do",
@@ -12,15 +29,7 @@
     "about": "About",
     "faq": "FAQ"
   },
-  "contactEmail": "hello@onelifeadvisory.com",
-  "contactPhone": "[Phone Number]",
-  "throughlineCap": "The plan, forward",
-  "footerTagline": "Designed for your one life.",
-  "footerCols": {
-    "plan": "Plan",
-    "firm": "Firm",
-    "connect": "Connect"
-  },
+  "brandLead": "One Life",
   "disclosures": [
     "One Life Advisory is a Registered Investment Advisor. Advisory services are offered through One Life Advisory. Registration does not imply a certain level of skill or training.",
     "The information on this website is for general informational and educational purposes only. It is not intended as, and should not be construed as, personalized investment, tax, or legal advice. One Life Advisory does not provide tax or legal advice. Clients should consult with a qualified tax professional or attorney regarding their specific situation.",
@@ -28,11 +37,17 @@
     "Any references to guaranteed income or safe accumulation in connection with annuities or insurance products refer to contractual guarantees of the issuing insurance company. Such guarantees are subject to the claims-paying ability of the issuer."
   ],
   "copyright": "© 2026 One Life Advisory. All rights reserved.",
-  "legalLinks": [
-    { "label": "Form ADV Part 2A", "url": "#" },
-    { "label": "Form ADV Part 2B", "url": "#" },
-    { "label": "Form CRS", "url": "#" },
-    { "label": "Privacy Policy", "url": "#" },
-    { "label": "Terms of Use", "url": "#" }
-  ]
+  "navCta": "Schedule a Clarity Call",
+  "contactPhone": "[Phone Number]",
+  "footerCols": {
+    "plan": "Plan",
+    "firm": "Firm",
+    "connect": "Connect"
+  },
+  "clientLoginUrl": "#",
+  "brandAccent": "Advisory",
+  "footerTagline": "Designed for your one life.",
+  "clientLoginLabel": "Client Login",
+  "throughlineCap": "The plan forward",
+  "contactEmail": "info@onelifeadvisory.com"
 }
