@@ -22,7 +22,7 @@
   <link rel="apple-touch-icon" href="/assets/logos/favicon-180.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Hanken+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     /* ─── TOKENS ─────────────────────────────────────────────── */
     :root {
@@ -109,7 +109,7 @@
     #nav.scrolled { background: var(--white); box-shadow: 0 1px 0 var(--border); }
     .nav-inner {
       display: flex; align-items: center; justify-content: space-between;
-      max-width: 1160px; margin: 0 auto; padding: 0 32px; height: 72px;
+      max-width: 1300px; margin: 0 auto; padding: 0 32px; height: 92px;
     }
     .nav-logo {
       font-family: var(--font-display);
@@ -117,11 +117,11 @@
       letter-spacing: -0.01em; cursor: pointer;
     }
     .nav-logo .brand-accent { color: var(--gold); }
-    .nav-links { display: flex; align-items: center; gap: 8px; }
+    .nav-links { display: flex; align-items: center; gap: 6px; flex-wrap: nowrap; }
     .nav-links a {
-      position: relative;
+      position: relative; white-space: nowrap; flex-shrink: 0;
       font-size: .8125rem; font-weight: 500; letter-spacing: .01em; color: var(--text2);
-      padding: 8px 4px; margin: 0 10px;
+      padding: 8px 4px; margin: 0 7px;
       transition: color 220ms var(--ease);
     }
     /* hand-drawn-feeling underline that wipes in from the left */
@@ -154,11 +154,11 @@
     #nav.over-hero .nav-logo .brand-accent { color: var(--gold-lt); }
     /* Logo images in the nav (swap by nav state) */
     .nav-logo { display: flex; align-items: center; }
-    .nav-logo-img { height: 30px; width: auto; display: block; }
+    .nav-logo-img { height: 72px; width: auto; display: block; }
     .nav-logo .nav-logo-on-dark { display: none; }
     #nav.over-hero .nav-logo .nav-logo-on-light { display: none; }
     #nav.over-hero .nav-logo .nav-logo-on-dark { display: block; }
-    @media (max-width: 768px) { .nav-logo-img { height: 26px; } }
+    @media (max-width: 768px) { .nav-logo-img { height: 52px; } }
     #nav.over-hero .nav-links a { color: rgba(255,255,255,.82); }
     #nav.over-hero .nav-links a:hover, #nav.over-hero .nav-links a.active { color: #fff; }
     #nav.over-hero .nav-links a::after { background: var(--gold-lt); }
@@ -182,7 +182,7 @@
 
     /* Mobile nav drawer */
     .nav-drawer {
-      display: none; position: fixed; top: 72px; left: 0; right: 0; bottom: 0;
+      display: none; position: fixed; top: 92px; left: 0; right: 0; bottom: 0;
       background: var(--white); z-index: 99; padding: 32px;
       flex-direction: column; gap: 4px; overflow-y: auto;
       transform: translateX(100%); transition: transform 300ms var(--ease);
@@ -271,7 +271,7 @@
 
     /* ─── HERO (full-bleed cinematic) ────────────────────────── */
     .hero {
-      position: relative; min-height: 100vh; min-height: 100dvh;
+      position: relative; min-height: 82vh; min-height: 82svh;
       display: flex; align-items: flex-end;
       overflow: hidden; isolation: isolate;
     }
@@ -336,11 +336,20 @@
     }
     .hero-eyebrow {
       display: inline-flex; align-items: center; gap: 14px;
-      font-size: .95rem; font-weight: 600; letter-spacing: .12em;
-      text-transform: uppercase; color: #E8D4B5;
-      margin-bottom: 22px; text-shadow: 0 1px 14px rgba(0,0,0,.45);
+      font-size: 1.05rem; font-weight: 900; letter-spacing: .14em;
+      text-transform: uppercase; color: #EBD8BB;
+      margin-bottom: 22px; text-shadow: 0 1px 16px rgba(0,0,0,.5);
     }
-    .hero-eyebrow::before { content: ''; width: 34px; height: 1.5px; background: #E8D4B5; opacity: .8; }
+    .hero-eyebrow::before { content: ''; width: 38px; height: 2px; background: #EBD8BB; opacity: .9; }
+    /* Eyebrow sweeps in left → right (drawing the eye), before the underline draws */
+    @media (prefers-reduced-motion: no-preference) {
+      .hero-eyebrow.anim {
+        opacity: 1; transform: none;
+        clip-path: inset(0 100% 0 0);
+        transition: clip-path 2300ms var(--ease-expo) 400ms;
+      }
+      .hero-eyebrow.anim.visible { clip-path: inset(0 0 0 0); }
+    }
     .hero h1 {
       color: #fff; max-width: 15ch; margin-bottom: 24px;
       font-size: clamp(2.6rem, 6vw, 4.7rem); line-height: 1.06;
@@ -357,7 +366,7 @@
     .hero h1 .accent path { stroke-dasharray: 1; stroke-dashoffset: 1; }
     @media (prefers-reduced-motion: no-preference) {
       /* Slow, deliberate hand-drawn underline — starts after the headline settles */
-      .hero h1 .accent path { transition: stroke-dashoffset 2000ms cubic-bezier(.45,.05,.25,1) 1100ms; }
+      .hero h1 .accent path { transition: stroke-dashoffset 2000ms cubic-bezier(.45,.05,.25,1) 2900ms; }
     }
     .hero h1.visible .accent path { stroke-dashoffset: 0; }
     .hero-sub {
@@ -397,7 +406,7 @@
     }
     .page-hero-inner {
       width: 100%; max-width: 1160px; margin: 0 auto;
-      padding: 124px 32px 52px; position: relative; z-index: 1;
+      padding: 144px 32px 52px; position: relative; z-index: 1;
     }
     .page-hero h1 {
       color: #fff; max-width: 20ch; margin-bottom: 14px;
@@ -709,8 +718,8 @@
       font-weight: 600; color: var(--white); margin-bottom: 12px;
     }
     .footer-logo .brand-accent { color: var(--gold); }
-    .footer-logo-img { height: 62px; width: auto; display: block; margin-bottom: 14px; }
-    @media (max-width: 768px) { .footer-logo-img { height: 54px; } }
+    .footer-logo-img { height: 156px; width: auto; display: block; margin-bottom: 20px; margin-left: -8px; }
+    @media (max-width: 768px) { .footer-logo-img { height: 120px; } }
     .footer-tagline { font-size: .875rem; color: rgba(255,255,255,.45); font-style: italic; }
     .footer-col h5 {
       font-size: .75rem; font-weight: 700; letter-spacing: .1em;
@@ -850,7 +859,7 @@
       .schedule-grid { grid-template-columns: 1fr; gap: 48px; }
     }
     /* Collapse to the mobile menu well before the desktop nav would wrap. */
-    @media (max-width: 920px) {
+    @media (max-width: 1120px) {
       .nav-links { display: none; }
       .hamburger { display: flex; }
       .nav-drawer { display: flex; }
@@ -866,7 +875,7 @@
       .stats { grid-template-columns: 1fr; }
 
       /* Hero — recomposed for a tall screen */
-      .hero { min-height: 90svh; }
+      .hero { min-height: 84svh; }
       .hero-bg, .hero-atmos { background-position: 66% 30%; }  /* hold the peaks + warm light */
       .hero-inner { padding: 0 22px 64px; }
       .hero h1 { font-size: clamp(2.5rem, 11.5vw, 3.4rem); line-height: 1.05; letter-spacing: -0.02em; }
@@ -877,7 +886,7 @@
 
       /* Interior page headers */
       .page-hero { min-height: 38svh; }
-      .page-hero-inner { padding: 100px 22px 34px; }
+      .page-hero-inner { padding: 120px 22px 34px; }
 
       /* Comfortable touch rhythm */
       .accordion .acc-trigger { padding-top: 22px; padding-bottom: 22px; }
@@ -960,23 +969,18 @@
     </div>
   </section>
 
-  <!-- Who We Serve -->
+  <!-- What We Do — lead statement, then the six pieces -->
   <section class="section bg-alt">
-    <div class="container-sm" style="text-align:center;">
-      <div class="divider divider-center anim"></div>
-      <h2 class="reveal-mask anim-delay-1" data-cms="home.whoWeServe.heading">We work with people who want their money to mean something.</h2>
-      <p class="anim anim-delay-2" style="margin:20px auto 0;font-size:1.125rem;" data-cms="home.whoWeServe.body">Whether you're just entering retirement, already there, or still building toward it, the work is the same. We help you turn what you've saved into income you can count on, decisions you feel good about, and a plan that supports your purpose — not someone else's.</p>
-    </div>
-  </section>
-
-  <!-- What a Plan Covers -->
-  <section class="section">
     <div class="container">
       <div class="section-header center anim">
-        <div class="label" data-cms="home.covers.label">What We Do</div>
-        <div class="divider divider-center"></div>
-        <h2 data-cms="home.covers.heading">What a plan with us covers</h2>
-        <p data-cms="home.covers.sub">Six pieces, one integrated plan. Each part coordinates with the others because that's what a real plan requires.</p>
+        <div class="label" style="margin-bottom:10px;" data-cms="home.covers.label">What We Do</div>
+        <div class="divider divider-center" style="margin-bottom:14px;"></div>
+        <h2 class="anim anim-delay-1" style="font-size:clamp(1.7rem,3.1vw,2.2rem);" data-cms="home.whoWeServe.heading">We work with people who want their money to mean something.</h2>
+        <p class="anim anim-delay-2" style="margin:20px auto 0;font-size:1.125rem;" data-cms="home.whoWeServe.body">Whether you're just entering retirement, already there, or still building toward it, the work is the same. We help you turn what you've saved into income you can count on, decisions you feel good about, and a plan that supports your purpose — not someone else's.</p>
+      </div>
+      <div class="section-header center anim" style="margin-top:64px;margin-bottom:40px;">
+        <h3 data-cms="home.covers.heading" style="color:var(--navy);font-size:clamp(1.45rem,2.4vw,1.85rem);">What a plan with us covers</h3>
+        <p data-cms="home.covers.sub" style="margin:12px auto 0;">Six pieces, one integrated plan. Each part coordinates with the others because that's what a real plan requires.</p>
       </div>
       <div class="cards-grid">
         <div class="card anim" onclick="goAccordion('liquidity')">
@@ -1080,7 +1084,7 @@
   <section class="cta-band">
     <div class="container-sm">
       <div class="label anim" data-cms="home.finalCta.label">Get Started</div>
-      <h2 class="reveal-mask anim-delay-1" data-cms="home.finalCta.heading">Ready to build a plan with purpose?</h2>
+      <h2 class="anim anim-delay-1" data-cms="home.finalCta.heading">Ready to build a plan with purpose?</h2>
       <p class="anim anim-delay-2" data-cms="home.finalCta.sub">The first step is a free Clarity Call. No pressure. No pitch.</p>
       <button class="btn btn-primary anim anim-delay-3" id="home-cta-btn" onclick="go('schedule')" data-cms="home.finalCta.button">Schedule a Clarity Call</button>
     </div>
