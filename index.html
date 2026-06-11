@@ -22,7 +22,7 @@
   <link rel="apple-touch-icon" href="/assets/logos/favicon-180.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Hanken+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     /* ─── TOKENS ─────────────────────────────────────────────── */
     :root {
@@ -117,11 +117,11 @@
       letter-spacing: -0.01em; cursor: pointer;
     }
     .nav-logo .brand-accent { color: var(--gold); }
-    .nav-links { display: flex; align-items: center; gap: 6px; flex-wrap: nowrap; }
+    .nav-links { display: flex; align-items: center; gap: 8px; }
     .nav-links a {
-      position: relative; white-space: nowrap; flex-shrink: 0;
+      position: relative;
       font-size: .8125rem; font-weight: 500; letter-spacing: .01em; color: var(--text2);
-      padding: 8px 4px; margin: 0 7px;
+      padding: 8px 4px; margin: 0 10px;
       transition: color 220ms var(--ease);
     }
     /* hand-drawn-feeling underline that wipes in from the left */
@@ -336,20 +336,11 @@
     }
     .hero-eyebrow {
       display: inline-flex; align-items: center; gap: 14px;
-      font-size: 1.05rem; font-weight: 900; letter-spacing: .14em;
+      font-size: 1.05rem; font-weight: 700; letter-spacing: .14em;
       text-transform: uppercase; color: #EBD8BB;
       margin-bottom: 22px; text-shadow: 0 1px 16px rgba(0,0,0,.5);
     }
     .hero-eyebrow::before { content: ''; width: 38px; height: 2px; background: #EBD8BB; opacity: .9; }
-    /* Eyebrow sweeps in left → right (drawing the eye), before the underline draws */
-    @media (prefers-reduced-motion: no-preference) {
-      .hero-eyebrow.anim {
-        opacity: 1; transform: none;
-        clip-path: inset(0 100% 0 0);
-        transition: clip-path 2300ms var(--ease-expo) 400ms;
-      }
-      .hero-eyebrow.anim.visible { clip-path: inset(0 0 0 0); }
-    }
     .hero h1 {
       color: #fff; max-width: 15ch; margin-bottom: 24px;
       font-size: clamp(2.6rem, 6vw, 4.7rem); line-height: 1.06;
@@ -366,7 +357,7 @@
     .hero h1 .accent path { stroke-dasharray: 1; stroke-dashoffset: 1; }
     @media (prefers-reduced-motion: no-preference) {
       /* Slow, deliberate hand-drawn underline — starts after the headline settles */
-      .hero h1 .accent path { transition: stroke-dashoffset 2000ms cubic-bezier(.45,.05,.25,1) 2900ms; }
+      .hero h1 .accent path { transition: stroke-dashoffset 2000ms cubic-bezier(.45,.05,.25,1) 1100ms; }
     }
     .hero h1.visible .accent path { stroke-dashoffset: 0; }
     .hero-sub {
@@ -958,7 +949,7 @@
     <div class="hero-inner">
       <div class="hero-eyebrow anim" data-cms="home.hero.eyebrow">Purposeful Financial Planning</div>
       <h1 class="reveal-mask anim-delay-1"><span data-cms="home.hero.headlineLead">Designed for your</span> <span class="accent"><span data-cms="home.hero.headlineAccent">one life</span><svg viewBox="0 0 300 14" preserveAspectRatio="none" fill="none"><path pathLength="1" d="M4 9 C 60 3, 120 3, 182 7 S 268 11, 296 5" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/></svg></span><span class="hero-dot">.</span></h1>
-      <p class="hero-sub anim anim-delay-2" data-cms="home.hero.sub">A financial plan isn't about ending up with the biggest number. It's about your money supporting the life you actually want to live — today and every year going forward.</p>
+      <p class="hero-sub anim anim-delay-2" data-cms="home.hero.sub">A financial plan isn't about ending up with the biggest number. It's about living with intention — making deliberate decisions about the life you want, now and in the years ahead. That's purposeful planning. And it's why we focus on what most advisors gloss over: not just getting you to retirement, but through it, with income designed to last as long as you do.</p>
       <div class="hero-actions anim anim-delay-3">
         <button class="btn btn-primary" onclick="go('schedule')" data-cms="home.hero.ctaPrimary">Schedule a Clarity Call</button>
         <button class="btn btn-outline" onclick="go('how-we-plan')" data-cms="home.hero.ctaSecondary">See how we plan</button>
@@ -973,14 +964,14 @@
   <section class="section bg-alt">
     <div class="container">
       <div class="section-header center anim">
-        <div class="label" style="margin-bottom:10px;" data-cms="home.covers.label">What We Do</div>
-        <div class="divider divider-center" style="margin-bottom:14px;"></div>
-        <h2 class="anim anim-delay-1" style="font-size:clamp(1.7rem,3.1vw,2.2rem);" data-cms="home.whoWeServe.heading">We work with people who want their money to mean something.</h2>
-        <p class="anim anim-delay-2" style="margin:20px auto 0;font-size:1.125rem;" data-cms="home.whoWeServe.body">Whether you're just entering retirement, already there, or still building toward it, the work is the same. We help you turn what you've saved into income you can count on, decisions you feel good about, and a plan that supports your purpose — not someone else's.</p>
+        <div class="label" data-cms="home.covers.label">What We Do</div>
+        <div class="divider divider-center"></div>
+        <h2 class="anim anim-delay-1" data-cms="home.whoWeServe.heading">We help people live on purpose, not by default.</h2>
+        <p class="anim anim-delay-2" style="margin:20px auto 0;font-size:1.125rem;" data-cms="home.whoWeServe.body">Purposeful planning means your money is doing deliberate work — supporting the life you want now, protecting the people you love, and preparing for a future you can look forward to. For most people, the hardest part of that future is the part most advisors skip: turning decades of saving into income that lasts. We call that Future Cash Flow, and it's the heart of what we do. We plan for the whole journey — to retirement and through it — whether yours starts next year or thirty years from now.</p>
       </div>
       <div class="section-header center anim" style="margin-top:64px;margin-bottom:40px;">
-        <h3 data-cms="home.covers.heading" style="color:var(--navy);font-size:clamp(1.45rem,2.4vw,1.85rem);">What a plan with us covers</h3>
-        <p data-cms="home.covers.sub" style="margin:12px auto 0;">Six pieces, one integrated plan. Each part coordinates with the others because that's what a real plan requires.</p>
+        <h3 data-cms="home.covers.heading" style="color:var(--navy);">What a plan with us covers</h3>
+        <p data-cms="home.covers.sub" style="margin:12px auto 0;">Each piece serves a single question: how does your money support the life you want, every year going forward? We call that your Future Cash Flow — and everything below is built to serve it.</p>
       </div>
       <div class="cards-grid">
         <div class="card anim" onclick="goAccordion('liquidity')">
@@ -988,7 +979,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
           </div>
           <h4 data-cms="home.covers.cards.0.title">Liquidity &amp; Cash Flow</h4>
-          <p data-cms="home.covers.cards.0.desc">Understanding what your money is doing today, and designing future cash flow that supports your life for every year going forward.</p>
+          <p data-cms="home.covers.cards.0.desc">Understanding what your money is doing today, and designing Future Cash Flow that supports your life for every year going forward.</p>
         </div>
         <div class="card anim anim-delay-1" onclick="goAccordion('protection')">
           <div class="card-icon">
@@ -1076,7 +1067,7 @@
     <blockquote class="anim anim-delay-1">
       "<span data-cms="home.philosophy.quote">Money on its own doesn't mean much. What matters is what it lets you do, who it lets you take care of, and the life it helps you live.</span>"
     </blockquote>
-    <p class="anim anim-delay-2" style="color:rgba(255,255,255,.65);max-width:680px;margin:0 auto 28px;font-size:1.0625rem;" data-cms="home.philosophy.body">We started One Life Advisory because we believe a financial plan should start with purpose, not products. One plan. Built around your purpose. Designed to help you live the life you actually want.</p>
+    <p class="anim anim-delay-2" style="color:rgba(255,255,255,.65);max-width:680px;margin:0 auto 28px;font-size:1.0625rem;" data-cms="home.philosophy.body">We started One Life Advisory because we believe a financial plan should start with purpose, not products. One plan. Built around your purpose, executed with intention, and designed to support the life you want — not just until you retire, but for every year after.</p>
     <button class="btn anim anim-delay-3" style="background:transparent;border:1.5px solid rgba(255,255,255,.35);color:var(--white);margin-top:8px;" onclick="go('about')" data-cms="home.philosophy.button">Our story →</button>
   </section>
 
@@ -1100,7 +1091,7 @@
     <div class="page-hero-inner">
       <div class="hero-eyebrow anim" data-cms="how_we_plan.heroEyebrow">The Future Cash Flow Process</div>
       <h1 class="reveal-mask anim-delay-1" data-cms="how_we_plan.heroTitle">How we plan.</h1>
-      <p class="page-hero-sub anim anim-delay-2" data-cms="how_we_plan.heroSub">A personalized process to turn your savings into lifetime income — designed around the life you actually want to live, every year going forward.</p>
+      <p class="page-hero-sub anim anim-delay-2" data-cms="how_we_plan.heroSub">A personalized process to turn your savings into Future Cash Flow — income designed to support the life you want, made with intention at every step. Whether you're approaching retirement, already there, or still years away, we plan for the whole journey: getting you to retirement, and carrying you through it, with income for every year going forward.</p>
     </div>
   </section>
 
@@ -1195,7 +1186,7 @@
     <div class="page-hero-inner">
       <div class="hero-eyebrow anim" data-cms="what_we_do.heroEyebrow">What We Do</div>
       <h1 class="reveal-mask anim-delay-1" data-cms="what_we_do.heroTitle">One plan. Built around your purpose.</h1>
-      <p class="page-hero-sub anim anim-delay-2" data-cms="what_we_do.heroSub">Not six separate services — one integrated plan with six parts that talk to each other, all built on what you want your money to do.</p>
+      <p class="page-hero-sub anim anim-delay-2" data-cms="what_we_do.heroSub">Not six separate services — one integrated plan with six parts that talk to each other, all built on what you want your money to do — and on the discipline that runs underneath it: turning what you've built into income that supports your life, every year, for as long as it lasts.</p>
     </div>
   </section>
   <section class="section">
@@ -1415,7 +1406,7 @@
     <div class="page-hero-inner">
       <div class="hero-eyebrow anim" data-cms="who_we_help.heroEyebrow">Who We Help</div>
       <h1 class="reveal-mask anim-delay-1" data-cms="who_we_help.heroTitle">We help people who want their money to mean something.</h1>
-      <p class="page-hero-sub anim anim-delay-2" data-cms="who_we_help.heroSub">The work changes depending on where you are in life. The starting point doesn't — we begin with what you want your money to be doing, then build the plan around it.</p>
+      <p class="page-hero-sub anim anim-delay-2" data-cms="who_we_help.heroSub">The work changes depending on where you are in life. The starting point doesn't — we begin with what you want your money to be doing, then build the plan around it — one made with intention and designed to produce income that lasts, whether that income starts next year or decades from now.</p>
     </div>
   </section>
   <section class="section">
@@ -1451,7 +1442,7 @@
         <div class="who-card anim anim-delay-2">
           <h3 data-cms="who_we_help.groups.2.title">Still Building</h3>
           <p data-cms="who_we_help.groups.2.p1">You're in your earning years. Income is good. Saving is happening, mostly. But the financial picture has gotten complicated, and the gap between "we're doing okay" and "we have a real plan" is wider than it should be.</p>
-          <p style="margin-bottom:24px;" data-cms="who_we_help.groups.2.p2">We help you build the plan now, while there's still time for it to compound.</p>
+          <p style="margin-bottom:24px;" data-cms="who_we_help.groups.2.p2">We help you build the plan now, while there's still time for it to compound. The earlier we start, the more deliberately we can shape the income you'll want later. Building toward your Future Cash Flow from here means fewer course corrections and more options when you arrive.</p>
           <ul class="who-list">
             <li data-cms="who_we_help.groups.2.items.0">A cash flow plan that gives every dollar a job</li>
             <li data-cms="who_we_help.groups.2.items.1">A protection plan sized to the life you have and the people who depend on you</li>
@@ -1464,7 +1455,7 @@
 
       <div class="not-fit anim">
         <h3 data-cms="who_we_help.notFitHeading">Who we're not the right fit for</h3>
-        <p data-cms="who_we_help.notFitBody">We're not the right fit for everyone, and that's okay. If you're looking for someone to pick hot stocks, beat the market, or hand you a product without understanding your life first — that's not the work we do. If you want a plan built around your purpose, with an advisor who'll be in your corner for the long run — that's exactly the work we do.</p>
+        <p data-cms="who_we_help.notFitBody">We're not the right fit for everyone, and that's okay. If you're looking for someone to pick hot stocks, beat the market, or hand you a product without understanding your life first, that's not the work we do. If you want a plan built around your purpose, made with intention, and an advisor who'll be in your corner for the whole journey — to retirement and well beyond it — that's exactly the work we do.</p>
       </div>
 
     </div>
@@ -1495,7 +1486,7 @@
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;" class="two-col-stack">
         <div class="anim">
           <h3 style="color:var(--navy);margin-bottom:16px;" data-cms="about.whyHeading">Why we exist</h3>
-          <p data-cms="about.whyP1">We started One Life Advisory because we kept seeing the same gap. People with real responsibility and real resources, but with a financial life made up of pieces that didn't add up to a plan. Cash flow that wasn't coordinated with the investments. Investments that weren't coordinated with the protection. Protection that hadn't been looked at in years. A vague sense of where it was all going, but no clear answer to the question that actually matters: is this money supporting the life I want to live?</p>
+          <p data-cms="about.whyP1">We started One Life Advisory because we kept seeing the same gap. People with real responsibility and real resources, but with a financial life made up of pieces that didn't add up to a plan. Cash flow that wasn't coordinated with the investments. Investments that weren't coordinated with the protection. Protection hadn't been looked at in years. Decisions made by default instead of on purpose. And a vague sense of where it was all going, but no clear answer to the question that actually matters: is this money supporting the life I want to live, now and for every year ahead?</p>
           <p style="margin-top:12px;" data-cms="about.whyP2">We built One Life to close that gap. Planning, investments, protection, and the way taxes affect every move you make — all under one roof, all coordinated, all built around what you actually want out of this life.</p>
         </div>
         <div class="img-ph img-ph-about anim anim-delay-1" data-label="Firm / lifestyle image">
@@ -1518,7 +1509,7 @@
           <div class="belief-num">01</div>
           <div>
             <h4 data-cms="about.beliefs.0.title">A plan should start with purpose, not products.</h4>
-            <p data-cms="about.beliefs.0.body">What you want your money to do is the foundation. Everything else is built on top of it.</p>
+            <p data-cms="about.beliefs.0.body">What you want your money to do is the foundation. Everything else is built on top of it — and every decision after that gets made on purpose, with intention, instead of by default or out of habit.</p>
           </div>
         </div>
         <div class="belief anim">
@@ -1635,6 +1626,26 @@
         <div class="faq-item">
           <button class="faq-q" onclick="toggleFaq(this)"><span data-cms="faq.sections.0.items.3.q">How are you different from the advisor I already have?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
           <div class="faq-a"><div class="faq-a-inner"><p data-cms="faq.sections.0.items.3.a">The honest answer is that we might not be, and we'll tell you that on the call if that's what we see. Where we tend to be different is that we treat planning as the work and investments as one of the tools. A lot of advisors lead with the portfolio and add planning on the side. We lead with the plan, build everything around it, and coordinate the pieces other firms tend to leave to someone else. If that sounds like what you've been looking for, we should talk.</p></div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)"><span data-cms="faq.sections.0.items.4.q">Do you only work with people who are retired or near retirement?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <div class="faq-a"><div class="faq-a-inner"><p data-cms="faq.sections.0.items.4.a">No. Our specialty is income — turning what you've built into money you can live on without running out — and that focus matters most as retirement approaches. But the best income plans aren't built at 63. They're built years earlier, when there's still time to shape the outcome. If you're still in your saving years, working with us means building toward your Future Cash Flow from the start, so you arrive with options instead of regrets. We work with people in retirement, approaching it, and still building toward it. The stage changes the work; the focus on the life your money is meant to support doesn't.</p></div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)"><span data-cms="faq.sections.0.items.5.q">What makes your approach different from other financial planners?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <div class="faq-a"><div class="faq-a-inner"><p data-cms="faq.sections.0.items.5.a">Two things. First, intention: we don't make financial decisions by default or habit. Every piece of your plan is there on purpose, with a clear job, or it doesn't belong. Second, focus: most of the industry is built around one question — how big can we make the pile? That's only half the job. The other half, the half that determines whether you can actually live the life you saved for, is how that pile becomes income. When to draw, from which accounts, in what order, how to keep taxes from eroding it, how to make it last. We treat that as the center of the work, not a step you figure out later. We call it your Future Cash Flow.</p></div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)"><span data-cms="faq.sections.0.items.6.q">What do you mean by planning "to and through" retirement?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <div class="faq-a"><div class="faq-a-inner"><p data-cms="faq.sections.0.items.6.a">Many advisors are good at getting you to the retirement starting line — helping you save, invest, and accumulate. Far fewer are built for what comes after, when the paycheck stops and your savings have to become the paycheck. That second phase lasts decades and carries its own risks: market drops early in retirement, inflation, taxes, and the simple question of how much you can spend without running out. Planning "through" retirement means designing for all of it, not just getting you to the door. It's the part we specialize in.</p></div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)"><span data-cms="faq.sections.0.items.7.q">I want to leave money to my family, not just spend it all. Does that fit?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <div class="faq-a"><div class="faq-a-inner"><p data-cms="faq.sections.0.items.7.a">Absolutely. Spending well and leaving a legacy aren't opposites — they're outcomes of the same plan. A sound income strategy tells you how much you can comfortably use, which is also what tells you what's safe to pass on. Legacy isn't an afterthought to the income plan; it's part of it. We build the distribution plan and the legacy plan as one piece of work, so the people and causes you care about end up where you intend.</p></div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)"><span data-cms="faq.sections.0.items.8.q">Is this just retirement income planning?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <div class="faq-a"><div class="faq-a-inner"><p data-cms="faq.sections.0.items.8.a">No — income is the spine, but a real plan has to hold up around it. Protection so an unexpected event doesn't undo the work. Investments built to produce what the plan needs. Tax awareness woven through every decision. A legacy plan for what's left. And before any of that, a clear sense of what you actually want your money to do. Income is where the plan focuses because it's what everything else ultimately serves, but the plan itself is complete, not narrow.</p></div></div>
         </div>
       </div>
 
