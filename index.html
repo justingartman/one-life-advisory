@@ -210,22 +210,22 @@
     @media (prefers-reduced-motion: no-preference) {
       /* Default reveal: a quiet rise on a slow expo curve (not a generic fade-up). */
       .anim {
-        opacity: 0; transform: translateY(14px);
-        transition: opacity 900ms var(--ease-expo), transform 900ms var(--ease-expo);
+        opacity: 0; transform: translateY(16px);
+        transition: opacity 1500ms var(--ease-expo), transform 1500ms var(--ease-expo);
         will-change: opacity, transform;
       }
       .anim.visible { opacity: 1; transform: translateY(0); }
-      .anim-delay-1 { transition-delay: 90ms; }
-      .anim-delay-2 { transition-delay: 180ms; }
-      .anim-delay-3 { transition-delay: 270ms; }
-      .anim-delay-4 { transition-delay: 360ms; }
-      .anim-delay-5 { transition-delay: 450ms; }
+      .anim-delay-1 { transition-delay: 160ms; }
+      .anim-delay-2 { transition-delay: 320ms; }
+      .anim-delay-3 { transition-delay: 480ms; }
+      .anim-delay-4 { transition-delay: 640ms; }
+      .anim-delay-5 { transition-delay: 800ms; }
 
       /* Headline mask-reveal: type rises from behind an edge instead of fading. */
       .reveal-mask {
         clip-path: inset(0 -8% 102% -8%);
         transform: translateY(0.18em);
-        transition: clip-path 1100ms var(--ease-expo), transform 1100ms var(--ease-expo), opacity 600ms var(--ease-expo);
+        transition: clip-path 1800ms var(--ease-expo), transform 1800ms var(--ease-expo), opacity 1000ms var(--ease-expo);
         will-change: clip-path, transform;
       }
       .reveal-mask.visible { clip-path: inset(-12% -8% -12% -8%); transform: translateY(0); }
@@ -357,7 +357,7 @@
     .hero h1 .accent path { stroke-dasharray: 1; stroke-dashoffset: 1; }
     @media (prefers-reduced-motion: no-preference) {
       /* Slow, deliberate hand-drawn underline — starts after the headline settles */
-      .hero h1 .accent path { transition: stroke-dashoffset 2000ms cubic-bezier(.45,.05,.25,1) 1100ms; }
+      .hero h1 .accent path { transition: stroke-dashoffset 2200ms cubic-bezier(.45,.05,.25,1) 1900ms; }
     }
     .hero h1.visible .accent path { stroke-dashoffset: 0; }
     .hero-sub {
@@ -577,11 +577,19 @@
       background: var(--white); border-radius: var(--radius-lg);
       border: 1px solid var(--border); padding: 40px 32px; position: relative;
       overflow: hidden;
+      transition: transform 380ms var(--ease-expo), box-shadow 380ms var(--ease-expo), border-color 380ms var(--ease);
+    }
+    .who-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 44px rgba(27,48,84,.13);
+      border-color: rgba(184,149,106,.35);
     }
     .who-card::before {
       content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-      background: var(--navy);
+      background: var(--navy); transition: background 380ms var(--ease);
     }
+    .who-card:hover::before { background: var(--gold); }
+    @media (prefers-reduced-motion: reduce) { .who-card:hover { transform: none; } }
     .who-card h3 { color: var(--navy); margin-bottom: 16px; }
     .who-card > p { margin-bottom: 24px; }
     .who-list { display: flex; flex-direction: column; gap: 10px; }
