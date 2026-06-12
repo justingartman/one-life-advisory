@@ -1962,61 +1962,37 @@
 
   // ── Accordion (What We Do) ────────────────────────────────────────────────
   const accState = { liquidity: true };
-  const ACC_KEYS = ['liquidity','protection','retirement','investments','tax','legacy'];
+  // Each accordion toggles independently — open ones stay open until clicked again.
   function toggleAcc(key) {
     const trigger = document.querySelector(`#acc-${key} .acc-trigger`);
     const body = document.getElementById(`body-${key}`);
     if (!trigger || !body) return;
     const isOpen = body.classList.contains('open');
-
-    // Clicking the open one just closes it (animated), no scroll change needed.
     if (isOpen) {
-      body.style.maxHeight = body.scrollHeight + 'px';   // fix start point
+      body.style.maxHeight = body.scrollHeight + 'px';   // fix start point, then animate to 0
       void body.offsetHeight;
       trigger.classList.remove('open');
       body.classList.remove('open');
-      body.style.maxHeight = '';                          // animate to 0
-      return;
+      body.style.maxHeight = '';
+    } else {
+      trigger.classList.add('open');
+      body.classList.add('open');
+      body.style.maxHeight = body.scrollHeight + 'px';   // animate open to exact height
     }
-
-    // Opening: remember where the clicked header sits, close the others
-    // instantly (so the collapse above can't shift the page), then re-anchor.
-    const prevTop = trigger.getBoundingClientRect().top;
-    ACC_KEYS.forEach(k => {
-      const t = document.querySelector(`#acc-${k} .acc-trigger`);
-      const b = document.getElementById(`body-${k}`);
-      if (t && b && b.classList.contains('open')) {
-        b.style.transition = 'none';
-        t.classList.remove('open');
-        b.classList.remove('open');
-        b.style.maxHeight = '';
-        void b.offsetHeight;                              // force the instant collapse
-        b.style.transition = '';
-      }
-    });
-    trigger.classList.add('open');
-    body.classList.add('open');
-    body.style.maxHeight = body.scrollHeight + 'px';      // animate open to exact height
-    // Keep the header exactly where it was on screen — no jump.
-    const delta = trigger.getBoundingClientRect().top - prevTop;
-    if (delta) window.scrollBy(0, delta);
   }
 
   function goAccordion(key) {
     go('what-we-do');
     setTimeout(() => {
-      // Close all first, then open target
-      ACC_KEYS.forEach(k => {
-        const t = document.querySelector(`#acc-${k} .acc-trigger`);
-        const b = document.getElementById(`body-${k}`);
-        if (t && b) { t.classList.remove('open'); b.classList.remove('open'); b.style.maxHeight = ''; }
-      });
+      // Open the requested pillar (leave any others as they are) and scroll to it.
       const trigger = document.querySelector(`#acc-${key} .acc-trigger`);
       const body = document.getElementById(`body-${key}`);
       if (trigger && body) {
-        trigger.classList.add('open');
-        body.classList.add('open');
-        body.style.maxHeight = body.scrollHeight + 'px';
+        if (!body.classList.contains('open')) {
+          trigger.classList.add('open');
+          body.classList.add('open');
+          body.style.maxHeight = body.scrollHeight + 'px';
+        }
         setTimeout(() => {
           const el = document.getElementById(`acc-${key}`);
           if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
