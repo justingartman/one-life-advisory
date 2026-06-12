@@ -117,11 +117,11 @@
       letter-spacing: -0.01em; cursor: pointer;
     }
     .nav-logo .brand-accent { color: var(--gold); }
-    .nav-links { display: flex; align-items: center; gap: 8px; }
+    .nav-links { display: flex; align-items: center; gap: 6px; flex-wrap: nowrap; }
     .nav-links a {
-      position: relative;
+      position: relative; white-space: nowrap; flex-shrink: 0;
       font-size: .8125rem; font-weight: 500; letter-spacing: .01em; color: var(--text2);
-      padding: 8px 4px; margin: 0 10px;
+      padding: 8px 4px; margin: 0 8px;
       transition: color 220ms var(--ease);
     }
     /* hand-drawn-feeling underline that wipes in from the left */
@@ -509,7 +509,7 @@
     }
 
     /* ─── ACCORDION ──────────────────────────────────────────── */
-    .accordion { border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
+    .accordion { border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; scroll-margin-top: 110px; }
     .accordion + .accordion { margin-top: 12px; }
     .acc-trigger {
       width: 100%; display: flex; align-items: center; justify-content: space-between;
@@ -537,7 +537,7 @@
       transition: max-height 500ms var(--ease);
       background: var(--white); border-top: 1px solid var(--border);
     }
-    .acc-body.open { max-height: 3000px; }
+    .acc-body.open { max-height: 5000px; }
     .acc-body-inner { padding: 32px 28px; }
     .acc-body p { margin-bottom: 16px; }
     .acc-body p:last-child { margin-bottom: 0; }
@@ -1962,38 +1962,61 @@
 
   // ── Accordion (What We Do) ────────────────────────────────────────────────
   const accState = { liquidity: true };
+  const ACC_KEYS = ['liquidity','protection','retirement','investments','tax','legacy'];
   function toggleAcc(key) {
     const trigger = document.querySelector(`#acc-${key} .acc-trigger`);
     const body = document.getElementById(`body-${key}`);
     if (!trigger || !body) return;
     const isOpen = body.classList.contains('open');
-    // Close all
-    ['liquidity','protection','retirement','investments','tax','legacy'].forEach(k => {
+
+    // Clicking the open one just closes it (animated), no scroll change needed.
+    if (isOpen) {
+      body.style.maxHeight = body.scrollHeight + 'px';   // fix start point
+      void body.offsetHeight;
+      trigger.classList.remove('open');
+      body.classList.remove('open');
+      body.style.maxHeight = '';                          // animate to 0
+      return;
+    }
+
+    // Opening: remember where the clicked header sits, close the others
+    // instantly (so the collapse above can't shift the page), then re-anchor.
+    const prevTop = trigger.getBoundingClientRect().top;
+    ACC_KEYS.forEach(k => {
       const t = document.querySelector(`#acc-${k} .acc-trigger`);
       const b = document.getElementById(`body-${k}`);
-      if (t && b) { t.classList.remove('open'); b.classList.remove('open'); }
+      if (t && b && b.classList.contains('open')) {
+        b.style.transition = 'none';
+        t.classList.remove('open');
+        b.classList.remove('open');
+        b.style.maxHeight = '';
+        void b.offsetHeight;                              // force the instant collapse
+        b.style.transition = '';
+      }
     });
-    // Open target if was closed
-    if (!isOpen) {
-      trigger.classList.add('open');
-      body.classList.add('open');
-    }
+    trigger.classList.add('open');
+    body.classList.add('open');
+    body.style.maxHeight = body.scrollHeight + 'px';      // animate open to exact height
+    // Keep the header exactly where it was on screen — no jump.
+    const delta = trigger.getBoundingClientRect().top - prevTop;
+    if (delta) window.scrollBy(0, delta);
   }
 
   function goAccordion(key) {
     go('what-we-do');
     setTimeout(() => {
       // Close all first, then open target
-      ['liquidity','protection','retirement','investments','tax','legacy'].forEach(k => {
+      ACC_KEYS.forEach(k => {
         const t = document.querySelector(`#acc-${k} .acc-trigger`);
         const b = document.getElementById(`body-${k}`);
-        if (t && b) { t.classList.remove('open'); b.classList.remove('open'); }
+        if (t && b) { t.classList.remove('open'); b.classList.remove('open'); b.style.maxHeight = ''; }
       });
       const trigger = document.querySelector(`#acc-${key} .acc-trigger`);
       const body = document.getElementById(`body-${key}`);
       if (trigger && body) {
         trigger.classList.add('open');
         body.classList.add('open');
+        body.style.maxHeight = body.scrollHeight + 'px';
         setTimeout(() => {
           const el = document.getElementById(`acc-${key}`);
           if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
