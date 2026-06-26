@@ -2,7 +2,7 @@
   "legalLinks": [
     {
       "label": "Form ADV Part 2A",
-      "url": "#"
+      "url": "https://adviserinfo.sec.gov/firm/summary/338319"
     },
     {
       "label": "Form ADV Part 2B",
@@ -31,9 +31,10 @@
   },
   "brandLead": "One Life",
   "disclosures": [
-    "One Life Advisory is a Registered Investment Advisor. Advisory services are offered through One Life Advisory. Registration does not imply a certain level of skill or training.",
+    "One Life Advisory, LLC is a registered investment adviser with the Texas State Securities Board. Registration does not imply a certain level of skill or training.",
     "The information on this website is for general informational and educational purposes only. It is not intended as, and should not be construed as, personalized investment, tax, or legal advice. One Life Advisory does not provide tax or legal advice. Clients should consult with a qualified tax professional or attorney regarding their specific situation.",
     "Investing involves risk, including the possible loss of principal. Past performance is not a guarantee of future results.",
+    "Any income projections are based on assumptions and are not guaranteed, and actual results will vary.",
     "Any references to guaranteed income or safe accumulation in connection with annuities or insurance products refer to contractual guarantees of the issuing insurance company. Such guarantees are subject to the claims-paying ability of the issuer."
   ],
   "logoFooter": "/assets/logos/logo-footer.svg",

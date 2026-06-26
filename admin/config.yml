@@ -11,7 +11,7 @@ backend:
   name: github
   repo: justingartman/one-life-advisory
   branch: main                  # ← the branch the CMS commits to
-  base_url: https://one-life-advisory.vercel.app   # your deployed Vercel domain
+  base_url: https://onelifeadvisory.com   # your live custom domain
   auth_endpoint: api/auth       # our Vercel OAuth function (see /api/auth.js)
   commit_messages:
     create: 'Create {{collection}} "{{slug}}" (via CMS)'
@@ -215,7 +215,8 @@ collections:
                   { name: intro, label: Intro, widget: text },
                   { name: heads, label: Subheadings, widget: list, field: { name: text, label: Subheading, widget: string } },
                   { name: paras, label: "Paragraphs (may contain HTML)", widget: list, field: { name: text, label: Paragraph, widget: text } },
-                  { name: walkaway, label: "Walk-away list", widget: list, field: { name: text, label: Item, widget: string } }
+                  { name: walkaway, label: "Walk-away list", widget: list, field: { name: text, label: Item, widget: string } },
+                  { name: referralDisclosure, label: "Insurance referral disclosure", widget: text, required: false }
                 ] }
               - { name: retirement, label: "Retirement Income", widget: object, collapsed: true, fields: [
                   { name: title, label: Title, widget: string },

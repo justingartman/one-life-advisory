@@ -4,18 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>One Life Advisory — Designed for your one life.</title>
-  <meta name="description" content="One Life Advisory is a Registered Investment Advisor. We build financial plans around your purpose — coordinating cash flow, investments, protection, and legacy into one integrated plan.">
+  <meta name="description" content="One Life Advisory is a registered investment adviser. We build financial plans around your purpose — coordinating cash flow, investments, protection, and legacy into one integrated plan.">
   <meta name="theme-color" content="#16243f">
   <!-- Social link previews -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="One Life Advisory — Designed for your one life.">
   <meta property="og:description" content="Purposeful financial planning. We build one integrated plan around the life you actually want to live.">
-  <meta property="og:url" content="https://one-life-advisory.vercel.app/">
-  <meta property="og:image" content="https://one-life-advisory.vercel.app/assets/hero.jpg">
+  <meta property="og:url" content="https://onelifeadvisory.com/">
+  <meta property="og:image" content="https://onelifeadvisory.com/assets/hero.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="One Life Advisory — Designed for your one life.">
   <meta name="twitter:description" content="Purposeful financial planning. One integrated plan, built around your purpose.">
-  <meta name="twitter:image" content="https://one-life-advisory.vercel.app/assets/hero.jpg">
+  <meta name="twitter:image" content="https://onelifeadvisory.com/assets/hero.jpg">
   <!-- Favicon / app icons (custom logo files) -->
   <link rel="icon" type="image/svg+xml" href="/assets/logos/favicon.svg" data-cms-attr="href:global.faviconUrl">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/logos/favicon-32.png">
@@ -570,6 +570,10 @@
     .acc-walkaway li::before {
       content: '✓'; color: var(--gold); font-weight: 700; flex-shrink: 0;
     }
+    .acc-disclosure {
+      margin-top: 22px; font-size: .8125rem; line-height: 1.6;
+      color: var(--text2); font-style: italic; opacity: .85;
+    }
 
     /* ─── WHO WE HELP CARDS ──────────────────────────────────── */
     .who-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 32px; }
@@ -957,7 +961,7 @@
     <div class="hero-inner">
       <div class="hero-eyebrow anim" data-cms="home.hero.eyebrow">Purposeful Financial Planning</div>
       <h1 class="reveal-mask anim-delay-1"><span data-cms="home.hero.headlineLead">Designed for your</span> <span class="accent"><span data-cms="home.hero.headlineAccent">one life</span><svg viewBox="0 0 300 14" preserveAspectRatio="none" fill="none"><path pathLength="1" d="M4 9 C 60 3, 120 3, 182 7 S 268 11, 296 5" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/></svg></span><span class="hero-dot">.</span></h1>
-      <p class="hero-sub anim anim-delay-2" data-cms="home.hero.sub">A financial plan isn't about ending up with the biggest number. It's about your money supporting the life you actually want, today and every year going forward. So we focus on the part most advisors skip: turning what you've saved into income you can count on. Not just getting you to retirement, but through it.</p>
+      <p class="hero-sub anim anim-delay-2" data-cms="home.hero.sub">A financial plan isn't about ending up with the biggest number. It's about your money supporting the life you actually want, today and every year going forward. So we focus on the part most advisors skip: turning what you've saved into income built around your plan. Not just getting you to retirement, but through it.</p>
       <div class="hero-actions anim anim-delay-3">
         <button class="btn btn-primary" onclick="go('schedule')" data-cms="home.hero.ctaPrimary">Schedule a Clarity Call</button>
         <button class="btn btn-outline" onclick="go('how-we-plan')" data-cms="home.hero.ctaSecondary">See how we plan</button>
@@ -975,7 +979,7 @@
         <div class="label" data-cms="home.covers.label">What We Do</div>
         <div class="divider divider-center"></div>
         <h2 class="anim anim-delay-1" data-cms="home.whoWeServe.heading">We help people live on purpose, not by default.</h2>
-        <p class="anim anim-delay-2" style="margin:20px auto 0;font-size:1.125rem;" data-cms="home.whoWeServe.body">Whether you're entering retirement, already there, or still building toward it, the work is the same. We help you turn what you've saved into income you can count on. The hard part of retirement isn't saving for it. It's making the money last. That's the work we're built for. We call it Future Cash Flow, and it's the heart of every plan we make. We plan for the whole journey: to retirement, and through it.</p>
+        <p class="anim anim-delay-2" style="margin:20px auto 0;font-size:1.125rem;" data-cms="home.whoWeServe.body">Whether you're entering retirement, already there, or still building toward it, the work is the same. We help you turn what you've saved into income built around your plan. The hard part of retirement isn't saving for it. It's making the money last. That's the work we're built for. We call it Future Cash Flow, and it's the heart of every plan we make. We plan for the whole journey: to retirement, and through it.</p>
       </div>
       <div class="section-header center anim" style="margin-top:64px;margin-bottom:40px;">
         <h3 data-cms="home.covers.heading" style="color:var(--navy);">What a plan with us covers</h3>
@@ -1008,7 +1012,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
           </div>
           <h4 data-cms="home.covers.cards.3.title">Retirement Income</h4>
-          <p data-cms="home.covers.cards.3.desc">A personalized strategy to turn your savings into a paycheck designed to last a lifetime.</p>
+          <p data-cms="home.covers.cards.3.desc">A personalized strategy to turn your savings into income designed to last.</p>
         </div>
         <div class="card anim anim-delay-2" onclick="goAccordion('tax')">
           <div class="card-icon">
@@ -1267,6 +1271,7 @@
                   <li data-cms="what_we_do.acc.protection.walkaway.3">A protection plan built into your overall financial plan — not bolted on the side</li>
                 </ul>
               </div>
+              <p class="acc-disclosure" data-cms="what_we_do.acc.protection.referralDisclosure">One Life Advisory does not sell insurance products. Where insurance is identified as part of your plan, we refer you to a licensed insurance professional. We have no financial interest in that referral.</p>
             </div>
           </div>
         </div>
@@ -1439,7 +1444,7 @@
           <p data-cms="who_we_help.groups.1.p1">The last five to ten years before retirement are the years that shape the next thirty. The decisions you make now set the floor and the ceiling for everything that comes after: when to retire, how to draw down, what to do with the 401(k), when to take Social Security, how much risk to carry.</p>
           <p style="margin-bottom:24px;" data-cms="who_we_help.groups.1.p2">We help you map it out before you get there, so you walk into retirement with a plan instead of a question mark.</p>
           <ul class="who-list">
-            <li data-cms="who_we_help.groups.1.items.0">A clear answer to "can I actually retire when I want to?"</li>
+            <li data-cms="who_we_help.groups.1.items.0">A grounded picture of what retirement on your timeline looks like, and what it would take to get there.</li>
             <li data-cms="who_we_help.groups.1.items.1">A transition strategy for the years between your last paycheck and full retirement</li>
             <li data-cms="who_we_help.groups.1.items.2">A look at how to coordinate Social Security, pensions, and your own savings</li>
             <li data-cms="who_we_help.groups.1.items.3">A protection review while you still have the most options available</li>
@@ -1629,7 +1634,7 @@
         </div>
         <div class="faq-item">
           <button class="faq-q" onclick="toggleFaq(this)"><span data-cms="faq.sections.0.items.2.q">Are you a fiduciary?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
-          <div class="faq-a"><div class="faq-a-inner"><p data-cms="faq.sections.0.items.2.a">Yes. One Life Advisory is a Registered Investment Advisor, and we have a legal obligation to act in your best interest. It's not a marketing line — it's a standard. It also shapes how we work: when we make a recommendation, it's because the math is convenient for you, not for us.</p></div></div>
+          <div class="faq-a"><div class="faq-a-inner"><p data-cms="faq.sections.0.items.2.a">Yes. One Life Advisory is a registered investment adviser, and we have a legal obligation to act in your best interest. We disclose all material conflicts of interest, including platform benefits we receive and any affiliated entity relationships, in our Form ADV, which is available upon request and linked below. Our obligation to you doesn't change based on how any engagement is structured.</p></div></div>
         </div>
         <div class="faq-item">
           <button class="faq-q" onclick="toggleFaq(this)"><span data-cms="faq.sections.0.items.3.q">How are you different from the advisor I already have?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
@@ -1685,7 +1690,7 @@
         </div>
         <div class="faq-item">
           <button class="faq-q" onclick="toggleFaq(this)"><span data-cms="faq.sections.2.items.1.q">Are there any commissions or product-related compensation?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
-          <div class="faq-a"><div class="faq-a-inner"><p data-cms="faq.sections.2.items.1.a">We'll be transparent about how we're compensated on the Clarity Call and in our disclosure documents. As a fiduciary, our obligation is to act in your best interest regardless of how any product is structured.</p></div></div>
+          <div class="faq-a"><div class="faq-a-inner"><p data-cms="faq.sections.2.items.1.a">No. One Life Advisory earns no commissions and does not receive product-related compensation of any kind. Our compensation comes from advisory fees, which are disclosed in writing before you engage with us. If insurance is part of your plan, we refer you to a licensed insurance professional. We have no financial interest in that referral.</p></div></div>
         </div>
       </div>
 
@@ -1785,10 +1790,11 @@
       </div>
     </div>
     <div class="footer-disclosures">
-      <p data-cms="global.disclosures.0">One Life Advisory is a Registered Investment Advisor. Advisory services are offered through One Life Advisory. Registration does not imply a certain level of skill or training.</p>
+      <p data-cms="global.disclosures.0">One Life Advisory, LLC is a registered investment adviser with the Texas State Securities Board. Registration does not imply a certain level of skill or training.</p>
       <p data-cms="global.disclosures.1">The information on this website is for general informational and educational purposes only. It is not intended as, and should not be construed as, personalized investment, tax, or legal advice. One Life Advisory does not provide tax or legal advice. Clients should consult with a qualified tax professional or attorney regarding their specific situation.</p>
       <p data-cms="global.disclosures.2">Investing involves risk, including the possible loss of principal. Past performance is not a guarantee of future results.</p>
-      <p data-cms="global.disclosures.3">Any references to guaranteed income or safe accumulation in connection with annuities or insurance products refer to contractual guarantees of the issuing insurance company. Such guarantees are subject to the claims-paying ability of the issuer.</p>
+      <p data-cms="global.disclosures.3">Any income projections are based on assumptions and are not guaranteed, and actual results will vary.</p>
+      <p data-cms="global.disclosures.4">Any references to guaranteed income or safe accumulation in connection with annuities or insurance products refer to contractual guarantees of the issuing insurance company. Such guarantees are subject to the claims-paying ability of the issuer.</p>
     </div>
     <div class="footer-bottom">
       <p data-cms="global.copyright">© 2026 One Life Advisory. All rights reserved.</p>
