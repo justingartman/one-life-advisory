@@ -23,6 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="/assets/hero.jpg" fetchpriority="high">
   <style>
     /* ─── TOKENS ─────────────────────────────────────────────── */
     :root {
@@ -332,7 +333,7 @@
     }
     .hero-inner {
       width: 100%; max-width: 1160px; margin: 0 auto;
-      padding: 0 32px 104px; position: relative; z-index: 1;
+      padding: 132px 32px 104px; position: relative; z-index: 1;
     }
     .hero-eyebrow {
       display: inline-flex; align-items: center; gap: 14px;
@@ -539,7 +540,7 @@
     }
     .acc-body.open { max-height: 5000px; }
     .acc-body-inner { padding: 32px 28px; }
-    .acc-body p { margin-bottom: 16px; }
+    .acc-body p { margin-bottom: 16px; max-width: 76ch; }
     .acc-body p:last-child { margin-bottom: 0; }
     .acc-subhead {
       font-weight: 600; color: var(--navy); font-size: .9375rem;
@@ -736,12 +737,12 @@
     .footer-col a:hover { color: var(--gold); }
     .footer-disclosures {
       padding: 40px 0; border-bottom: 1px solid rgba(255,255,255,.1);
-      font-size: .8125rem; line-height: 1.8; color: rgba(255,255,255,.35);
+      font-size: .8125rem; line-height: 1.8; color: rgba(255,255,255,.5);
     }
-    .footer-disclosures p { margin-bottom: 12px; color: rgba(255,255,255,.35); }
+    .footer-disclosures p { margin-bottom: 12px; color: rgba(255,255,255,.5); font-size: .8125rem; line-height: 1.8; max-width: 90ch; }
     .footer-bottom {
       padding: 24px 0; display: flex; align-items: center;
-      justify-content: space-between; flex-wrap: gap;
+      justify-content: space-between; flex-wrap: wrap; gap: 12px;
     }
     .footer-bottom p { font-size: .8125rem; color: rgba(255,255,255,.35); }
     .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
@@ -880,12 +881,13 @@
       /* Hero — recomposed for a tall screen */
       .hero { min-height: 84svh; }
       .hero-bg, .hero-atmos { background-position: 66% 30%; }  /* hold the peaks + warm light */
-      .hero-inner { padding: 0 22px 64px; }
+      .hero-inner { padding: 104px 22px 64px; }
       .hero h1 { font-size: clamp(2.5rem, 11.5vw, 3.4rem); line-height: 1.05; letter-spacing: -0.02em; }
       .hero-sub { font-size: 1.0625rem; max-width: 34ch; line-height: 1.7; }
       .hero-eyebrow { font-size: .82rem; letter-spacing: .1em; margin-bottom: 18px; }
       .hero-actions { flex-direction: column; align-items: stretch; gap: 12px; width: 100%; max-width: 360px; }
       .hero-actions .btn { width: 100%; justify-content: center; padding: 16px 24px; }
+      .hero-scroll { display: none; }
 
       /* Interior page headers */
       .page-hero { min-height: 38svh; }
@@ -899,7 +901,7 @@
       .container, .container-sm { padding: 0 18px; }
       .section { padding: 56px 0; }
       .hero h1 { font-size: clamp(2.25rem, 12.5vw, 3rem); }
-      .hero-inner { padding: 0 18px 56px; }
+      .hero-inner { padding: 96px 18px 56px; }
     }
   </style>
 </head>
@@ -1016,7 +1018,7 @@
         </div>
         <div class="card anim anim-delay-2" onclick="goAccordion('tax')">
           <div class="card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>
           </div>
           <h4 data-cms="home.covers.cards.4.title">Tax-Aware Planning</h4>
           <p data-cms="home.covers.cards.4.desc">Most planning decisions carry tax consequences. We weigh them every step of the way so they're built into the plan, not handled after the fact.</p>
@@ -1077,7 +1079,7 @@
   <section class="philosophy">
     <div class="label anim" style="color:var(--gold-lt);" data-cms="home.philosophy.label">Why We Exist</div>
     <blockquote class="anim anim-delay-1">
-      "<span data-cms="home.philosophy.quote">Money on its own doesn't mean much. What matters is what it lets you do, who it lets you take care of, and the life it helps you live.</span>"
+      &ldquo;<span data-cms="home.philosophy.quote">Money on its own doesn't mean much. What matters is what it lets you do, who it lets you take care of, and the life it helps you live.</span>&rdquo;
     </blockquote>
     <p class="anim anim-delay-2" style="color:rgba(255,255,255,.65);max-width:680px;margin:0 auto 28px;font-size:1.0625rem;" data-cms="home.philosophy.body">We started One Life Advisory because we believe a financial plan should start with purpose, not products. One plan. Built around your purpose, designed to support the life you want. Not just until you retire, but for every year after.</p>
     <button class="btn anim anim-delay-3" style="background:transparent;border:1.5px solid rgba(255,255,255,.35);color:var(--white);margin-top:8px;" onclick="go('about')" data-cms="home.philosophy.button">Our story →</button>
