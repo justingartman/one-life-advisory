@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>One Life Advisory — Designed for your one life.</title>
+  <title>One Life Advisory | Financial Planning &amp; Retirement Income</title>
   <meta name="description" content="One Life Advisory is a registered investment adviser. We build financial plans around your purpose — coordinating cash flow, investments, protection, and legacy into one integrated plan.">
   <meta name="theme-color" content="#16243f">
   <!-- Social link previews -->
@@ -11,11 +11,13 @@
   <meta property="og:title" content="One Life Advisory — Designed for your one life.">
   <meta property="og:description" content="Purposeful financial planning. We build one integrated plan around the life you actually want to live.">
   <meta property="og:url" content="https://onelifeadvisory.com/">
-  <meta property="og:image" content="https://onelifeadvisory.com/assets/hero.jpg">
+  <meta property="og:image" content="https://onelifeadvisory.com/assets/og-card.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="One Life Advisory — Designed for your one life.">
   <meta name="twitter:description" content="Purposeful financial planning. One integrated plan, built around your purpose.">
-  <meta name="twitter:image" content="https://onelifeadvisory.com/assets/hero.jpg">
+  <meta name="twitter:image" content="https://onelifeadvisory.com/assets/og-card.jpg">
   <!-- Favicon / app icons (custom logo files) -->
   <link rel="icon" type="image/svg+xml" href="/assets/logos/favicon.svg" data-cms-attr="href:global.faviconUrl">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/logos/favicon-32.png">
@@ -23,7 +25,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="preload" as="image" href="/assets/hero.jpg" fetchpriority="high">
+  <link rel="preload" as="image" href="/assets/hero.webp" fetchpriority="high">
   <style>
     /* ─── TOKENS ─────────────────────────────────────────────── */
     :root {
@@ -46,7 +48,7 @@
       --ease-expo: cubic-bezier(.16,1,.3,1);   /* slow, refined settle for reveals */
       --font-display: 'Newsreader', Georgia, 'Times New Roman', serif;
       --font-body:    'Hanken Grotesk', system-ui, -apple-system, sans-serif;
-      --hero-image: url('assets/hero.jpg');
+      --hero-image: url('assets/hero.webp');
       /* Topographic contour motif — elevation lines of a peak (the site's signature mark) */
       --topo: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='620' height='480' viewBox='0 0 620 480'%3E%3Cg fill='none' stroke='%23C9A876' stroke-width='1.2'%3E%3Cellipse cx='320' cy='250' rx='250' ry='165'/%3E%3Cellipse cx='311' cy='242' rx='203' ry='134'/%3E%3Cellipse cx='303' cy='234' rx='159' ry='105'/%3E%3Cellipse cx='296' cy='227' rx='117' ry='77'/%3E%3Cellipse cx='290' cy='221' rx='78' ry='51'/%3E%3Cellipse cx='285' cy='216' rx='43' ry='28'/%3E%3C/g%3E%3C/svg%3E");
     }
@@ -636,14 +638,15 @@
       transition: color 200ms;
     }
     .faq-q:hover { color: var(--gold); }
-    .faq-q svg { width: 18px; height: 18px; flex-shrink: 0; margin-left: 16px; transition: transform 300ms var(--ease); color: var(--text3); }
-    .faq-q.open svg { transform: rotate(180deg); }
+    .faq-q svg { width: 18px; height: 18px; flex-shrink: 0; margin-left: 16px; transition: transform 300ms var(--ease), color 200ms; color: var(--text3); }
+    .faq-q:hover svg { color: var(--gold); }
+    .faq-q.open svg { transform: rotate(180deg); color: var(--gold); }
     .faq-a {
       max-height: 0; overflow: hidden;
       transition: max-height 400ms var(--ease);
     }
     .faq-a.open { max-height: 1000px; }
-    .faq-a-inner { padding-bottom: 20px; }
+    .faq-a-inner { padding-bottom: 20px; padding-left: 18px; border-left: 2px solid rgba(184,149,106,.45); }
     .faq-a-inner p { font-size: .9375rem; }
 
     /* ─── PHILOSOPHY SECTION ─────────────────────────────────── */
@@ -708,7 +711,8 @@
 
     /* ─── FOOTER ─────────────────────────────────────────────── */
     footer {
-      background: var(--text); color: rgba(255,255,255,.7);
+      background: #16263F; /* deep navy — one shade darker than --navy for weight */
+      color: rgba(255,255,255,.7);
       padding: 72px 0 0; margin-top: 0;
     }
     .footer-top {
@@ -738,8 +742,9 @@
     .footer-disclosures {
       padding: 40px 0; border-bottom: 1px solid rgba(255,255,255,.1);
       font-size: .8125rem; line-height: 1.8; color: rgba(255,255,255,.5);
+      text-align: center;
     }
-    .footer-disclosures p { margin-bottom: 12px; color: rgba(255,255,255,.5); font-size: .8125rem; line-height: 1.8; max-width: 90ch; }
+    .footer-disclosures p { margin: 0 auto 12px; color: rgba(255,255,255,.5); font-size: .8125rem; line-height: 1.8; max-width: 90ch; }
     .footer-bottom {
       padding: 24px 0; display: flex; align-items: center;
       justify-content: space-between; flex-wrap: wrap; gap: 12px;
@@ -816,7 +821,7 @@
     .hero-figure .hero-card .hero-card-footer { margin-top: 18px; padding-top: 14px; }
 
     /* ─── TEAM CARDS ─────────────────────────────────────────── */
-    .team-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+    .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 360px)); justify-content: center; gap: 24px; }
     .team-card {
       background: var(--white); border: 1px solid var(--border);
       border-radius: var(--radius-lg); overflow: hidden;
@@ -858,7 +863,7 @@
     @media (max-width: 1024px) {
       .cards-grid { grid-template-columns: repeat(2,1fr); }
       .who-grid   { grid-template-columns: 1fr; }
-      .team-grid  { grid-template-columns: repeat(3,1fr); }
+      .team-grid  { grid-template-columns: repeat(auto-fit, minmax(240px, 340px)); }
       .footer-top { grid-template-columns: 1.4fr 1fr 1fr; }
       .schedule-grid { grid-template-columns: 1fr; gap: 48px; }
     }
@@ -1429,6 +1434,9 @@
 
       <div class="who-grid">
         <div class="who-card anim">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 10V2"/><path d="m4.93 10.93 1.41 1.41"/><path d="M2 18h2"/><path d="M20 18h2"/><path d="m19.07 10.93-1.41 1.41"/><path d="M22 22H2"/><path d="m16 6-4 4-4-4"/><path d="M16 18a4 4 0 0 0-8 0"/></svg>
+          </div>
           <h3 data-cms="who_we_help.groups.0.title">In Retirement</h3>
           <p data-cms="who_we_help.groups.0.p1">You've spent decades saving. Now the question is different. It's not how do I build this — it's how do I use it without running out, without leaving too much on the table, and without spending the next thirty years worrying about it.</p>
           <p style="margin-bottom:24px;" data-cms="who_we_help.groups.0.p2">We help you turn what you've saved into reliable income, coordinate the moving pieces so they actually work together, and make sure the plan flexes as your life and the market do.</p>
@@ -1442,6 +1450,9 @@
         </div>
 
         <div class="who-card anim anim-delay-1">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          </div>
           <h3 data-cms="who_we_help.groups.1.title">Approaching Retirement</h3>
           <p data-cms="who_we_help.groups.1.p1">The last five to ten years before retirement are the years that shape the next thirty. The decisions you make now set the floor and the ceiling for everything that comes after: when to retire, how to draw down, what to do with the 401(k), when to take Social Security, how much risk to carry.</p>
           <p style="margin-bottom:24px;" data-cms="who_we_help.groups.1.p2">We help you map it out before you get there, so you walk into retirement with a plan instead of a question mark.</p>
@@ -1455,6 +1466,9 @@
         </div>
 
         <div class="who-card anim anim-delay-2">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+          </div>
           <h3 data-cms="who_we_help.groups.2.title">Still Building</h3>
           <p data-cms="who_we_help.groups.2.p1">You're in your earning years. Income is good. Saving is happening, mostly. But the financial picture has gotten complicated, and the gap between "we're doing okay" and "we have a real plan" is wider than it should be.</p>
           <p style="margin-bottom:24px;" data-cms="who_we_help.groups.2.p2">We help you build the plan now, while there's still time for it to compound. The earlier we start, the more we can shape the income you'll want later. Building toward your Future Cash Flow from here means fewer course corrections, and more options when you get there.</p>
@@ -1572,29 +1586,9 @@
             <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.25"><circle cx="24" cy="18" r="9"/><path d="M7 42c0-9.4 7.6-17 17-17s17 7.6 17 17"/></svg>
           </div>
           <div class="team-card-body">
-            <h4 data-cms="about.team.0.name">[Advisor Name]</h4>
+            <h4 data-cms="about.team.0.name">Justin Gartman</h4>
             <div class="team-card-role" data-cms="about.team.0.role">Founder &amp; Financial Planner</div>
-            <p data-cms="about.team.0.bio">Short bio goes here — something human, not just a resume. Send your details and this will be written in the site's voice.</p>
-          </div>
-        </div>
-        <div class="team-card anim anim-delay-1">
-          <div class="img-ph" data-label="Photo">
-            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.25"><circle cx="24" cy="18" r="9"/><path d="M7 42c0-9.4 7.6-17 17-17s17 7.6 17 17"/></svg>
-          </div>
-          <div class="team-card-body">
-            <h4 data-cms="about.team.1.name">[Team Member]</h4>
-            <div class="team-card-role" data-cms="about.team.1.role">Role / Credentials</div>
-            <p data-cms="about.team.1.bio">Short bio goes here. Add or remove cards as your team grows.</p>
-          </div>
-        </div>
-        <div class="team-card anim anim-delay-2">
-          <div class="img-ph" data-label="Photo">
-            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.25"><circle cx="24" cy="18" r="9"/><path d="M7 42c0-9.4 7.6-17 17-17s17 7.6 17 17"/></svg>
-          </div>
-          <div class="team-card-body">
-            <h4 data-cms="about.team.2.name">[Team Member]</h4>
-            <div class="team-card-role" data-cms="about.team.2.role">Role / Credentials</div>
-            <p data-cms="about.team.2.bio">Short bio goes here. Add or remove cards as your team grows.</p>
+            <p data-cms="about.team.0.bio">Justin founded One Life Advisory around a simple conviction: money is a tool for living, not the scoreboard. He helps people turn what they've built into income for the life they actually want, and he stays at the table as that life changes.</p>
           </div>
         </div>
       </div>
@@ -1806,8 +1800,10 @@
         <!-- Form CRS hidden: One Life Advisory is TX state-registered and not required to file Form CRS. To restore, uncomment this line (data still lives in global.json legalLinks index 2).
         <a href="#" data-cms="global.legalLinks.2.label" data-cms-attr="href:global.legalLinks.2.url">Form CRS</a>
         -->
+        <!-- Privacy Policy & Terms hidden until the real documents exist (data lives in global.json legalLinks 3 & 4). To restore, uncomment:
         <a href="#" data-cms="global.legalLinks.3.label" data-cms-attr="href:global.legalLinks.3.url">Privacy Policy</a>
         <a href="#" data-cms="global.legalLinks.4.label" data-cms-attr="href:global.legalLinks.4.url">Terms of Use</a>
+        -->
       </div>
     </div>
   </div>
@@ -1868,7 +1864,10 @@
     el.innerHTML = '';
     el.style.minWidth = '320px';
     el.style.height = '700px';
-    const build = () => window.Calendly && window.Calendly.initInlineWidget({ url, parentElement: el });
+    // Brand the embed (navy accents, site text color, no cookie banner) — CMS URL stays clean.
+    const brand = 'hide_gdpr_banner=1&background_color=FFFFFF&text_color=2A2520&primary_color=1B3054';
+    const brandedUrl = url + (url.indexOf('?') > -1 ? '&' : '?') + brand;
+    const build = () => window.Calendly && window.Calendly.initInlineWidget({ url: brandedUrl, parentElement: el });
     if (window.Calendly) { build(); return; }
     if (!document.getElementById('calendly-css')) {
       const link = document.createElement('link');

@@ -19,9 +19,7 @@
   "teamLabel": "The Team",
   "teamHeading": "Meet the people behind One Life Advisory.",
   "team": [
-    { "name": "[Advisor Name]", "role": "Founder & Financial Planner", "bio": "Short bio goes here — something human, not just a resume. Send your details and this will be written in the site's voice." },
-    { "name": "[Team Member]", "role": "Role / Credentials", "bio": "Short bio goes here. Add or remove cards as your team grows." },
-    { "name": "[Team Member]", "role": "Role / Credentials", "bio": "Short bio goes here. Add or remove cards as your team grows." }
+    { "name": "Justin Gartman", "role": "Founder & Financial Planner", "bio": "Justin founded One Life Advisory around a simple conviction: money is a tool for living, not the scoreboard. He helps people turn what they've built into income for the life they actually want, and he stays at the table as that life changes." }
   ],
   "closingHeading": "Ready to talk?",
   "closingSub": "The first step is a free Clarity Call. No pressure. No pitch. Just a conversation about where you are and where you'd like to go.",

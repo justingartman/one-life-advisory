@@ -21,7 +21,7 @@
       "url": "#"
     }
   ],
-  "showClientLogin": true,
+  "showClientLogin": false,
   "nav": {
     "howWePlan": "How We Plan",
     "whatWeDo": "What We Do",
