@@ -4,9 +4,24 @@
     "eyebrow": "Purposeful Financial Planning",
     "headlineLead": "Designed for your",
     "headlineAccent": "one life",
-    "sub": "A financial plan isn't about ending up with the biggest number. It's about your money supporting the life you actually want, today and every year going forward. So we focus on the part most advisors skip: turning what you've saved into income built around your plan. Not just getting you to retirement, but through it.",
+    "sub": "A financial plan isn't about ending up with the biggest number. It's about turning what you've built into income designed to support the life you want, every year going forward. We answer five questions about your money, in plain language, and then keep answering them as life changes.",
     "ctaPrimary": "Schedule a Clarity Call",
     "ctaSecondary": "See how we plan"
+  },
+  "fiveQuestions": {
+    "label": "The Offer",
+    "heading": "Five questions.",
+    "body": "Most of financial planning comes down to five questions. We answer them clearly, and we keep them answered.",
+    "items": [
+      "Will your money last as long as you do?",
+      "What could take it away?",
+      "Is your portfolio built for the job it has now?",
+      "Are you keeping as much as you should?",
+      "Will what's left go where you intend?"
+    ],
+    "body2": "These aren't questions you answer once and file away. Markets move, tax law changes, and life doesn't hold still. So we answer them at the start, and we answer them again every year you're with us.",
+    "note": "Still building toward retirement? The first question becomes: will you get where you want to go? The other four don't change.",
+    "linkLabel": "See how it works"
   },
   "whoWeServe": {
     "heading": "We help people live on purpose, not by default.",

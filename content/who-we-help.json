@@ -2,6 +2,7 @@
   "heroEyebrow": "Who We Help",
   "heroTitle": "We help people who want their money to mean something.",
   "heroSub": "The work changes depending on where you are in life. The starting point doesn't. We begin with what you want your money to be doing, then build the plan around it. A plan made to produce income that lasts, whether that income starts next year or decades from now.",
+  "questionsIntro": "The five questions are the same for everyone. For people already retired or close to it, the first one is <em>will your money last as long as you do</em>. For people still building, it becomes <em>will you get where you want to go</em>. Same plan. Different starting point.",
   "groups": [
     {
       "title": "In Retirement",
@@ -41,7 +42,9 @@
     }
   ],
   "notFitHeading": "Who we're not the right fit for",
-  "notFitBody": "We're not the right fit for everyone, and that's okay. If you're looking for someone to pick hot stocks, beat the market, or hand you a product without understanding your life first, that's not the work we do. If you want a plan built around your purpose, and an advisor who'll be in your corner for the whole journey, to retirement and well beyond, that's exactly the work we do.",
+  "notFitBody": "We're not the right fit for everyone, and that's okay.",
+  "notFitBody2": "We're built for savers. People who've already been deliberate with their money and want a process for what comes next, rather than a hot tip or a product pitch. If you're looking for someone to pick stocks, beat the market, or hand you a solution before understanding your life, that's not the work we do.",
+  "notFitBody3": "If you want a plan built around your purpose, a clear process to get there, and an advisor who'll be in your corner for the whole journey, to retirement and well beyond, that's exactly the work we do.",
   "closingHeading": "Ready to see if we're a fit?",
   "closingSub": "The first step is a free Clarity Call. No pressure. No pitch. Just a conversation to see if the work we do matches what you're looking for.",
   "closingButton": "Schedule a Clarity Call"

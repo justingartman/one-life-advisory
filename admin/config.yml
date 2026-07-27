@@ -107,6 +107,17 @@ collections:
               - { name: sub, label: "Subheadline", widget: text }
               - { name: ctaPrimary, label: "Primary Button", widget: string }
               - { name: ctaSecondary, label: "Secondary Button", widget: string }
+          - name: fiveQuestions
+            label: "Five Questions (The Offer)"
+            widget: object
+            fields:
+              - { name: label, label: "Eyebrow", widget: string }
+              - { name: heading, label: "Heading", widget: string }
+              - { name: body, label: "Body (before list)", widget: text }
+              - { name: items, label: "The Five Questions", widget: list, field: { name: text, label: Question, widget: string } }
+              - { name: body2, label: "Body (after list)", widget: text }
+              - { name: note, label: "Italic note", widget: text }
+              - { name: linkLabel, label: "Link text", widget: string }
           - name: whoWeServe
             label: "Who We Serve"
             widget: object
@@ -166,20 +177,36 @@ collections:
           - { name: heroEyebrow, label: "Header — Eyebrow", widget: string }
           - { name: heroTitle, label: "Header — Title", widget: string }
           - { name: heroSub, label: "Header — Subtitle", widget: text }
+          - name: fiveQ
+            label: "The Five Questions"
+            widget: object
+            fields:
+              - { name: heading, label: "Heading", widget: string }
+              - { name: items, label: "Questions", widget: list, field: { name: text, label: Question, widget: string } }
+              - { name: note, label: "Italic note", widget: text }
           - { name: clarityLabel, label: "Clarity Call — Eyebrow", widget: string }
           - { name: clarityHeading, label: "Clarity Call — Heading", widget: string }
           - { name: clarityP1, label: "Clarity Call — Paragraph 1", widget: text }
           - { name: clarityP2, label: "Clarity Call — Paragraph 2", widget: text }
           - { name: clarityButton, label: "Clarity Call — Button", widget: string }
+          - { name: groupAHeading, label: "Group A Heading (steps 1–4)", widget: string }
           - name: steps
-            label: "Steps"
+            label: "Steps (Group A — Getting to the answers)"
+            widget: list
+            fields:
+              - { name: title, label: "Title", widget: string }
+              - { name: sub, label: "Subtitle (italic, e.g. 'Video call')", widget: string, required: false }
+              - { name: p1, label: "Paragraph 1", widget: text, required: false }
+              - { name: p2, label: "Paragraph 2", widget: text, required: false }
+          - { name: groupBHeading, label: "Group B Heading (ongoing)", widget: string }
+          - { name: groupBIntro, label: "Group B Intro line", widget: text }
+          - name: after
+            label: "Group B items (Once we're working together)"
             widget: list
             fields:
               - { name: title, label: "Title", widget: string }
               - { name: p1, label: "Paragraph 1", widget: text, required: false }
               - { name: p2, label: "Paragraph 2", widget: text, required: false }
-              - { name: p3, label: "Paragraph 3", widget: text, required: false }
-              - { name: outcome, label: "Outcome (italic line)", widget: text }
           - { name: closingQuote, label: "Closing Quote", widget: text }
           - { name: closingSub, label: "Closing Subtext", widget: text }
           - { name: closingButton, label: "Closing Button", widget: string }
@@ -263,6 +290,7 @@ collections:
           - { name: heroEyebrow, label: "Header — Eyebrow", widget: string }
           - { name: heroTitle, label: "Header — Title", widget: string }
           - { name: heroSub, label: "Header — Subtitle", widget: text }
+          - { name: questionsIntro, label: "Five Questions intro (may contain <em> italics)", widget: text, required: false }
           - name: groups
             label: "Client Groups"
             widget: list
@@ -272,7 +300,9 @@ collections:
               - { name: p2, label: "Paragraph 2", widget: text }
               - { name: items, label: "Bullet list", widget: list, field: { name: text, label: Item, widget: string } }
           - { name: notFitHeading, label: "Not a Fit — Heading", widget: string }
-          - { name: notFitBody, label: "Not a Fit — Body", widget: text }
+          - { name: notFitBody, label: "Not a Fit — Paragraph 1", widget: text }
+          - { name: notFitBody2, label: "Not a Fit — Paragraph 2", widget: text, required: false }
+          - { name: notFitBody3, label: "Not a Fit — Paragraph 3", widget: text, required: false }
           - { name: closingHeading, label: "Closing — Heading", widget: string }
           - { name: closingSub, label: "Closing — Subtext", widget: text }
           - { name: closingButton, label: "Closing — Button", widget: string }
@@ -309,6 +339,7 @@ collections:
               - { name: name, label: Name, widget: string }
               - { name: role, label: Role / Credentials, widget: string }
               - { name: bio, label: Bio, widget: text }
+              - { name: photo, label: Photo, widget: image, required: false }
           - { name: closingHeading, label: "Closing — Heading", widget: string }
           - { name: closingSub, label: "Closing — Subtext", widget: text }
           - { name: closingButton, label: "Closing — Button", widget: string }

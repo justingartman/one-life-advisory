@@ -1,43 +1,61 @@
 {
   "heroEyebrow": "The Future Cash Flow Process",
   "heroTitle": "How we plan.",
-  "heroSub": "A personalized process to turn your savings into Future Cash Flow: income built to support the life you want. Whether you're approaching retirement, already there, or still years away, we plan for the whole journey. Getting you to retirement, and carrying you through it, with income for every year going forward.",
+  "heroSub": "Five questions, answered before you decide anything, then kept answered for as long as we're working together.",
+  "fiveQ": {
+    "heading": "The five questions.",
+    "items": [
+      "Will your money last as long as you do?",
+      "What could take it away?",
+      "Is your portfolio built for the job it has now?",
+      "Are you keeping as much as you should?",
+      "Will what's left go where you intend?"
+    ],
+    "note": "Still building toward retirement? The first question becomes: will you get where you want to go?"
+  },
   "clarityLabel": "Start Here",
   "clarityHeading": "The Clarity Call",
   "clarityP1": "Every relationship starts with a free, no-pressure conversation. You tell us what's on your mind. We tell you whether we can help and what working together looks like. If we're not the right fit, we'll say so and point you toward someone who is.",
   "clarityP2": "Once we both agree we're a fit, the work begins with Step 1.",
   "clarityButton": "Schedule a Clarity Call",
+  "groupAHeading": "Getting to the answers",
   "steps": [
     {
-      "title": "Clarify Your Vision",
-      "p1": "We start by understanding what this season of life truly means to you. Your values, your priorities, what you want the next chapter to look like, and what you want your money to be doing while you're living it.",
-      "p2": "This is where purpose begins. Every step that follows is built on what we learn here.",
-      "outcome": "You walk away with a clear picture of what your plan is for."
+      "title": "Intro Call",
+      "sub": "15–20 minutes, by phone",
+      "p1": "A short conversation to see whether your situation matches what we do. We'll walk through the five questions, tell you what we'd need from you, and schedule the next meeting if it makes sense. If it doesn't, we'll say so and point you toward someone better suited. Neither of us gains from proving a bad fit slowly."
     },
     {
-      "title": "Organize Your Financial Picture",
-      "p1": "Before we can design where you're going, we have to understand where you are. We gather and organize your full financial picture: current assets, income sources, expenses, liabilities, employee benefits, insurance, estate documents — and the things that don't show up on a statement.",
-      "p2": "What are you worried about? What would you change if you could? Who are you trying to take care of?",
-      "outcome": "You walk away with a complete, organized view of your financial life — probably for the first time."
+      "title": "Discovery",
+      "sub": "Video call",
+      "p1": "Goals, concerns, and everything the documents don't show. What you want this next season to look like. What you're worried about. Who you're trying to take care of. We'll also gather the statements, tax returns, and policy documents we need in order to give you honest answers instead of general ones."
     },
     {
-      "title": "Design Your Cash Flow Plan",
-      "p1": "Now we build the plan. A personalized strategy that takes the resources you've built and turns them into income that supports your life — every year going forward. Inside that plan, we coordinate income, growth, protection, and legacy.",
-      "p2": "Taxes aren't a separate step, because taxes touch every step. We look at how each decision affects what you owe, now and in the years ahead, and build that into the plan so the strategy already accounts for it.",
-      "outcome": "You walk away with a plan that's coordinated, clear, and built around your purpose."
+      "title": "Analysis",
+      "sub": "Behind the scenes",
+      "p1": "This is where the thinking happens. We take what you've told us and what you've built, and run it against the five questions. Tested against bad markets early in retirement, inflation, taxes, and living longer than you planned for. You don't see a spreadsheet. You get answers."
     },
     {
-      "title": "Put the Plan into Motion",
-      "p1": "A plan only works if it gets executed. We don't just hand you a binder and wish you luck. We open the accounts. We coordinate the transfers. We submit the applications. We update the beneficiaries. We make the moves the plan calls for, alongside you, so the strategy actually becomes reality.",
-      "p2": "",
-      "outcome": "You walk away with a plan that's actually in motion — not sitting in a drawer."
+      "title": "Findings",
+      "sub": "Video call",
+      "p1": "We walk you through what we found. Each of the five questions, answered plainly, along with what would need to change to get where you want to go. We'll go as deep on the reasoning as you want, but we start with the answers, because that's what you came for. At the end, you decide."
+    }
+  ],
+  "groupBHeading": "Once we're working together",
+  "groupBIntro": "Everything above gets you a set of answers. Staying with us is what keeps them true.",
+  "after": [
+    {
+      "title": "Getting started",
+      "p1": "Paperwork, signatures, account opening. We coordinate with the custodian so you're not chasing forms. Then the plan goes into motion."
     },
     {
-      "title": "Monitor and Adjust as Life Evolves",
-      "p1": "Life will change. Income changes. Markets change. So does what matters to you. The plan has to change with it, or it stops working.",
-      "p2": "Through ongoing check-ins and plan updates, we make sure your income stays reliable, your plan stays aligned with your purpose, and your decisions still serve the life you actually want. We meet with you on a regular cadence. Between meetings, we're paying attention — and we're a phone call away when something comes up.",
-      "p3": "New job, new house, new grandchild, inheritance, market drop, business sale. We take the call.",
-      "outcome": "You walk away with an advisor who's still paying attention five, ten, twenty years from now."
+      "title": "Putting the plan into motion",
+      "p1": "A plan only counts if it gets executed. We don't hand you a binder and wish you luck. We open the accounts. We coordinate the transfers. We submit the applications. We update the beneficiaries. We make the moves the plan calls for, alongside you, so the strategy becomes reality."
+    },
+    {
+      "title": "Keeping you on track",
+      "p1": "Income changes. Markets change. Tax law changes. So does what you care about. Every year we run your situation back through the same five questions, because an answer that was right three years ago may not be right now.",
+      "p2": "Between meetings we're paying attention, and we're a phone call away when something comes up. New job, new house, new grandchild, inheritance, market drop, business sale. Life will happen. That's the point of having someone in your corner when it does."
     }
   ],
   "closingQuote": "\"This is your one life. Let's design the future income to support it — with confidence, clarity, and intention.\"",

@@ -829,6 +829,11 @@
     }
     .team-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
     .team-card .img-ph { border-radius: 0; border: none; border-bottom: 1px solid var(--border); aspect-ratio: 1/1; }
+    .team-card .team-photo {
+      display: block; width: 100%; aspect-ratio: 1/1;
+      object-fit: cover; object-position: center 22%;
+      border-bottom: 1px solid var(--border);
+    }
     .team-card-body { padding: 24px; }
     .team-card-body h4 { color: var(--navy); margin-bottom: 2px; }
     .team-card-role { font-size: .8125rem; color: var(--gold); font-weight: 600; letter-spacing: .04em; margin-bottom: 12px; }
@@ -968,27 +973,62 @@
     <div class="hero-inner">
       <div class="hero-eyebrow anim" data-cms="home.hero.eyebrow">Purposeful Financial Planning</div>
       <h1 class="reveal-mask anim-delay-1"><span data-cms="home.hero.headlineLead">Designed for your</span> <span class="accent"><span data-cms="home.hero.headlineAccent">one life</span><svg viewBox="0 0 300 14" preserveAspectRatio="none" fill="none"><path pathLength="1" d="M4 9 C 60 3, 120 3, 182 7 S 268 11, 296 5" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/></svg></span><span class="hero-dot">.</span></h1>
-      <p class="hero-sub anim anim-delay-2" data-cms="home.hero.sub">A financial plan isn't about ending up with the biggest number. It's about your money supporting the life you actually want, today and every year going forward. So we focus on the part most advisors skip: turning what you've saved into income built around your plan. Not just getting you to retirement, but through it.</p>
+      <p class="hero-sub anim anim-delay-2" data-cms="home.hero.sub">A financial plan isn't about ending up with the biggest number. It's about turning what you've built into income designed to support the life you want, every year going forward. We answer five questions about your money, in plain language, and then keep answering them as life changes.</p>
       <div class="hero-actions anim anim-delay-3">
         <button class="btn btn-primary" onclick="go('schedule')" data-cms="home.hero.ctaPrimary">Schedule a Clarity Call</button>
         <button class="btn btn-outline" onclick="go('how-we-plan')" data-cms="home.hero.ctaSecondary">See how we plan</button>
       </div>
     </div>
-    <div class="hero-scroll" onclick="document.querySelector('#page-home .bg-alt').scrollIntoView({behavior:'smooth'})" aria-label="Scroll down">
+    <div class="hero-scroll" onclick="document.querySelector('#five-questions').scrollIntoView({behavior:'smooth'})" aria-label="Scroll down">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+    </div>
+  </section>
+
+  <!-- The Offer — Five Questions -->
+  <section class="section" id="five-questions">
+    <div class="container-sm">
+      <div class="anim">
+        <div class="label" data-cms="home.fiveQuestions.label">The Offer</div>
+        <div class="divider"></div>
+        <h2 data-cms="home.fiveQuestions.heading">Five questions.</h2>
+        <p style="margin-top:16px;" data-cms="home.fiveQuestions.body">Most of financial planning comes down to five questions. We answer them clearly, and we keep them answered.</p>
+      </div>
+      <div class="process-preview anim anim-delay-1" style="margin-top:36px;">
+        <div class="pp-step">
+          <div class="pp-num">1</div>
+          <div class="pp-body"><h4 data-cms="home.fiveQuestions.items.0">Will your money last as long as you do?</h4></div>
+        </div>
+        <div class="pp-step">
+          <div class="pp-num">2</div>
+          <div class="pp-body"><h4 data-cms="home.fiveQuestions.items.1">What could take it away?</h4></div>
+        </div>
+        <div class="pp-step">
+          <div class="pp-num">3</div>
+          <div class="pp-body"><h4 data-cms="home.fiveQuestions.items.2">Is your portfolio built for the job it has now?</h4></div>
+        </div>
+        <div class="pp-step">
+          <div class="pp-num">4</div>
+          <div class="pp-body"><h4 data-cms="home.fiveQuestions.items.3">Are you keeping as much as you should?</h4></div>
+        </div>
+        <div class="pp-step">
+          <div class="pp-num">5</div>
+          <div class="pp-body"><h4 data-cms="home.fiveQuestions.items.4">Will what's left go where you intend?</h4></div>
+        </div>
+      </div>
+      <div class="anim">
+        <p style="margin-top:28px;" data-cms="home.fiveQuestions.body2">These aren't questions you answer once and file away. Markets move, tax law changes, and life doesn't hold still. So we answer them at the start, and we answer them again every year you're with us.</p>
+        <p style="margin-top:12px;font-style:italic;" data-cms="home.fiveQuestions.note">Still building toward retirement? The first question becomes: will you get where you want to go? The other four don't change.</p>
+        <button class="btn btn-outline" style="margin-top:28px;" onclick="go('how-we-plan')" data-cms="home.fiveQuestions.linkLabel">See how it works</button>
+      </div>
     </div>
   </section>
 
   <!-- What We Do — lead statement, then the six pieces -->
   <section class="section bg-alt">
     <div class="container">
-      <div class="section-header center anim">
+      <div class="section-header center anim" style="margin-bottom:40px;">
         <div class="label" data-cms="home.covers.label">What We Do</div>
         <div class="divider divider-center"></div>
-        <h2 class="anim anim-delay-1" data-cms="home.whoWeServe.heading">We help people live on purpose, not by default.</h2>
-        <p class="anim anim-delay-2" style="margin:20px auto 0;font-size:1.125rem;" data-cms="home.whoWeServe.body">Whether you're entering retirement, already there, or still building toward it, the work is the same. We help you turn what you've saved into income built around your plan. The hard part of retirement isn't saving for it. It's making the money last. That's the work we're built for. We call it Future Cash Flow, and it's the heart of every plan we make. We plan for the whole journey: to retirement, and through it.</p>
-      </div>
-      <div class="section-header center anim" style="margin-top:64px;margin-bottom:40px;">
         <h3 data-cms="home.covers.heading" style="color:var(--navy);">What a plan with us covers</h3>
         <p data-cms="home.covers.sub" style="margin:12px auto 0;">Every piece answers one question: how does your money support the life you want, every year going forward? We call that your Future Cash Flow. Everything below is built to serve it.</p>
       </div>
@@ -1038,6 +1078,10 @@
       </div>
       <div style="text-align:center;margin-top:40px;" class="anim">
         <button class="btn btn-outline" onclick="go('what-we-do')" data-cms="home.covers.button">See the full plan</button>
+      </div>
+      <div class="section-header center anim" style="margin-top:72px;">
+        <h2 data-cms="home.whoWeServe.heading">We help people live on purpose, not by default.</h2>
+        <p style="margin:20px auto 0;font-size:1.125rem;" data-cms="home.whoWeServe.body">Whether you're entering retirement, already there, or still building toward it, the work is the same. We help you turn what you've saved into income built around your plan. The hard part of retirement isn't saving for it. It's making the money last. That's the work we're built for. We call it Future Cash Flow, and it's the heart of every plan we make. We plan for the whole journey: to retirement, and through it.</p>
       </div>
     </div>
   </section>
@@ -1110,7 +1154,39 @@
     <div class="page-hero-inner">
       <div class="hero-eyebrow anim" data-cms="how_we_plan.heroEyebrow">The Future Cash Flow Process</div>
       <h1 class="reveal-mask anim-delay-1" data-cms="how_we_plan.heroTitle">How we plan.</h1>
-      <p class="page-hero-sub anim anim-delay-2" data-cms="how_we_plan.heroSub">A personalized process to turn your savings into Future Cash Flow: income built to support the life you want. Whether you're approaching retirement, already there, or still years away, we plan for the whole journey. Getting you to retirement, and carrying you through it, with income for every year going forward.</p>
+      <p class="page-hero-sub anim anim-delay-2" data-cms="how_we_plan.heroSub">Five questions, answered before you decide anything, then kept answered for as long as we're working together.</p>
+    </div>
+  </section>
+
+  <!-- The Five Questions — restated -->
+  <section class="section-sm">
+    <div class="container-sm">
+      <div class="anim">
+        <h2 data-cms="how_we_plan.fiveQ.heading">The five questions.</h2>
+      </div>
+      <div class="process-preview anim anim-delay-1" style="margin-top:32px;">
+        <div class="pp-step">
+          <div class="pp-num">1</div>
+          <div class="pp-body"><h4 data-cms="how_we_plan.fiveQ.items.0">Will your money last as long as you do?</h4></div>
+        </div>
+        <div class="pp-step">
+          <div class="pp-num">2</div>
+          <div class="pp-body"><h4 data-cms="how_we_plan.fiveQ.items.1">What could take it away?</h4></div>
+        </div>
+        <div class="pp-step">
+          <div class="pp-num">3</div>
+          <div class="pp-body"><h4 data-cms="how_we_plan.fiveQ.items.2">Is your portfolio built for the job it has now?</h4></div>
+        </div>
+        <div class="pp-step">
+          <div class="pp-num">4</div>
+          <div class="pp-body"><h4 data-cms="how_we_plan.fiveQ.items.3">Are you keeping as much as you should?</h4></div>
+        </div>
+        <div class="pp-step">
+          <div class="pp-num">5</div>
+          <div class="pp-body"><h4 data-cms="how_we_plan.fiveQ.items.4">Will what's left go where you intend?</h4></div>
+        </div>
+      </div>
+      <p class="anim" style="margin-top:24px;font-style:italic;" data-cms="how_we_plan.fiveQ.note">Still building toward retirement? The first question becomes: will you get where you want to go?</p>
     </div>
   </section>
 
@@ -1128,58 +1204,81 @@
     </div>
   </section>
 
-  <!-- 5 Steps -->
+  <!-- The Process — Group A: Getting to the answers -->
   <section class="section">
     <div class="container-sm">
-      <div class="steps">
+      <div class="anim">
+        <h2 data-cms="how_we_plan.groupAHeading">Getting to the answers</h2>
+      </div>
+      <div class="steps" style="margin-top:40px;">
 
         <div class="step anim">
           <div class="step-num">1</div>
           <div class="step-body">
-            <h3 data-cms="how_we_plan.steps.0.title">Clarify Your Vision</h3>
-            <p data-cms="how_we_plan.steps.0.p1">We start by understanding what this season of life truly means to you. Your values, your priorities, what you want the next chapter to look like, and what you want your money to be doing while you're living it.</p>
-            <p style="margin-top:12px;" data-cms="how_we_plan.steps.0.p2">This is where purpose begins. Every step that follows is built on what we learn here.</p>
-            <div class="step-outcome" data-cms="how_we_plan.steps.0.outcome">You walk away with a clear picture of what your plan is for.</div>
+            <h3 data-cms="how_we_plan.steps.0.title">Intro Call</h3>
+            <p style="font-style:italic;color:var(--text2);margin-bottom:8px;" data-cms="how_we_plan.steps.0.sub">15–20 minutes, by phone</p>
+            <p data-cms="how_we_plan.steps.0.p1">A short conversation to see whether your situation matches what we do. We'll walk through the five questions, tell you what we'd need from you, and schedule the next meeting if it makes sense. If it doesn't, we'll say so and point you toward someone better suited. Neither of us gains from proving a bad fit slowly.</p>
           </div>
         </div>
 
         <div class="step anim">
           <div class="step-num">2</div>
           <div class="step-body">
-            <h3 data-cms="how_we_plan.steps.1.title">Organize Your Financial Picture</h3>
-            <p data-cms="how_we_plan.steps.1.p1">Before we can design where you're going, we have to understand where you are. We gather and organize your full financial picture: current assets, income sources, expenses, liabilities, employee benefits, insurance, estate documents — and the things that don't show up on a statement.</p>
-            <p style="margin-top:12px;" data-cms="how_we_plan.steps.1.p2">What are you worried about? What would you change if you could? Who are you trying to take care of?</p>
-            <div class="step-outcome" data-cms="how_we_plan.steps.1.outcome">You walk away with a complete, organized view of your financial life — probably for the first time.</div>
+            <h3 data-cms="how_we_plan.steps.1.title">Discovery</h3>
+            <p style="font-style:italic;color:var(--text2);margin-bottom:8px;" data-cms="how_we_plan.steps.1.sub">Video call</p>
+            <p data-cms="how_we_plan.steps.1.p1">Goals, concerns, and everything the documents don't show. What you want this next season to look like. What you're worried about. Who you're trying to take care of. We'll also gather the statements, tax returns, and policy documents we need in order to give you honest answers instead of general ones.</p>
           </div>
         </div>
 
         <div class="step anim">
           <div class="step-num">3</div>
           <div class="step-body">
-            <h3 data-cms="how_we_plan.steps.2.title">Design Your Cash Flow Plan</h3>
-            <p data-cms="how_we_plan.steps.2.p1">Now we build the plan. A personalized strategy that takes the resources you've built and turns them into income that supports your life — every year going forward. Inside that plan, we coordinate income, growth, protection, and legacy.</p>
-            <p style="margin-top:12px;" data-cms="how_we_plan.steps.2.p2">Taxes aren't a separate step, because taxes touch every step. We look at how each decision affects what you owe, now and in the years ahead, and build that into the plan so the strategy already accounts for it.</p>
-            <div class="step-outcome" data-cms="how_we_plan.steps.2.outcome">You walk away with a plan that's coordinated, clear, and built around your purpose.</div>
+            <h3 data-cms="how_we_plan.steps.2.title">Analysis</h3>
+            <p style="font-style:italic;color:var(--text2);margin-bottom:8px;" data-cms="how_we_plan.steps.2.sub">Behind the scenes</p>
+            <p data-cms="how_we_plan.steps.2.p1">This is where the thinking happens. We take what you've told us and what you've built, and run it against the five questions. Tested against bad markets early in retirement, inflation, taxes, and living longer than you planned for. You don't see a spreadsheet. You get answers.</p>
           </div>
         </div>
 
         <div class="step anim">
           <div class="step-num">4</div>
           <div class="step-body">
-            <h3 data-cms="how_we_plan.steps.3.title">Put the Plan into Motion</h3>
-            <p data-cms="how_we_plan.steps.3.p1">A plan only works if it gets executed. We don't just hand you a binder and wish you luck. We open the accounts. We coordinate the transfers. We submit the applications. We update the beneficiaries. We make the moves the plan calls for, alongside you, so the strategy actually becomes reality.</p>
-            <div class="step-outcome" data-cms="how_we_plan.steps.3.outcome">You walk away with a plan that's actually in motion — not sitting in a drawer.</div>
+            <h3 data-cms="how_we_plan.steps.3.title">Findings</h3>
+            <p style="font-style:italic;color:var(--text2);margin-bottom:8px;" data-cms="how_we_plan.steps.3.sub">Video call</p>
+            <p data-cms="how_we_plan.steps.3.p1">We walk you through what we found. Each of the five questions, answered plainly, along with what would need to change to get where you want to go. We'll go as deep on the reasoning as you want, but we start with the answers, because that's what you came for. At the end, you decide.</p>
           </div>
         </div>
+
+      </div>
+
+      <!-- Group B: Once we're working together -->
+      <div class="anim" style="margin-top:72px;">
+        <h2 data-cms="how_we_plan.groupBHeading">Once we're working together</h2>
+        <p style="margin-top:16px;" data-cms="how_we_plan.groupBIntro">Everything above gets you a set of answers. Staying with us is what keeps them true.</p>
+      </div>
+      <div class="steps" style="margin-top:40px;">
 
         <div class="step anim">
           <div class="step-num">5</div>
           <div class="step-body">
-            <h3 data-cms="how_we_plan.steps.4.title">Monitor and Adjust as Life Evolves</h3>
-            <p data-cms="how_we_plan.steps.4.p1">Life will change. Income changes. Markets change. So does what matters to you. The plan has to change with it, or it stops working.</p>
-            <p style="margin-top:12px;" data-cms="how_we_plan.steps.4.p2">Through ongoing check-ins and plan updates, we make sure your income stays reliable, your plan stays aligned with your purpose, and your decisions still serve the life you actually want. We meet with you on a regular cadence. Between meetings, we're paying attention — and we're a phone call away when something comes up.</p>
-            <p style="margin-top:12px;" data-cms="how_we_plan.steps.4.p3">New job, new house, new grandchild, inheritance, market drop, business sale. We take the call.</p>
-            <div class="step-outcome" data-cms="how_we_plan.steps.4.outcome">You walk away with an advisor who's still paying attention five, ten, twenty years from now.</div>
+            <h3 data-cms="how_we_plan.after.0.title">Getting started</h3>
+            <p data-cms="how_we_plan.after.0.p1">Paperwork, signatures, account opening. We coordinate with the custodian so you're not chasing forms. Then the plan goes into motion.</p>
+          </div>
+        </div>
+
+        <div class="step anim">
+          <div class="step-num">6</div>
+          <div class="step-body">
+            <h3 data-cms="how_we_plan.after.1.title">Putting the plan into motion</h3>
+            <p data-cms="how_we_plan.after.1.p1">A plan only counts if it gets executed. We don't hand you a binder and wish you luck. We open the accounts. We coordinate the transfers. We submit the applications. We update the beneficiaries. We make the moves the plan calls for, alongside you, so the strategy becomes reality.</p>
+          </div>
+        </div>
+
+        <div class="step anim">
+          <div class="step-num">7</div>
+          <div class="step-body">
+            <h3 data-cms="how_we_plan.after.2.title">Keeping you on track</h3>
+            <p data-cms="how_we_plan.after.2.p1">Income changes. Markets change. Tax law changes. So does what you care about. Every year we run your situation back through the same five questions, because an answer that was right three years ago may not be right now.</p>
+            <p style="margin-top:12px;" data-cms="how_we_plan.after.2.p2">Between meetings we're paying attention, and we're a phone call away when something comes up. New job, new house, new grandchild, inheritance, market drop, business sale. Life will happen. That's the point of having someone in your corner when it does.</p>
           </div>
         </div>
 
@@ -1432,6 +1531,8 @@
   <section class="section">
     <div class="container">
 
+      <p class="anim" style="max-width:720px;margin:0 auto 56px;text-align:center;font-size:1.0625rem;" data-cms="who_we_help.questionsIntro" data-cms-html>The five questions are the same for everyone. For people already retired or close to it, the first one is <em>will your money last as long as you do</em>. For people still building, it becomes <em>will you get where you want to go</em>. Same plan. Different starting point.</p>
+
       <div class="who-grid">
         <div class="who-card anim">
           <div class="card-icon">
@@ -1484,7 +1585,9 @@
 
       <div class="not-fit anim">
         <h3 data-cms="who_we_help.notFitHeading">Who we're not the right fit for</h3>
-        <p data-cms="who_we_help.notFitBody">We're not the right fit for everyone, and that's okay. If you're looking for someone to pick hot stocks, beat the market, or hand you a product without understanding your life first, that's not the work we do. If you want a plan built around your purpose, and an advisor who'll be in your corner for the whole journey, to retirement and well beyond, that's exactly the work we do.</p>
+        <p data-cms="who_we_help.notFitBody">We're not the right fit for everyone, and that's okay.</p>
+        <p style="margin-top:12px;" data-cms="who_we_help.notFitBody2">We're built for savers. People who've already been deliberate with their money and want a process for what comes next, rather than a hot tip or a product pitch. If you're looking for someone to pick stocks, beat the market, or hand you a solution before understanding your life, that's not the work we do.</p>
+        <p style="margin-top:12px;" data-cms="who_we_help.notFitBody3">If you want a plan built around your purpose, a clear process to get there, and an advisor who'll be in your corner for the whole journey, to retirement and well beyond, that's exactly the work we do.</p>
       </div>
 
     </div>
@@ -1582,9 +1685,7 @@
       </div>
       <div class="team-grid" style="margin-top:40px;">
         <div class="team-card anim">
-          <div class="img-ph" data-label="Photo">
-            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.25"><circle cx="24" cy="18" r="9"/><path d="M7 42c0-9.4 7.6-17 17-17s17 7.6 17 17"/></svg>
-          </div>
+          <img class="team-photo" src="/assets/uploads/justin-gartman.jpg" data-cms-attr="src:about.team.0.photo" alt="Justin Gartman, Founder & Financial Planner">
           <div class="team-card-body">
             <h4 data-cms="about.team.0.name">Justin Gartman</h4>
             <div class="team-card-role" data-cms="about.team.0.role">Founder &amp; Financial Planner</div>
@@ -1641,20 +1742,32 @@
           <div class="faq-a"><div class="faq-a-inner"><p data-cms="faq.sections.0.items.4.a">No. Our specialty is income: turning what you've built into money you can live on without running out. That focus matters most as retirement approaches, but the best income plans aren't built at 63. They're built years earlier, while there's still time to shape the outcome. If you're still in your saving years, working with us means building toward your Future Cash Flow from the start, so you arrive with options instead of regrets. We work with people in retirement, approaching it, and still building toward it. The stage changes the work. The focus on the life your money is meant to support doesn't.</p></div></div>
         </div>
         <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)"><span data-cms="faq.sections.0.items.5.q">What makes your approach different from other financial planners?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
-          <div class="faq-a"><div class="faq-a-inner"><p data-cms="faq.sections.0.items.5.a">Two things. First, focus. Most of the industry is built around one question: how big can we make the pile? That's half the job. The other half, the half that decides whether you can actually live the life you saved for, is how that pile becomes income. When to draw, from which accounts, in what order, how to keep taxes from eating it, how to make it last. We treat that as the center of the work, not a step you figure out later. We call it your Future Cash Flow. Second, we lead with the plan, not products. Every piece is there for a reason, with a clear job, or it doesn't belong.</p></div></div>
+          <button class="faq-q" onclick="toggleFaq(this)"><span data-cms="faq.sections.0.items.5.q">What are the five questions?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <div class="faq-a"><div class="faq-a-inner"><p data-cms="faq.sections.0.items.5.a">Will your money last as long as you do. What could take it away. Is your portfolio built for the job it has now. Are you keeping as much as you should. Will what's left go where you intend. Almost everything in a financial plan rolls up into one of those five, which is why we organize the whole engagement around them.</p></div></div>
         </div>
         <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)"><span data-cms="faq.sections.0.items.6.q">What do you mean by planning "to and through" retirement?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
-          <div class="faq-a"><div class="faq-a-inner"><p data-cms="faq.sections.0.items.6.a">Most advisors are good at getting you to the retirement starting line: helping you save, invest, and grow. Far fewer are built for what comes after, when the paycheck stops and your savings have to become the paycheck. That second phase lasts decades, and it carries its own risks. A market drop early in retirement. Inflation. Taxes. The simple question of how much you can spend without running out. Planning through retirement means designing for all of it, not just getting you to the door. It's the part we specialize in.</p></div></div>
+          <button class="faq-q" onclick="toggleFaq(this)"><span data-cms="faq.sections.0.items.6.q">Do the five questions ever get answered for good?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <div class="faq-a"><div class="faq-a-inner"><p data-cms="faq.sections.0.items.6.a">No, and that's the point. Markets move, tax law changes, and your life won't sit still either. We answer them at the start and then run your situation back through them every year, so the plan reflects where you actually are instead of where you were.</p></div></div>
         </div>
         <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)"><span data-cms="faq.sections.0.items.7.q">I want to leave money to my family, not just spend it all. Does that fit?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
-          <div class="faq-a"><div class="faq-a-inner"><p data-cms="faq.sections.0.items.7.a">Absolutely. Spending well and leaving a legacy aren't opposites. They're two outcomes of the same plan. A sound income strategy tells you how much you can comfortably use, which is also what tells you what's safe to pass on. Legacy isn't an afterthought to the income plan. It's part of it. We build the income plan and the legacy plan as one piece of work, so the people and causes you care about end up where you intend.</p></div></div>
+          <button class="faq-q" onclick="toggleFaq(this)"><span data-cms="faq.sections.0.items.7.q">What if I'm not close to retirement yet?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <div class="faq-a"><div class="faq-a-inner"><p data-cms="faq.sections.0.items.7.a">Then the first question becomes whether you'll get where you want to go, and the analysis focuses on whether what you're doing now is building toward the income you'll eventually want. The earlier that gets designed on purpose, the fewer corrections you'll need later.</p></div></div>
         </div>
         <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)"><span data-cms="faq.sections.0.items.8.q">Is this just retirement income planning?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
-          <div class="faq-a"><div class="faq-a-inner"><p data-cms="faq.sections.0.items.8.a">No. Income is the spine, but a real plan has to hold up around it. Protection, so an unexpected event doesn't undo the work. Investments built to produce what the plan needs. Tax awareness in every decision. A legacy plan for what's left. And before any of it, a clear sense of what you actually want your money to do. Income is where the plan focuses, because it's what everything else serves. But the plan itself is complete, not narrow.</p></div></div>
+          <button class="faq-q" onclick="toggleFaq(this)"><span data-cms="faq.sections.0.items.8.q">What makes your approach different from other financial planners?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <div class="faq-a"><div class="faq-a-inner"><p data-cms="faq.sections.0.items.8.a">Two things. First, focus. Most of the industry is built around one question: how big can we make the pile? That's half the job. The other half, the half that decides whether you can actually live the life you saved for, is how that pile becomes income. When to draw, from which accounts, in what order, how to keep taxes from eating it, how to make it last. We treat that as the center of the work, not a step you figure out later. We call it your Future Cash Flow. Second, we lead with the plan, not products. Every piece is there for a reason, with a clear job, or it doesn't belong.</p></div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)"><span data-cms="faq.sections.0.items.9.q">What do you mean by planning "to and through" retirement?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <div class="faq-a"><div class="faq-a-inner"><p data-cms="faq.sections.0.items.9.a">Most advisors are good at getting you to the retirement starting line: helping you save, invest, and grow. Far fewer are built for what comes after, when the paycheck stops and your savings have to become the paycheck. That second phase lasts decades, and it carries its own risks. A market drop early in retirement. Inflation. Taxes. The simple question of how much you can spend without running out. Planning through retirement means designing for all of it, not just getting you to the door. It's the part we specialize in.</p></div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)"><span data-cms="faq.sections.0.items.10.q">I want to leave money to my family, not just spend it all. Does that fit?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <div class="faq-a"><div class="faq-a-inner"><p data-cms="faq.sections.0.items.10.a">Absolutely. Spending well and leaving a legacy aren't opposites. They're two outcomes of the same plan. A sound income strategy tells you how much you can comfortably use, which is also what tells you what's safe to pass on. Legacy isn't an afterthought to the income plan. It's part of it. We build the income plan and the legacy plan as one piece of work, so the people and causes you care about end up where you intend.</p></div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)"><span data-cms="faq.sections.0.items.11.q">Is this just retirement income planning?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <div class="faq-a"><div class="faq-a-inner"><p data-cms="faq.sections.0.items.11.a">No. Income is the spine, but a real plan has to hold up around it. Protection, so an unexpected event doesn't undo the work. Investments built to produce what the plan needs. Tax awareness in every decision. A legacy plan for what's left. And before any of it, a clear sense of what you actually want your money to do. Income is where the plan focuses, because it's what everything else serves. But the plan itself is complete, not narrow.</p></div></div>
         </div>
       </div>
 
