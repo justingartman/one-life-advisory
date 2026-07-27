@@ -1,24 +1,10 @@
 {
-  "heroEyebrow": "The Future Cash Flow Process",
-  "heroTitle": "How we plan.",
-  "heroSub": "Five questions, answered before you decide anything, then kept answered for as long as we're working together.",
-  "fiveQ": {
-    "heading": "The five questions.",
-    "items": [
-      "Will your money last as long as you do?",
-      "What could take it away?",
-      "Is your portfolio built for the job it has now?",
-      "Are you keeping as much as you should?",
-      "Will what's left go where you intend?"
-    ],
-    "note": "Still building toward retirement? The first question becomes: will you get where you want to go?"
-  },
-  "clarityLabel": "Start Here",
-  "clarityHeading": "The Clarity Call",
-  "clarityP1": "Every relationship starts with a free, no-pressure conversation. You tell us what's on your mind. We tell you whether we can help and what working together looks like. If we're not the right fit, we'll say so and point you toward someone who is.",
-  "clarityP2": "Once we both agree we're a fit, the work begins with Step 1.",
-  "clarityButton": "Schedule a Clarity Call",
   "groupAHeading": "Getting to the answers",
+  "clarityLabel": "Start Here",
+  "clarityButton": "Schedule a Clarity Call",
+  "heroSub": "Five questions, answered from the beginning, then kept answered for as long as we're working together.",
+  "closingButton": "Schedule a Clarity Call",
+  "closingQuote": "\"This is your one life. Let's design the future income to support it — with confidence, clarity, and intention.\"",
   "steps": [
     {
       "title": "Intro Call",
@@ -41,8 +27,12 @@
       "p1": "We walk you through what we found. Each of the five questions, answered plainly, along with what would need to change to get where you want to go. We'll go as deep on the reasoning as you want, but we start with the answers, because that's what you came for. At the end, you decide."
     }
   ],
-  "groupBHeading": "Once we're working together",
   "groupBIntro": "Everything above gets you a set of answers. Staying with us is what keeps them true.",
+  "closingSub": "The first step is a free Clarity Call. No pressure. No pitch.",
+  "clarityHeading": "The Clarity Call",
+  "heroEyebrow": "The Future Cash Flow Process",
+  "clarityP1": "Every relationship starts with a free, no-pressure conversation. You tell us what's on your mind. We tell you whether we can help and what working together looks like. If we're not the right fit, we'll say so and point you toward someone who is.",
+  "clarityP2": "Once we both agree we're a fit, the work begins with Step 1.",
   "after": [
     {
       "title": "Getting started",
@@ -58,7 +48,17 @@
       "p2": "Between meetings we're paying attention, and we're a phone call away when something comes up. New job, new house, new grandchild, inheritance, market drop, business sale. Life will happen. That's the point of having someone in your corner when it does."
     }
   ],
-  "closingQuote": "\"This is your one life. Let's design the future income to support it — with confidence, clarity, and intention.\"",
-  "closingSub": "The first step is a free Clarity Call. No pressure. No pitch.",
-  "closingButton": "Schedule a Clarity Call"
+  "heroTitle": "How we plan.",
+  "groupBHeading": "Once we're working together",
+  "fiveQ": {
+    "heading": "The five questions.",
+    "items": [
+      "Will your money last as long as you do?",
+      "What could take it away?",
+      "Is your portfolio built for the job it has now?",
+      "Are you keeping as much as you should?",
+      "Will what's left go where you intend?"
+    ],
+    "note": "Still building toward retirement? The first question becomes: will you get where you want to go?"
+  }
 }
