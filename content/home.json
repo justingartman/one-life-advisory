@@ -9,8 +9,8 @@
     "ctaSecondary": "See how we plan"
   },
   "fiveQuestions": {
-    "label": "The Offer",
-    "heading": "Five questions.",
+    "label": "The questions we answer for you",
+    "heading": "5 questions",
     "body": "Most of financial planning comes down to five questions. We answer them clearly, and we keep them answered.",
     "items": [
       "Will your money last as long as you do?",
@@ -32,12 +32,30 @@
     "heading": "What a plan with us covers",
     "sub": "Every piece answers one question: how does your money support the life you want, every year going forward? We call that your Future Cash Flow. Everything below is built to serve it.",
     "cards": [
-      { "title": "Liquidity & Cash Flow", "desc": "Understanding what your money is doing today, and designing Future Cash Flow that supports your life for every year going forward." },
-      { "title": "Protection", "desc": "Life insurance, disability, long-term care, and the coverage in between. A plan that holds up no matter what life brings." },
-      { "title": "Investments", "desc": "Portfolios built to support the income your plan needs to produce — not the other way around." },
-      { "title": "Retirement Income", "desc": "A personalized strategy to turn your savings into income designed to last." },
-      { "title": "Tax-Aware Planning", "desc": "Most planning decisions carry tax consequences. We weigh them every step of the way so they're built into the plan, not handled after the fact." },
-      { "title": "Legacy", "desc": "What you leave behind, and to whom, and how. Family, the people you love, the causes that matter to you." }
+      {
+        "title": "Liquidity & Cash Flow",
+        "desc": "Understanding what your money is doing today, and designing Future Cash Flow that supports your life for every year going forward."
+      },
+      {
+        "title": "Protection",
+        "desc": "Life insurance, disability, long-term care, and the coverage in between. A plan that holds up no matter what life brings."
+      },
+      {
+        "title": "Investments",
+        "desc": "Portfolios built to support the income your plan needs to produce — not the other way around."
+      },
+      {
+        "title": "Retirement Income",
+        "desc": "A personalized strategy to turn your savings into income designed to last."
+      },
+      {
+        "title": "Tax-Aware Planning",
+        "desc": "Most planning decisions carry tax consequences. We weigh them every step of the way so they're built into the plan, not handled after the fact."
+      },
+      {
+        "title": "Legacy",
+        "desc": "What you leave behind, and to whom, and how. Family, the people you love, the causes that matter to you."
+      }
     ],
     "button": "See the full plan"
   },
@@ -47,11 +65,26 @@
     "body": "It begins with a free Clarity Call to see if we're the right fit. From there, the work runs through five steps.",
     "button": "See the full process",
     "steps": [
-      { "title": "Clarify Your Vision", "desc": "What you want this life and this next season to look like." },
-      { "title": "Organize Your Financial Picture", "desc": "Where you are today, top to bottom." },
-      { "title": "Design Your Cash Flow Plan", "desc": "Income, growth, protection, legacy." },
-      { "title": "Put the Plan into Motion", "desc": "Open the accounts, make the moves." },
-      { "title": "Monitor and Adjust as Life Evolves", "desc": "An advisor who's still paying attention five, ten, twenty years from now." }
+      {
+        "title": "Clarify Your Vision",
+        "desc": "What you want this life and this next season to look like."
+      },
+      {
+        "title": "Organize Your Financial Picture",
+        "desc": "Where you are today, top to bottom."
+      },
+      {
+        "title": "Design Your Cash Flow Plan",
+        "desc": "Income, growth, protection, legacy."
+      },
+      {
+        "title": "Put the Plan into Motion",
+        "desc": "Open the accounts, make the moves."
+      },
+      {
+        "title": "Monitor and Adjust as Life Evolves",
+        "desc": "An advisor who's still paying attention five, ten, twenty years from now."
+      }
     ]
   },
   "philosophy": {
