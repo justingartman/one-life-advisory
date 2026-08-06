@@ -66,6 +66,7 @@
     root.querySelectorAll("[data-cms-show]").forEach(function (el) {
       var v = resolve(CACHE, el.getAttribute("data-cms-show"));
       if (v === false) el.style.display = "none";
+      else if (v === true) el.style.display = "";
     });
     // Attribute bindings: data-cms-attr="href:global.clientLoginUrl;title:home.hero.eyebrow"
     root.querySelectorAll("[data-cms-attr]").forEach(function (el) {

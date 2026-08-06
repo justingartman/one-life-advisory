@@ -578,6 +578,20 @@
       color: var(--text2); font-style: italic; opacity: .85;
     }
 
+    /* ─── LEAD MAGNET FORM ───────────────────────────────────── */
+    .lead-form { display: flex; gap: 12px; max-width: 540px; margin: 28px auto 0; }
+    .lead-form input {
+      flex: 1; min-width: 0; padding: 15px 18px;
+      border: 1px solid var(--border); border-radius: var(--radius);
+      font-family: var(--font-body); font-size: 1rem; color: var(--text);
+      background: var(--white);
+    }
+    .lead-form input::placeholder { color: var(--text3); }
+    @media (max-width: 560px) {
+      .lead-form { flex-direction: column; }
+      .lead-form .btn { width: 100%; }
+    }
+
     /* ─── WHO WE HELP CARDS ──────────────────────────────────── */
     .who-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 32px; }
     .who-card {
@@ -1134,6 +1148,21 @@
     <button class="btn anim anim-delay-3" style="background:transparent;border:1.5px solid rgba(255,255,255,.35);color:var(--white);margin-top:8px;" onclick="go('about')" data-cms="home.philosophy.button">Our story →</button>
   </section>
 
+  <!-- Lead Magnet — hidden until the email form is connected. Turn on in /admin → Pages → Home → Lead Magnet. -->
+  <section class="section-sm bg-alt" style="display:none;" data-cms-show="home.leadMagnet.show">
+    <div class="container-sm" style="text-align:center;">
+      <div class="label anim" data-cms="home.leadMagnet.label">Free Guide</div>
+      <div class="divider divider-center"></div>
+      <h2 class="anim anim-delay-1" data-cms="home.leadMagnet.heading">Not ready to talk? Start with the guide.</h2>
+      <p class="anim anim-delay-2" style="max-width:560px;margin:16px auto 0;" data-cms="home.leadMagnet.body">Work through the five questions on your own before you ever get on a call. A short, plain-language guide you can finish in ten minutes.</p>
+      <form class="lead-form anim anim-delay-2" method="POST" action="#" data-cms-attr="action:home.leadMagnet.formAction">
+        <input type="email" name="email" required aria-label="Email address" placeholder="Your email address" data-cms-attr="placeholder:home.leadMagnet.emailPlaceholder">
+        <button type="submit" class="btn btn-primary" data-cms="home.leadMagnet.buttonLabel">Send me the guide</button>
+      </form>
+      <p class="anim anim-delay-3" style="margin-top:14px;font-size:.8125rem;color:var(--text3);" data-cms="home.leadMagnet.privacyNote">No spam. No pressure. Unsubscribe anytime.</p>
+    </div>
+  </section>
+
   <!-- Ready to Start -->
   <section class="cta-band">
     <div class="container-sm">
@@ -1282,6 +1311,30 @@
           </div>
         </div>
 
+      </div>
+
+      <!-- A Year With Us — edit or hide in /admin → Pages → How We Plan → A Year With Us -->
+      <div class="anim" style="margin-top:72px;" data-cms-show="how_we_plan.rhythm.show">
+        <h2 data-cms="how_we_plan.rhythm.heading">What a year with us looks like</h2>
+        <p style="margin-top:16px;" data-cms="how_we_plan.rhythm.intro">The five questions don't stay answered on their own. This is the rhythm that keeps them current.</p>
+        <div class="process-preview" style="margin-top:32px;">
+          <div class="pp-step">
+            <div class="pp-num">1</div>
+            <div class="pp-body"><h4 data-cms="how_we_plan.rhythm.items.0.title">Spring — the annual review</h4><p data-cms="how_we_plan.rhythm.items.0.desc">The full deep-dive. We re-run your plan through all five questions and adjust for what's changed.</p></div>
+          </div>
+          <div class="pp-step">
+            <div class="pp-num">2</div>
+            <div class="pp-body"><h4 data-cms="how_we_plan.rhythm.items.1.title">Summer — mid-year check-in</h4><p data-cms="how_we_plan.rhythm.items.1.desc">A lighter touchpoint. Cash flow, investments, and anything life has served up since spring.</p></div>
+          </div>
+          <div class="pp-step">
+            <div class="pp-num">3</div>
+            <div class="pp-body"><h4 data-cms="how_we_plan.rhythm.items.2.title">Fall — year-end planning</h4><p data-cms="how_we_plan.rhythm.items.2.desc">Taxes, giving, and deadline-driven moves, handled before December gets crowded.</p></div>
+          </div>
+          <div class="pp-step">
+            <div class="pp-num">4</div>
+            <div class="pp-body"><h4 data-cms="how_we_plan.rhythm.items.3.title">Winter — set up the new year</h4><p data-cms="how_we_plan.rhythm.items.3.desc">Contribution updates, beneficiary checks, and priorities for the year ahead.</p></div>
+          </div>
+        </div>
       </div>
     </div>
   </section>

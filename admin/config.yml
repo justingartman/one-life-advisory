@@ -118,6 +118,18 @@ collections:
               - { name: body2, label: "Body (after list)", widget: text }
               - { name: note, label: "Italic note", widget: text }
               - { name: linkLabel, label: "Link text", widget: string }
+          - name: leadMagnet
+            label: "Lead Magnet (free guide)"
+            widget: object
+            fields:
+              - { name: show, label: "Show this section on the site?", widget: boolean, hint: "Keep OFF until the email form is connected — otherwise visitors see a form that goes nowhere." }
+              - { name: label, label: "Eyebrow", widget: string }
+              - { name: heading, label: "Heading", widget: string }
+              - { name: body, label: "Body", widget: text }
+              - { name: emailPlaceholder, label: "Email box placeholder text", widget: string }
+              - { name: buttonLabel, label: "Button text", widget: string }
+              - { name: privacyNote, label: "Small note under the form", widget: string }
+              - { name: formAction, label: "Form action URL (from your email provider)", widget: string, hint: "Paste the form POST URL from Mailchimp/Kit/MailerLite here. Leave as # until connected." }
           - name: whoWeServe
             label: "Who We Serve"
             widget: object
@@ -207,6 +219,19 @@ collections:
               - { name: title, label: "Title", widget: string }
               - { name: p1, label: "Paragraph 1", widget: text, required: false }
               - { name: p2, label: "Paragraph 2", widget: text, required: false }
+          - name: rhythm
+            label: "A Year With Us (annual rhythm)"
+            widget: object
+            fields:
+              - { name: show, label: "Show this section on the site?", widget: boolean, hint: "Turn off to hide the whole section until the copy is ready." }
+              - { name: heading, label: "Heading", widget: string }
+              - { name: intro, label: "Intro line", widget: text }
+              - name: items
+                label: "Seasons / touchpoints"
+                widget: list
+                fields:
+                  - { name: title, label: "Title", widget: string }
+                  - { name: desc, label: "Description", widget: text }
           - { name: closingQuote, label: "Closing Quote", widget: text }
           - { name: closingSub, label: "Closing Subtext", widget: text }
           - { name: closingButton, label: "Closing Button", widget: string }

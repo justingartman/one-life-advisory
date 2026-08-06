@@ -60,5 +60,16 @@
       "Will what's left go where you intend?"
     ],
     "note": "Still building toward retirement? The first question becomes: will you get where you want to go?"
+  },
+  "rhythm": {
+    "show": true,
+    "heading": "What a year with us looks like",
+    "intro": "The five questions don't stay answered on their own. This is the rhythm that keeps them current.",
+    "items": [
+      { "title": "Spring — the annual review", "desc": "The full deep-dive. We re-run your plan through all five questions and adjust for what's changed." },
+      { "title": "Summer — mid-year check-in", "desc": "A lighter touchpoint. Cash flow, investments, and anything life has served up since spring." },
+      { "title": "Fall — year-end planning", "desc": "Taxes, giving, and deadline-driven moves, handled before December gets crowded." },
+      { "title": "Winter — set up the new year", "desc": "Contribution updates, beneficiary checks, and priorities for the year ahead." }
+    ]
   }
 }
