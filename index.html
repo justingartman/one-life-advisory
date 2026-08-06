@@ -876,7 +876,6 @@
     }
     .img-ph svg { width: 40px; height: 40px; color: var(--gold-lt); opacity: .8; }
     .img-ph-hero { aspect-ratio: 4/5; width: 100%; max-width: 420px; box-shadow: var(--shadow-lg); }
-    .img-ph-about { aspect-ratio: 5/4; width: 100%; }
     .img-ph-wide { aspect-ratio: 21/9; width: 100%; }
 
     /* Hero now: content | image, with process card floating */
@@ -897,6 +896,20 @@
     }
     .team-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
     .team-card .img-ph { border-radius: 0; border: none; border-bottom: 1px solid var(--border); aspect-ratio: 1/1; }
+    /* One team member: wide side-by-side card so a long bio reads comfortably */
+    .team-grid.team-solo { grid-template-columns: minmax(0, 940px); }
+    .team-solo .team-card { display: grid; grid-template-columns: 380px minmax(0, 1fr); align-items: stretch; }
+    .team-solo .team-card .team-photo,
+    .team-solo .team-card .img-ph { aspect-ratio: auto; height: 100%; min-height: 420px; object-position: center 22%; border-bottom: none; border-right: 1px solid var(--border); }
+    .team-solo .team-card-body { padding: 36px 38px; }
+    .team-solo .team-card-body h4 { font-size: 1.35rem; }
+    .team-solo .team-card-body p { font-size: .9375rem; line-height: 1.75; }
+    @media (max-width: 820px) {
+      .team-solo .team-card { grid-template-columns: 1fr; }
+      .team-solo .team-card .team-photo,
+      .team-solo .team-card .img-ph { aspect-ratio: 1/1; min-height: 0; border-right: none; border-bottom: 1px solid var(--border); }
+      .team-solo .team-card-body { padding: 26px 24px; }
+    }
     .team-card .team-photo {
       display: block; width: 100%; aspect-ratio: 1/1;
       object-fit: cover; object-position: center 22%;
@@ -1724,15 +1737,10 @@
   </section>
   <section class="section">
     <div class="container">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;" class="two-col-stack">
-        <div class="anim">
-          <h3 style="color:var(--navy);margin-bottom:16px;" data-cms="about.whyHeading">Why we exist</h3>
-          <p data-cms="about.whyP1">We started One Life Advisory because we kept seeing the same gap. People with real responsibility and real resources, but with a financial life made up of pieces that didn't add up to a plan. Cash flow that wasn't coordinated with the investments. Investments that weren't coordinated with the protection. Protection hadn't been looked at in years. Decisions made by default instead of on purpose. And a vague sense of where it was all going, but no clear answer to the question that actually matters: is this money supporting the life I want to live, now and for every year ahead?</p>
-          <p style="margin-top:12px;" data-cms="about.whyP2">We built One Life to close that gap. Planning, investments, protection, and the way taxes affect every move you make — all under one roof, all coordinated, all built around what you actually want out of this life.</p>
-        </div>
-        <div class="img-ph img-ph-about anim anim-delay-1" data-label="Firm / lifestyle image">
-          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.25"><rect x="6" y="10" width="36" height="28" rx="3"/><circle cx="17" cy="20" r="3.5"/><path d="M6 33l10-9 7 6 6-5 13 11"/></svg>
-        </div>
+      <div class="anim" style="max-width:760px;">
+        <h3 style="color:var(--navy);margin-bottom:16px;" data-cms="about.whyHeading">Why we exist</h3>
+        <p data-cms="about.whyP1">We started One Life Advisory because we kept seeing the same gap. People with real responsibility and real resources, but with a financial life made up of pieces that didn't add up to a plan. Cash flow that wasn't coordinated with the investments. Investments that weren't coordinated with the protection. Protection hadn't been looked at in years. Decisions made by default instead of on purpose. And a vague sense of where it was all going, but no clear answer to the question that actually matters: is this money supporting the life I want to live, now and for every year ahead?</p>
+        <p style="margin-top:12px;" data-cms="about.whyP2">We built One Life to close that gap. Planning, investments, protection, and the way taxes affect every move you make — all under one roof, all coordinated, all built around what you actually want out of this life.</p>
       </div>
     </div>
   </section>
@@ -1786,26 +1794,15 @@
 
   <!-- Team -->
   <section class="section bg-alt">
-    <div class="container-sm">
+    <div class="container">
       <div class="anim">
         <div class="label" data-cms="about.teamLabel">The Team</div>
         <div class="divider"></div>
         <h2 data-cms="about.teamHeading">Meet the people behind One Life Advisory.</h2>
       </div>
-      <div class="team-grid" style="margin-top:40px;">
-        <div class="team-card anim">
-          <!-- Placeholder shows until a Photo is uploaded in /admin → About → Team Members -->
-          <div class="img-ph" data-label="Photo" id="team-photo-ph">
-            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.25"><circle cx="24" cy="18" r="9"/><path d="M7 42c0-9.4 7.6-17 17-17s17 7.6 17 17"/></svg>
-          </div>
-          <img class="team-photo" id="team-photo" alt="Justin Gartman" style="display:none;">
-          <div class="team-card-body">
-            <h4 data-cms="about.team.0.name">Justin Gartman</h4>
-            <div class="team-card-role" data-cms="about.team.0.role">Founder &amp; Financial Planner</div>
-            <p data-cms="about.team.0.bio">Justin founded One Life Advisory around a simple conviction: money is a tool for living, not the scoreboard. He helps people turn what they've built into income for the life they actually want, and he stays at the table as that life changes.</p>
-          </div>
-        </div>
-      </div>
+      <!-- Built by renderTeam() from content/about.json → team[].
+           Add members in /admin → About → Team Members; the layout adapts. -->
+      <div class="team-grid" id="team-grid" style="margin-top:40px;"></div>
     </div>
   </section>
 
@@ -2169,6 +2166,7 @@
     if (pageId === 'schedule') initCalendly();
     // Build the Resources lists when entering that page
     if (pageId === 'resources') renderResources();
+    if (pageId === 'about') renderTeam();
     // Trigger animations for elements in viewport
     setTimeout(() => observeAnimations(), 50);
     // Initialise scroll-driven effects (throughline) for the new page
@@ -2217,24 +2215,64 @@
     const active = document.querySelector('.page.active');
     if (active && active.id === 'page-schedule') initCalendly();
     renderResources();
-    applyTeamPhoto();
+    renderTeam();
   });
 
-  // Show the team photo only once one has been uploaded in the CMS; otherwise
-  // keep the placeholder graphic rather than a broken image.
-  function applyTeamPhoto() {
-    const about = (window.__cmsContent || {}).about || {};
-    const member = (about.team || [])[0] || {};
-    const img = document.getElementById('team-photo');
-    const ph = document.getElementById('team-photo-ph');
-    if (!img || !ph) return;
-    if (member.photo) {
-      img.onerror = () => { img.style.display = 'none'; ph.style.display = ''; };
-      img.src = member.photo;
-      if (member.name) img.alt = member.name;
-      img.style.display = ''; ph.style.display = 'none';
-    } else {
-      img.style.display = 'none'; ph.style.display = '';
+  // ── Team cards (built from content/about.json → team[]) ─────────────────
+  // One member gets a wide side-by-side layout so a long bio reads well;
+  // two or more fall back to the card grid. Blank lines in a bio become
+  // real paragraphs. A missing photo shows the placeholder, not a broken image.
+  function renderTeam() {
+    const about = (window.__cmsContent || {}).about;
+    const grid = document.getElementById('team-grid');
+    if (!about || !grid) return;
+    const members = (about.team || []).filter(m => m && m.name);
+    grid.innerHTML = '';
+    grid.classList.toggle('team-solo', members.length === 1);
+
+    members.forEach((m, i) => {
+      const card = document.createElement('div');
+      card.className = 'team-card anim' + (i ? ' anim-delay-' + Math.min(i, 3) : '');
+
+      if (m.photo) {
+        const img = document.createElement('img');
+        img.className = 'team-photo'; img.src = m.photo; img.alt = m.name;
+        img.loading = 'lazy';
+        img.onerror = () => { img.replaceWith(placeholder()); };
+        card.appendChild(img);
+      } else {
+        card.appendChild(placeholder());
+      }
+
+      const body = document.createElement('div');
+      body.className = 'team-card-body';
+      const h = document.createElement('h4'); h.textContent = m.name; body.appendChild(h);
+      if (m.role) { const r = document.createElement('div'); r.className = 'team-card-role'; r.textContent = m.role; body.appendChild(r); }
+      // Split the bio on blank lines so each paragraph gets real spacing.
+      String(m.bio || '').split(/\n\s*\n/).map(s => s.trim()).filter(Boolean).forEach((para, pi) => {
+        const p = document.createElement('p');
+        if (pi) p.style.marginTop = '14px';
+        p.textContent = para;
+        body.appendChild(p);
+      });
+      card.appendChild(body);
+      grid.appendChild(card);
+    });
+
+    if (typeof observeAnimations === 'function') setTimeout(observeAnimations, 30);
+
+    function placeholder() {
+      const ph = document.createElement('div');
+      ph.className = 'img-ph'; ph.setAttribute('data-label', 'Photo');
+      const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      svg.setAttribute('viewBox', '0 0 48 48'); svg.setAttribute('fill', 'none');
+      svg.setAttribute('stroke', 'currentColor'); svg.setAttribute('stroke-width', '1.25');
+      const c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      c.setAttribute('cx', '24'); c.setAttribute('cy', '18'); c.setAttribute('r', '9');
+      const p = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      p.setAttribute('d', 'M7 42c0-9.4 7.6-17 17-17s17 7.6 17 17');
+      svg.appendChild(c); svg.appendChild(p); ph.appendChild(svg);
+      return ph;
     }
   }
 
