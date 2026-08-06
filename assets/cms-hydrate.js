@@ -20,7 +20,7 @@
 (function () {
   var FILES = [
     "global", "home", "how-we-plan", "what-we-do",
-    "who-we-help", "about", "faq", "schedule"
+    "who-we-help", "about", "resources", "faq", "schedule"
   ];
 
   function keyFor(file) { return file.replace(/-/g, "_"); }

@@ -58,6 +58,7 @@ collections:
               - { name: whatWeDo, label: "What We Do", widget: string }
               - { name: whoWeHelp, label: "Who We Help", widget: string }
               - { name: about, label: "About", widget: string }
+              - { name: resources, label: "Resources", widget: string }
               - { name: faq, label: "FAQ", widget: string }
           - { name: contactEmail, label: "Contact Email", widget: string }
           - { name: contactPhone, label: "Contact Phone", widget: string }
@@ -390,6 +391,108 @@ collections:
                   - { name: a, label: Answer, widget: text }
           - { name: closingNote, label: "Closing Note", widget: string }
           - { name: closingButton, label: "Closing Button", widget: string }
+
+      # ---- RESOURCES ----
+      # Every list below grows to fit: add as many items as you like and the
+      # page builds itself. Turn any whole section off with its Show switch.
+      - name: "resources"
+        label: "Resources"
+        file: "content/resources.json"
+        fields:
+          - { name: heroEyebrow, label: "Header — Eyebrow", widget: string }
+          - { name: heroTitle, label: "Header — Title", widget: string }
+          - { name: heroSub, label: "Header — Subtitle", widget: text }
+          - name: featured
+            label: "Featured Resource (top callout)"
+            widget: object
+            fields:
+              - { name: show, label: "Show this section?", widget: boolean }
+              - { name: label, label: "Eyebrow", widget: string }
+              - { name: heading, label: "Heading", widget: string }
+              - { name: body, label: "Body", widget: text }
+              - { name: buttonLabel, label: "Button text", widget: string }
+              - { name: buttonUrl, label: "Button link", widget: string, hint: "Where the button goes. Upload a PDF below or paste any link." }
+          - name: articles
+            label: "Articles / Blog"
+            widget: object
+            fields:
+              - { name: show, label: "Show this section?", widget: boolean }
+              - { name: label, label: "Eyebrow", widget: string }
+              - { name: heading, label: "Heading", widget: string }
+              - { name: intro, label: "Intro line", widget: text, required: false }
+              - name: items
+                label: "Articles"
+                widget: list
+                fields:
+                  - { name: title, label: "Title", widget: string }
+                  - { name: date, label: "Date / status line", widget: string, required: false, hint: "e.g. 'March 2026' or 'Coming soon'." }
+                  - { name: summary, label: "Summary", widget: text, required: false }
+                  - { name: url, label: "Link", widget: string, required: false, hint: "Full https:// link. Leave blank or # and the card won't be clickable." }
+          - name: videos
+            label: "Videos"
+            widget: object
+            fields:
+              - { name: show, label: "Show this section?", widget: boolean }
+              - { name: label, label: "Eyebrow", widget: string }
+              - { name: heading, label: "Heading", widget: string }
+              - { name: intro, label: "Intro line", widget: text, required: false }
+              - { name: channelLabel, label: "Channel button text", widget: string, required: false }
+              - { name: channelUrl, label: "YouTube channel link", widget: string, required: false, hint: "Button hides itself until you paste a real https:// link." }
+              - name: items
+                label: "Videos"
+                widget: list
+                fields:
+                  - { name: title, label: "Title", widget: string }
+                  - { name: description, label: "Description", widget: text, required: false }
+                  - { name: url, label: "YouTube link", widget: string, required: false }
+          - name: guides
+            label: "Guides & Checklists"
+            widget: object
+            fields:
+              - { name: show, label: "Show this section?", widget: boolean }
+              - { name: label, label: "Eyebrow", widget: string }
+              - { name: heading, label: "Heading", widget: string }
+              - { name: intro, label: "Intro line", widget: text, required: false }
+              - name: items
+                label: "Guides"
+                widget: list
+                fields:
+                  - { name: title, label: "Title", widget: string }
+                  - { name: description, label: "Description", widget: text, required: false }
+                  - { name: buttonLabel, label: "Button text", widget: string, required: false }
+                  - { name: url, label: "Link or uploaded file", widget: string, required: false }
+          - name: reading
+            label: "Recommended Reading"
+            widget: object
+            fields:
+              - { name: show, label: "Show this section?", widget: boolean }
+              - { name: label, label: "Eyebrow", widget: string }
+              - { name: heading, label: "Heading", widget: string }
+              - { name: intro, label: "Intro line", widget: text, required: false }
+              - name: items
+                label: "Books"
+                widget: list
+                fields:
+                  - { name: title, label: "Book title", widget: string }
+                  - { name: author, label: "Author", widget: string, required: false }
+                  - { name: why, label: "Why it's worth reading", widget: text, required: false }
+          - name: glossary
+            label: "Plain-Language Glossary"
+            widget: object
+            fields:
+              - { name: show, label: "Show this section?", widget: boolean }
+              - { name: label, label: "Eyebrow", widget: string }
+              - { name: heading, label: "Heading", widget: string }
+              - { name: intro, label: "Intro line", widget: text, required: false }
+              - name: items
+                label: "Terms"
+                widget: list
+                fields:
+                  - { name: term, label: "Term", widget: string }
+                  - { name: definition, label: "Plain-language definition", widget: text }
+          - { name: closingHeading, label: "Closing — Heading", widget: string }
+          - { name: closingSub, label: "Closing — Subtext", widget: text }
+          - { name: closingButton, label: "Closing — Button", widget: string }
 
       # ---- SCHEDULE ----
       - name: "schedule"

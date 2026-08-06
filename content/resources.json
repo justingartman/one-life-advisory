@@ -1,0 +1,123 @@
+{
+  "heroEyebrow": "Resources",
+  "heroTitle": "Plain answers, freely given.",
+  "heroSub": "Writing, videos, and guides on the questions that decide whether your money supports the life you want. No jargon, no pitch. Take what's useful.",
+  "featured": {
+    "show": true,
+    "label": "Start Here",
+    "heading": "The Five Questions Self-Check",
+    "body": "Work through the five questions on your own, at your own pace, before you ever get on a call. A short, plain-language guide you can finish in about ten minutes.",
+    "buttonLabel": "Get the guide",
+    "buttonUrl": "#"
+  },
+  "articles": {
+    "show": true,
+    "label": "Writing",
+    "heading": "Notes on planning",
+    "intro": "Short pieces on the decisions that actually move the needle.",
+    "items": [
+      {
+        "title": "The retirement question nobody asks until it's late",
+        "date": "Coming soon",
+        "summary": "Everyone plans for the number. Almost nobody plans for the paycheck that has to come out of it. Here's why the order you draw matters as much as the amount you saved.",
+        "url": "#"
+      },
+      {
+        "title": "Sequence of returns, explained without the math",
+        "date": "Coming soon",
+        "summary": "Two people can average the same return over thirty years and end up in completely different places. The difference is when the bad years show up.",
+        "url": "#"
+      },
+      {
+        "title": "What a tax-aware plan actually looks like",
+        "date": "Coming soon",
+        "summary": "Tax planning isn't a season. It's a lens on every decision you make, from which account you fund to which one you spend first.",
+        "url": "#"
+      }
+    ]
+  },
+  "videos": {
+    "show": true,
+    "label": "Watch",
+    "heading": "Video",
+    "intro": "Short explainers on the same questions, if you'd rather watch than read.",
+    "channelLabel": "See all videos on YouTube",
+    "channelUrl": "#",
+    "items": [
+      {
+        "title": "The five questions, in five minutes",
+        "description": "A quick walkthrough of the questions we build every plan around, and why these five.",
+        "url": "#"
+      },
+      {
+        "title": "When should I take Social Security?",
+        "description": "The honest answer is that it depends, and here is exactly what it depends on.",
+        "url": "#"
+      }
+    ]
+  },
+  "guides": {
+    "show": true,
+    "label": "Download",
+    "heading": "Guides and checklists",
+    "intro": "Practical tools you can use on your own, whether or not we ever work together.",
+    "items": [
+      {
+        "title": "Retirement Readiness Checklist",
+        "description": "The documents, decisions, and deadlines worth handling in the five years before you retire.",
+        "buttonLabel": "Download",
+        "url": "#"
+      },
+      {
+        "title": "Annual Financial Review Checklist",
+        "description": "What to look at once a year, in the order that makes it painless.",
+        "buttonLabel": "Download",
+        "url": "#"
+      }
+    ]
+  },
+  "glossary": {
+    "show": true,
+    "label": "Plain Language",
+    "heading": "Jargon, translated",
+    "intro": "The industry has a language problem. Here are the terms you'll actually hear, in words that mean something.",
+    "items": [
+      {
+        "term": "Fiduciary",
+        "definition": "A legal obligation to act in your best interest, not merely to recommend something suitable. It is a standard of care, not a marketing term."
+      },
+      {
+        "term": "Sequence of returns risk",
+        "definition": "The risk that poor market returns arrive early in retirement, while you are drawing income. The same average return can produce very different outcomes depending on when the bad years land."
+      },
+      {
+        "term": "Required Minimum Distribution (RMD)",
+        "definition": "The amount the IRS requires you to withdraw from certain retirement accounts each year once you reach the applicable age. Missing one carries a penalty."
+      },
+      {
+        "term": "Roth conversion",
+        "definition": "Moving money from a pre-tax retirement account into a Roth account and paying the tax now, so that future growth and withdrawals can come out tax-free."
+      },
+      {
+        "term": "Basis",
+        "definition": "What you originally paid for an investment. It determines how much of a sale is taxable gain and how much is simply your own money coming back."
+      }
+    ]
+  },
+  "reading": {
+    "show": false,
+    "label": "Bookshelf",
+    "heading": "Worth reading",
+    "intro": "Books we find ourselves recommending. No affiliate links, no kickbacks.",
+    "items": [
+      {
+        "title": "[Book title]",
+        "author": "[Author]",
+        "why": "One or two sentences on why this book is worth your time."
+      }
+    ]
+  },
+  "closingHeading": "Have a question these didn't answer?",
+  "closingSub": "That's what the Clarity Call is for. No pressure. No pitch.",
+  "closingButton": "Schedule a Clarity Call"
+}
