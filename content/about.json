@@ -1,12 +1,15 @@
 {
-  "heroEyebrow": "About",
-  "heroTitle": "A financial plan should start with your life, not your accounts.",
+  "believeLabel": "What We Believe",
+  "teamHeading": "Meet the people behind One Life Advisory.",
   "heroSub": "One Life Advisory was built around that idea.",
-  "whyHeading": "Why we exist",
+  "closingButton": "Schedule a Clarity Call",
+  "differentHeading": "We're organized around you, not around a sale.",
   "whyP1": "We started One Life Advisory because we kept seeing the same gap. People with real responsibility and real resources, but with a financial life made up of pieces that didn't add up to a plan. Cash flow that wasn't coordinated with the investments. Investments that weren't coordinated with the protection. Protection hadn't been looked at in years. Decisions made by default instead of on purpose. And a vague sense of where it was all going, but no clear answer to the question that actually matters: is this money supporting the life I want to live, now and for every year ahead?",
   "whyP2": "We built One Life to close that gap. Planning, investments, protection, and the way taxes affect every move you make — all under one roof, all coordinated, all built around what you actually want out of this life.",
-  "believeLabel": "What We Believe",
+  "closingSub": "The first step is a free Clarity Call. No pressure. No pitch. Just a conversation about where you are and where you'd like to go.",
+  "closingHeading": "Ready to talk?",
   "believeHeading": "The beliefs behind the work.",
+  "heroEyebrow": "About",
   "beliefs": [
     {
       "title": "A plan should start with purpose, not products.",
@@ -21,21 +24,18 @@
       "body": "The goal is the life you want to live. The work we do is to make sure your money is good enough at its job that you can stop worrying about it and get on with the life."
     }
   ],
-  "differentLabel": "How We're Different",
-  "differentHeading": "We're organized around you, not around a sale.",
-  "differentP1": "Most of the industry is organized around selling things. Investments. Insurance. Products. The plan, if there is one, exists to justify the sale. We're organized the other way around. We start with what you want, build the plan to support it, and then make whatever decisions and moves the plan actually calls for.",
-  "differentP2": "No script. No cookie cutter. No plan that looks like the one we built for the person before you. Your life is yours. The plan should reflect that.",
   "teamLabel": "The Team",
-  "teamHeading": "Meet the people behind One Life Advisory.",
+  "whyHeading": "Why we exist",
+  "differentP1": "Most of the industry is organized around selling things. Investments. Insurance. Products. The plan, if there is one, exists to justify the sale. We're organized the other way around. We start with what you want, build the plan to support it, and then make whatever decisions and moves the plan actually calls for.",
+  "differentLabel": "How We're Different",
+  "differentP2": "No script. No cookie cutter. No plan that looks like the one we built for the person before you. Your life is yours. The plan should reflect that.",
   "team": [
     {
       "name": "Justin Gartman",
       "role": "Wealth Advisor",
-      "bio": "Justin joined One Life Advisory around a simple conviction: money is a tool for living, not the scoreboard. He helps people turn what they've built into income for the life they actually want, and he stays at the table as that life changes. As a Certified Annuity Specialist, life insurance expert, and financial advisor he helps make sure all the pieces are working together towards the same goal.",
-      "photo": ""
+      "bio": "Justin Gartman joined the firm because too many people arrive at retirement with a decent pile of savings and no real plan for what to do with it, and too many people on their way there make decisions now that end up costing them later.\n\nHe enjoys working with both groups - for people still building toward retirement, that means helping them make smarter moves along the way. The account choices, the tax decisions, the tradeoffs that are easy to miss but shape where they land years down the road. For people already at or near retirement, it means shifting the conversation from simply getting there to actually getting through it: turning savings into an income plan that holds up, adjusts to what life throws at it, and doesn't run out.\n\nJustin loves educating clients along the way, not just handing them a recommendation. He'd rather spend the time walking through the why behind a decision, because clients who understand their plan are the ones who trust it and stick with it. That curiosity extends to the research side of retirement income planning too. He enjoys geeking out on many topics such as sequence-of-returns risk, how to build a genuine floor of guaranteed income, how different tools reinforce each other instead of working at odds. (he does it so you don't have to)\n\nHe lives in Coleman, Texas, with his wife and their four young kids.",
+      "photo": "/assets/uploads/favorite-aragon-photo-justin-gartman-2026-06-08-2.png"
     }
   ],
-  "closingHeading": "Ready to talk?",
-  "closingSub": "The first step is a free Clarity Call. No pressure. No pitch. Just a conversation about where you are and where you'd like to go.",
-  "closingButton": "Schedule a Clarity Call"
+  "heroTitle": "A financial plan should start with your life, not your accounts."
 }
