@@ -47,6 +47,7 @@ collections:
           - { name: faviconUrl, label: "Favicon", widget: image, required: false, hint: "Browser tab icon (SVG or PNG)." }
           - { name: navCta, label: "Nav Button Label", widget: string }
           - { name: showClientLogin, label: "Show Client Login link", widget: boolean, default: true, hint: "Turn off to hide Client Login everywhere (nav + footer)." }
+          - { name: showResources, label: "Show Resources page in menus", widget: boolean, default: false, hint: "Turn off to hide Resources from the menu, mobile menu, and footer while you build it out. The page itself stays intact — preview it any time at yoursite.com/#resources." }
           - { name: clientLoginLabel, label: "Client Login Label", widget: string }
           - { name: clientLoginUrl, label: "Client Login URL", widget: string, required: false }
           - name: nav

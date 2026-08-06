@@ -22,6 +22,7 @@
     }
   ],
   "showClientLogin": false,
+  "showResources": false,
   "nav": {
     "howWePlan": "How We Plan",
     "whatWeDo": "What We Do",
