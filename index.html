@@ -26,6 +26,20 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="/assets/hero.webp" fetchpriority="high">
+
+  <!-- Microsoft Clarity (behaviour analytics + session replay).
+       Only loads on the live domain, so local previews and Vercel preview
+       deploys don't pollute the data. Project ID: xyftzh3mmz -->
+  <script type="text/javascript">
+    if (/(^|\.)onelifeadvisory\.com$/i.test(location.hostname)) {
+      (function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "xyftzh3mmz");
+    }
+  </script>
+
   <style>
     /* ─── TOKENS ─────────────────────────────────────────────── */
     :root {
@@ -1224,7 +1238,7 @@
       <div class="divider divider-center"></div>
       <h2 class="anim anim-delay-1" data-cms="home.leadMagnet.heading">Not ready to talk? Start with the guide.</h2>
       <p class="anim anim-delay-2" style="max-width:560px;margin:16px auto 0;" data-cms="home.leadMagnet.body">Work through the five questions on your own before you ever get on a call. A short, plain-language guide you can finish in ten minutes.</p>
-      <form class="lead-form anim anim-delay-2" method="POST" action="#" data-cms-attr="action:home.leadMagnet.formAction">
+      <form class="lead-form anim anim-delay-2" method="POST" action="#" data-cms-attr="action:home.leadMagnet.formAction" data-clarity-mask="true">
         <input type="email" name="email" required aria-label="Email address" placeholder="Your email address" data-cms-attr="placeholder:home.leadMagnet.emailPlaceholder">
         <button type="submit" class="btn btn-primary" data-cms="home.leadMagnet.buttonLabel">Send me the guide</button>
       </form>
