@@ -495,6 +495,29 @@ collections:
           - { name: closingSub, label: "Closing — Subtext", widget: text }
           - { name: closingButton, label: "Closing — Button", widget: string }
 
+      # ---- PRIVACY POLICY ----
+      # Legal document. When your CCO issues a revision, replace the text here
+      # rather than editing it piecemeal, then have them review the live page.
+      - name: "privacy"
+        label: "Privacy Policy"
+        file: "content/privacy.json"
+        fields:
+          - { name: heroEyebrow, label: "Header — Eyebrow", widget: string }
+          - { name: heroTitle, label: "Header — Title", widget: string }
+          - { name: heroSub, label: "Header — Subtitle", widget: text }
+          - { name: contactLine, label: "Address / contact line", widget: string }
+          - { name: intro, label: "Opening paragraph", widget: text }
+          - name: sections
+            label: "Numbered sections"
+            widget: list
+            fields:
+              - { name: title, label: "Section heading", widget: string }
+              - { name: paras, label: "Paragraphs (before any bullets)", widget: list, required: false, field: { name: text, label: Paragraph, widget: text } }
+              - { name: bullets, label: "Bullet list", widget: list, required: false, field: { name: text, label: Bullet, widget: text } }
+              - { name: parasAfter, label: "Paragraphs (after the bullets)", widget: list, required: false, field: { name: text, label: Paragraph, widget: text } }
+          - { name: closing, label: "Closing statement (gold callout)", widget: text }
+          - { name: registrationNote, label: "Registration note (fine print)", widget: text }
+
       # ---- SCHEDULE ----
       - name: "schedule"
         label: "Schedule"

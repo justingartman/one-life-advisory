@@ -646,6 +646,38 @@
       .res-featured { padding: 36px 24px; }
     }
 
+    /* ─── LEGAL PAGES ────────────────────────────────────────── */
+    .legal-contact {
+      font-size: .875rem; color: var(--text2); padding-bottom: 22px;
+      border-bottom: 1px solid var(--border); margin-bottom: 28px;
+    }
+    .legal-intro { font-size: 1.0625rem; }
+    .legal-section { margin-top: 40px; }
+    .legal-section h3 {
+      font-size: 1.15rem; color: var(--navy); margin-bottom: 14px;
+      padding-bottom: 10px; border-bottom: 1px solid var(--border);
+    }
+    .legal-section p { margin-bottom: 14px; }
+    .legal-section p:last-child { margin-bottom: 0; }
+    .legal-section ul { display: flex; flex-direction: column; gap: 10px; margin: 14px 0; }
+    .legal-section li {
+      display: flex; align-items: flex-start; gap: 12px;
+      font-size: 1rem; line-height: 1.7; color: var(--text2);
+    }
+    .legal-section li::before {
+      content: ''; flex-shrink: 0; width: 5px; height: 5px; margin-top: 11px;
+      border-radius: 50%; background: var(--gold);
+    }
+    .legal-closing {
+      margin-top: 48px; padding: 24px 28px; background: var(--bg2);
+      border-left: 3px solid var(--gold); border-radius: var(--radius);
+      font-style: italic; color: var(--navy);
+    }
+    .legal-reg-note {
+      margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--border);
+      font-size: .8125rem; line-height: 1.7; color: var(--text3);
+    }
+
     /* ─── LEAD MAGNET FORM ───────────────────────────────────── */
     .lead-form { display: flex; gap: 12px; max-width: 540px; margin: 28px auto 0; }
     .lead-form input {
@@ -2055,6 +2087,32 @@
   <footer id="footer-resources"></footer>
 </div>
 
+<!-- ── PRIVACY POLICY ─────────────────────────────────────────────────────── -->
+<!-- Body sections are built by renderPrivacy() from content/privacy.json.
+     Edit in /admin → Pages → Privacy Policy. This is a legal document —
+     replace it wholesale when your CCO issues a revision. -->
+<div class="page" id="page-privacy">
+  <section class="page-hero">
+    <div class="hero-bg"></div><div class="hero-atmos"></div><div class="hero-scrim"></div>
+    <div class="page-hero-inner">
+      <div class="hero-eyebrow anim" data-cms="privacy.heroEyebrow">Legal</div>
+      <h1 class="reveal-mask anim-delay-1" data-cms="privacy.heroTitle">Privacy Policy</h1>
+      <p class="page-hero-sub anim anim-delay-2" data-cms="privacy.heroSub">How we collect, share, and protect your information.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container-sm">
+      <div class="legal-contact anim" data-cms="privacy.contactLine">1402 Austin St, Coleman, TX 76834 · (325) 726-1770 · info@onelifeadvisory.com</div>
+      <p class="legal-intro anim" data-cms="privacy.intro"></p>
+      <div id="privacy-sections"></div>
+      <div class="legal-closing anim" data-cms="privacy.closing"></div>
+      <p class="legal-reg-note anim" data-cms="privacy.registrationNote"></p>
+    </div>
+  </section>
+  <footer id="footer-privacy"></footer>
+</div>
+
 <!-- ── SCHEDULE ───────────────────────────────────────────────────────────── -->
 <div class="page" id="page-schedule">
   <section class="page-hero">
@@ -2140,8 +2198,8 @@
         <!-- Form CRS hidden: One Life Advisory is TX state-registered and not required to file Form CRS. To restore, uncomment this line (data still lives in global.json legalLinks index 2).
         <a href="#" data-cms="global.legalLinks.2.label" data-cms-attr="href:global.legalLinks.2.url">Form CRS</a>
         -->
-        <!-- Privacy Policy & Terms hidden until the real documents exist (data lives in global.json legalLinks 3 & 4). To restore, uncomment:
-        <a href="#" data-cms="global.legalLinks.3.label" data-cms-attr="href:global.legalLinks.3.url">Privacy Policy</a>
+        <a onclick="go('privacy')" data-cms="global.legalLinks.3.label">Privacy Policy</a>
+        <!-- Terms of Use hidden until that document exists (data lives in global.json legalLinks 4). To restore, uncomment:
         <a href="#" data-cms="global.legalLinks.4.label" data-cms-attr="href:global.legalLinks.4.url">Terms of Use</a>
         -->
       </div>
@@ -2160,6 +2218,7 @@
     'about':        'page-about',
     'faq':          'page-faq',
     'resources':    'page-resources',
+    'privacy':      'page-privacy',
     'schedule':     'page-schedule'
   };
 
@@ -2181,6 +2240,7 @@
     // Build the Resources lists when entering that page
     if (pageId === 'resources') renderResources();
     if (pageId === 'about') renderTeam();
+    if (pageId === 'privacy') renderPrivacy();
     // Trigger animations for elements in viewport
     setTimeout(() => observeAnimations(), 50);
     // Initialise scroll-driven effects (throughline) for the new page
@@ -2230,7 +2290,36 @@
     if (active && active.id === 'page-schedule') initCalendly();
     renderResources();
     renderTeam();
+    renderPrivacy();
   });
+
+  // ── Privacy Policy body (built from content/privacy.json → sections[]) ──
+  // Each section may have paragraphs, a bullet list, and paragraphs after it.
+  function renderPrivacy() {
+    const data = (window.__cmsContent || {}).privacy;
+    const wrap = document.getElementById('privacy-sections');
+    if (!data || !wrap) return;
+    wrap.innerHTML = '';
+    (data.sections || []).filter(s => s && s.title).forEach(s => {
+      const sec = document.createElement('div');
+      sec.className = 'legal-section anim';
+      const h = document.createElement('h3'); h.textContent = s.title; sec.appendChild(h);
+      const addParas = list => (list || []).filter(Boolean).forEach(t => {
+        const p = document.createElement('p'); p.textContent = t; sec.appendChild(p);
+      });
+      addParas(s.paras);
+      if ((s.bullets || []).filter(Boolean).length) {
+        const ul = document.createElement('ul');
+        s.bullets.filter(Boolean).forEach(t => {
+          const li = document.createElement('li'); li.textContent = t; ul.appendChild(li);
+        });
+        sec.appendChild(ul);
+      }
+      addParas(s.parasAfter);
+      wrap.appendChild(sec);
+    });
+    if (typeof observeAnimations === 'function') setTimeout(observeAnimations, 30);
+  }
 
   // ── Team cards (built from content/about.json → team[]) ─────────────────
   // One member gets a wide side-by-side layout so a long bio reads well;
@@ -2496,7 +2585,7 @@
 
   // ── Footer injection ─────────────────────────────────────────────────────
   function populateFooter(pageId) {
-    const map = { home: 'footer-home', 'how-we-plan': 'footer-plan', 'what-we-do': 'footer-do', 'who-we-help': 'footer-who', about: 'footer-about', resources: 'footer-resources', faq: 'footer-faq', schedule: 'footer-schedule' };
+    const map = { home: 'footer-home', 'how-we-plan': 'footer-plan', 'what-we-do': 'footer-do', 'who-we-help': 'footer-who', about: 'footer-about', resources: 'footer-resources', privacy: 'footer-privacy', faq: 'footer-faq', schedule: 'footer-schedule' };
     const fid = map[pageId];
     if (!fid) return;
     const el = document.getElementById(fid);

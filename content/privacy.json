@@ -1,0 +1,90 @@
+{
+  "heroEyebrow": "Legal",
+  "heroTitle": "Privacy Policy",
+  "heroSub": "How we collect, share, and protect your information.",
+  "contactLine": "1402 Austin St, Coleman, TX 76834 · (325) 726-1770 · info@onelifeadvisory.com",
+  "intro": "Investment advisers are required by law to inform their clients of their policies regarding the privacy of client information. One Life Advisory, LLC (\"OLAL,\" \"we,\" \"us\") is bound by professional standards of confidentiality that are even more stringent than those required by law. Federal law gives you the right to limit some but not all sharing of your personal information, and requires us to tell you how we collect, share, and protect it.",
+  "sections": [
+    {
+      "title": "1. Information We Collect",
+      "paras": [
+        "We collect nonpublic personal information (\"NPI\") about you that you provide to us or that we obtain with your authorization. This can include, but is not limited to:"
+      ],
+      "bullets": [
+        "Social Security number and date of birth",
+        "Banking information, financial account numbers, and account balances",
+        "Sources of income and employment information",
+        "Credit card numbers or related information",
+        "Risk profile, investment objectives, and financial goals",
+        "Contact information, including mailing address, e-mail address, and mobile phone number"
+      ],
+      "parasAfter": [
+        "If you visit our website or communicate with us electronically, we may also collect information you submit through contact or scheduling forms. Information collected automatically when you visit our website is described in Section 4."
+      ]
+    },
+    {
+      "title": "2. How We Share Information",
+      "paras": [
+        "We do not sell your personal information, and we do not share your NPI with affiliated or nonaffiliated third parties for their marketing purposes. We do not disclose NPI about current or former clients to any nonaffiliated third party except in the following limited circumstances:"
+      ],
+      "bullets": [
+        "As necessary to provide the services you have requested or authorized, or to maintain and service your account (for example, with your custodian or our technology and service providers)",
+        "As required by regulatory authorities or law enforcement officials who have jurisdiction over us, or as otherwise required by applicable law",
+        "To the extent reasonably necessary to protect the confidentiality or security of our records, to prevent fraud, and for institutional risk control purposes",
+        "To our attorneys, accountants, and auditors, or others determining our compliance with industry standards"
+      ],
+      "parasAfter": [
+        "Within the firm, access to your NPI is limited to personnel who need it to deliver services to you. These practices apply equally to current and former clients.",
+        "Mobile phone numbers and SMS consent are treated with additional restrictions, as described in Section 5 below."
+      ]
+    },
+    {
+      "title": "3. Your Choices",
+      "paras": [
+        "Because we do not share your NPI with third parties for marketing purposes, and our limited disclosures fall within the exceptions permitted by law, there is no information sharing for you to opt out of. If our practices ever change in a way that would give rise to an opt-out right, we will notify you and provide the opportunity to opt out (or, where state law such as California's requires it, to opt in) before any such sharing occurs. Questions may be directed to us at (325) 726-1770 or info@onelifeadvisory.com."
+      ]
+    },
+    {
+      "title": "4. Website Analytics and Tracking Technologies",
+      "paras": [
+        "When you visit our website, certain information is collected automatically. This may include your IP address, general geographic location derived from it, browser and device type, operating system, the pages you view, the links and buttons you interact with, how long you spend on each page, and the website or search term that referred you to us.",
+        "We use cookies and similar technologies for this purpose, and we engage third-party analytics providers to collect and process this information on our behalf. Depending on the provider, these tools may record how visitors move through and interact with individual pages, including scrolling, clicking, and navigation patterns, and may aggregate that activity across visitors to show which parts of a page receive the most attention. We use this information to understand how our website is used, to identify problems, and to improve it. We do not sell it, and we do not use it to make decisions about your account or the advice we give you.",
+        "These tools are configured to exclude information you type into forms, and we do not use them to collect nonpublic personal information. We may change analytics providers from time to time; this Policy describes the categories of information collected rather than any particular provider.",
+        "Most browsers allow you to refuse or delete cookies through their settings. Disabling cookies may affect how parts of our website function. Our website does not respond to browser \"Do Not Track\" signals."
+      ]
+    },
+    {
+      "title": "5. Mobile Phone Numbers and SMS/Text Messaging",
+      "paras": [
+        "This section governs mobile phone numbers and text messaging (SMS/MMS) consent and applies notwithstanding anything else in this Policy.",
+        "No mobile information will be shared with third parties or affiliates for marketing or promotional purposes. Information sharing to subcontractors in support services, such as customer service, is permitted. All other use categories exclude text messaging originator opt-in data and consent; this information will not be shared with, sold to, or transferred to any third parties.",
+        "Consent. By providing your mobile phone number and opting in, you consent to receive text messages from One Life Advisory, LLC related to your inquiry, appointment scheduling and reminders, account servicing, and, where you have separately agreed, informational or marketing content. Consent to receive text messages is not a condition of purchasing any goods or services.",
+        "Message frequency varies. Message and data rates may apply. Carriers are not liable for delayed or undelivered messages.",
+        "Opting out. You can opt out of text messages at any time by replying STOP to any message. After you send STOP, we will send one final message confirming that you have been unsubscribed, and no further messages will be sent unless you re-subscribe. For help, reply HELP to any message or contact us at (325) 726-1770 or info@onelifeadvisory.com."
+      ]
+    },
+    {
+      "title": "6. How We Protect Your Information",
+      "paras": [
+        "To protect your personal information from unauthorized access and use, we use security measures that comply with federal law, including computer safeguards such as password protection and encryption, secured files and buildings, and access controls limiting NPI to personnel who need it to provide services to you. Records containing NPI are disposed of by methods designed to prevent the information from being read or reconstructed. We maintain these protections for both current and former clients.",
+        "In the event of a data breach affecting your personally identifiable information, we will provide written notification to you and appropriate state agencies within 45 days of the breach, and where the incident involves a Social Security number, driver's license number, or state identification card number, we will offer complimentary credit monitoring for at least 18 months without requiring you to waive any private right of action."
+      ]
+    },
+    {
+      "title": "7. Definitions",
+      "bullets": [
+        "Nonpublic personal information (NPI) — personally identifiable financial information, plus any list, description, or grouping of customers derived from it.",
+        "Affiliates — companies related by common ownership or control; they can be financial and non-financial companies. Our affiliates include BetterWealth Solutions, LLC. We do not share your NPI with affiliates for their marketing purposes.",
+        "Non-affiliates — companies not related by common ownership or control. We do not share your NPI with non-affiliates except in the limited circumstances described in Section 2."
+      ]
+    },
+    {
+      "title": "8. Changes to This Policy and Contact",
+      "paras": [
+        "We may update this Policy from time to time. The current version will be posted on our website, and material changes will be communicated to clients as required by law. Questions about this Policy or your information may be directed to One Life Advisory, LLC, Attn: Chief Compliance Officer, 1402 Austin St, Coleman, TX 76834, by phone at (325) 726-1770, or by e-mail at info@onelifeadvisory.com."
+      ]
+    }
+  ],
+  "closing": "Your privacy, our professional ethics, and the ability to provide you with quality financial services are very important to us.",
+  "registrationNote": "One Life Advisory, LLC is registered as an investment adviser in the states where such registration is required. Registration does not imply a certain level of skill or training."
+}
