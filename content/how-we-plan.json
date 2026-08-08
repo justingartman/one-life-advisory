@@ -2,7 +2,7 @@
   "groupAHeading": "Getting to the answers",
   "clarityLabel": "Start Here",
   "clarityButton": "Schedule a Clarity Call",
-  "heroSub": "Five questions, answered from the beginning, then kept answered for as long as we're working together.",
+  "heroSub": "We start by understanding what you want your money to do. Then we work through five questions that help us organize the decisions, build the plan, put it into motion, and keep it current over time. Where we spend the most time depends on what matters most in your situation.",
   "closingButton": "Schedule a Clarity Call",
   "closingQuote": "\"This is your one life. Let's design the future income to support it — with confidence, clarity, and intention.\"",
   "steps": [
@@ -27,28 +27,27 @@
       "p1": "We walk you through what we found. Each of the five questions, answered plainly, along with what would need to change to get where you want to go. We'll go as deep on the reasoning as you want, but we start with the answers, because that's what you came for. At the end, you decide."
     }
   ],
-  "groupBIntro": "Everything above gets you a set of answers. Staying with us is what keeps them true.",
-  "closingSub": "The first step is a free Clarity Call. No pressure. No pitch.",
+  "groupBIntro": "Getting to the plan is the beginning of the relationship. From there, we help put it into motion and continue working with you as life changes.",
+  "closingSub": "Start with a free 15 to 30 minute Clarity Call. We'll talk about your situation, answer your initial questions, and explain what working with One Life would look like.",
   "clarityHeading": "The Clarity Call",
-  "heroEyebrow": "The Future Cash Flow Process",
+  "heroEyebrow": "Our Planning Process",
   "clarityP1": "Every relationship starts with a free, no-pressure conversation. You tell us what's on your mind. We tell you whether we can help and what working together looks like. If we're not the right fit, we'll say so and point you toward someone who is.",
   "clarityP2": "Once we both agree we're a fit, the work begins with Step 1.",
   "after": [
     {
       "title": "Getting started",
-      "p1": "Paperwork, signatures, account opening. We coordinate with the custodian so you're not chasing forms. Then the plan goes into motion."
+      "body": "We help with the setup needed to begin the relationship, including account opening and coordinating transfers with the custodian where appropriate.\n\nWe want the transition to be organized and clear so you understand what is happening and what comes next."
     },
     {
       "title": "Putting the plan into motion",
-      "p1": "A plan only counts if it gets executed. We don't hand you a binder and wish you luck. We open the accounts. We coordinate the transfers. We submit the applications. We update the beneficiaries. We make the moves the plan calls for, alongside you, so the strategy becomes reality."
+      "body": "Once we agree on the plan, we help coordinate the steps it calls for.\n\nThat may include account transfers, investment changes, beneficiary updates, insurance implementation where appropriate, and coordination with your CPA, attorney, or other professionals when their involvement is needed.\n\nSome steps are handled directly by One Life. Others require the involvement or approval of another professional or financial institution. We help keep the pieces moving together."
     },
     {
-      "title": "Keeping you on track",
-      "p1": "Income changes. Markets change. Tax law changes. So does what you care about. Every year we run your situation back through the same five questions, because an answer that was right three years ago may not be right now.",
-      "p2": "Between meetings we're paying attention, and we're a phone call away when something comes up. New job, new house, new grandchild, inheritance, market drop, business sale. Life will happen. That's the point of having someone in your corner when it does."
+      "title": "Keeping the plan current",
+      "body": "This is an ongoing relationship.\n\nMarkets change, tax laws change, and your life will change too. We continue reviewing the plan, your investments, and the decisions in front of you as those changes happen.\n\nYou can also reach out when something comes up between scheduled reviews. A retirement decision, inheritance, job change, major purchase, family change, or another financial question may be a reason to revisit part of the plan.\n\nThe goal is to be in your corner for the long haul, with a plan that continues to reflect your life."
     }
   ],
-  "heroTitle": "How we plan.",
+  "heroTitle": "How we build your financial plan.",
   "groupBHeading": "Once we're working together",
   "fiveQ": {
     "heading": "The five questions.",
@@ -63,13 +62,27 @@
   },
   "rhythm": {
     "show": true,
-    "heading": "What a year with us looks like",
-    "intro": "The five questions don't stay answered on their own. This is the rhythm that keeps them current.",
+    "heading": "What a typical year may look like",
+    "intro": "Your investment strategy and financial plan are reviewed regularly, with a full review at least annually. Many clients will have additional conversations during the year depending on what is happening and what needs attention.\n\nA typical year might look something like this.",
     "items": [
-      { "title": "Spring — the annual review", "desc": "The full deep-dive. We re-run your plan through all five questions and adjust for what's changed." },
-      { "title": "Summer — mid-year check-in", "desc": "A lighter touchpoint. Cash flow, investments, and anything life has served up since spring." },
-      { "title": "Fall — year-end planning", "desc": "Taxes, giving, and deadline-driven moves, handled before December gets crowded." },
-      { "title": "Winter — set up the new year", "desc": "Contribution updates, beneficiary checks, and priorities for the year ahead." }
-    ]
-  }
+      {
+        "title": "Spring. Annual review",
+        "desc": "We revisit the five questions, review the investment strategy, and look at what has changed in your financial life since the last full review."
+      },
+      {
+        "title": "Summer. Check-in",
+        "desc": "We may revisit cash flow, investments, or another part of the plan that needs attention. Sometimes there is a lot to discuss. Other years there may be very little."
+      },
+      {
+        "title": "Fall. Year-end planning",
+        "desc": "We look ahead at tax-related planning opportunities, charitable giving, required distributions, and other decisions that may need to happen before year-end."
+      },
+      {
+        "title": "Winter. Starting the new year",
+        "desc": "We can review contribution amounts, beneficiaries, cash needs, and any priorities that have changed for the year ahead."
+      }
+    ],
+    "closing": "The timing and focus can move depending on your situation. The purpose is to keep the plan current and spend time where it matters most."
+  },
+  "closingHeading": "Ready to see if working together makes sense?"
 }

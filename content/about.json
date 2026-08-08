@@ -1,12 +1,12 @@
 {
   "believeLabel": "What We Believe",
   "teamHeading": "Meet the people behind One Life Advisory.",
-  "heroSub": "One Life Advisory was built around that idea.",
+  "heroSub": "We wanted financial planning to start with a person's life and the decisions they're trying to make. That means understanding what matters first, then figuring out how investments, income, insurance, taxes, and estate decisions fit together as life changes.",
   "closingButton": "Schedule a Clarity Call",
-  "differentHeading": "We're organized around you, not around a sale.",
+  "differentHeading": "The plan comes first.",
   "whyP1": "We started One Life Advisory because we kept seeing the same gap. People with real responsibility and real resources, but with a financial life made up of pieces that didn't add up to a plan. Cash flow that wasn't coordinated with the investments. Investments that weren't coordinated with the protection. Protection hadn't been looked at in years. Decisions made by default instead of on purpose. And a vague sense of where it was all going, but no clear answer to the question that actually matters: is this money supporting the life I want to live, now and for every year ahead?",
   "whyP2": "We built One Life to close that gap. Planning, investments, protection, and the way taxes affect every move you make — all under one roof, all coordinated, all built around what you actually want out of this life.",
-  "closingSub": "The first step is a free Clarity Call. No pressure. No pitch. Just a conversation about where you are and where you'd like to go.",
+  "closingSub": "Start with a free Clarity Call. We'll spend 15 to 30 minutes getting to know your situation and seeing whether working together makes sense.",
   "closingHeading": "Ready to talk?",
   "believeHeading": "The beliefs behind the work.",
   "heroEyebrow": "About",
@@ -26,9 +26,9 @@
   ],
   "teamLabel": "The Team",
   "whyHeading": "Why we exist",
-  "differentP1": "Most of the industry is organized around selling things. Investments. Insurance. Products. The plan, if there is one, exists to justify the sale. We're organized the other way around. We start with what you want, build the plan to support it, and then make whatever decisions and moves the plan actually calls for.",
-  "differentLabel": "How We're Different",
-  "differentP2": "No script. No cookie cutter. No plan that looks like the one we built for the person before you. Your life is yours. The plan should reflect that.",
+  "differentP1": "We start by understanding what you want your money to do and what you are trying to accomplish.\n\nOnce we understand that, we can decide what investment changes, insurance, retirement income strategies, or other planning decisions may make sense. Each recommendation should connect back to something specific in the plan.",
+  "differentLabel": "How We Work",
+  "differentP2": "The emphasis will be different for every client. Some situations require more work around retirement income. Others need more attention around investments, protection, taxes, or estate planning.\n\nWhere we spend our time depends on what matters most in your situation.",
   "team": [
     {
       "name": "Justin Gartman",
@@ -37,5 +37,5 @@
       "photo": "/assets/uploads/favorite-aragon-photo-justin-gartman-2026-06-08-2.png"
     }
   ],
-  "heroTitle": "A financial plan should start with your life, not your accounts."
+  "heroTitle": "Why we built One Life Advisory."
 }

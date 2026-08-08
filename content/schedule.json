@@ -1,20 +1,20 @@
 {
   "heroEyebrow": "Get Started",
-  "heroTitle": "Schedule a Clarity Call.",
-  "heroSub": "A free, no-pressure conversation — usually 20 to 30 minutes. You tell us what's on your mind. We tell you whether we can help and what working together looks like.",
+  "heroTitle": "Start with a Clarity Call.",
+  "heroSub": "A free 15 to 30 minute conversation about what's on your mind, what you're trying to accomplish, and whether we may be able to help.",
   "calendlyUrl": "https://calendly.com/justin-onelifeadvisory/30min",
   "features": [
     {
-      "title": "20–30 minutes",
-      "desc": "A focused conversation, not a lengthy intake."
+      "title": "15 to 30 minutes",
+      "desc": "Enough time to understand why you reached out and what you are looking for."
     },
     {
-      "title": "No pressure. No pitch.",
-      "desc": "If we're not the right fit, we'll say so and point you in the right direction."
+      "title": "A chance to see if we're a fit",
+      "desc": "We'll explain how we work and whether your situation fits the kind of planning we do."
     },
     {
-      "title": "100% free",
-      "desc": "No commitment required. Just a real conversation."
+      "title": "Free to schedule",
+      "desc": "There is no cost for the Clarity Call and no commitment to move forward afterward."
     }
   ]
 }

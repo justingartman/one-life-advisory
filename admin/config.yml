@@ -152,6 +152,7 @@ collections:
                 fields:
                   - { name: title, label: "Title", widget: string }
                   - { name: desc, label: "Description", widget: text }
+              - { name: closing, label: "Closing paragraph", widget: text, required: false }
           - name: planPreview
             label: "How We Plan (preview)"
             widget: object
@@ -166,6 +167,7 @@ collections:
                 fields:
                   - { name: title, label: "Title", widget: string }
                   - { name: desc, label: "Description", widget: text }
+              - { name: closing, label: "Closing paragraph", widget: text, required: false }
           - name: philosophy
             label: "Why We Exist"
             widget: object
@@ -219,8 +221,7 @@ collections:
             widget: list
             fields:
               - { name: title, label: "Title", widget: string }
-              - { name: p1, label: "Paragraph 1", widget: text, required: false }
-              - { name: p2, label: "Paragraph 2", widget: text, required: false }
+              - { name: body, label: "Body (blank line = new paragraph)", widget: text }
           - name: rhythm
             label: "A Year With Us (annual rhythm)"
             widget: object
@@ -234,7 +235,9 @@ collections:
                 fields:
                   - { name: title, label: "Title", widget: string }
                   - { name: desc, label: "Description", widget: text }
-          - { name: closingQuote, label: "Closing Quote", widget: text }
+              - { name: closing, label: "Closing paragraph", widget: text, required: false }
+          - { name: closingHeading, label: "Closing — Heading", widget: string }
+          - { name: closingQuote, label: "Closing Quote (not currently shown)", widget: text, required: false }
           - { name: closingSub, label: "Closing Subtext", widget: text }
           - { name: closingButton, label: "Closing Button", widget: string }
 
@@ -249,7 +252,7 @@ collections:
           - { name: clarityLabel, label: "It Starts With Clarity — Eyebrow", widget: string }
           - { name: clarityHeading, label: "It Starts With Clarity — Heading", widget: string }
           - { name: clarityBody, label: "It Starts With Clarity — Body", widget: text }
-          - { name: walkawayLabel, label: "\"What you walk away with\" label", widget: string, hint: "The heading above each accordion's bullet list." }
+          - { name: walkawayLabel, label: "Checklist heading (shared)", widget: string }
           - name: acc
             label: "The Six Pieces (accordions)"
             widget: object
@@ -258,51 +261,62 @@ collections:
               - { name: liquidity, label: "Liquidity & Cash Flow", widget: object, collapsed: true, fields: [
                   { name: title, label: Title, widget: string },
                   { name: sub, label: Subtitle, widget: string },
-                  { name: intro, label: Intro, widget: text },
-                  { name: heads, label: Subheadings, widget: list, field: { name: text, label: Subheading, widget: string } },
-                  { name: paras, label: Paragraphs, widget: list, field: { name: text, label: Paragraph, widget: text } },
-                  { name: walkaway, label: "Walk-away list", widget: list, field: { name: text, label: Item, widget: string } }
+                  { name: paras, label: "Paragraphs", widget: list, field: { name: text, label: Paragraph, widget: text } },
+                  { name: extra, label: "Extra sub-section (optional)", widget: object, required: false, collapsed: true, fields: [
+                      { name: head, label: "Sub-heading", widget: string, required: false },
+                      { name: paras, label: "Paragraphs", widget: list, required: false, field: { name: text, label: Paragraph, widget: text } },
+                  { name: walkaway, label: "What you walk away with (checklist)", widget: list, required: false, field: { name: text, label: Item, widget: string } }
+                    ] }
                 ] }
               - { name: protection, label: "Protection", widget: object, collapsed: true, fields: [
                   { name: title, label: Title, widget: string },
                   { name: sub, label: Subtitle, widget: string },
-                  { name: intro, label: Intro, widget: text },
-                  { name: heads, label: Subheadings, widget: list, field: { name: text, label: Subheading, widget: string } },
-                  { name: paras, label: "Paragraphs (may contain HTML)", widget: list, field: { name: text, label: Paragraph, widget: text } },
-                  { name: walkaway, label: "Walk-away list", widget: list, field: { name: text, label: Item, widget: string } },
-                  { name: referralDisclosure, label: "Insurance referral disclosure", widget: text, required: false }
+                  { name: paras, label: "Paragraphs", widget: list, field: { name: text, label: Paragraph, widget: text } },
+                  { name: extra, label: "Extra sub-section (optional)", widget: object, required: false, collapsed: true, fields: [
+                      { name: head, label: "Sub-heading", widget: string, required: false },
+                      { name: paras, label: "Paragraphs", widget: list, required: false, field: { name: text, label: Paragraph, widget: text } },
+                  { name: walkaway, label: "What you walk away with (checklist)", widget: list, required: false, field: { name: text, label: Item, widget: string } }
+                    ] }
                 ] }
               - { name: retirement, label: "Retirement Income", widget: object, collapsed: true, fields: [
                   { name: title, label: Title, widget: string },
                   { name: sub, label: Subtitle, widget: string },
-                  { name: intro, label: Intro, widget: text },
-                  { name: heads, label: Subheadings, widget: list, field: { name: text, label: Subheading, widget: string } },
-                  { name: paras, label: "Paragraphs (may contain HTML)", widget: list, field: { name: text, label: Paragraph, widget: text } },
-                  { name: walkaway, label: "Walk-away list", widget: list, field: { name: text, label: Item, widget: string } }
+                  { name: paras, label: "Paragraphs", widget: list, field: { name: text, label: Paragraph, widget: text } },
+                  { name: extra, label: "Extra sub-section (optional)", widget: object, required: false, collapsed: true, fields: [
+                      { name: head, label: "Sub-heading", widget: string, required: false },
+                      { name: paras, label: "Paragraphs", widget: list, required: false, field: { name: text, label: Paragraph, widget: text } },
+                  { name: walkaway, label: "What you walk away with (checklist)", widget: list, required: false, field: { name: text, label: Item, widget: string } }
+                    ] }
                 ] }
               - { name: investments, label: "Investments", widget: object, collapsed: true, fields: [
                   { name: title, label: Title, widget: string },
                   { name: sub, label: Subtitle, widget: string },
-                  { name: intro, label: Intro, widget: text },
-                  { name: heads, label: Subheadings, widget: list, field: { name: text, label: Subheading, widget: string } },
-                  { name: paras, label: Paragraphs, widget: list, field: { name: text, label: Paragraph, widget: text } },
-                  { name: walkaway, label: "Walk-away list", widget: list, field: { name: text, label: Item, widget: string } }
+                  { name: paras, label: "Paragraphs", widget: list, field: { name: text, label: Paragraph, widget: text } },
+                  { name: extra, label: "Extra sub-section (optional)", widget: object, required: false, collapsed: true, fields: [
+                      { name: head, label: "Sub-heading", widget: string, required: false },
+                      { name: paras, label: "Paragraphs", widget: list, required: false, field: { name: text, label: Paragraph, widget: text } },
+                  { name: walkaway, label: "What you walk away with (checklist)", widget: list, required: false, field: { name: text, label: Item, widget: string } }
+                    ] }
                 ] }
               - { name: tax, label: "Tax-Aware Planning", widget: object, collapsed: true, fields: [
                   { name: title, label: Title, widget: string },
                   { name: sub, label: Subtitle, widget: string },
-                  { name: intro, label: Intro, widget: text },
-                  { name: heads, label: Subheadings, widget: list, field: { name: text, label: Subheading, widget: string } },
-                  { name: paras, label: Paragraphs, widget: list, field: { name: text, label: Paragraph, widget: text } },
-                  { name: walkaway, label: "Walk-away list", widget: list, field: { name: text, label: Item, widget: string } }
+                  { name: paras, label: "Paragraphs", widget: list, field: { name: text, label: Paragraph, widget: text } },
+                  { name: extra, label: "Extra sub-section (optional)", widget: object, required: false, collapsed: true, fields: [
+                      { name: head, label: "Sub-heading", widget: string, required: false },
+                      { name: paras, label: "Paragraphs", widget: list, required: false, field: { name: text, label: Paragraph, widget: text } },
+                  { name: walkaway, label: "What you walk away with (checklist)", widget: list, required: false, field: { name: text, label: Item, widget: string } }
+                    ] }
                 ] }
               - { name: legacy, label: "Legacy", widget: object, collapsed: true, fields: [
                   { name: title, label: Title, widget: string },
                   { name: sub, label: Subtitle, widget: string },
-                  { name: intro, label: Intro, widget: text },
-                  { name: heads, label: Subheadings, widget: list, field: { name: text, label: Subheading, widget: string } },
-                  { name: paras, label: "Paragraphs (may contain HTML)", widget: list, field: { name: text, label: Paragraph, widget: text } },
-                  { name: walkaway, label: "Walk-away list", widget: list, field: { name: text, label: Item, widget: string } }
+                  { name: paras, label: "Paragraphs", widget: list, field: { name: text, label: Paragraph, widget: text } },
+                  { name: extra, label: "Extra sub-section (optional)", widget: object, required: false, collapsed: true, fields: [
+                      { name: head, label: "Sub-heading", widget: string, required: false },
+                      { name: paras, label: "Paragraphs", widget: list, required: false, field: { name: text, label: Paragraph, widget: text } },
+                  { name: walkaway, label: "What you walk away with (checklist)", widget: list, required: false, field: { name: text, label: Item, widget: string } }
+                    ] }
                 ] }
           - { name: coordinatedLabel, label: "One Plan Coordinated — Eyebrow", widget: string }
           - { name: coordinatedHeading, label: "One Plan Coordinated — Heading", widget: string }
@@ -317,19 +331,16 @@ collections:
           - { name: heroEyebrow, label: "Header — Eyebrow", widget: string }
           - { name: heroTitle, label: "Header — Title", widget: string }
           - { name: heroSub, label: "Header — Subtitle", widget: text }
-          - { name: questionsIntro, label: "Five Questions intro (may contain <em> italics)", widget: text, required: false }
           - name: groups
             label: "Client Groups"
             widget: list
             fields:
-              - { name: title, label: Title, widget: string }
-              - { name: p1, label: "Paragraph 1", widget: text }
-              - { name: p2, label: "Paragraph 2", widget: text }
+              - { name: title, label: "Title", widget: string }
+              - { name: body, label: "Body (blank line = new paragraph)", widget: text }
+              - { name: listIntro, label: "Lead-in above the list", widget: string, required: false }
               - { name: items, label: "Bullet list", widget: list, field: { name: text, label: Item, widget: string } }
-          - { name: notFitHeading, label: "Not a Fit — Heading", widget: string }
-          - { name: notFitBody, label: "Not a Fit — Paragraph 1", widget: text }
-          - { name: notFitBody2, label: "Not a Fit — Paragraph 2", widget: text, required: false }
-          - { name: notFitBody3, label: "Not a Fit — Paragraph 3", widget: text, required: false }
+          - { name: notFitHeading, label: "Section Heading", widget: string }
+          - { name: notFitBody, label: "Body (blank line = new paragraph)", widget: text }
           - { name: closingHeading, label: "Closing — Heading", widget: string }
           - { name: closingSub, label: "Closing — Subtext", widget: text }
           - { name: closingButton, label: "Closing — Button", widget: string }
@@ -379,17 +390,21 @@ collections:
           - { name: heroEyebrow, label: "Header — Eyebrow", widget: string }
           - { name: heroTitle, label: "Header — Title", widget: string }
           - { name: heroSub, label: "Header — Subtitle", widget: text }
-          - name: sections
-            label: "FAQ Sections"
+          - name: items
+            label: "Questions"
             widget: list
             fields:
-              - { name: title, label: "Section Title", widget: string }
-              - name: items
-                label: "Questions"
-                widget: list
+              - { name: q, label: "Question", widget: string }
+              - { name: a, label: "Answer paragraphs", widget: list, field: { name: text, label: Paragraph, widget: text } }
+              - name: table
+                label: "Optional table (used for the fee schedule)"
+                widget: object
+                required: false
+                collapsed: true
                 fields:
-                  - { name: q, label: Question, widget: string }
-                  - { name: a, label: Answer, widget: text }
+                  - { name: headers, label: "Column headings", widget: list, required: false, field: { name: text, label: Heading, widget: string } }
+                  - { name: rows, label: "Rows", widget: list, required: false, field: { name: cells, label: "Row (one cell per column, comma separated)", widget: list } }
+              - { name: aAfter, label: "Paragraphs after the table", widget: list, required: false, field: { name: text, label: Paragraph, widget: text } }
           - { name: closingNote, label: "Closing Note", widget: string }
           - { name: closingButton, label: "Closing Button", widget: string }
 

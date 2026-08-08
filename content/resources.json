@@ -1,7 +1,7 @@
 {
   "heroEyebrow": "Resources",
-  "heroTitle": "Plain answers, freely given.",
-  "heroSub": "Writing, videos, and guides on the questions that decide whether your money supports the life you want. No jargon, no pitch. Take what's useful.",
+  "heroTitle": "Resources to help you make better financial decisions.",
+  "heroSub": "Articles, videos, guides, and other resources to help you understand the decisions you're facing and think through your options in plain language.",
   "featured": {
     "show": true,
     "label": "Start Here",
@@ -117,7 +117,7 @@
       }
     ]
   },
-  "closingHeading": "Have a question these didn't answer?",
-  "closingSub": "That's what the Clarity Call is for. No pressure. No pitch.",
+  "closingHeading": "Have a question these resources didn't answer?",
+  "closingSub": "Bring it to a Clarity Call. We'll talk through what's on your mind and help you understand whether One Life may be able to help.",
   "closingButton": "Schedule a Clarity Call"
 }

@@ -68,6 +68,19 @@
       if (v === false) el.style.display = "none";
       else if (v === true) el.style.display = "";
     });
+    // Paragraph blocks: data-cms-paras="path" — a blank line in the CMS text
+    // becomes a new <p>, so long copy keeps its paragraph breaks.
+    root.querySelectorAll("[data-cms-paras]").forEach(function (el) {
+      var v = resolve(CACHE, el.getAttribute("data-cms-paras"));
+      if (typeof v !== "string") return;
+      el.innerHTML = "";
+      v.split(/\n\s*\n/).map(function (s) { return s.trim(); }).filter(Boolean)
+        .forEach(function (t) {
+          var p = document.createElement("p");
+          p.textContent = t;
+          el.appendChild(p);
+        });
+    });
     // Attribute bindings: data-cms-attr="href:global.clientLoginUrl;title:home.hero.eyebrow"
     root.querySelectorAll("[data-cms-attr]").forEach(function (el) {
       el.getAttribute("data-cms-attr").split(";").forEach(function (pair) {

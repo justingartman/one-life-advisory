@@ -1,47 +1,147 @@
 {
   "heroEyebrow": "FAQ",
-  "heroTitle": "Questions worth answering before we ever get on a call.",
-  "heroSub": "If something isn't covered here, ask us on the Clarity Call. The whole point of that conversation is to make sure your questions get real answers.",
-  "sections": [
+  "heroTitle": "Common questions we get about working with us.",
+  "heroSub": "We've answered some of the questions that tend to come up before someone decides whether to work with us. If yours isn't here, reach out and we'll be happy to talk through it.",
+  "items": [
     {
-      "title": "About Working With Us",
-      "items": [
-        { "q": "Who do you typically work with?", "a": "We work with people who want their money to mean something. That includes pre-retirees who are mapping out the next thirty years, retirees who want to make sure what they've built actually supports the life they want, and people still in their working years who want a real plan instead of a pile of accounts. The thread isn't a net worth number. It's people who want a plan that reflects what they care about and an advisor who actually pays attention." },
-        { "q": "Do you have a minimum?", "a": "We're more interested in whether we're the right fit for what you're trying to do than in a specific number. The Clarity Call is how we figure that out together." },
-        { "q": "Are you a fiduciary?", "a": "Yes. One Life Advisory is a registered investment adviser, and we have a legal obligation to act in your best interest. We disclose all material conflicts of interest, including platform benefits we receive and any affiliated entity relationships, in our Form ADV, which is available upon request and linked below. Our obligation to you doesn't change based on how any engagement is structured." },
-        { "q": "How are you different from the advisor I already have?", "a": "The honest answer is that we might not be, and we'll tell you that on the call if that's what we see. Where we tend to be different is that we treat planning as the work and investments as one of the tools. A lot of advisors lead with the portfolio and add planning on the side. We lead with the plan, build everything around it, and coordinate the pieces other firms tend to leave to someone else. If that sounds like what you've been looking for, we should talk." },
-        { "q": "Do you only work with people who are retired or near retirement?", "a": "No. Our specialty is income: turning what you've built into money you can live on without running out. That focus matters most as retirement approaches, but the best income plans aren't built at 63. They're built years earlier, while there's still time to shape the outcome. If you're still in your saving years, working with us means building toward your Future Cash Flow from the start, so you arrive with options instead of regrets. We work with people in retirement, approaching it, and still building toward it. The stage changes the work. The focus on the life your money is meant to support doesn't." },
-        { "q": "What are the five questions?", "a": "Will your money last as long as you do. What could take it away. Is your portfolio built for the job it has now. Are you keeping as much as you should. Will what's left go where you intend. Almost everything in a financial plan rolls up into one of those five, which is why we organize the whole engagement around them." },
-        { "q": "Do the five questions ever get answered for good?", "a": "No, and that's the point. Markets move, tax law changes, and your life won't sit still either. We answer them at the start and then run your situation back through them every year, so the plan reflects where you actually are instead of where you were." },
-        { "q": "What if I'm not close to retirement yet?", "a": "Then the first question becomes whether you'll get where you want to go, and the analysis focuses on whether what you're doing now is building toward the income you'll eventually want. The earlier that gets designed on purpose, the fewer corrections you'll need later." },
-        { "q": "What makes your approach different from other financial planners?", "a": "Two things. First, focus. Most of the industry is built around one question: how big can we make the pile? That's half the job. The other half, the half that decides whether you can actually live the life you saved for, is how that pile becomes income. When to draw, from which accounts, in what order, how to keep taxes from eating it, how to make it last. We treat that as the center of the work, not a step you figure out later. We call it your Future Cash Flow. Second, we lead with the plan, not products. Every piece is there for a reason, with a clear job, or it doesn't belong." },
-        { "q": "What do you mean by planning \"to and through\" retirement?", "a": "Most advisors are good at getting you to the retirement starting line: helping you save, invest, and grow. Far fewer are built for what comes after, when the paycheck stops and your savings have to become the paycheck. That second phase lasts decades, and it carries its own risks. A market drop early in retirement. Inflation. Taxes. The simple question of how much you can spend without running out. Planning through retirement means designing for all of it, not just getting you to the door. It's the part we specialize in." },
-        { "q": "I want to leave money to my family, not just spend it all. Does that fit?", "a": "Absolutely. Spending well and leaving a legacy aren't opposites. They're two outcomes of the same plan. A sound income strategy tells you how much you can comfortably use, which is also what tells you what's safe to pass on. Legacy isn't an afterthought to the income plan. It's part of it. We build the income plan and the legacy plan as one piece of work, so the people and causes you care about end up where you intend." },
-        { "q": "Is this just retirement income planning?", "a": "No. Income is the spine, but a real plan has to hold up around it. Protection, so an unexpected event doesn't undo the work. Investments built to produce what the plan needs. Tax awareness in every decision. A legacy plan for what's left. And before any of it, a clear sense of what you actually want your money to do. Income is where the plan focuses, because it's what everything else serves. But the plan itself is complete, not narrow." }
+      "q": "Who do you typically work with?",
+      "a": [
+        "Most of our clients are approaching retirement or already retired.",
+        "Some are still several years away and want to make sure they're making good decisions before retirement. Others are already retired and want help managing income, investments, taxes, insurance, and the other financial decisions that come with it.",
+        "We also work with some people earlier in the process when the relationship makes sense."
       ]
     },
     {
-      "title": "About the Process",
-      "items": [
-        { "q": "What is a Clarity Call?", "a": "A free, no-pressure conversation. Usually 20 to 30 minutes. You tell us what's on your mind. We tell you whether we can help and what working with us looks like. If we're not the right fit, we'll say so and point you toward someone who is. No pitch. No homework. No obligation to do anything next." },
-        { "q": "What happens after a Clarity Call?", "a": "If we both agree we're a fit, the work starts with Step 1 of our planning process: Clarify Your Vision. From there we organize your financial picture, design the plan, put it into motion, and stay with you as life changes." },
-        { "q": "How long does it take to build a plan?", "a": "Most plans take a few weeks from the first deep-dive meeting to a finished version we can act on. Some take longer if the financial picture is complicated, or if we're waiting on documents from other places. We move at the pace your situation actually requires — not a fixed timeline." },
-        { "q": "Do I have to move all my accounts to you?", "a": "Not necessarily. Some accounts we'll manage directly. Some make more sense to leave where they are. Some sit at an employer and can't be moved anyway. We work with what you actually have and figure out the right structure based on the plan — not based on what's convenient for us to manage." }
+      "q": "Do you have a minimum?",
+      "a": [
+        "Our current minimum for investment management is $250,000 in assets available for us to manage.",
+        "If you are below that amount, we may be able to work together through our financial planning service instead."
       ]
     },
     {
-      "title": "About Fees",
-      "items": [
-        { "q": "How do you charge?", "a": "We walk through fees in detail on the Clarity Call so you know exactly what you're paying for and why. Our goal is for the relationship to be worth more than it costs — and that's the actual standard we hold ourselves to." },
-        { "q": "Are there any commissions or product-related compensation?", "a": "No. One Life Advisory earns no commissions and does not receive product-related compensation of any kind. Our compensation comes from advisory fees, which are disclosed in writing before you engage with us. If insurance is part of your plan, we refer you to a licensed insurance professional. We have no financial interest in that referral." }
+      "q": "What does working with One Life include?",
+      "a": [
+        "For investment management clients, financial planning is included as part of the relationship.",
+        "We manage your investment portfolio based on your goals, time horizon, and comfort with risk. We also help with the broader decisions around your financial life.",
+        "Depending on your situation, that may include retirement income planning, cash flow, insurance, tax considerations, beneficiary decisions, and coordination with your estate plan.",
+        "The exact planning work depends on what is relevant to you."
       ]
     },
     {
-      "title": "About What We Do and Don't Do",
-      "items": [
-        { "q": "Do you give tax advice?", "a": "We're not tax preparers, and we don't file returns. What we do is build plans that account for the tax impact of every meaningful decision, and we coordinate with your CPA so the planning and the filing line up. If you don't have a CPA, we can point you toward people we trust." },
-        { "q": "Do you handle estate planning?", "a": "We're not estate attorneys, and we don't draft documents. What we do is build the plan around what you want your legacy to look like, make sure every account, beneficiary, and title actually matches your wishes, and coordinate with the attorney who handles the documents. If you don't have one, we can point you toward people we trust." },
-        { "q": "What about my 401(k) at work?", "a": "Yes. Even though it stays at your employer's plan, it's still part of your financial picture and your plan. We help you think through contribution levels, investment selections inside the plan, how it fits with everything else you're saving and investing, and what to do with it when you eventually leave the employer." }
+      "q": "Can I work with you just for financial planning?",
+      "a": [
+        "Yes, if you are below our minimum for investment management.",
+        "Standalone financial planning is an ongoing relationship. We start by understanding your financial situation and building an initial written plan. From there, we continue to review and update the plan as things change.",
+        "There is a $400 initiation fee. The ongoing fee is based on the complexity of your situation and the planning work involved. We agree on that fee with you before you decide to move forward.",
+        "If you later have enough assets available for us to manage, we can discuss moving into an investment management relationship, where ongoing financial planning is included."
+      ]
+    },
+    {
+      "q": "How much does it cost to work with One Life?",
+      "a": [
+        "For clients who have us manage their investments, our advisory fee is based on the amount we manage. The fee is tiered, so each portion of the portfolio is charged at the rate for that tier."
+      ],
+      "table": {
+        "headers": [
+          "Assets managed",
+          "Annual advisory fee"
+        ],
+        "rows": [
+          [
+            "First $1 million",
+            "0.80%"
+          ],
+          [
+            "$1 million to $2 million",
+            "0.70%"
+          ],
+          [
+            "$2 million to $3 million",
+            "0.60%"
+          ],
+          [
+            "$3 million to $4 million",
+            "0.55%"
+          ],
+          [
+            "$4 million to $5 million",
+            "0.50%"
+          ],
+          [
+            "$5 million to $7.5 million",
+            "0.45%"
+          ],
+          [
+            "$7.5 million to $10 million",
+            "0.35%"
+          ],
+          [
+            "Above $10 million",
+            "0.25%"
+          ]
+        ]
+      },
+      "aAfter": [
+        "For example, if we manage $3 million, the first $1 million is charged at 0.80%, the next $1 million at 0.70%, and the third $1 million at 0.60%. The blended advisory fee would be approximately 0.70% per year.",
+        "The minimum annual advisory fee is $2,400.",
+        "Financial planning is included for investment management clients.",
+        "For planning-only clients, there is a $400 initiation fee followed by an ongoing fee based on the complexity and scope of the planning relationship.",
+        "Depending on how your portfolio is invested, there may also be third-party platform, investment manager, or investment expenses. We explain those before anything is implemented."
+      ]
+    },
+    {
+      "q": "Do I have to move all of my accounts?",
+      "a": [
+        "We manage the accounts you ask us to manage. You may have other assets that remain elsewhere, such as an employer retirement plan or another account that cannot or should not be moved.",
+        "We still want to understand those assets because they can affect the decisions we make together. Our investment management responsibility, though, applies to the accounts we actually manage."
+      ]
+    },
+    {
+      "q": "Where are my investments held?",
+      "a": [
+        "Most of our clients' investment accounts are held at Charles Schwab, which serves as the independent custodian.",
+        "The accounts remain in your name, and you continue to receive statements directly from Schwab. One Life manages the investments in the accounts you've asked us to manage, but we do not take possession of your money."
+      ]
+    },
+    {
+      "q": "Are you a fiduciary?",
+      "a": [
+        "Yes.",
+        "One Life Advisory is a registered investment adviser and acts as a fiduciary in our advisory relationships. That means we have a duty to act in your best interest and to disclose conflicts that could affect the advice we give you."
+      ]
+    },
+    {
+      "q": "Do you receive commissions if insurance is recommended?",
+      "a": [
+        "One Life Advisory itself does not receive insurance commissions.",
+        "Some of our advisors are also licensed insurance agents through our affiliation with BetterWealth Solutions and may receive a commission if a client chooses to purchase an insurance product through them in that separate role.",
+        "If insurance is part of a recommendation, we'll explain the recommendation and the potential compensation. You are free to purchase the insurance through another agent or company if you prefer."
+      ]
+    },
+    {
+      "q": "Do you work with my CPA or estate attorney?",
+      "a": [
+        "Yes.",
+        "We think many financial decisions are better when the people involved are working from the same information.",
+        "We can coordinate with your CPA, attorney, or other professionals when it makes sense. We do not prepare tax returns, provide legal advice, or draft legal documents, so those professionals remain responsible for their areas of expertise."
+      ]
+    },
+    {
+      "q": "What happens on the first call?",
+      "a": [
+        "The first conversation is what we call a Clarity Call. It usually takes about 15 to 30 minutes.",
+        "We'll talk about what prompted you to reach out, what you're trying to accomplish, and the financial questions that are on your mind.",
+        "It also gives both of us a chance to see whether working together makes sense before going any further."
+      ]
+    },
+    {
+      "q": "What happens if I decide to work with you?",
+      "a": [
+        "We start by getting a clearer picture of your financial life.",
+        "That means gathering the information we need, understanding your goals, and looking at the decisions you're trying to make.",
+        "For investment management clients, we'll also establish the accounts we will manage and document the investment approach we'll use. From there, we manage the portfolio and continue the financial planning work as your circumstances change.",
+        "For planning-only clients, we'll prepare the initial financial plan and then continue working together through regular reviews and updates.",
+        "The relationship is meant to continue as your life changes. The plan should change with it."
       ]
     }
   ],

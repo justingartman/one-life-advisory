@@ -4,7 +4,7 @@
     "eyebrow": "Purposeful Financial Planning",
     "headlineLead": "Designed for your",
     "headlineAccent": "one life",
-    "sub": "A financial plan isn't about ending up with the biggest number. It's about turning what you've built into income designed to support the life you want, every year going forward. We answer five questions about your money, in a way that makes sense to you, and then keep answering them for you as life changes.",
+    "sub": "We help you make thoughtful decisions about your money, from the years leading up to retirement through the years that follow. It starts with five questions about what you want your money to do, and a plan that keeps those answers current as life changes.",
     "ctaPrimary": "Schedule a Clarity Call",
     "ctaSecondary": "See how we plan"
   },
@@ -35,16 +35,16 @@
   },
   "whoWeServe": {
     "heading": "We help people live on purpose, not by default.",
-    "body": "Whether you're entering retirement, already there, or still building toward it, the work is the same. We help you turn what you've saved into income built around your plan. The hard part of retirement isn't saving for it. It's making the money last. That's the work we're built for. We call it Future Cash Flow, and it's the heart of every plan we make. We plan for the whole journey: to retirement, and through it."
+    "body": "Whether you're approaching retirement, already there, or still building toward it, we help you make thoughtful decisions about how your money supports your life.\n\nThe work changes depending on where you are. The goal is a plan that helps you understand what comes next and how the pieces fit together."
   },
   "covers": {
     "label": "What We Do",
     "heading": "What a plan with us covers",
-    "sub": "Every piece answers one question: how does your money support the life you want, every year going forward? We call that your Future Cash Flow. Everything below is built to serve it.",
+    "sub": "Every part of the plan connects back to the life your money needs to support. We call the income your plan is designed to support over time your Future Cash Flow.\n\nThe rest of the plan helps us understand how to build it, support it, and adjust it as life changes.",
     "cards": [
       {
         "title": "Liquidity & Cash Flow",
-        "desc": "Understanding what your money is doing today, and designing Future Cash Flow that supports your life for every year going forward."
+        "desc": "Understanding what your money is doing today and planning for the income you'll need over time."
       },
       {
         "title": "Protection",
@@ -105,8 +105,8 @@
   },
   "finalCta": {
     "label": "Get Started",
-    "heading": "Ready to build a plan with purpose?",
-    "sub": "The first step is a free Clarity Call. No pressure. No pitch.",
+    "heading": "Ready to talk?",
+    "sub": "The first step is a free Clarity Call. We'll spend 15 to 30 minutes talking about what's on your mind, what you're trying to accomplish, and whether we may be able to help.",
     "button": "Schedule a Clarity Call"
   }
 }

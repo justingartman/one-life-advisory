@@ -1,51 +1,48 @@
 {
   "heroEyebrow": "Who We Help",
-  "heroTitle": "We help people who want their money to mean something.",
-  "heroSub": "The work changes depending on where you are in life. The starting point doesn't. We begin with what you want your money to be doing, then build the plan around it. A plan made to produce income that lasts, whether that income starts next year or decades from now.",
-  "questionsIntro": "The five questions are the same for everyone. For people already retired or close to it, the first one is <em>will your money last as long as you do</em>. For people still building, it becomes <em>will you get where you want to go</em>. Same plan. Different starting point.",
+  "heroTitle": "Planning for retirement, through retirement, and the years leading up to it.",
+  "heroSub": "The questions change depending on where you are. Someone ten years from retirement has different decisions to make than someone who's already there. We help you understand where you are today and make a plan for what comes next.",
   "groups": [
     {
       "title": "In Retirement",
-      "p1": "You've spent decades saving. Now the question is different. It's not how do I build this — it's how do I use it without running out, without leaving too much on the table, and without spending the next thirty years worrying about it.",
-      "p2": "We help you turn what you've saved into reliable income, coordinate the moving pieces so they actually work together, and make sure the plan flexes as your life and the market do.",
+      "body": "You've spent years building your savings. Once you're retired, the decisions become more focused on how to use what you've built.\n\nWe help you think through how much you can spend, where your income should come from, how your investments should support that income, and how taxes and protection fit into the picture.\n\nWe also continue adjusting the plan as your spending, health, family, or priorities change.",
+      "listIntro": "What we may work through includes:",
       "items": [
-        "A clear picture of how much income you can take, when, and from where",
-        "A protection plan that holds up if health changes or you need long-term care",
-        "Investments built to support the income the plan needs to produce",
-        "A legacy plan for what stays behind, and for whom",
-        "An advisor you can call when something happens"
+        "How much income the plan can reasonably support",
+        "Social Security, pensions, and investment withdrawals",
+        "Investment risk and how the portfolio supports spending",
+        "Long-term care and other protection needs",
+        "What you want to leave to family or other people and causes you care about"
       ]
     },
     {
       "title": "Approaching Retirement",
-      "p1": "The last five to ten years before retirement are the years that shape the next thirty. The decisions you make now set the floor and the ceiling for everything that comes after: when to retire, how to draw down, what to do with the 401(k), when to take Social Security, how much risk to carry.",
-      "p2": "We help you map it out before you get there, so you walk into retirement with a plan instead of a question mark.",
+      "body": "The years leading up to retirement give you time to make decisions while you still have options.\n\nWe look at when you want to retire, what you are currently saving, what retirement may cost, when Social Security may make sense, how your 401(k) and other accounts fit together, and how much investment risk is appropriate as retirement gets closer.\n\nThe goal is to understand what your current path looks like and where adjustments may be worth considering before the paycheck stops.",
+      "listIntro": "What we may work through includes:",
       "items": [
-        "A grounded picture of what retirement on your timeline looks like, and what it would take to get there.",
-        "A transition strategy for the years between your last paycheck and full retirement",
-        "A look at how to coordinate Social Security, pensions, and your own savings",
-        "A protection review while you still have the most options available",
-        "A plan that turns the years you have left into the most valuable planning years of your life"
+        "Your retirement timeline and what it may take to get there",
+        "Social Security and pension decisions",
+        "401(k), IRA, and other investment accounts",
+        "Cash needs around the retirement transition",
+        "Insurance and protection while you still have time to make changes"
       ]
     },
     {
       "title": "Still Building",
-      "p1": "You're in your earning years. Income is good. Saving is happening, mostly. But the financial picture has gotten complicated, and the gap between \"we're doing okay\" and \"we have a real plan\" is wider than it should be.",
-      "p2": "We help you build the plan now, while there's still time for it to compound. The earlier we start, the more we can shape the income you'll want later. Building toward your Future Cash Flow from here means fewer course corrections, and more options when you get there.",
+      "body": "Some clients come to us earlier in their working years.\n\nAt that stage, the work is more focused on whether saving, investing, cash flow, and protection are moving you toward the future you want.\n\nStarting earlier can give us more time to make adjustments and more options as retirement gets closer.",
+      "listIntro": "What we may work through includes:",
       "items": [
-        "A cash flow plan that gives every dollar a job",
-        "A protection plan sized to the life you have and the people who depend on you",
-        "Investment guidance aligned with where you're going",
-        "A foundation that turns \"we're doing okay\" into a real, written plan",
-        "An advisor who grows with you instead of one you replace later"
+        "Saving and cash flow",
+        "Investment strategy",
+        "Employer retirement plans",
+        "Insurance and protection",
+        "Building toward the income you may want later"
       ]
     }
   ],
-  "notFitHeading": "Who we're not the right fit for",
-  "notFitBody": "We're not the right fit for everyone, and that's okay.",
-  "notFitBody2": "We're built for savers. People who've already been deliberate with their money and want a process for what comes next, rather than a hot tip or a product pitch. If you're looking for someone to pick stocks, beat the market, or hand you a solution before understanding your life, that's not the work we do.",
-  "notFitBody3": "If you want a plan built around your purpose, a clear process to get there, and an advisor who'll be in your corner for the whole journey, to retirement and well beyond, that's exactly the work we do.",
-  "closingHeading": "Ready to see if we're a fit?",
-  "closingSub": "The first step is a free Clarity Call. No pressure. No pitch. Just a conversation to see if the work we do matches what you're looking for.",
+  "notFitHeading": "A good fit for One Life",
+  "notFitBody": "We tend to work best with people who have been thoughtful with their money and now want a clearer plan for what comes next.\n\nThey value planning, want the different pieces of their financial life coordinated, and want an ongoing relationship with an advisor who understands their situation.\n\nIf that sounds like what you're looking for, the Clarity Call is a simple way to see whether working together makes sense.",
+  "closingHeading": "Want to see if we're a fit?",
+  "closingSub": "A Clarity Call is a 15 to 30 minute conversation about where you are, what you're trying to accomplish, and whether the work we do fits what you're looking for.",
   "closingButton": "Schedule a Clarity Call"
 }
