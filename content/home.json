@@ -28,10 +28,7 @@
     "label": "Free Guide",
     "heading": "Not ready to talk? Start with the guide.",
     "body": "Work through the five questions on your own before you ever get on a call. A short, plain-language guide you can finish in ten minutes.",
-    "emailPlaceholder": "Your email address",
-    "buttonLabel": "Send me the guide",
-    "privacyNote": "No spam. No pressure. Unsubscribe anytime.",
-    "formAction": "#"
+    "buttonLabel": "Send me the guide"
   },
   "whoWeServe": {
     "heading": "We help people live on purpose, not by default.",
