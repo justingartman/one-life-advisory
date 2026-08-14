@@ -683,76 +683,81 @@
       font-size: .8125rem; line-height: 1.7; color: var(--text3);
     }
 
-    /* ─── LEAD MAGNET FORM (MailerLite embed, restyled on-brand) ─────── */
-    .lm-embed { max-width: 440px; margin: 30px auto 0; text-align: left; }
-    .lm-embed .ml-form-embedWrapper { display: block; }
-    .lm-embed .ml-form-fieldRow { margin-bottom: 16px; }
-    .lm-embed .ml-field-group label {
-      display: block; margin-bottom: 6px;
-      font-family: var(--font-body); font-size: .75rem; font-weight: 600;
-      letter-spacing: .08em; text-transform: uppercase; color: var(--navy);
+    /* ─── LEAD MAGNET FORM (Constant Contact widget, restyled on-brand) ─
+       The widget injects its own markup and CSS; these rules override it.
+       Selectors come from the rendered output: .ctct-form-header, -text,
+       -label, -element, -button, -errorMessage, -success, .ctct-gdpr-text. */
+    .lm-embed { max-width: 460px; margin: 30px auto 0; text-align: left; }
+    /* The site section already shows the heading and intro (editable in /admin),
+       so hide the duplicates the widget renders. */
+    .lm-embed .ctct-form-embed .ctct-form-header,
+    .lm-embed .ctct-form-embed .ctct-form-text { display: none !important; }
+    /* ...but keep them inside the success panel, which reuses the same classes */
+    .lm-embed .ctct-form-success .ctct-form-header {
+      display: block !important;
+      font-family: var(--font-display) !important; font-weight: 600 !important;
+      font-size: 1.5rem !important; color: var(--navy) !important;
+      margin-bottom: 10px !important; text-align: center !important;
     }
-    .lm-embed input[type="text"],
-    .lm-embed input[type="email"] {
-      width: 100%; padding: 14px 16px;
-      border: 1px solid var(--border); border-radius: var(--radius);
-      background: var(--white); color: var(--text);
-      font-family: var(--font-body); font-size: 1rem; line-height: 1.4;
+    .lm-embed .ctct-form-success {
+      background: transparent !important; border: none !important;
+      padding: 0 !important; text-align: center !important;
+      font-family: var(--font-body) !important; color: var(--text2) !important;
+    }
+    .lm-embed .ctct-form-defaults {
+      background: transparent !important; border: none !important;
+      padding: 0 !important; margin: 0 !important;
+    }
+    .lm-embed .ctct-form-field { margin-bottom: 16px !important; }
+    .lm-embed .ctct-form-label {
+      display: block !important; margin-bottom: 6px !important;
+      font-family: var(--font-body) !important; font-size: .75rem !important;
+      font-weight: 600 !important; letter-spacing: .08em !important;
+      text-transform: uppercase !important; color: var(--navy) !important;
+    }
+    .lm-embed .ctct-form-element {
+      width: 100% !important; padding: 14px 16px !important;
+      border: 1px solid var(--border) !important; border-radius: var(--radius) !important;
+      background: var(--white) !important; color: var(--text) !important;
+      font-family: var(--font-body) !important; font-size: 1rem !important;
+      line-height: 1.4 !important; box-shadow: none !important;
       transition: border-color 200ms var(--ease), box-shadow 200ms var(--ease);
     }
-    .lm-embed input[type="text"]:focus,
-    .lm-embed input[type="email"]:focus {
-      outline: none; border-color: var(--gold);
-      box-shadow: 0 0 0 3px rgba(184,149,106,.16);
+    .lm-embed .ctct-form-element:focus {
+      outline: none !important; border-color: var(--gold) !important;
+      box-shadow: 0 0 0 3px rgba(184,149,106,.16) !important;
     }
-    .lm-embed .ml-form-embedPermissions p {
-      font-size: .8125rem; line-height: 1.6; color: var(--text3); margin: 4px 0 16px;
-    }
-    .lm-embed .ml-form-embedPermissions a { color: var(--text2); text-decoration: underline; }
-    .lm-embed .ml-form-embedPermissions a:hover { color: var(--gold); }
-    .lm-embed .ml-form-recaptcha { margin: 4px 0 18px; }
-    .lm-embed .ml-form-embedSubmit button.primary {
-      width: 100%; padding: 15px 24px; border: none; cursor: pointer;
-      background: var(--navy); color: var(--white);
-      border-radius: var(--radius);
-      font-family: var(--font-body); font-size: 1rem; font-weight: 600;
+    .lm-embed .ctct-form-button {
+      width: 100% !important; padding: 15px 24px !important;
+      border: none !important; border-radius: var(--radius) !important;
+      background: var(--navy) !important; color: var(--white) !important;
+      font-family: var(--font-body) !important; font-size: 1rem !important;
+      font-weight: 600 !important; letter-spacing: normal !important;
+      text-transform: none !important; cursor: pointer;
       transition: background 220ms var(--ease), transform 200ms var(--ease);
     }
-    .lm-embed .ml-form-embedSubmit button.primary:hover { background: var(--navy2); transform: translateY(-1px); }
-    .lm-embed .ml-form-embedSubmit button.loading {
-      width: 100%; padding: 15px 24px; border: none; border-radius: var(--radius);
-      background: var(--navy); color: var(--white);
-      display: flex; align-items: center; justify-content: center;
+    .lm-embed .ctct-form-button:hover {
+      background: var(--navy2) !important; transform: translateY(-1px);
     }
-    .lm-embed .ml-form-embedSubmitLoad {
-      display: inline-block; width: 18px; height: 18px;
-      border: 3px solid rgba(255,255,255,.35); border-top-color: #fff;
-      border-radius: 50%; animation: lm-spin .9s linear infinite;
+    .lm-embed .ctct-form-errorMessage, .lm-embed .ctct-form-error {
+      color: #B4553F !important; font-family: var(--font-body) !important;
+      font-size: .8125rem !important;
     }
-    @keyframes lm-spin { to { transform: rotate(360deg); } }
-    .lm-embed .sr-only {
-      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
-      overflow: hidden; clip: rect(0,0,0,0); border: 0;
+    .lm-embed .ctct-form-element.ctct-form-error { border-color: #B4553F !important; }
+    /* Consent / GDPR / footer fine print */
+    .lm-embed .ctct-gdpr-text,
+    .lm-embed .ctct-gdpr-text p,
+    .lm-embed .ctct-form-footer,
+    .lm-embed .ctct-form-footer p {
+      font-family: var(--font-body) !important; font-size: .75rem !important;
+      line-height: 1.6 !important; color: var(--text3) !important;
     }
-    /* Validation state driven by MailerLite's script */
-    .lm-embed .ml-error input { border-color: #B4553F !important; }
-    .lm-embed .ml-error label,
-    .lm-embed .ml-error .label-description { color: #B4553F !important; }
-    /* Success panel */
-    .lm-embed .ml-form-successContent { text-align: center; }
-    .lm-embed .ml-form-successContent h4 {
-      font-family: var(--font-display); font-weight: 600;
-      font-size: 1.5rem; color: var(--navy); margin-bottom: 12px;
-    }
-    .lm-embed .ml-form-successContent p {
-      font-size: .9375rem; line-height: 1.7; color: var(--text2); margin-bottom: 10px;
-    }
-    .lm-embed .ml-form-successContent p:last-child { margin-bottom: 0; }
-    .lm-embed .ml-form-successContent a { color: var(--navy); text-decoration: underline; }
-    @media (max-width: 460px) {
-      .lm-embed .g-recaptcha { transform: scale(.85); transform-origin: 0 0; }
-      .lm-embed .ml-form-recaptcha { height: 66px; }
-    }
+    .lm-embed .ctct-form-footer-link,
+    .lm-embed .ctct-gdpr-text a { color: var(--text2) !important; text-decoration: underline !important; }
+    .lm-embed .ctct-form-footer-link:hover { color: var(--gold) !important; }
+    /* reCAPTCHA badge floats bottom-right by default; leave it, just don't let it
+       add stray horizontal scroll on small screens */
+    .grecaptcha-badge { max-width: 100vw; }
 
     /* ─── WHO WE HELP CARDS ──────────────────────────────────── */
     .who-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 32px; }
@@ -1361,69 +1366,12 @@
       <div class="divider divider-center"></div>
       <h2 class="anim anim-delay-1" data-cms="home.leadMagnet.heading">Not ready to talk? Start with the guide.</h2>
       <p class="anim anim-delay-2" style="max-width:560px;margin:16px auto 0;" data-cms="home.leadMagnet.body">Work through the five questions on your own before you ever get on a call. A short, plain-language guide you can finish in ten minutes.</p>
-      <!-- MailerLite embedded form (account 2560730 / form 195749761601505104).
-           MailerLite's own stylesheet is intentionally NOT included; the form is
-           styled below under "LEAD MAGNET FORM" so it matches the site. Their
-           markup, class names, and script are kept as generated so validation,
-           reCAPTCHA, and the success message keep working. -->
-      <div id="mlb2-44820546" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-44820546 lm-embed anim anim-delay-2" data-clarity-mask="true">
-        <div class="ml-form-align-center">
-          <div class="ml-form-embedWrapper embedForm">
-
-            <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
-              <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/2560730/forms/195749761601505104/subscribe" data-code="" method="post" target="_blank">
-                <div class="ml-form-formContent">
-
-                  <div class="ml-form-fieldRow">
-                    <div class="ml-field-group ml-field-name ml-validate-required">
-                      <label for="lm-name">Name</label>
-                      <input id="lm-name" aria-label="name" aria-required="true" type="text" class="form-control" data-inputmask="" name="fields[name]" placeholder="" autocomplete="given-name">
-                    </div>
-                  </div>
-
-                  <div class="ml-form-fieldRow ml-last-item">
-                    <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
-                      <label for="lm-email">Email</label>
-                      <input id="lm-email" aria-label="email" aria-required="true" type="email" class="form-control" data-inputmask="" name="fields[email]" placeholder="" autocomplete="email">
-                    </div>
-                  </div>
-
-                </div>
-
-                <div class="ml-form-embedPermissions">
-                  <div class="ml-form-embedPermissionsContent default privacy-policy">
-                    <p>You can unsubscribe anytime. For more details, review our <a href="#" onclick="go('privacy');return false;">Privacy Policy</a>.</p>
-                  </div>
-                </div>
-
-                <div class="ml-form-recaptcha ml-validate-required">
-                  <div class="g-recaptcha" data-sitekey="6Lf1KHQUAAAAAFNKEX1hdSWCS3mRMv4FlFaNslaD"></div>
-                </div>
-
-                <input type="hidden" name="ml-submit" value="1">
-
-                <div class="ml-form-embedSubmit">
-                  <button type="submit" class="primary" data-cms="home.leadMagnet.buttonLabel">Send me the guide</button>
-                  <button disabled="disabled" style="display:none;" type="button" class="loading">
-                    <div class="ml-form-embedSubmitLoad"></div>
-                    <span class="sr-only">Loading…</span>
-                  </button>
-                </div>
-
-                <input type="hidden" name="anticsrf" value="true">
-              </form>
-            </div>
-
-            <div class="ml-form-successBody row-success" style="display:none">
-              <div class="ml-form-successContent">
-                <h4>Thank you.</h4>
-                <p>We just sent a confirmation email. Click the link inside and your guide is on the way.</p>
-                <p>If it isn't there in a few minutes, check your spam or promotions folder. Adding <a href="mailto:justin@onelifeadvisory.com">justin@onelifeadvisory.com</a> to your contacts helps make sure future emails reach you.</p>
-              </div>
-            </div>
-
-          </div>
-        </div>
+      <!-- Constant Contact inline form. The widget script (loaded near </body>)
+           renders the form into this div. Field layout, labels, and button text
+           are edited in Constant Contact; the on-brand styling lives in CSS
+           under "LEAD MAGNET FORM". -->
+      <div class="lm-embed anim anim-delay-2" data-clarity-mask="true">
+        <div class="ctct-inline-form" data-form-id="9c4bd9de-2c3d-4a75-aa6f-eb9079b507d2"></div>
       </div>
     </div>
   </section>
@@ -2871,20 +2819,9 @@
 <!-- CMS content hydration (reads /content/*.json edited via Decap at /admin) -->
 <script src="/assets/cms-hydrate.js"></script>
 
-<!-- MailerLite form handler (lead magnet). Loads reCAPTCHA + MailerLite's
-     webform script, and defines the success callback their script calls. -->
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
-<script>
-  function ml_webform_success_44820546() {
-    var f = document.querySelector('.ml-subscribe-form-44820546 .row-form');
-    var ok = document.querySelector('.ml-subscribe-form-44820546 .row-success');
-    if (f) f.style.display = 'none';
-    if (ok) ok.style.display = '';
-  }
-</script>
-<script src="https://groot.mailerlite.com/js/w/webforms.min.js?v83147fa8ce2d95cb73ece7f28b469519" type="text/javascript"></script>
-<script>
-  fetch("https://assets.mailerlite.com/jsonp/2560730/forms/195749761601505104/takel");
-</script>
+<!-- Constant Contact Active Forms (powers the lead-magnet signup) -->
+<script> var _ctct_m = "af570db5d86f917b98127bd67ee6d931"; </script>
+<script id="signupScript" src="//static.ctctcdn.com/js/signup-form-widget/current/signup-form-widget.min.js" async defer></script>
+
 </body>
 </html>
