@@ -1,5 +1,28 @@
 {
   "heroImage": "/assets/hero.webp",
+  "whoWeServe": {
+    "heading": "We help people live on purpose, not by default.",
+    "body": "Whether you're approaching retirement, already there, or still building toward it, we help you make thoughtful decisions about how your money supports your life.\n\nThe work changes depending on where you are. The goal is a plan that helps you understand what comes next and how the pieces fit together."
+  },
+  "leadMagnet": {
+    "show": false,
+    "label": "Free Guide",
+    "heading": "Not ready to talk? Start with the guide.",
+    "body": "Work through the five questions on your own before you ever get on a call. A short, plain-language guide you can finish in ten minutes.",
+    "buttonLabel": "Send me the guide"
+  },
+  "philosophy": {
+    "label": "Why We Exist",
+    "quote": "Money on its own doesn't mean much. What matters is what it lets you do, who it lets you take care of, and the life it helps you live.",
+    "body": "We started One Life Advisory because we believe a financial plan should start with purpose, not products. One plan. Built around your purpose, designed to support the life you want. Not just until you retire, but for every year after.",
+    "button": "Our story →"
+  },
+  "finalCta": {
+    "label": "Get Started",
+    "heading": "Ready to talk?",
+    "sub": "The first step is a free Clarity Call. We'll spend 15 to 30 minutes talking about what's on your mind, what you're trying to accomplish, and whether we may be able to help.",
+    "button": "Schedule a Clarity Call"
+  },
   "hero": {
     "eyebrow": "Purposeful Financial Planning",
     "headlineLead": "Designed for your",
@@ -22,17 +45,6 @@
     "body2": "These aren't questions you answer once and file away. Markets move, tax law changes, and life doesn't hold still. So we answer them at the start, and we answer them again every year you're with us.",
     "note": "Still building toward retirement? The first question becomes: will you get where you want to go? The other four don't change.",
     "linkLabel": "See how it works"
-  },
-  "leadMagnet": {
-    "show": false,
-    "label": "Free Guide",
-    "heading": "Not ready to talk? Start with the guide.",
-    "body": "Work through the five questions on your own before you ever get on a call. A short, plain-language guide you can finish in ten minutes.",
-    "buttonLabel": "Send me the guide"
-  },
-  "whoWeServe": {
-    "heading": "We help people live on purpose, not by default.",
-    "body": "Whether you're approaching retirement, already there, or still building toward it, we help you make thoughtful decisions about how your money supports your life.\n\nThe work changes depending on where you are. The goal is a plan that helps you understand what comes next and how the pieces fit together."
   },
   "covers": {
     "label": "What We Do",
@@ -93,17 +105,5 @@
         "desc": "An advisor who's still paying attention five, ten, twenty years from now."
       }
     ]
-  },
-  "philosophy": {
-    "label": "Why We Exist",
-    "quote": "Money on its own doesn't mean much. What matters is what it lets you do, who it lets you take care of, and the life it helps you live.",
-    "body": "We started One Life Advisory because we believe a financial plan should start with purpose, not products. One plan. Built around your purpose, designed to support the life you want. Not just until you retire, but for every year after.",
-    "button": "Our story →"
-  },
-  "finalCta": {
-    "label": "Get Started",
-    "heading": "Ready to talk?",
-    "sub": "The first step is a free Clarity Call. We'll spend 15 to 30 minutes talking about what's on your mind, what you're trying to accomplish, and whether we may be able to help.",
-    "button": "Schedule a Clarity Call"
   }
 }
