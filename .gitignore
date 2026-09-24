@@ -8,3 +8,6 @@ node_modules/
 
 # Local editor/agent tooling
 .claude/
+
+# Build output (made by Vercel on each deploy)
+dist/

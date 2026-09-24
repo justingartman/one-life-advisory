@@ -1,0 +1,36 @@
+{
+  "heroEyebrow": "Blog",
+  "heroTitle": "Plain-language thinking on money and the life it supports.",
+  "heroSub": "Articles, videos, guides, and other resources to help you understand the decisions you're facing and think through your options in plain language.",
+  "searchPlaceholder": "Search articles",
+  "allTopicsLabel": "All",
+  "emptyMessage": "No articles match that search yet. Try a different word, or browse by topic.",
+  "readMoreLabel": "Read article",
+  "relatedHeading": "Keep reading",
+  "authorLabel": "Written by",
+  "authorLinkLabel": "More about Justin",
+  "postDisclosure": "",
+  "topics": [
+    {
+      "name": "Retirement Income"
+    },
+    {
+      "name": "Social Security"
+    },
+    {
+      "name": "Liquidity & Cash Flow"
+    },
+    {
+      "name": "Investments"
+    },
+    {
+      "name": "Tax-Aware Planning"
+    },
+    {
+      "name": "Protection"
+    },
+    {
+      "name": "Legacy"
+    }
+  ]
+}

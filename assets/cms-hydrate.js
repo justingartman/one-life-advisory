@@ -33,50 +33,51 @@
 
   var CACHE = null; // loaded content, kept so dynamically-injected DOM (footer) can re-hydrate
 
-  function apply(root) {
-    if (!CACHE) return;
-    root = root || document;
+  // Fills every data-cms* binding under `root` from `data`. Shared with the
+  // build (scripts/build.mjs), which runs it at deploy time so each page's
+  // HTML already contains the current copy before any script runs.
+  function applyContent(root, data, doc) {
     // Text content
     root.querySelectorAll("[data-cms]").forEach(function (el) {
-      var val = resolve(CACHE, el.getAttribute("data-cms"));
+      var val = resolve(data, el.getAttribute("data-cms"));
       if (val == null) return;
       if (el.hasAttribute("data-cms-html")) el.innerHTML = val;
       else el.textContent = val;
     });
     // Email links: set both the visible text and the mailto: href
     root.querySelectorAll("[data-cms-mailto]").forEach(function (el) {
-      var v = resolve(CACHE, el.getAttribute("data-cms-mailto"));
+      var v = resolve(data, el.getAttribute("data-cms-mailto"));
       if (v == null) return;
       el.textContent = v;
       el.setAttribute("href", "mailto:" + v);
     });
     // Phone links: set the visible text and a tel: href (digits/+ only)
     root.querySelectorAll("[data-cms-tel]").forEach(function (el) {
-      var v = resolve(CACHE, el.getAttribute("data-cms-tel"));
+      var v = resolve(data, el.getAttribute("data-cms-tel"));
       if (v == null) return;
       el.textContent = v;
       el.setAttribute("href", "tel:" + String(v).replace(/[^+\d]/g, ""));
     });
     // Background image: data-cms-bg="home.heroImage"
     root.querySelectorAll("[data-cms-bg]").forEach(function (el) {
-      var v = resolve(CACHE, el.getAttribute("data-cms-bg"));
+      var v = resolve(data, el.getAttribute("data-cms-bg"));
       if (v) el.style.backgroundImage = "url('" + v + "')";
     });
     // Show/hide: data-cms-show="global.showClientLogin" — hides the element when the value is false
     root.querySelectorAll("[data-cms-show]").forEach(function (el) {
-      var v = resolve(CACHE, el.getAttribute("data-cms-show"));
+      var v = resolve(data, el.getAttribute("data-cms-show"));
       if (v === false) el.style.display = "none";
       else if (v === true) el.style.display = "";
     });
     // Paragraph blocks: data-cms-paras="path" — a blank line in the CMS text
     // becomes a new <p>, so long copy keeps its paragraph breaks.
     root.querySelectorAll("[data-cms-paras]").forEach(function (el) {
-      var v = resolve(CACHE, el.getAttribute("data-cms-paras"));
+      var v = resolve(data, el.getAttribute("data-cms-paras"));
       if (typeof v !== "string") return;
       el.innerHTML = "";
       v.split(/\n\s*\n/).map(function (s) { return s.trim(); }).filter(Boolean)
         .forEach(function (t) {
-          var p = document.createElement("p");
+          var p = doc.createElement("p");
           p.textContent = t;
           el.appendChild(p);
         });
@@ -88,10 +89,20 @@
         if (idx === -1) return;
         var attr = pair.slice(0, idx).trim();
         var path = pair.slice(idx + 1).trim();
-        var val = resolve(CACHE, path);
+        var val = resolve(data, path);
         if (val != null) el.setAttribute(attr, val);
       });
     });
+  }
+
+  if (typeof module !== "undefined" && module.exports) {
+    module.exports = { applyContent: applyContent, FILES: FILES, keyFor: keyFor };
+    return;
+  }
+
+  function apply(root) {
+    if (!CACHE) return;
+    applyContent(root || document, CACHE, document);
   }
 
   // Exposed so index.html can re-hydrate cloned content (e.g. the footer template).

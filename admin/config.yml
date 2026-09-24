@@ -20,6 +20,15 @@ backend:
     uploadMedia: 'Upload "{{path}}" (via CMS)'
     deleteMedia: 'Delete "{{path}}" (via CMS)'
 
+site_url: https://onelifeadvisory.com
+display_url: https://onelifeadvisory.com
+
+# Blog post addresses are made from the title: plain letters, numbers, and dashes
+slug:
+  encoding: "ascii"
+  clean_accents: true
+  sanitize_replacement: "-"
+
 # Where uploaded images are stored in the repo, and how they're referenced on the site
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
@@ -47,7 +56,7 @@ collections:
           - { name: faviconUrl, label: "Favicon", widget: image, required: false, hint: "Browser tab icon (SVG or PNG)." }
           - { name: navCta, label: "Nav Button Label", widget: string }
           - { name: showClientLogin, label: "Show Client Login link", widget: boolean, default: true, hint: "Turn off to hide Client Login everywhere (nav + footer)." }
-          - { name: showResources, label: "Show Resources page in menus", widget: boolean, default: false, hint: "Turn off to hide Resources from the menu, mobile menu, and footer while you build it out. The page itself stays intact — preview it any time at yoursite.com/#resources." }
+          - { name: showResources, label: "Show Resources page in menus", widget: boolean, default: false, hint: "Turn off to hide Resources from the menu, mobile menu, and footer while you build it out. The page itself stays intact — preview it any time at onelifeadvisory.com/resources (hidden from Google while this is off)." }
           - { name: clientLoginLabel, label: "Client Login Label", widget: string }
           - { name: clientLoginUrl, label: "Client Login URL", widget: string, required: false }
           - name: nav
@@ -59,6 +68,7 @@ collections:
               - { name: whatWeDo, label: "What We Do", widget: string }
               - { name: whoWeHelp, label: "Who We Help", widget: string }
               - { name: about, label: "About", widget: string }
+              - { name: blog, label: "Blog", widget: string, hint: "The Blog link appears in the menu and footer automatically once at least one post is Published." }
               - { name: resources, label: "Resources", widget: string }
               - { name: faq, label: "FAQ", widget: string }
           - { name: contactEmail, label: "Contact Email", widget: string }
@@ -181,6 +191,15 @@ collections:
               - { name: heading, label: "Heading", widget: string }
               - { name: sub, label: "Subheading", widget: text }
               - { name: button, label: "Button", widget: string }
+          - name: seo
+            label: "Google & Sharing"
+            widget: object
+            collapsed: true
+            required: false
+            hint: "How this page appears in Google results and when it's shared. Leave blank to use the page's own heading and subtitle."
+            fields:
+              - { name: title, label: "Page title", widget: string, required: false, hint: "About 50–60 characters, e.g. 'Retirement Income Planning | One Life Advisory'." }
+              - { name: description, label: "Description", widget: text, required: false, hint: "One or two sentences, about 150 characters." }
 
       # ---- HOW WE PLAN ----
       - name: "how-we-plan"
@@ -237,6 +256,15 @@ collections:
           - { name: closingQuote, label: "Closing Quote (not currently shown)", widget: text, required: false }
           - { name: closingSub, label: "Closing Subtext", widget: text }
           - { name: closingButton, label: "Closing Button", widget: string }
+          - name: seo
+            label: "Google & Sharing"
+            widget: object
+            collapsed: true
+            required: false
+            hint: "How this page appears in Google results and when it's shared. Leave blank to use the page's own heading and subtitle."
+            fields:
+              - { name: title, label: "Page title", widget: string, required: false, hint: "About 50–60 characters, e.g. 'Retirement Income Planning | One Life Advisory'." }
+              - { name: description, label: "Description", widget: text, required: false, hint: "One or two sentences, about 150 characters." }
 
       # ---- WHAT WE DO ----
       - name: "what-we-do"
@@ -319,6 +347,15 @@ collections:
           - { name: coordinatedHeading, label: "One Plan Coordinated — Heading", widget: string }
           - { name: coordinatedBody, label: "One Plan Coordinated — Body", widget: text }
           - { name: coordinatedButton, label: "One Plan Coordinated — Button", widget: string }
+          - name: seo
+            label: "Google & Sharing"
+            widget: object
+            collapsed: true
+            required: false
+            hint: "How this page appears in Google results and when it's shared. Leave blank to use the page's own heading and subtitle."
+            fields:
+              - { name: title, label: "Page title", widget: string, required: false, hint: "About 50–60 characters, e.g. 'Retirement Income Planning | One Life Advisory'." }
+              - { name: description, label: "Description", widget: text, required: false, hint: "One or two sentences, about 150 characters." }
 
       # ---- WHO WE HELP ----
       - name: "who-we-help"
@@ -341,6 +378,15 @@ collections:
           - { name: closingHeading, label: "Closing — Heading", widget: string }
           - { name: closingSub, label: "Closing — Subtext", widget: text }
           - { name: closingButton, label: "Closing — Button", widget: string }
+          - name: seo
+            label: "Google & Sharing"
+            widget: object
+            collapsed: true
+            required: false
+            hint: "How this page appears in Google results and when it's shared. Leave blank to use the page's own heading and subtitle."
+            fields:
+              - { name: title, label: "Page title", widget: string, required: false, hint: "About 50–60 characters, e.g. 'Retirement Income Planning | One Life Advisory'." }
+              - { name: description, label: "Description", widget: text, required: false, hint: "One or two sentences, about 150 characters." }
 
       # ---- ABOUT ----
       - name: "about"
@@ -378,6 +424,15 @@ collections:
           - { name: closingHeading, label: "Closing — Heading", widget: string }
           - { name: closingSub, label: "Closing — Subtext", widget: text }
           - { name: closingButton, label: "Closing — Button", widget: string }
+          - name: seo
+            label: "Google & Sharing"
+            widget: object
+            collapsed: true
+            required: false
+            hint: "How this page appears in Google results and when it's shared. Leave blank to use the page's own heading and subtitle."
+            fields:
+              - { name: title, label: "Page title", widget: string, required: false, hint: "About 50–60 characters, e.g. 'Retirement Income Planning | One Life Advisory'." }
+              - { name: description, label: "Description", widget: text, required: false, hint: "One or two sentences, about 150 characters." }
 
       # ---- FAQ ----
       - name: "faq"
@@ -404,6 +459,15 @@ collections:
               - { name: aAfter, label: "Paragraphs after the table", widget: list, required: false, field: { name: text, label: Paragraph, widget: text } }
           - { name: closingNote, label: "Closing Note", widget: string }
           - { name: closingButton, label: "Closing Button", widget: string }
+          - name: seo
+            label: "Google & Sharing"
+            widget: object
+            collapsed: true
+            required: false
+            hint: "How this page appears in Google results and when it's shared. Leave blank to use the page's own heading and subtitle."
+            fields:
+              - { name: title, label: "Page title", widget: string, required: false, hint: "About 50–60 characters, e.g. 'Retirement Income Planning | One Life Advisory'." }
+              - { name: description, label: "Description", widget: text, required: false, hint: "One or two sentences, about 150 characters." }
 
       # ---- RESOURCES ----
       # Every list below grows to fit: add as many items as you like and the
@@ -506,6 +570,15 @@ collections:
           - { name: closingHeading, label: "Closing — Heading", widget: string }
           - { name: closingSub, label: "Closing — Subtext", widget: text }
           - { name: closingButton, label: "Closing — Button", widget: string }
+          - name: seo
+            label: "Google & Sharing"
+            widget: object
+            collapsed: true
+            required: false
+            hint: "How this page appears in Google results and when it's shared. Leave blank to use the page's own heading and subtitle."
+            fields:
+              - { name: title, label: "Page title", widget: string, required: false, hint: "About 50–60 characters, e.g. 'Retirement Income Planning | One Life Advisory'." }
+              - { name: description, label: "Description", widget: text, required: false, hint: "One or two sentences, about 150 characters." }
 
       # ---- PRIVACY POLICY ----
       # Legal document. When your CCO issues a revision, replace the text here
@@ -529,6 +602,15 @@ collections:
               - { name: parasAfter, label: "Paragraphs (after the bullets)", widget: list, required: false, field: { name: text, label: Paragraph, widget: text } }
           - { name: closing, label: "Closing statement (gold callout)", widget: text }
           - { name: registrationNote, label: "Registration note (fine print)", widget: text }
+          - name: seo
+            label: "Google & Sharing"
+            widget: object
+            collapsed: true
+            required: false
+            hint: "How this page appears in Google results and when it's shared. Leave blank to use the page's own heading and subtitle."
+            fields:
+              - { name: title, label: "Page title", widget: string, required: false, hint: "About 50–60 characters, e.g. 'Retirement Income Planning | One Life Advisory'." }
+              - { name: description, label: "Description", widget: text, required: false, hint: "One or two sentences, about 150 characters." }
 
       # ---- SCHEDULE ----
       - name: "schedule"
@@ -545,3 +627,104 @@ collections:
             fields:
               - { name: title, label: Title, widget: string }
               - { name: desc, label: Description, widget: text }
+          - name: seo
+            label: "Google & Sharing"
+            widget: object
+            collapsed: true
+            required: false
+            hint: "How this page appears in Google results and when it's shared. Leave blank to use the page's own heading and subtitle."
+            fields:
+              - { name: title, label: "Page title", widget: string, required: false, hint: "About 50–60 characters, e.g. 'Retirement Income Planning | One Life Advisory'." }
+              - { name: description, label: "Description", widget: text, required: false, hint: "One or two sentences, about 150 characters." }
+
+  # ───────────────────────── BLOG ─────────────────────────
+  - name: "blog"
+    label: "Blog Posts"
+    label_singular: "Blog Post"
+    description: "A post appears on the site only when its Status is Published. Its web address is made from the title the first time you save it (onelifeadvisory.com/blog/your-title) and stays the same after that, so links keep working."
+    folder: "content/blog"
+    create: true
+    extension: "md"
+    format: "frontmatter"
+    slug: "{{slug}}"
+    identifier_field: title
+    summary: "{{title}}  ·  {{status}}  ·  {{date}}"
+    sortable_fields: ["date", "title"]
+    view_filters:
+      - { label: "Drafts", field: status, pattern: "draft" }
+      - { label: "In review", field: status, pattern: "review" }
+      - { label: "Published", field: status, pattern: "published" }
+    view_groups:
+      - { label: "Status", field: status }
+    preview_path: "blog/{{slug}}"
+    fields:
+      - { name: title, label: "Title", widget: string, hint: "Phrase it the way someone would search for it, e.g. 'When should you claim Social Security?'" }
+      - name: status
+        label: "Status"
+        widget: select
+        default: "draft"
+        options:
+          - { label: "Draft", value: "draft" }
+          - { label: "In review (compliance)", value: "review" }
+          - { label: "Published (live on the site)", value: "published" }
+        hint: "Only Published posts appear on the site, in blog search, in Google's sitemap, and in the feed Kit can email from."
+      - { name: date, label: "Publish date", widget: datetime, format: "YYYY-MM-DD", date_format: "MMMM D, YYYY", time_format: false, picker_utc: true }
+      - { name: updated, label: "Last updated", widget: datetime, format: "YYYY-MM-DD", date_format: "MMMM D, YYYY", time_format: false, picker_utc: true, required: false, default: "", hint: "Set this when you make a meaningful revision. It's shown on the post and to Google." }
+      - { name: description, label: "Summary", widget: text, hint: "One or two sentences, about 150 characters. Shown on the blog list, in Google results, and when the post is shared." }
+      - name: topics
+        label: "Topics"
+        widget: relation
+        collection: "blog_settings"
+        file: "blog"
+        search_fields: ["topics.*.name"]
+        display_fields: ["topics.*.name"]
+        value_field: "topics.*.name"
+        multiple: true
+        required: false
+        hint: "The first topic is the one shown on the post. Add or rename topics under Blog Settings."
+      - { name: image, label: "Featured image", widget: image, required: false, hint: "A wide image works best (about 1600 × 900). It's also the picture shown when the post is shared. Without one, the post uses the navy contour design." }
+      - { name: imageAlt, label: "Image description", widget: string, required: false, hint: "A few words describing the image, for people using screen readers." }
+      - name: body
+        label: "Article"
+        widget: markdown
+        buttons: ["bold", "italic", "link", "heading-two", "heading-three", "quote", "bulleted-list", "numbered-list"]
+        editor_components: ["youtube", "image"]
+        hint: "To add a video, click + and choose YouTube video. To link to another post, select the words, click the link button, and paste the post's address, e.g. /blog/will-your-money-last-as-long-as-you-do"
+      - name: related
+        label: "Related posts"
+        widget: relation
+        collection: "blog"
+        search_fields: ["title"]
+        display_fields: ["title"]
+        value_field: "{{slug}}"
+        multiple: true
+        required: false
+        hint: "Choose up to 3 posts to suggest at the end of this one. If you leave this empty, posts on the same topic are suggested automatically."
+
+  - name: "blog_settings"
+    label: "Blog Settings"
+    description: "The blog page's heading, the list of topics, and a few labels."
+    editor: { preview: false }
+    files:
+      - name: "blog"
+        label: "Blog Page & Topics"
+        file: "content/blog.json"
+        fields:
+          - { name: heroEyebrow, label: "Header — Eyebrow", widget: string, hint: "Also used as the 'Blog' link at the top of each post." }
+          - { name: heroTitle, label: "Header — Title", widget: string }
+          - { name: heroSub, label: "Header — Subtitle", widget: text }
+          - name: topics
+            label: "Topics"
+            widget: list
+            summary: "{{fields.name}}"
+            hint: "Each topic with at least one Published post gets its own page, e.g. /blog/topics/retirement-income. Renaming a topic here doesn't change posts that already use the old name."
+            fields:
+              - { name: name, label: "Topic", widget: string }
+          - { name: searchPlaceholder, label: "Search box text", widget: string }
+          - { name: allTopicsLabel, label: "'All' button label", widget: string }
+          - { name: emptyMessage, label: "Message when a search finds nothing", widget: string }
+          - { name: readMoreLabel, label: "Link text on each post card", widget: string, required: false }
+          - { name: relatedHeading, label: "Heading above suggested posts", widget: string }
+          - { name: authorLabel, label: "Author box label", widget: string }
+          - { name: authorLinkLabel, label: "Author box link text", widget: string }
+          - { name: postDisclosure, label: "Disclosure at the end of each post", widget: text, required: false, hint: "Leave blank to use the second footer disclosure (the educational-purposes statement)." }

@@ -1,0 +1,18 @@
+{
+  "name": "one-life-advisory",
+  "private": true,
+  "description": "One Life Advisory website. Static pages are generated from /content by scripts/build.mjs.",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "build:drafts": "node scripts/build.mjs --drafts"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "js-yaml": "4.3.2",
+    "linkedom": "0.18.13",
+    "marked": "18.0.14",
+    "pagefind": "1.5.2"
+  }
+}

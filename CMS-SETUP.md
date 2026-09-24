@@ -17,6 +17,27 @@ You edit at /admin  →  Decap commits JSON to GitHub  →  Vercel redeploys
 - The text is also hard-coded in the HTML, so if a JSON file is missing the page
   still shows the original copy (nothing breaks).
 
+### The build step (per-page addresses + blog)
+
+Every deploy runs `npm run build` (`scripts/build.mjs`, set in `vercel.json`),
+which writes the finished site to `dist/`:
+
+- **One file per page** — `/how-we-plan`, `/faq`, `/about`, … — each with its own
+  title, description, and canonical URL, and with the current copy from
+  `/content` already filled in (same `data-cms` bindings, via
+  `assets/cms-hydrate.js`; list sections via `assets/cms-render.js`). Old
+  `/#faq`-style links redirect to the new addresses in the browser.
+- **The blog** from `content/blog/*.md`: `/blog`, `/blog/<post>`,
+  `/blog/topics/<topic>`, and an RSS feed at `/blog/feed.xml`. Only posts with
+  Status **Published** are built; drafts never become public files.
+- `sitemap.xml`, `robots.txt`, and a blog search index (`/pagefind`).
+
+If a content file is broken (for example, invalid JSON), the build stops with a
+message naming the file and the previous version of the site stays live.
+
+To preview locally: `npm install`, then `npm run build:drafts` (includes Draft
+and In review posts, marked with a banner) and serve the `dist/` folder.
+
 ---
 
 ## One-time setup
@@ -118,5 +139,6 @@ That's the whole pattern — repeat for anything you want editable.
 
 ## Local note
 The `/admin` interface and `/api/*` OAuth functions only run on Vercel (or
-`vercel dev`). Opening `index.html` directly still shows the site and reads the
-content JSON; it just can't log in to the CMS.
+`vercel dev`). Opening `index.html` directly still shows the site as a single
+page and reads the content JSON; it just can't log in to the CMS, and it has no
+blog (that comes from the build).

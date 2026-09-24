@@ -11,5 +11,66 @@
 <body>
   <!-- Decap CMS (formerly Netlify CMS) -->
   <script src="https://unpkg.com/decap-cms@^3.3.3/dist/decap-cms.js"></script>
+  <script>
+    // ── Blog: "YouTube video" block for the article editor ────────────────
+    // Saved in the post as {{< youtube url="…" title="…" >}}; the build
+    // (scripts/build.mjs) turns it into a click-to-play video.
+    function ytId(url) {
+      var m = String(url || '').match(/(?:youtube(?:-nocookie)?\.com\/(?:watch\?(?:[^#]*&)?v=|embed\/|shorts\/|live\/|v\/)|youtu\.be\/)([\w-]{11})/);
+      return m ? m[1] : null;
+    }
+    function escHtml(s) {
+      return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+    CMS.registerEditorComponent({
+      id: 'youtube',
+      label: 'YouTube video',
+      fields: [
+        { name: 'url', label: 'YouTube link', widget: 'string',
+          hint: 'Paste the video\'s address, e.g. https://www.youtube.com/watch?v=… or https://youtu.be/…' },
+        { name: 'title', label: 'Video title', widget: 'string', required: false,
+          hint: 'Shown under the video and read aloud by screen readers.' }
+      ],
+      pattern: /^\{\{<\s*youtube\s+url="([^"]*)"(?:\s+title="([^"]*)")?\s*>\}\}$/m,
+      fromBlock: function (m) {
+        return { url: m[1], title: (m[2] || '').replace(/&quot;/g, '"').replace(/&amp;/g, '&') };
+      },
+      toBlock: function (o) {
+        var url = String(o.url || '').trim().replace(/"/g, '%22');
+        var title = String(o.title || '').replace(/&/g, '&amp;').replace(/"/g, '&quot;');
+        return '{{< youtube url="' + url + '" title="' + title + '" >}}';
+      },
+      toPreview: function (o) {
+        var id = ytId(o.url);
+        if (!id) return '<p style="color:#A49D97">Paste a YouTube link to show the video here.</p>';
+        return '<figure class="yt"><span class="yt-frame"><img src="https://i.ytimg.com/vi/' + id + '/hqdefault.jpg" alt="">' +
+          '<span class="yt-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span></span>' +
+          (o.title ? '<figcaption>' + escHtml(o.title) + '</figcaption>' : '') + '</figure>';
+      }
+    });
+
+    // ── Blog: preview pane styled like the published post ─────────────────
+    CMS.registerPreviewStyle('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Hanken+Grotesk:wght@400;500;600;700&display=swap');
+    CMS.registerPreviewStyle('/assets/cms-preview.css');
+    CMS.registerPreviewStyle('/assets/blog.css');
+    CMS.registerPreviewTemplate('blog', createClass({
+      render: function () {
+        var entry = this.props.entry;
+        var get = function (k) { return entry.getIn(['data', k]); };
+        var topics = get('topics');
+        var topic = topics && topics.size ? topics.get(0) : '';
+        var image = get('image') ? this.props.getAsset(get('image')) : null;
+        var status = { draft: 'Draft', review: 'In review', published: 'Published' }[get('status')] || 'Draft';
+        return h('div', { className: 'cms-post' },
+          h('header', { className: 'cms-post-head' },
+            h('div', { className: 'cms-post-crumbs' }, 'Blog' + (topic ? '  /  ' + topic : '') + '  ·  ' + status),
+            h('h1', {}, get('title') || 'Untitled post'),
+            get('description') ? h('p', {}, get('description')) : null),
+          h('div', { className: 'cms-post-body' },
+            image ? h('figure', { className: 'post-figure' }, h('img', { src: image.toString(), alt: get('imageAlt') || '' })) : null,
+            h('div', { className: 'prose' }, this.props.widgetFor('body'))));
+      }
+    }));
+  </script>
 </body>
 </html>
