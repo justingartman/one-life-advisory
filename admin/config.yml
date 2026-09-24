@@ -688,7 +688,7 @@ collections:
         multiple: true
         required: false
         hint: "The first topic is the one shown on the post. Add or rename topics under Blog Settings."
-      - { name: image, label: "Featured image", widget: image, required: false, hint: "A wide image works best (about 1600 × 900). It's also the picture shown when the post is shared. Without one, the post uses the navy contour design." }
+      - { name: image, label: "Featured image", widget: image, required: false, hint: "A wide image works best (about 1600 × 900). It's also the picture shown when the post is shared. Optional: without one, the post shows as a clean text card." }
       - { name: imageAlt, label: "Image description", widget: string, required: false, hint: "A few words describing the image, for people using screen readers." }
       - name: body
         label: "Article"

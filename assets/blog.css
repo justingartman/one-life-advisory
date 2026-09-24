@@ -60,14 +60,6 @@
 .blog-card-link { display: flex; flex-direction: column; height: 100%; }
 .blog-card-img { aspect-ratio: 16 / 9; background: var(--bg2); overflow: hidden; }
 .blog-card-img img { width: 100%; height: 100%; object-fit: cover; }
-/* No featured image: the navy header with the site's contour mark */
-.blog-card-ph {
-  width: 100%; height: 100%;
-  background:
-    var(--topo) no-repeat 70% 40% / 120% auto,
-    radial-gradient(120% 85% at 78% 14%, rgba(212,184,150,.28) 0%, transparent 50%),
-    linear-gradient(160deg, #1B3054 0%, #243861 60%, #11203a 100%);
-}
 .blog-card-body { display: flex; flex-direction: column; flex: 1; padding: 26px 28px 28px; }
 .blog-card h3 {
   font-size: clamp(1.2rem, 1.8vw, 1.4rem); color: var(--navy);
@@ -81,6 +73,32 @@
 .blog-card-more svg { width: 15px; height: 15px; transition: transform 220ms var(--ease); }
 .blog-card:hover .blog-card-more { color: var(--gold); }
 .blog-card:hover .blog-card-more svg { transform: translateX(3px); }
+
+/* No featured image: a text card with the site's gold rule */
+.blog-card.no-image .blog-card-body { padding: 34px 32px 32px; }
+.blog-card.no-image .blog-card-body::before {
+  content: ''; width: 36px; height: 2px; background: var(--gold); margin-bottom: 20px;
+}
+/* …and when it's the newest post: a navy banner, like the page headers */
+.blog-card.featured.no-image {
+  position: relative; isolation: isolate; border: 0;
+  background:
+    radial-gradient(120% 85% at 78% 14%, rgba(212,184,150,.22) 0%, transparent 46%),
+    linear-gradient(160deg, #1B3054 0%, #243861 60%, #11203a 100%);
+}
+.blog-card.featured.no-image::after {
+  content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: var(--topo) no-repeat; background-position: 108% 40%; background-size: 52% auto;
+  opacity: .16;
+}
+.blog-card.featured.no-image .blog-card-body { padding: 56px 60px 52px; max-width: 760px; }
+.blog-card.featured.no-image h3 { color: #fff; font-size: clamp(1.8rem, 3.2vw, 2.5rem); margin: 14px 0 16px; }
+.blog-card.featured.no-image p { color: rgba(255,255,255,.76); font-size: 1.0625rem; }
+.blog-card.featured.no-image .blog-meta { color: rgba(255,255,255,.6); }
+.blog-card.featured.no-image .blog-meta-topic,
+.blog-card.featured.no-image .blog-card-more { color: var(--gold-lt); }
+.blog-card.featured.no-image:hover .blog-card-more { color: #fff; }
+.blog-card.featured.no-image .blog-card-body::before { background: var(--gold-lt); }
 
 .blog-meta {
   display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px;
@@ -267,6 +285,9 @@
   .blog-tools { margin-bottom: 32px; }
   .blog-search { max-width: none; }
   .blog-card-body { padding: 22px 22px 24px; }
+  .blog-card.no-image .blog-card-body { padding: 28px 24px 26px; }
+  .blog-card.featured.no-image .blog-card-body { padding: 36px 26px 34px; }
+  .blog-card.featured.no-image::after { background-position: 150% 20%; background-size: 110% auto; }
   .post-main { padding-top: 44px; }
   .prose p, .prose li { font-size: 1.0625rem; }
   .post-author { grid-template-columns: 1fr; padding: 26px 22px; gap: 18px; }

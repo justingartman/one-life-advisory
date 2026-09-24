@@ -433,12 +433,12 @@ const leadForm = (lead && lead.show !== false &&
 
 function card(p, featured = false) {
   const topic = p.topics[0];
+  // Posts without a featured image get a text card (a navy banner when featured).
   const img = p.image
-    ? `<img src="${esc(p.image)}" alt="${esc(p.imageAlt)}" loading="lazy" decoding="async">`
-    : '<div class="blog-card-ph" aria-hidden="true"></div>';
-  return `<article class="blog-card${featured ? ' featured' : ''} anim">` +
-    `<a class="blog-card-link" href="${p.url}">` +
-    `<div class="blog-card-img">${img}</div>` +
+    ? `<div class="blog-card-img"><img src="${esc(p.image)}" alt="${esc(p.imageAlt)}" loading="lazy" decoding="async"></div>`
+    : '';
+  return `<article class="blog-card${featured ? ' featured' : ''}${p.image ? '' : ' no-image'} anim">` +
+    `<a class="blog-card-link" href="${p.url}">` + img +
     `<div class="blog-card-body">` +
     `<div class="blog-meta">${topic ? `<span class="blog-meta-topic">${esc(topic)}</span>` : ''}` +
     `<time datetime="${isoDate(p.date)}">${longDate(p.date)}</time>${draftBadge(p)}</div>` +
