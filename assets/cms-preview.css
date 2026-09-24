@@ -23,3 +23,4 @@ p { margin: 0; }
 /* The editor wraps the article in one more element than the site does */
 .prose > div > * + * { margin-top: 1.15em; }
 .prose > div > h2 + *, .prose > div > h3 + *, .prose > div > h4 + * { margin-top: .7em; }
+.cms-post-url { font-size: .8125rem; color: rgba(255,255,255,.6); margin-top: 14px; letter-spacing: .01em; }

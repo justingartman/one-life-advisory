@@ -19,6 +19,11 @@
       var m = String(url || '').match(/(?:youtube(?:-nocookie)?\.com\/(?:watch\?(?:[^#]*&)?v=|embed\/|shorts\/|live\/|v\/)|youtu\.be\/)([\w-]{11})/);
       return m ? m[1] : null;
     }
+    // Same rules the build uses to turn a title into an address
+    function slugify(s) {
+      return String(s || '').toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g, '')
+        .replace(/&/g, ' and ').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+    }
     function escHtml(s) {
       return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
     }
@@ -65,6 +70,8 @@
           h('header', { className: 'cms-post-head' },
             h('div', { className: 'cms-post-crumbs' }, 'Blog' + (topic ? '  /  ' + topic : '') + '  ·  ' + status),
             h('h1', {}, get('title') || 'Untitled post'),
+            h('div', { className: 'cms-post-url' }, 'onelifeadvisory.com/blog/' +
+              (get('urlSlug') || entry.get('slug') || slugify(get('title')) || '…')),
             get('description') ? h('p', {}, get('description')) : null),
           h('div', { className: 'cms-post-body' },
             image ? h('figure', { className: 'post-figure' }, h('img', { src: image.toString(), alt: get('imageAlt') || '' })) : null,

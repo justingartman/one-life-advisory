@@ -179,14 +179,15 @@ function loadPosts() {
     let fm;
     try { fm = yaml.load(m[1]) || {}; } catch (e) { warn(`content/blog/${f}: ${e.message}; skipped`); continue; }
     if (!fm.title) { warn(`content/blog/${f} has no title; skipped`); continue; }
-    const slug = f.slice(0, -3);
+    const file = f.slice(0, -3); // the post's id: related-post picks refer to this
     const date = toDate(fm.date) || fs.statSync(path.join(dir, f)).mtime;
     const updated = toDate(fm.updated);
     const html = renderMarkdown(m[2]);
     const text = stripTags(html);
     posts.push({
-      slug,
-      url: `/blog/${slug}`,
+      file,
+      wantedSlug: slugify(fm.urlSlug),
+      oldSlugs: list(fm.oldAddresses).map(a => slugify(a.replace(/^.*\/blog\//, ''))).filter(Boolean),
       title: String(fm.title).trim(),
       description: String(fm.description || '').trim() || truncate(text, 155),
       date,
@@ -205,9 +206,36 @@ function loadPosts() {
     .sort((a, b) => b.date - a.date || a.title.localeCompare(b.title));
 }
 
+// Each post's address: the Web address set in /admin, or the one made from
+// its title. Addresses a post used before (the title-based one, and any listed
+// under "Old addresses") forward to the current one.
+const RESERVED = new Set(['topics', 'feed', 'index']);
+function assignAddresses(list) {
+  const live = new Map();
+  for (const p of [...list].sort((a, b) => a.date - b.date)) { // the older post keeps a contested address
+    let slug = p.wantedSlug || p.file;
+    if (RESERVED.has(slug) || live.has(slug)) {
+      warn(`"${p.title}": /blog/${slug} is ${RESERVED.has(slug) ? 'reserved' : 'already used by another post'}; using /blog/${p.file}`);
+      slug = p.file;
+    }
+    if (live.has(slug)) slug = `${p.file}-${p.date.getUTCFullYear()}`;
+    live.set(slug, p);
+    p.slug = slug;
+    p.url = `/blog/${slug}`;
+  }
+  const forwards = new Map();
+  for (const p of list) {
+    for (const from of [p.file, ...p.oldSlugs]) {
+      if (from !== p.slug && !live.has(from) && !RESERVED.has(from) && !forwards.has(from)) forwards.set(from, p.url);
+    }
+  }
+  return forwards;
+}
+
 const posts = loadPosts();
+const forwards = assignAddresses(posts);
 const hasBlog = posts.length > 0;
-const postBySlug = Object.fromEntries(posts.map(p => [p.slug, p]));
+const postByFile = Object.fromEntries(posts.map(p => [p.file, p]));
 
 // Topics in the order set in /admin → Blog Settings, then any others in use.
 const topicOrder = list((BLOG.topics || []).map(t => t && t.name));
@@ -217,7 +245,7 @@ const topics = [...topicOrder.filter(t => usedTopics.has(t)),
   .map(name => ({ name, slug: slugify(name), url: `/blog/topics/${slugify(name)}` }));
 
 function relatedPosts(post) {
-  const picked = post.related.map(s => postBySlug[s]).filter(p => p && p !== post);
+  const picked = post.related.map(f => postByFile[f]).filter(p => p && p !== post);
   const rest = posts.filter(p => p !== post && !picked.includes(p))
     .map(p => ({ p, shared: p.topics.filter(t => post.topics.includes(t)).length }))
     .sort((a, b) => b.shared - a.shared || b.p.date - a.p.date)
@@ -590,6 +618,24 @@ function buildPost(p) {
   if (p.status === 'published') sitemap.push({ loc: url, lastmod: isoDate(p.updated || p.date) });
 }
 
+// A tiny page at an old address that sends visitors (and Google) to the new one.
+function buildForward(from, to) {
+  write(`blog/${from}.html`, `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>This article has moved | ${esc(SITE_NAME)}</title>
+  <link rel="canonical" href="${SITE}${to}">
+  <meta http-equiv="refresh" content="0; url=${to}">
+  <script>location.replace(${JSON.stringify(to)} + location.search + location.hash);</script>
+</head>
+<body>
+  <p>This article has moved to <a href="${to}">${SITE.replace('https://', '')}${to}</a>.</p>
+</body>
+</html>
+`);
+}
+
 function buildFeed() {
   const live = posts.filter(p => p.status === 'published').slice(0, 30);
   const absolutize = html => html.replace(/(src|href)="\/(?!\/)/g, `$1="${SITE}/`);
@@ -655,6 +701,7 @@ if (hasBlog) {
   buildBlogList(null);
   for (const t of topics) buildBlogList(t);
   for (const p of posts) buildPost(p);
+  for (const [from, to] of forwards) buildForward(from, to);
   buildFeed();
   await buildSearchIndex();
 }

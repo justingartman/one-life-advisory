@@ -641,7 +641,7 @@ collections:
   - name: "blog"
     label: "Blog Posts"
     label_singular: "Blog Post"
-    description: "A post appears on the site only when its Status is Published. Its web address is made from the title the first time you save it (onelifeadvisory.com/blog/your-title) and stays the same after that, so links keep working."
+    description: "A post appears on the site only when its Status is Published. Its address is made from the title the first time you save it (onelifeadvisory.com/blog/your-title); set Web address on the post to choose your own."
     folder: "content/blog"
     create: true
     extension: "md"
@@ -659,6 +659,12 @@ collections:
     preview_path: "blog/{{slug}}"
     fields:
       - { name: title, label: "Title", widget: string, hint: "Phrase it the way someone would search for it, e.g. 'When should you claim Social Security?'" }
+      - name: urlSlug
+        label: "Web address"
+        widget: string
+        required: false
+        pattern: ['^[a-z0-9]+(-[a-z0-9]+)*$', "Use lowercase letters, numbers, and dashes only, e.g. retirement-income"]
+        hint: "The end of this post's address: onelifeadvisory.com/blog/[this]. Leave blank to use the address made from the title. Short and descriptive works best for Google. If you change it after the post is published, the old address forwards here automatically."
       - name: status
         label: "Status"
         widget: select
@@ -700,6 +706,13 @@ collections:
         multiple: true
         required: false
         hint: "Choose up to 3 posts to suggest at the end of this one. If you leave this empty, posts on the same topic are suggested automatically."
+      - name: oldAddresses
+        label: "Old addresses to forward here"
+        widget: list
+        required: false
+        collapsed: true
+        field: { name: address, label: "Old address", widget: string }
+        hint: "Rarely needed. The address made from the title always forwards to this post. If you change the Web address a second time after publishing, add the previous one here (e.g. retirement-income) so links to it keep working."
 
   - name: "blog_settings"
     label: "Blog Settings"
