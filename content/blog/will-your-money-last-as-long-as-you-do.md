@@ -176,15 +176,5 @@ If you'd like a more structured way to work through these decisions, our Retirem
 
 
 
-*This article is educational and general in nature. It does not constitute individualized investment, tax, legal, or insurance advice. Tax rules, benefit rules, insurance considerations, and individual circumstances can change.*
-
-
-
 
 {{< youtube url="https://youtu.be/sRejXZt3VME" title="" >}}
-
-Want to talk through your exact situation further? A[ Clarity Call](/schedule) is a good place to start.
-
-
-
-Not ready for a conversation yet? Grab our [Retirement Income Guide instead](https://resources.onelifeadvisory.com/retirementincomeguide)!
