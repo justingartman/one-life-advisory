@@ -53,36 +53,36 @@
           ],
           [
             "$1 million to $2 million",
-            "0.70%"
-          ],
-          [
-            "$2 million to $3 million",
-            "0.60%"
-          ],
-          [
-            "$3 million to $4 million",
             "0.55%"
           ],
           [
-            "$4 million to $5 million",
+            "$2 million to $3 million",
             "0.50%"
           ],
           [
-            "$5 million to $7.5 million",
+            "$3 million to $4 million",
             "0.45%"
           ],
           [
-            "$7.5 million to $10 million",
+            "$4 million to $5 million",
+            "0.40%"
+          ],
+          [
+            "$5 million to $7.5 million",
             "0.35%"
           ],
           [
-            "Above $10 million",
+            "$7.5 million to $10 million",
             "0.25%"
+          ],
+          [
+            "Above $10 million",
+            "0.15%"
           ]
         ]
       },
       "aAfter": [
-        "For example, if we manage $3 million, the first $1 million is charged at 0.80%, the next $1 million at 0.70%, and the third $1 million at 0.60%. The blended advisory fee would be approximately 0.70% per year.",
+        "For example, if we manage $3 million, the first $1 million is charged at 0.80%, the next $1 million at 0.55%, and the third $1 million at 0.50%. The blended advisory fee would be approximately 0.62% per year.",
         "The minimum annual advisory fee is $2,400.",
         "Financial planning is included for investment management clients.",
         "For planning-only clients, there is a $400 initiation fee followed by an ongoing fee based on the complexity and scope of the planning relationship.",
