@@ -213,27 +213,51 @@ collections:
             label: "The Five Questions"
             widget: object
             fields:
+              - { name: show, label: "Show this section on the page?", widget: boolean, default: false, hint: "Switched off for now. Turn on to show the five questions at the top of How We Plan. They always appear on the home page." }
               - { name: heading, label: "Heading", widget: string }
               - { name: items, label: "Questions", widget: list, field: { name: text, label: Question, widget: string } }
               - { name: note, label: "Italic note", widget: text }
           - { name: clarityLabel, label: "Clarity Call — Eyebrow", widget: string }
           - { name: clarityHeading, label: "Clarity Call — Heading", widget: string }
           - { name: clarityP1, label: "Clarity Call — Paragraph 1", widget: text }
-          - { name: clarityP2, label: "Clarity Call — Paragraph 2", widget: text }
           - { name: clarityButton, label: "Clarity Call — Button", widget: string }
-          - { name: groupAHeading, label: "Group A Heading (steps 1–4)", widget: string }
+          - { name: groupAHeading, label: "Stages 1–3 Heading", widget: string }
           - name: steps
-            label: "Steps (Group A — Getting to the answers)"
+            label: "Stages 1–3 (before you decide)"
+            hint: "The page shows three stages here: Clarity Call, Discovery Meeting, Planning Conversation."
             widget: list
             fields:
               - { name: title, label: "Title", widget: string }
               - { name: sub, label: "Subtitle (italic, e.g. 'Video call')", widget: string, required: false }
               - { name: p1, label: "Paragraph 1", widget: text, required: false }
               - { name: p2, label: "Paragraph 2", widget: text, required: false }
-          - { name: groupBHeading, label: "Group B Heading (ongoing)", widget: string }
-          - { name: groupBIntro, label: "Group B Intro line", widget: text }
+          - name: readiness
+            label: "Is Your Current Path on Track?"
+            widget: object
+            collapsed: true
+            fields:
+              - { name: label, label: "Eyebrow", widget: string }
+              - { name: heading, label: "Heading", widget: string }
+              - { name: body, label: "Body (blank line = new paragraph)", widget: text }
+          - name: honest
+            label: "Keeping the Numbers Honest"
+            widget: object
+            collapsed: true
+            fields:
+              - { name: label, label: "Eyebrow", widget: string }
+              - { name: heading, label: "Heading", widget: string }
+              - name: items
+                label: "Four assumptions"
+                widget: list
+                hint: "The page shows four boxes."
+                fields:
+                  - { name: title, label: "Title", widget: string }
+                  - { name: desc, label: "Description", widget: text }
+          - { name: groupBHeading, label: "Stages 4–5 Heading", widget: string }
+          - { name: groupBIntro, label: "Stages 4–5 Intro line", widget: text }
           - name: after
-            label: "Group B items (Once we're working together)"
+            label: "Stages 4–5 (once we're working together)"
+            hint: "The page shows two stages here: Onboarding & Implementation, Ongoing Support & Reviews."
             widget: list
             fields:
               - { name: title, label: "Title", widget: string }
@@ -277,6 +301,23 @@ collections:
           - { name: clarityLabel, label: "It Starts With Clarity — Eyebrow", widget: string }
           - { name: clarityHeading, label: "It Starts With Clarity — Heading", widget: string }
           - { name: clarityBody, label: "It Starts With Clarity — Body", widget: text }
+          - name: order
+            label: "Order of Operations"
+            widget: object
+            collapsed: true
+            fields:
+              - { name: label, label: "Eyebrow", widget: string }
+              - { name: heading, label: "Heading", widget: string }
+              - { name: intro, label: "Intro", widget: text }
+              - name: items
+                label: "Boxes"
+                widget: list
+                hint: "Five boxes: the first (navy) is Purpose, then Balance, Protect, Save, Grow."
+                fields:
+                  - { name: tag, label: "Small label above the title", widget: string }
+                  - { name: title, label: "Title", widget: string }
+                  - { name: desc, label: "Description", widget: text }
+              - { name: closing, label: "Closing note (italic)", widget: text }
           - { name: walkawayLabel, label: "Checklist heading (shared)", widget: string }
           - name: acc
             label: "The Six Pieces (accordions)"
@@ -289,9 +330,9 @@ collections:
                   { name: paras, label: "Paragraphs", widget: list, field: { name: text, label: Paragraph, widget: text } },
                   { name: extra, label: "Extra sub-section (optional)", widget: object, required: false, collapsed: true, fields: [
                       { name: head, label: "Sub-heading", widget: string, required: false },
-                      { name: paras, label: "Paragraphs", widget: list, required: false, field: { name: text, label: Paragraph, widget: text } },
+                      { name: paras, label: "Paragraphs", widget: list, required: false, field: { name: text, label: Paragraph, widget: text } }
+                    ] },
                   { name: walkaway, label: "What you walk away with (checklist)", widget: list, required: false, field: { name: text, label: Item, widget: string } }
-                    ] }
                 ] }
               - { name: protection, label: "Protection", widget: object, collapsed: true, fields: [
                   { name: title, label: Title, widget: string },
@@ -299,9 +340,9 @@ collections:
                   { name: paras, label: "Paragraphs", widget: list, field: { name: text, label: Paragraph, widget: text } },
                   { name: extra, label: "Extra sub-section (optional)", widget: object, required: false, collapsed: true, fields: [
                       { name: head, label: "Sub-heading", widget: string, required: false },
-                      { name: paras, label: "Paragraphs", widget: list, required: false, field: { name: text, label: Paragraph, widget: text } },
+                      { name: paras, label: "Paragraphs", widget: list, required: false, field: { name: text, label: Paragraph, widget: text } }
+                    ] },
                   { name: walkaway, label: "What you walk away with (checklist)", widget: list, required: false, field: { name: text, label: Item, widget: string } }
-                    ] }
                 ] }
               - { name: retirement, label: "Retirement Income", widget: object, collapsed: true, fields: [
                   { name: title, label: Title, widget: string },
@@ -309,9 +350,9 @@ collections:
                   { name: paras, label: "Paragraphs", widget: list, field: { name: text, label: Paragraph, widget: text } },
                   { name: extra, label: "Extra sub-section (optional)", widget: object, required: false, collapsed: true, fields: [
                       { name: head, label: "Sub-heading", widget: string, required: false },
-                      { name: paras, label: "Paragraphs", widget: list, required: false, field: { name: text, label: Paragraph, widget: text } },
+                      { name: paras, label: "Paragraphs", widget: list, required: false, field: { name: text, label: Paragraph, widget: text } }
+                    ] },
                   { name: walkaway, label: "What you walk away with (checklist)", widget: list, required: false, field: { name: text, label: Item, widget: string } }
-                    ] }
                 ] }
               - { name: investments, label: "Investments", widget: object, collapsed: true, fields: [
                   { name: title, label: Title, widget: string },
@@ -319,9 +360,9 @@ collections:
                   { name: paras, label: "Paragraphs", widget: list, field: { name: text, label: Paragraph, widget: text } },
                   { name: extra, label: "Extra sub-section (optional)", widget: object, required: false, collapsed: true, fields: [
                       { name: head, label: "Sub-heading", widget: string, required: false },
-                      { name: paras, label: "Paragraphs", widget: list, required: false, field: { name: text, label: Paragraph, widget: text } },
+                      { name: paras, label: "Paragraphs", widget: list, required: false, field: { name: text, label: Paragraph, widget: text } }
+                    ] },
                   { name: walkaway, label: "What you walk away with (checklist)", widget: list, required: false, field: { name: text, label: Item, widget: string } }
-                    ] }
                 ] }
               - { name: tax, label: "Tax-Aware Planning", widget: object, collapsed: true, fields: [
                   { name: title, label: Title, widget: string },
@@ -329,9 +370,9 @@ collections:
                   { name: paras, label: "Paragraphs", widget: list, field: { name: text, label: Paragraph, widget: text } },
                   { name: extra, label: "Extra sub-section (optional)", widget: object, required: false, collapsed: true, fields: [
                       { name: head, label: "Sub-heading", widget: string, required: false },
-                      { name: paras, label: "Paragraphs", widget: list, required: false, field: { name: text, label: Paragraph, widget: text } },
+                      { name: paras, label: "Paragraphs", widget: list, required: false, field: { name: text, label: Paragraph, widget: text } }
+                    ] },
                   { name: walkaway, label: "What you walk away with (checklist)", widget: list, required: false, field: { name: text, label: Item, widget: string } }
-                    ] }
                 ] }
               - { name: legacy, label: "Legacy", widget: object, collapsed: true, fields: [
                   { name: title, label: Title, widget: string },
@@ -339,9 +380,9 @@ collections:
                   { name: paras, label: "Paragraphs", widget: list, field: { name: text, label: Paragraph, widget: text } },
                   { name: extra, label: "Extra sub-section (optional)", widget: object, required: false, collapsed: true, fields: [
                       { name: head, label: "Sub-heading", widget: string, required: false },
-                      { name: paras, label: "Paragraphs", widget: list, required: false, field: { name: text, label: Paragraph, widget: text } },
+                      { name: paras, label: "Paragraphs", widget: list, required: false, field: { name: text, label: Paragraph, widget: text } }
+                    ] },
                   { name: walkaway, label: "What you walk away with (checklist)", widget: list, required: false, field: { name: text, label: Item, widget: string } }
-                    ] }
                 ] }
           - { name: coordinatedLabel, label: "One Plan Coordinated — Eyebrow", widget: string }
           - { name: coordinatedHeading, label: "One Plan Coordinated — Heading", widget: string }

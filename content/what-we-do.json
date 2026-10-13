@@ -71,7 +71,16 @@
         "The right level of risk for the work the money has to do",
         "Investments coordinated with cash flow, taxes, and the rest of your financial life",
         "A clear answer to \"why do I own what I own?\""
-      ]
+      ],
+      "extra": {
+        "head": "How we invest",
+        "paras": [
+          "Every dollar gets a job. Money you may need in the next few years is invested differently from money meant to last for decades. Your income needs, timeline, and comfort with risk shape the mix, not your age alone.",
+          "Our starting point is broad diversification, with close attention to cost. We don't try to predict which company, sector, or market will lead next. We'd rather follow a disciplined, long-term process than react to forecasts and headlines.",
+          "From there, we tailor the portfolio to your situation. That can mean working around investments you already own, managing the tax cost of making changes, choosing which accounts should hold which investments, or adjusting the approach for a specific need.",
+          "Diversification doesn't eliminate the risk of loss. We'll walk you through how we plan and prepare for difficult stretches before they arrive."
+        ]
+      }
     },
     "tax": {
       "title": "Tax-Aware Planning",
@@ -107,5 +116,38 @@
   "coordinatedHeading": "All of these decisions affect one another.",
   "coordinatedBody": "Cash flow can affect investments. Investment decisions can affect taxes. Insurance can change how much risk the rest of the plan needs to carry. Estate decisions can affect how accounts should be owned or who should be listed as a beneficiary.\n\nWe look at those decisions together because changes in one area can affect several others.\n\nThat is what financial planning looks like to us.",
   "coordinatedButton": "Schedule a Clarity Call",
-  "walkawayLabel": "What you walk away with"
+  "walkawayLabel": "What you walk away with",
+  "order": {
+    "label": "The order of operations",
+    "heading": "Purpose first. Then balance, protect, save, and grow.",
+    "intro": "Once we know what the plan is for, we look at four areas in order of priority. Each one builds on the one before it.",
+    "items": [
+      {
+        "tag": "Always first",
+        "title": "Purpose",
+        "desc": "What you want your money to support, now and later. Every decision is measured against it."
+      },
+      {
+        "tag": "Cash flow",
+        "title": "Balance",
+        "desc": "Making sure what you spend and save can support that life over time. Strategies can improve things, but they can't fix a plan that's out of balance on their own."
+      },
+      {
+        "tag": "Risk",
+        "title": "Protect",
+        "desc": "Guarding against what could knock the plan off course, like a disability, an early death, a lawsuit, or a major emergency. Protection has to be in place before it's needed."
+      },
+      {
+        "tag": "Reserves",
+        "title": "Save",
+        "desc": "Building a reserve you can reach for emergencies and opportunities, so a surprise doesn't force you to sell investments at a bad time."
+      },
+      {
+        "tag": "Investing",
+        "title": "Grow",
+        "desc": "Investing for the long term, efficiently, for the goals further out."
+      }
+    ],
+    "closing": "That doesn't mean one step at a time. We work on all four together, because each one affects the others."
+  }
 }

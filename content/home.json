@@ -27,14 +27,14 @@
     "eyebrow": "Purposeful Financial Planning",
     "headlineLead": "Designed for your",
     "headlineAccent": "one life",
-    "sub": "We help you make thoughtful decisions about your money, from the years leading up to retirement through the years that follow. It starts with five questions about what you want your money to do, and a plan that keeps those answers current as life changes.",
+    "sub": "We help you make thoughtful decisions about your money, from the years leading up to retirement through the years that follow. It starts with what you want your money to do, and a plan that keeps up as your life changes.",
     "ctaPrimary": "Schedule a Clarity Call",
     "ctaSecondary": "See how we plan"
   },
   "fiveQuestions": {
-    "label": "The questions we answer for you",
+    "label": "Questions worth asking",
     "heading": "5 questions",
-    "body": "Most of financial planning comes down to five questions. We answer them clearly, and we keep them answered.",
+    "body": "Most of financial planning comes back to a handful of questions like these. They're a good place to start, whether or not we ever work together.",
     "items": [
       "Will your money last as long as you do?",
       "What could go wrong?",
@@ -42,7 +42,7 @@
       "Where are you losing money unnecessarily?",
       "What happens to your money when you're gone?"
     ],
-    "body2": "These aren't questions you answer once and file away. Markets move, tax law changes, and life doesn't hold still. So we answer them at the start, and we answer them again every year you're with us.",
+    "body2": "None of them has a one-time answer. Markets move, tax law changes, and life doesn't hold still, so a good plan keeps coming back to them.",
     "note": "Still building toward retirement? The first question becomes: will you get where you want to go? The other four don't change.",
     "linkLabel": "See how it works"
   },
@@ -81,28 +81,28 @@
   "planPreview": {
     "label": "How We Plan",
     "heading": "Our planning process starts with you, not your accounts.",
-    "body": "It begins with a free Clarity Call to see if we're the right fit. From there, the work runs through five steps.",
+    "body": "Five stages, from the first conversation through the years that follow. You'll see where you stand and how we plan before you decide anything.",
     "button": "See the full process",
     "steps": [
       {
-        "title": "Clarify Your Vision",
-        "desc": "What you want this life and this next season to look like."
+        "title": "Clarity Call",
+        "desc": "A short call to see whether we're a good fit."
       },
       {
-        "title": "Organize Your Financial Picture",
-        "desc": "Where you are today, top to bottom."
+        "title": "Discovery Meeting",
+        "desc": "What you want from your life, and your financial picture."
       },
       {
-        "title": "Design Your Cash Flow Plan",
-        "desc": "Income, growth, protection, legacy."
+        "title": "Planning Conversation",
+        "desc": "Where you stand, how we plan, and the direction we'd suggest."
       },
       {
-        "title": "Put the Plan into Motion",
-        "desc": "Open the accounts, make the moves."
+        "title": "Onboarding & Implementation",
+        "desc": "Putting strategies in place, some now and some over time."
       },
       {
-        "title": "Monitor and Adjust as Life Evolves",
-        "desc": "An advisor who's still paying attention five, ten, twenty years from now."
+        "title": "Ongoing Support & Reviews",
+        "desc": "Continuing to improve the plan as life changes."
       }
     ]
   }

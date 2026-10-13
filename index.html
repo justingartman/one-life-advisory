@@ -865,6 +865,35 @@
     }
     .philosophy cite { font-size: .875rem; color: rgba(255,255,255,.5); font-style: normal; letter-spacing: .06em; }
 
+    /* ─── ORDER OF OPERATIONS (What We Do) ───────────────────── */
+    .order { margin-bottom: 56px; }
+    .order > p { max-width: 64ch; }
+    .order-grid { list-style: none; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; margin-top: 28px; }
+    .order-step { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px 22px 26px; }
+    .order-step h4 { font-family: var(--font-display); font-size: 1.4rem; font-weight: 500; color: var(--navy); margin: 10px 0 8px; }
+    .order-step p { font-size: .9375rem; line-height: 1.65; }
+    .order-tag { font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); }
+    .order-purpose { background: var(--navy); border-color: var(--navy); }
+    .order-purpose h4 { color: #fff; }
+    .order-purpose p { color: rgba(255,255,255,.78); }
+    .order-purpose .order-tag { color: var(--gold-lt); }
+    .order-note { margin-top: 18px; font-size: .9375rem; font-style: italic; }
+    @media (max-width: 1024px) { .order-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .order-purpose { grid-column: 1 / -1; } }
+    @media (max-width: 560px)  { .order-grid { grid-template-columns: 1fr; } }
+
+    /* ─── IS YOUR CURRENT PATH ON TRACK? (How We Plan) ────────── */
+    .readiness { margin-top: 72px; background: var(--bg2); border-radius: var(--radius-lg); padding: 44px 48px; border-left: 3px solid var(--gold); }
+    .readiness [data-cms-paras] p + p { margin-top: 14px; }
+    @media (max-width: 600px) { .readiness { padding: 30px 22px; } }
+
+    /* ─── KEEPING THE NUMBERS HONEST (How We Plan) ────────────── */
+    .honest-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 28px; }
+    .honest-item { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 26px 26px 24px; }
+    .honest-item::before { content: ''; display: block; width: 32px; height: 2px; background: var(--gold); margin-bottom: 16px; }
+    .honest-item h4 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 500; color: var(--navy); margin-bottom: 8px; }
+    .honest-item p { font-size: .9375rem; line-height: 1.7; }
+    @media (max-width: 600px) { .honest-grid { grid-template-columns: 1fr; } }
+
     /* ─── CTA BAND ────────────────────────────────────────────── */
     .cta-band {
       background: var(--bg2); border-top: 1px solid var(--border);
@@ -1414,8 +1443,8 @@
     </div>
   </section>
 
-  <!-- The Five Questions — restated -->
-  <section class="section-sm">
+  <!-- The Five Questions — switched off for now; turn back on in /admin → How We Plan → The Five Questions -->
+  <section class="section-sm" data-cms-show="how_we_plan.fiveQ.show">
     <div class="container-sm">
       <div class="anim">
         <h2 data-cms="how_we_plan.fiveQ.heading">The five questions.</h2>
@@ -1454,86 +1483,88 @@
         <div class="divider"></div>
         <h2 data-cms="how_we_plan.clarityHeading">The Clarity Call</h2>
         <p style="margin-top:16px;" data-cms="how_we_plan.clarityP1">Every relationship starts with a free, no-pressure conversation. You tell us what's on your mind. We tell you whether we can help and what working together looks like. If we're not the right fit, we'll say so and point you toward someone who is.</p>
-        <p style="margin-top:12px;" data-cms="how_we_plan.clarityP2">Once we both agree we're a fit, the work begins with Step 1.</p>
         <button class="btn btn-primary" style="margin-top:28px;" onclick="go('schedule')" data-cms="how_we_plan.clarityButton">Schedule a Clarity Call</button>
       </div>
     </div>
   </section>
 
-  <!-- The Process — Group A: Getting to the answers -->
+  <!-- The Process: stages 1–3, before you decide -->
   <section class="section">
     <div class="container-sm">
       <div class="anim">
-        <h2 data-cms="how_we_plan.groupAHeading">Getting to the answers</h2>
+        <h2 data-cms="how_we_plan.groupAHeading">Before you decide</h2>
       </div>
       <div class="steps" style="margin-top:40px;">
 
         <div class="step anim">
           <div class="step-num">1</div>
           <div class="step-body">
-            <h3 data-cms="how_we_plan.steps.0.title">Intro Call</h3>
-            <p style="font-style:italic;color:var(--text2);margin-bottom:8px;" data-cms="how_we_plan.steps.0.sub">15–20 minutes, by phone</p>
-            <p data-cms="how_we_plan.steps.0.p1">A short conversation to see whether your situation matches what we do. We'll walk through the five questions, tell you what we'd need from you, and schedule the next meeting if it makes sense. If it doesn't, we'll say so and point you toward someone better suited. Neither of us gains from proving a bad fit slowly.</p>
+            <h3 data-cms="how_we_plan.steps.0.title">Clarity Call</h3>
+            <p style="font-style:italic;color:var(--text2);margin-bottom:8px;" data-cms="how_we_plan.steps.0.sub">15 to 30 minutes, by phone</p>
+            <p data-cms="how_we_plan.steps.0.p1">A short conversation about what prompted you to reach out.</p>
           </div>
         </div>
 
         <div class="step anim">
           <div class="step-num">2</div>
           <div class="step-body">
-            <h3 data-cms="how_we_plan.steps.1.title">Discovery</h3>
-            <p style="font-style:italic;color:var(--text2);margin-bottom:8px;" data-cms="how_we_plan.steps.1.sub">Video call</p>
-            <p data-cms="how_we_plan.steps.1.p1">Goals, concerns, and everything the documents don't show. What you want this next season to look like. What you're worried about. Who you're trying to take care of. We'll also gather the statements, tax returns, and policy documents we need in order to give you honest answers instead of general ones.</p>
+            <h3 data-cms="how_we_plan.steps.1.title">Discovery Meeting</h3>
+            <p style="font-style:italic;color:var(--text2);margin-bottom:8px;" data-cms="how_we_plan.steps.1.sub">Video call, about an hour</p>
+            <p data-cms="how_we_plan.steps.1.p1">Most importantly, what you want from your life.</p>
           </div>
         </div>
 
         <div class="step anim">
           <div class="step-num">3</div>
           <div class="step-body">
-            <h3 data-cms="how_we_plan.steps.2.title">Analysis</h3>
-            <p style="font-style:italic;color:var(--text2);margin-bottom:8px;" data-cms="how_we_plan.steps.2.sub">Behind the scenes</p>
-            <p data-cms="how_we_plan.steps.2.p1">This is where the thinking happens. We take what you've told us and what you've built, and run it against the five questions. Tested against bad markets early in retirement, inflation, taxes, and living longer than you planned for. You don't see a spreadsheet. You get answers.</p>
-          </div>
-        </div>
-
-        <div class="step anim">
-          <div class="step-num">4</div>
-          <div class="step-body">
-            <h3 data-cms="how_we_plan.steps.3.title">Findings</h3>
-            <p style="font-style:italic;color:var(--text2);margin-bottom:8px;" data-cms="how_we_plan.steps.3.sub">Video call</p>
-            <p data-cms="how_we_plan.steps.3.p1">We walk you through what we found. Each of the five questions, answered plainly, along with what would need to change to get where you want to go. We'll go as deep on the reasoning as you want, but we start with the answers, because that's what you came for. At the end, you decide.</p>
+            <h3 data-cms="how_we_plan.steps.2.title">Planning Conversation</h3>
+            <p style="font-style:italic;color:var(--text2);margin-bottom:8px;" data-cms="how_we_plan.steps.2.sub">Video call, 60 to 75 minutes</p>
+            <p data-cms="how_we_plan.steps.2.p1">We walk you through where you stand today and how we plan.</p>
+            <p style="margin-top:12px;" data-cms="how_we_plan.steps.2.p2">Then you decide.</p>
           </div>
         </div>
 
       </div>
 
-      <!-- Group B: Once we're working together -->
+      <!-- Is your current path on track? (retirement readiness, described in words) -->
+      <div class="readiness anim">
+        <div class="label" data-cms="how_we_plan.readiness.label">Your Future Cash Flow</div>
+        <h2 style="margin-top:12px;" data-cms="how_we_plan.readiness.heading">Is your current path on track?</h2>
+        <div style="margin-top:16px;" data-cms-paras="how_we_plan.readiness.body"><p>One of the first things we look at is simple.</p></div>
+      </div>
+
+      <!-- Keeping the numbers honest -->
+      <div class="anim" style="margin-top:72px;">
+        <div class="label" data-cms="how_we_plan.honest.label">Keeping the numbers honest</div>
+        <h2 style="margin-top:12px;" data-cms="how_we_plan.honest.heading">A plan is only as good as its assumptions.</h2>
+      </div>
+      <div class="honest-grid anim anim-delay-1">
+        <div class="honest-item"><h4 data-cms="how_we_plan.honest.items.0.title">We won't stretch the return.</h4><p data-cms="how_we_plan.honest.items.0.desc"></p></div>
+        <div class="honest-item"><h4 data-cms="how_we_plan.honest.items.1.title">We plan for a long life.</h4><p data-cms="how_we_plan.honest.items.1.desc"></p></div>
+        <div class="honest-item"><h4 data-cms="how_we_plan.honest.items.2.title">We don't assume spending drops.</h4><p data-cms="how_we_plan.honest.items.2.desc"></p></div>
+        <div class="honest-item"><h4 data-cms="how_we_plan.honest.items.3.title">We test the hard years.</h4><p data-cms="how_we_plan.honest.items.3.desc"></p></div>
+      </div>
+
+      <!-- The Process: stages 4–5, once we're working together -->
       <div class="anim" style="margin-top:72px;">
         <h2 data-cms="how_we_plan.groupBHeading">Once we're working together</h2>
-        <p style="margin-top:16px;" data-cms="how_we_plan.groupBIntro">Everything above gets you a set of answers. Staying with us is what keeps them true.</p>
+        <p style="margin-top:16px;" data-cms="how_we_plan.groupBIntro">Getting to the plan is the beginning of the relationship.</p>
       </div>
       <div class="steps" style="margin-top:40px;">
 
         <div class="step anim">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <h3 data-cms="how_we_plan.after.0.title">Onboarding &amp; Implementation</h3>
+            <div data-cms-paras="how_we_plan.after.0.body"><p>This is where we begin moving you in the right direction.</p></div>
+          </div>
+        </div>
+
+        <div class="step anim">
           <div class="step-num">5</div>
           <div class="step-body">
-            <h3 data-cms="how_we_plan.after.0.title">Getting started</h3>
-            <div data-cms-paras="how_we_plan.after.0.body"><p>We help with the setup needed to begin the relationship, including account opening and coordinating transfers with the custodian where appropriate.</p></div>
-          </div>
-        </div>
-
-        <div class="step anim">
-          <div class="step-num">6</div>
-          <div class="step-body">
-            <h3 data-cms="how_we_plan.after.1.title">Putting the plan into motion</h3>
-            <div data-cms-paras="how_we_plan.after.1.body"><p>Once we agree on the plan, we help coordinate the steps it calls for.</p></div>
-          </div>
-        </div>
-
-        <div class="step anim">
-          <div class="step-num">7</div>
-          <div class="step-body">
-            <h3 data-cms="how_we_plan.after.2.title">Keeping the plan current</h3>
-            <div data-cms-paras="how_we_plan.after.2.body"><p>This is an ongoing relationship.</p></div>
+            <h3 data-cms="how_we_plan.after.1.title">Ongoing Support &amp; Reviews</h3>
+            <div data-cms-paras="how_we_plan.after.1.body"><p>Planning doesn't stop once the first strategies are in place.</p></div>
           </div>
         </div>
 
@@ -1595,6 +1626,21 @@
         <div class="label" data-cms="what_we_do.clarityLabel">Before anything else</div>
         <h3 style="color:var(--navy);margin:12px 0 16px;" data-cms="what_we_do.clarityHeading">It starts with clarity.</h3>
         <div data-cms-paras="what_we_do.clarityBody"><p>We start by understanding what you want your money to do and what you want the next stage of your life to look like.</p><p>That gives us something real to plan around. From there, each part of the financial plan has a job.</p></div>
+      </div>
+
+      <!-- Purpose first, then the order of operations -->
+      <div class="order anim">
+        <div class="label" data-cms="what_we_do.order.label">The order of operations</div>
+        <h3 style="color:var(--navy);margin:12px 0 12px;" data-cms="what_we_do.order.heading">Purpose first. Then balance, protect, save, and grow.</h3>
+        <p data-cms="what_we_do.order.intro">Once we know what the plan is for, we look at four areas in order of priority.</p>
+        <ul class="order-grid">
+          <li class="order-step order-purpose"><span class="order-tag" data-cms="what_we_do.order.items.0.tag">Always first</span><h4 data-cms="what_we_do.order.items.0.title">Purpose</h4><p data-cms="what_we_do.order.items.0.desc"></p></li>
+          <li class="order-step"><span class="order-tag" data-cms="what_we_do.order.items.1.tag">Cash flow</span><h4 data-cms="what_we_do.order.items.1.title">Balance</h4><p data-cms="what_we_do.order.items.1.desc"></p></li>
+          <li class="order-step"><span class="order-tag" data-cms="what_we_do.order.items.2.tag">Risk</span><h4 data-cms="what_we_do.order.items.2.title">Protect</h4><p data-cms="what_we_do.order.items.2.desc"></p></li>
+          <li class="order-step"><span class="order-tag" data-cms="what_we_do.order.items.3.tag">Reserves</span><h4 data-cms="what_we_do.order.items.3.title">Save</h4><p data-cms="what_we_do.order.items.3.desc"></p></li>
+          <li class="order-step"><span class="order-tag" data-cms="what_we_do.order.items.4.tag">Investing</span><h4 data-cms="what_we_do.order.items.4.title">Grow</h4><p data-cms="what_we_do.order.items.4.desc"></p></li>
+        </ul>
+        <p class="order-note" data-cms="what_we_do.order.closing">We work on all four together.</p>
       </div>
 
       <!-- Accordions -->

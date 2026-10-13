@@ -1,55 +1,47 @@
 {
-  "groupAHeading": "Getting to the answers",
+  "groupAHeading": "Before you decide",
   "clarityLabel": "Start Here",
   "clarityButton": "Schedule a Clarity Call",
-  "heroSub": "We start by understanding what you want your money to do. Then we work through five questions that help us organize the decisions, build the plan, put it into motion, and keep it current over time. Where we spend the most time depends on what matters most in your situation.",
+  "heroSub": "We start by understanding what you want your money to do. Then we look at where you are today: whether you're on track and in balance, and if not, what it would take to get there. From there, we look at strategies to move you closer to balance and make the most of what you're already doing. Where we spend the most time depends on what matters most in your situation.",
   "closingButton": "Schedule a Clarity Call",
   "closingQuote": "\"This is your one life. Let's design the future income to support it — with confidence, clarity, and intention.\"",
   "steps": [
     {
-      "title": "Intro Call",
-      "sub": "15–20 minutes, by phone",
-      "p1": "A short conversation to see whether your situation matches what we do. We'll walk through the five questions, tell you what we'd need from you, and schedule the next meeting if it makes sense. If it doesn't, we'll say so and point you toward someone better suited. Neither of us gains from proving a bad fit slowly."
+      "title": "Clarity Call",
+      "sub": "15 to 30 minutes, by phone",
+      "p1": "A short conversation about what prompted you to reach out and what you're hoping to figure out. We'll explain how we work, what it costs, and whether your situation fits what we do. If it does, we'll schedule Discovery. If it doesn't, we'll say so and point you toward someone better suited. Neither of us gains from proving a bad fit slowly."
     },
     {
-      "title": "Discovery",
-      "sub": "Video call",
-      "p1": "Goals, concerns, and everything the documents don't show. What you want this next season to look like. What you're worried about. Who you're trying to take care of. We'll also gather the statements, tax returns, and policy documents we need in order to give you honest answers instead of general ones."
+      "title": "Discovery Meeting",
+      "sub": "Video call, about an hour",
+      "p1": "Most importantly, what you want from your life: what you'd like the next five to ten years to look like, what you're worried about, and who you're trying to take care of. We'll also walk through your numbers together, confirm the details, and get a clear understanding of your financial picture. If we need anything more to go deeper, we'll ask for it afterward."
     },
     {
-      "title": "Analysis",
-      "sub": "Behind the scenes",
-      "p1": "This is where the thinking happens. We take what you've told us and what you've built, and run it against the five questions. Tested against bad markets early in retirement, inflation, taxes, and living longer than you planned for. You don't see a spreadsheet. You get answers."
-    },
-    {
-      "title": "Findings",
-      "sub": "Video call",
-      "p1": "We walk you through what we found. Each of the five questions, answered plainly, along with what would need to change to get where you want to go. We'll go as deep on the reasoning as you want, but we start with the answers, because that's what you came for. At the end, you decide."
+      "title": "Planning Conversation",
+      "sub": "Video call, 60 to 75 minutes",
+      "p1": "Between meetings, we review everything you've shared. Then we walk you through where you stand today, how we plan, and how we think about money: cash flow, protection, income, investments, and taxes, and how they fit together.",
+      "p2": "We'll point out the direction we'd suggest and the areas we would want to work on together. The detailed strategy work comes once we're working together. Then you decide."
     }
   ],
   "groupBIntro": "Getting to the plan is the beginning of the relationship. From there, we help put it into motion and continue working with you as life changes.",
-  "closingSub": "Start with a free 15 to 30 minute Clarity Call. We'll talk about your situation, answer your initial questions, and explain what working with One Life would look like.",
+  "closingSub": "Start with a free 15 to 30 minute Clarity Call. We'll talk about your situation, answer your initial questions, and explain what working with us would look like.",
   "clarityHeading": "The Clarity Call",
   "heroEyebrow": "Our Planning Process",
   "clarityP1": "Every relationship starts with a free, no-pressure conversation. You tell us what's on your mind. We tell you whether we can help and what working together looks like. If we're not the right fit, we'll say so and point you toward someone who is.",
-  "clarityP2": "Once we both agree we're a fit, the work begins with Step 1.",
   "after": [
     {
-      "title": "Getting started",
-      "body": "We help with the setup needed to begin the relationship, including account opening and coordinating transfers with the custodian where appropriate.\n\nWe want the transition to be organized and clear so you understand what is happening and what comes next."
+      "title": "Onboarding & Implementation",
+      "body": "If you decide to work with us, this is where we begin moving you in the right direction. Some strategies are put in place right away. Others are implemented over time, when the timing makes sense.\n\nThat may include opening or transferring accounts, implementing the investment approach, setting up withdrawals, beneficiary updates, insurance where appropriate, and coordination with your CPA, attorney, or other professionals.\n\nSome steps are handled directly by us. Others require another professional or financial institution. We keep the pieces moving, confirm each step was completed the way we agreed, and make sure you understand how everything works."
     },
     {
-      "title": "Putting the plan into motion",
-      "body": "Once we agree on the plan, we help coordinate the steps it calls for.\n\nThat may include account transfers, investment changes, beneficiary updates, insurance implementation where appropriate, and coordination with your CPA, attorney, or other professionals when their involvement is needed.\n\nSome steps are handled directly by One Life. Others require the involvement or approval of another professional or financial institution. We help keep the pieces moving together."
-    },
-    {
-      "title": "Keeping the plan current",
-      "body": "This is an ongoing relationship.\n\nMarkets change, tax laws change, and your life will change too. We continue reviewing the plan, your investments, and the decisions in front of you as those changes happen.\n\nYou can also reach out when something comes up between scheduled reviews. A retirement decision, inheritance, job change, major purchase, family change, or another financial question may be a reason to revisit part of the plan.\n\nThe goal is to be in your corner for the long haul, with a plan that continues to reflect your life."
+      "title": "Ongoing Support & Reviews",
+      "body": "Planning doesn't stop once the first strategies are in place. We keep looking for ways to improve your situation and put new strategies to work as your life, the markets, and tax laws change.\n\nWe review the plan, your investments, and the decisions in front of you at least once a year, and compare where you are with where we expected you to be, so you can see what changed and why.\n\nYou can also reach out when something comes up between reviews. A retirement decision, inheritance, job change, major purchase, family change, or another financial question may be a reason to revisit part of the plan.\n\nThe goal is to be in your corner for the long haul, with a plan that continues to reflect your life."
     }
   ],
   "heroTitle": "How we build your financial plan.",
   "groupBHeading": "Once we're working together",
   "fiveQ": {
+    "show": false,
     "heading": "The five questions.",
     "items": [
       "Will your money last as long as you do?",
@@ -67,7 +59,7 @@
     "items": [
       {
         "title": "Spring. Annual review",
-        "desc": "We revisit the five questions, review the investment strategy, and look at what has changed in your financial life since the last full review."
+        "desc": "We revisit the plan, review the investment strategy, and look at what has changed in your financial life since the last full review."
       },
       {
         "title": "Summer. Check-in",
@@ -84,5 +76,32 @@
     ],
     "closing": "The timing and focus can move depending on your situation. The purpose is to keep the plan current and spend time where it matters most."
   },
-  "closingHeading": "Ready to see if working together makes sense?"
+  "closingHeading": "Ready to see if working together makes sense?",
+  "readiness": {
+    "label": "Your Future Cash Flow",
+    "heading": "Is your current path on track?",
+    "body": "One of the first things we look at is simple. As things stand today, is your current direction on track to support the lifestyle you have now, through retirement and for as long as you may need it?\n\nWe look at what your life costs, the income you can count on, and what your savings and investments would need to provide. If you're on track, we'll show you what that may give you room to do. If you're not, we'll show you the kinds of changes that could help close the gap.\n\nStill building toward retirement? The question becomes whether your current saving and investing are moving you toward the future you want."
+  },
+  "honest": {
+    "label": "Keeping the numbers honest",
+    "heading": "A plan is only as good as its assumptions.",
+    "items": [
+      {
+        "title": "We won't stretch the return.",
+        "desc": "If a plan only works by assuming higher returns, we'll show you that plainly, then look for real changes instead."
+      },
+      {
+        "title": "We plan for a long life.",
+        "desc": "Our default runs to age 100, adjusted when your health or family history gives us a reason."
+      },
+      {
+        "title": "We don't assume spending drops.",
+        "desc": "We start with the lifestyle you want, adjusted for inflation, rather than building in an automatic cut at retirement."
+      },
+      {
+        "title": "We test the hard years.",
+        "desc": "A bad market early in retirement, higher inflation, a longer life, a major health or care expense. We look at what each would do, and what you could do about it, before you face it."
+      }
+    ]
+  }
 }

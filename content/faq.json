@@ -19,7 +19,7 @@
       ]
     },
     {
-      "q": "What does working with One Life include?",
+      "q": "What does working with One Life Advisory include?",
       "a": [
         "For investment management clients, financial planning is included as part of the relationship.",
         "We manage your investment portfolio based on your goals, time horizon, and comfort with risk. We also help with the broader decisions around your financial life.",
@@ -37,7 +37,7 @@
       ]
     },
     {
-      "q": "How much does it cost to work with One Life?",
+      "q": "How much does it cost to work with One Life Advisory?",
       "a": [
         "For clients who have us manage their investments, our advisory fee is based on the amount we manage. The fee is tiered, so each portion of the portfolio is charged at the rate for that tier."
       ],
@@ -100,7 +100,7 @@
       "q": "Where are my investments held?",
       "a": [
         "Most of our clients' investment accounts are held at Charles Schwab, which serves as the independent custodian.",
-        "The accounts remain in your name, and you continue to receive statements directly from Schwab. One Life manages the investments in the accounts you've asked us to manage, but we do not take possession of your money."
+        "The accounts remain in your name, and you continue to receive statements directly from Schwab. We manage the investments in the accounts you've asked us to manage, but we do not take possession of your money."
       ]
     },
     {
@@ -131,15 +131,15 @@
       "a": [
         "The first conversation is what we call a Clarity Call. It usually takes about 15 to 30 minutes.",
         "We'll talk about what prompted you to reach out, what you're trying to accomplish, and the financial questions that are on your mind.",
-        "It also gives both of us a chance to see whether working together makes sense before going any further."
+        "It also gives both of us a chance to see whether working together makes sense before going any further.",
+        "If it makes sense to keep going, the next step is a Discovery Meeting."
       ]
     },
     {
       "q": "What happens if I decide to work with you?",
       "a": [
-        "We start by getting a clearer picture of your financial life.",
-        "That means gathering the information we need, understanding your goals, and looking at the decisions you're trying to make.",
-        "For investment management clients, we'll also establish the accounts we will manage and document the investment approach we'll use. From there, we manage the portfolio and continue the financial planning work as your circumstances change.",
+        "By that point, we'll have met for Discovery and walked through your Planning Conversation, so you'll have seen where you stand and the direction we'd suggest.",
+        "For investment management clients, we formalize the relationship, establish the accounts we will manage, and document the investment approach we'll use. Then we begin putting strategies in place, some right away and some over time, and make sure you understand how everything works.",
         "For planning-only clients, we'll prepare the initial financial plan and then continue working together through regular reviews and updates.",
         "The relationship is meant to continue as your life changes. The plan should change with it."
       ]
