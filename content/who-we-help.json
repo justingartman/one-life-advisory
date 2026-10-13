@@ -1,11 +1,11 @@
 {
   "heroEyebrow": "Who We Help",
   "heroTitle": "Planning for retirement, through retirement, and the years leading up to it.",
-  "heroSub": "The questions change depending on where you are. Someone ten years from retirement has different decisions to make than someone who's already there. We help you understand where you are today and make a plan for what comes next.",
+  "heroSub": "The questions change depending on where you are. Someone twenty years from retirement has different decisions to make than someone who's already there. We help you understand where you are today and make a plan for what comes next.",
   "groups": [
     {
       "title": "In Retirement",
-      "body": "You've spent years building your savings. Once you're retired, the decisions become more focused on how to use what you've built.\n\nWe help you think through how much you can spend, where your income should come from, how your investments should support that income, and how taxes and protection fit into the picture.\n\nWe also continue adjusting the plan as your spending, health, family, or priorities change.",
+      "body": "Congratulations. You made it.\n\nYou've spent years building toward this, and now comes the part you've been planning for: deciding how your money will support the life you want to live. We help you work out how much you can comfortably spend, where your income should come from, and how your investments, taxes, and protection fit together, so you can enjoy this chapter with confidence.\n\nAs your spending, health, family, or priorities change, we keep adjusting the plan with you.",
       "listIntro": "What we may work through includes:",
       "items": [
         "How much income the plan can reasonably support",
@@ -17,7 +17,7 @@
     },
     {
       "title": "Approaching Retirement",
-      "body": "The years leading up to retirement give you time to make decisions while you still have options.\n\nWe look at when you want to retire, what you are currently saving, what retirement may cost, when Social Security may make sense, how your 401(k) and other accounts fit together, and how much investment risk is appropriate as retirement gets closer.\n\nThe goal is to understand what your current path looks like and where adjustments may be worth considering before the paycheck stops.",
+      "body": "This is an exciting stretch. Retirement is coming into view, and you still have time and plenty of options to make the most of it.\n\nThe decisions you make now can shape the years ahead: when to retire, how much to save, when to take Social Security, how your 401(k) and other accounts fit together, and how much investment risk makes sense as the date gets closer.\n\nWe help you see where your current path leads and build a strategy to get the most out of the years ahead, while you still have the most options.",
       "listIntro": "What we may work through includes:",
       "items": [
         "Your retirement timeline and what it may take to get there",
@@ -29,7 +29,7 @@
     },
     {
       "title": "Still Building",
-      "body": "Some clients come to us earlier in their working years.\n\nAt that stage, the work is more focused on whether saving, investing, cash flow, and protection are moving you toward the future you want.\n\nStarting earlier can give us more time to make adjustments and more options as retirement gets closer.",
+      "body": "The best time to prepare for retirement is early, and you're already thinking about it.\n\nStarting now gives you the biggest advantage there is: time. Time to build savings, let your investments work, put the right protection in place, and adjust as life changes.\n\nWe help make sure your saving, investing, cash flow, and protection are moving you toward the future you want, and that you have a plan for getting there.",
       "listIntro": "What we may work through includes:",
       "items": [
         "Saving and cash flow",
@@ -40,8 +40,8 @@
       ]
     }
   ],
-  "notFitHeading": "A good fit for One Life Advisory",
-  "notFitBody": "We tend to work best with people who have been thoughtful with their money and now want a clearer plan for what comes next.\n\nThey value planning, want the different pieces of their financial life coordinated, and want an ongoing relationship with an advisor who understands their situation.\n\nIf that sounds like what you're looking for, the Clarity Call is a simple way to see whether working together makes sense.",
+  "notFitHeading": "Who we work best with",
+  "notFitBody": "We tend to work best with people who have been thoughtful with their money and want to make the most of what they've built.\n\nThey like understanding the why behind a decision, want every part of their financial life working together, and value a long-term relationship with someone who knows their situation.\n\nIf that sounds like you, a Clarity Call is an easy way to find out whether we're a good fit.",
   "closingHeading": "Want to see if we're a fit?",
   "closingSub": "A Clarity Call is a 15 to 30 minute conversation about where you are, what you're trying to accomplish, and whether the work we do fits what you're looking for.",
   "closingButton": "Schedule a Clarity Call"

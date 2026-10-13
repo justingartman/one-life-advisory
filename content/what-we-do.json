@@ -14,12 +14,15 @@
         "From there, we look ahead. We call the income your plan is designed to support over time your Future Cash Flow. We build a year-by-year picture of where that income may come from and how your savings and investments can help support it.",
         "We also look at how much should remain available in cash so you have flexibility without keeping more on the sidelines than your situation calls for."
       ],
-      "walkaway": [
-        "A clear picture of where your money is going today",
-        "A plan for where it's going from here, year by year",
-        "The right amount of cash and liquidity for the life you live",
-        "A foundation the rest of your financial life can actually stand on"
-      ]
+      "think": {
+        "head": "How we think about it",
+        "paras": [
+          "We start with the lifestyle you want to keep, adjusted for inflation. We don't assume your spending will drop just because you retire.",
+          "Taxes are part of what your life costs, so we count them from the start instead of treating them as an afterthought.",
+          "When a big expense ends, like a paid-off mortgage, we decide together where that money goes next, so it doesn't quietly disappear into everyday spending.",
+          "We also like to keep a reserve for emergencies and opportunities: money you could use without pulling the rest of the plan off course. Money that's already producing your income doesn't count, even if you could get to it."
+        ]
+      }
     },
     "protection": {
       "title": "Protection",
@@ -36,12 +39,15 @@
           "One Life Advisory does not receive insurance commissions. You are free to purchase any recommended coverage through another agent or company."
         ]
       },
-      "walkaway": [
-        "A clear picture of every risk that could affect your plan",
-        "Coverage sized to your actual life and the people who depend on you",
-        "A review of what you already have and whether it's still working for you",
-        "A protection plan built into your overall financial plan — not bolted on the side"
-      ]
+      "think": {
+        "head": "How we think about it",
+        "paras": [
+          "Protection comes before growth. You can't insure against a risk after it has already happened.",
+          "Coverage should be sized to the outcome you want for the people who depend on you, not a rule of thumb.",
+          "Some risks are worth keeping, like small, predictable costs your savings can absorb. Others are worth transferring, like a large loss that could change the course of the plan.",
+          "Long-term care gets its own conversation: whether to insure it, set aside assets for it, or combine the two."
+        ]
+      }
     },
     "retirement": {
       "title": "Retirement Income",
@@ -51,12 +57,14 @@
         "We look at Social Security, pensions, investment withdrawals, cash reserves, and other income sources that may be available to you. Then we look at how those pieces can work together over time.",
         "We also test the plan under different assumptions for markets, inflation, taxes, spending, and longevity so we can understand where there may be room to adjust."
       ],
-      "walkaway": [
-        "A clear answer to \"can I retire when I want to, and how do I know?\"",
-        "A year-by-year picture of where your income comes from",
-        "A coordinated strategy for Social Security, account withdrawals, and other income sources",
-        "A plan stress-tested against the things that could go wrong"
-      ]
+      "think": {
+        "head": "How we think about it",
+        "paras": [
+          "We look at every piece of income you have coming in, like Social Security, pensions, and other sources: when each one starts, how long it lasts, and how it changes over time. Then we look at what the rest of your portfolio needs to produce to support the life you want.",
+          "The order you draw from your accounts matters. Which accounts you use, and when, can change how much tax you pay and how long your money lasts, so we plan it year by year instead of following a fixed rule.",
+          "There's more than one way to turn savings into income. We compare approaches, from portfolio withdrawals to options designed to pay for life, and combine them when it makes sense."
+        ]
+      }
     },
     "investments": {
       "title": "Investments",
@@ -66,13 +74,7 @@
         "We start with your goals, time horizon, income needs, and comfort with risk. From there, we build and manage the portfolio around the role those investments have in the broader financial plan.",
         "As your life or the plan changes, we can revisit the investment strategy with it."
       ],
-      "walkaway": [
-        "A portfolio built around what your plan actually needs",
-        "The right level of risk for the work the money has to do",
-        "Investments coordinated with cash flow, taxes, and the rest of your financial life",
-        "A clear answer to \"why do I own what I own?\""
-      ],
-      "extra": {
+      "think": {
         "head": "How we invest",
         "paras": [
           "Every dollar gets a job. Money you may need in the next few years is invested differently from money meant to last for decades. Your income needs, timeline, and comfort with risk shape the mix, not your age alone.",
@@ -89,12 +91,16 @@
         "Many financial decisions have tax consequences. We consider those consequences when we evaluate things like retirement withdrawals, Roth conversions, Social Security timing, charitable giving, investment changes, and other planning decisions.",
         "Your CPA or tax professional remains responsible for tax advice and preparing your returns. When it makes sense, we can coordinate with them so the financial planning and tax work are based on the same information."
       ],
-      "walkaway": [
-        "A plan built with the tax impact of every major decision already factored in",
-        "Decisions made on a long enough timeline to actually be the right ones",
-        "Coordination between your plan and your CPA",
-        "A clearer view of what your choices actually cost — not just this year, but over time"
-      ]
+      "think": {
+        "head": "How we think about it",
+        "paras": [
+          "We look at taxes from a planning perspective. Preparing and filing your returns stays with your CPA. Our role is to help set the direction, because taxes touch so many other parts of the plan: your income, investments, Social Security, giving, and what you leave behind.",
+          "We look at taxes across your lifetime, not just this year's return. A move that lowers this year's bill can raise future ones, and the reverse can be true too.",
+          "Many retirement taxes are easy to miss: how much of your Social Security gets taxed, Medicare premiums that rise with income (known as IRMAA), and required minimum distributions (RMDs) that can push your income higher later on.",
+          "Opportunities often compete for the same room. Each year, we weigh choices like Roth conversions, realizing gains, and charitable giving together, instead of one at a time.",
+          "Lowering taxes isn't the only goal. A strategy that saves on taxes but leaves you with less flexibility or more risk isn't necessarily the better choice."
+        ]
+      }
     },
     "legacy": {
       "title": "Legacy",
@@ -104,12 +110,15 @@
         "We review beneficiary designations, account ownership, and how your financial accounts fit with your existing estate documents. We can also help you think through what you want your family to know and how you would like assets handled over time.",
         "Your attorney remains responsible for legal advice and drafting estate documents. We can coordinate with them so the financial pieces of the plan reflect what you are trying to accomplish."
       ],
-      "walkaway": [
-        "A clear picture of who and what you want to take care of, and how",
-        "Accounts, beneficiaries, and titling that actually match your wishes",
-        "A coordinated plan between your finances and your estate documents",
-        "The clarity of knowing the people you love won't be left figuring it out alone"
-      ]
+      "think": {
+        "head": "How we think about it",
+        "paras": [
+          "Leaving a set amount to family, leaving whatever remains, giving during your lifetime, and supporting causes you care about are different goals, and each one is planned differently. We start by understanding which ones matter to you.",
+          "Some people want to share their wealth while they're alive and see the people they love benefit from it. We can build that into the plan too.",
+          "Small details can quietly override your wishes, like how an account is titled, an outdated beneficiary, or a missing backup beneficiary. We check those against what you want.",
+          "If giving is part of your life, we look at the most effective ways to give. The goal comes first; the tax benefit follows."
+        ]
+      }
     }
   },
   "coordinatedLabel": "One Plan, Coordinated",
@@ -149,5 +158,8 @@
       }
     ],
     "closing": "That doesn't mean one step at a time. We work on all four together, because each one affects the others."
-  }
+  },
+  "piecesLabel": "The pieces of the plan",
+  "piecesHeading": "What we look at, and how we think about each piece.",
+  "piecesIntro": "Every plan touches the same areas. What changes is how much attention each one needs in your situation. Here's what we look at, and the thinking behind it."
 }

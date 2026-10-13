@@ -318,7 +318,10 @@ collections:
                   - { name: title, label: "Title", widget: string }
                   - { name: desc, label: "Description", widget: text }
               - { name: closing, label: "Closing note (italic)", widget: text }
-          - { name: walkawayLabel, label: "Checklist heading (shared)", widget: string }
+          - { name: piecesLabel, label: "The Pieces of the Plan — Eyebrow", widget: string }
+          - { name: piecesHeading, label: "The Pieces of the Plan — Heading", widget: string }
+          - { name: piecesIntro, label: "The Pieces of the Plan — Intro", widget: text }
+          - { name: walkawayLabel, label: "Checklist heading (shared)", widget: string, hint: "Only used if a section has a checklist. The checklists are currently empty." }
           - name: acc
             label: "The Six Pieces (accordions)"
             widget: object
@@ -328,6 +331,10 @@ collections:
                   { name: title, label: Title, widget: string },
                   { name: sub, label: Subtitle, widget: string },
                   { name: paras, label: "Paragraphs", widget: list, field: { name: text, label: Paragraph, widget: text } },
+                  { name: think, label: "How we think about it", widget: object, required: false, collapsed: true, fields: [
+                      { name: head, label: "Sub-heading", widget: string, required: false },
+                      { name: paras, label: "Paragraphs", widget: list, required: false, field: { name: text, label: Paragraph, widget: text } }
+                    ] },
                   { name: extra, label: "Extra sub-section (optional)", widget: object, required: false, collapsed: true, fields: [
                       { name: head, label: "Sub-heading", widget: string, required: false },
                       { name: paras, label: "Paragraphs", widget: list, required: false, field: { name: text, label: Paragraph, widget: text } }
@@ -338,6 +345,10 @@ collections:
                   { name: title, label: Title, widget: string },
                   { name: sub, label: Subtitle, widget: string },
                   { name: paras, label: "Paragraphs", widget: list, field: { name: text, label: Paragraph, widget: text } },
+                  { name: think, label: "How we think about it", widget: object, required: false, collapsed: true, fields: [
+                      { name: head, label: "Sub-heading", widget: string, required: false },
+                      { name: paras, label: "Paragraphs", widget: list, required: false, field: { name: text, label: Paragraph, widget: text } }
+                    ] },
                   { name: extra, label: "Extra sub-section (optional)", widget: object, required: false, collapsed: true, fields: [
                       { name: head, label: "Sub-heading", widget: string, required: false },
                       { name: paras, label: "Paragraphs", widget: list, required: false, field: { name: text, label: Paragraph, widget: text } }
@@ -348,6 +359,10 @@ collections:
                   { name: title, label: Title, widget: string },
                   { name: sub, label: Subtitle, widget: string },
                   { name: paras, label: "Paragraphs", widget: list, field: { name: text, label: Paragraph, widget: text } },
+                  { name: think, label: "How we think about it", widget: object, required: false, collapsed: true, fields: [
+                      { name: head, label: "Sub-heading", widget: string, required: false },
+                      { name: paras, label: "Paragraphs", widget: list, required: false, field: { name: text, label: Paragraph, widget: text } }
+                    ] },
                   { name: extra, label: "Extra sub-section (optional)", widget: object, required: false, collapsed: true, fields: [
                       { name: head, label: "Sub-heading", widget: string, required: false },
                       { name: paras, label: "Paragraphs", widget: list, required: false, field: { name: text, label: Paragraph, widget: text } }
@@ -358,6 +373,10 @@ collections:
                   { name: title, label: Title, widget: string },
                   { name: sub, label: Subtitle, widget: string },
                   { name: paras, label: "Paragraphs", widget: list, field: { name: text, label: Paragraph, widget: text } },
+                  { name: think, label: "How we think about it", widget: object, required: false, collapsed: true, fields: [
+                      { name: head, label: "Sub-heading", widget: string, required: false },
+                      { name: paras, label: "Paragraphs", widget: list, required: false, field: { name: text, label: Paragraph, widget: text } }
+                    ] },
                   { name: extra, label: "Extra sub-section (optional)", widget: object, required: false, collapsed: true, fields: [
                       { name: head, label: "Sub-heading", widget: string, required: false },
                       { name: paras, label: "Paragraphs", widget: list, required: false, field: { name: text, label: Paragraph, widget: text } }
@@ -368,6 +387,10 @@ collections:
                   { name: title, label: Title, widget: string },
                   { name: sub, label: Subtitle, widget: string },
                   { name: paras, label: "Paragraphs", widget: list, field: { name: text, label: Paragraph, widget: text } },
+                  { name: think, label: "How we think about it", widget: object, required: false, collapsed: true, fields: [
+                      { name: head, label: "Sub-heading", widget: string, required: false },
+                      { name: paras, label: "Paragraphs", widget: list, required: false, field: { name: text, label: Paragraph, widget: text } }
+                    ] },
                   { name: extra, label: "Extra sub-section (optional)", widget: object, required: false, collapsed: true, fields: [
                       { name: head, label: "Sub-heading", widget: string, required: false },
                       { name: paras, label: "Paragraphs", widget: list, required: false, field: { name: text, label: Paragraph, widget: text } }
@@ -378,6 +401,10 @@ collections:
                   { name: title, label: Title, widget: string },
                   { name: sub, label: Subtitle, widget: string },
                   { name: paras, label: "Paragraphs", widget: list, field: { name: text, label: Paragraph, widget: text } },
+                  { name: think, label: "How we think about it", widget: object, required: false, collapsed: true, fields: [
+                      { name: head, label: "Sub-heading", widget: string, required: false },
+                      { name: paras, label: "Paragraphs", widget: list, required: false, field: { name: text, label: Paragraph, widget: text } }
+                    ] },
                   { name: extra, label: "Extra sub-section (optional)", widget: object, required: false, collapsed: true, fields: [
                       { name: head, label: "Sub-heading", widget: string, required: false },
                       { name: paras, label: "Paragraphs", widget: list, required: false, field: { name: text, label: Paragraph, widget: text } }

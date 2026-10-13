@@ -28,6 +28,15 @@ function renderWhatWeDo() {
     (item.paras || []).filter(Boolean).forEach(t => {
       const p = document.createElement('p'); p.textContent = t; body.appendChild(p);
     });
+    // "How we think about it": the philosophy behind this piece of the plan
+    if (item.think && item.think.head) {
+      const th = document.createElement('div');
+      th.className = 'acc-subhead'; th.textContent = item.think.head;
+      body.appendChild(th);
+      (item.think.paras || []).filter(Boolean).forEach(t => {
+        const p = document.createElement('p'); p.textContent = t; body.appendChild(p);
+      });
+    }
     if (item.extra && item.extra.head) {
       const h = document.createElement('div');
       h.className = 'acc-subhead'; h.textContent = item.extra.head;
