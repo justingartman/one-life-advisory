@@ -8,53 +8,15 @@
       "a": [
         "For clients who have us manage their investments, our advisory fee is based on the amount we manage. The fee is tiered, so each portion of the portfolio is charged at the rate for that tier."
       ],
-      "table": {
-        "headers": [
-          "Assets managed",
-          "Annual advisory fee"
-        ],
-        "rows": [
-          [
-            "First $1 million",
-            "0.80%"
-          ],
-          [
-            "$1 million to $2 million",
-            "0.55%"
-          ],
-          [
-            "$2 million to $3 million",
-            "0.50%"
-          ],
-          [
-            "$3 million to $4 million",
-            "0.45%"
-          ],
-          [
-            "$4 million to $5 million",
-            "0.40%"
-          ],
-          [
-            "$5 million to $7.5 million",
-            "0.35%"
-          ],
-          [
-            "$7.5 million to $10 million",
-            "0.25%"
-          ],
-          [
-            "Above $10 million",
-            "0.15%"
-          ]
-        ]
-      },
       "aAfter": [
         "For example, if we manage $3 million, the first $1 million is charged at 0.80%, the next $1 million at 0.55%, and the third $1 million at 0.50%. The blended advisory fee would be approximately 0.62% per year.",
         "The minimum annual advisory fee is $2,400.",
         "Financial planning is included for investment management clients.",
-        "For planning-only clients, there is a $400 initiation fee followed by an ongoing fee based on the complexity and scope of the planning relationship.",
-        "Depending on how your portfolio is invested, there may also be third-party platform or investment expenses which is separate from the One Life Advisory cost. We explain those before anything is implemented."
-      ]
+        "For planning-only clients, there is a $400 initiation fee followed by an ongoing annual fee of $3,600 to $15,000, based on the complexity and scope of the planning relationship.",
+        "Depending on how your portfolio is invested, there may also be third-party platform or investment expenses, which are separate from the One Life Advisory cost. We explain those before anything is implemented."
+      ],
+      "feeTable": true,
+      "pricingLink": true
     },
     {
       "q": "Do you have a minimum?",
@@ -68,7 +30,7 @@
       "a": [
         "Yes, if you are below our minimum for investment management.",
         "Standalone financial planning is an ongoing relationship. We start by understanding your financial situation and building an initial written plan. From there, we continue to review and update the plan as things change.",
-        "There is a $400 initiation fee. The ongoing fee is based on the complexity of your situation and the planning work involved. We agree on that fee with you before you decide to move forward.",
+        "There is a $400 initiation fee, and the ongoing annual fee ranges from $3,600 to $15,000, based on the complexity of your situation and the planning work involved. We agree on that fee with you before you decide to move forward.",
         "If you later have enough assets available for us to manage, we can discuss moving into an investment management relationship, where ongoing financial planning is included."
       ]
     },

@@ -62,6 +62,43 @@ function renderWhatWeDo() {
   });
 }
 
+// A table from { headers: [...], rows: [[...], ...] }, wrapped so it can scroll on small screens.
+function buildTable(t) {
+  if (!t || !(t.rows || []).length) return null;
+  const scroll = document.createElement('div'); scroll.className = 'faq-table-wrap';
+  const tbl = document.createElement('table'); tbl.className = 'faq-table';
+  if ((t.headers || []).length) {
+    const thead = document.createElement('thead'); const tr = document.createElement('tr');
+    t.headers.forEach(h => { const th = document.createElement('th'); th.textContent = h; tr.appendChild(th); });
+    thead.appendChild(tr); tbl.appendChild(thead);
+  }
+  const tbody = document.createElement('tbody');
+  t.rows.forEach(r => {
+    const tr = document.createElement('tr');
+    (r || []).forEach(c => { const td = document.createElement('td'); td.textContent = c; tr.appendChild(td); });
+    tbody.appendChild(tr);
+  });
+  tbl.appendChild(tbody); scroll.appendChild(tbl);
+  return scroll;
+}
+
+// ── Pricing page (built from content/pricing.json) ───────────────────────
+// The fee table here is the only copy; the FAQ shows the same one.
+function renderPricing() {
+  const data = (window.__cmsContent || {}).pricing;
+  if (!data) return;
+  const wrap = document.getElementById('pricing-table');
+  if (wrap) { wrap.innerHTML = ''; const t = buildTable((data.aum || {}).table); if (t) wrap.appendChild(t); }
+  const fill = (id, items) => {
+    const ul = document.getElementById(id); if (!ul) return;
+    ul.innerHTML = '';
+    (items || []).filter(Boolean).forEach(text => { const li = document.createElement('li'); li.textContent = text; ul.appendChild(li); });
+  };
+  fill('pricing-details', (data.aum || {}).details);
+  fill('pricing-planning-items', (data.planning || {}).items);
+  fill('pricing-included', (data.included || {}).items);
+}
+
 // ── FAQ (built from content/faq.json → items[]) ─────────────────────────
 // Answers can be several paragraphs, and may include a table (used for the
 // advisory fee schedule). Add or reorder questions in the CMS.
@@ -97,24 +134,19 @@ function renderFaq() {
     };
     addParas(item.a);
 
-    if (item.table && (item.table.rows || []).length) {
-      const scroll = document.createElement('div'); scroll.className = 'faq-table-wrap';
-      const tbl = document.createElement('table'); tbl.className = 'faq-table';
-      if ((item.table.headers || []).length) {
-        const thead = document.createElement('thead'); const tr = document.createElement('tr');
-        item.table.headers.forEach(h => { const th = document.createElement('th'); th.textContent = h; tr.appendChild(th); });
-        thead.appendChild(tr); tbl.appendChild(thead);
-      }
-      const tbody = document.createElement('tbody');
-      item.table.rows.forEach(r => {
-        const tr = document.createElement('tr');
-        (r || []).forEach(c => { const td = document.createElement('td'); td.textContent = c; tr.appendChild(td); });
-        tbody.appendChild(tr);
-      });
-      tbl.appendChild(tbody); scroll.appendChild(tbl); inner.appendChild(scroll);
-    }
+    // The fee schedule lives on the Pricing page; an answer can show it with feeTable.
+    const pricing = (window.__cmsContent || {}).pricing || {};
+    const tableData = item.feeTable ? (pricing.aum || {}).table : item.table;
+    const table = buildTable(tableData);
+    if (table) inner.appendChild(table);
 
     addParas(item.aAfter);
+    if (item.pricingLink) {
+      const p = document.createElement('p'); p.className = 'faq-link';
+      const a = document.createElement('a'); a.setAttribute('href', '/pricing');
+      a.textContent = pricing.faqLinkLabel || 'See full pricing';
+      p.appendChild(a); inner.appendChild(p);
+    }
     ans.appendChild(inner); wrap.appendChild(ans);
     list.appendChild(wrap);
   });

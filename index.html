@@ -870,6 +870,35 @@
     }
     .philosophy cite { font-size: .875rem; color: rgba(255,255,255,.5); font-style: normal; letter-spacing: .06em; }
 
+    /* ─── PRICING ─────────────────────────────────────────────── */
+    .pricing-intro { margin-top: 16px; }
+    .pricing-intro p + p { margin-top: 12px; }
+    .pricing-table-card { margin-top: 28px; background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px 28px 22px; box-shadow: var(--shadow); }
+    .pricing-table-card .faq-table-wrap { margin: 0; }
+    .pricing-table-card .faq-table { font-size: 1rem; }
+    .pricing-example { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--border); font-size: .9375rem; }
+    .pricing-details { list-style: none; margin-top: 22px; display: grid; gap: 10px; }
+    .pricing-details li { position: relative; padding-left: 22px; color: var(--text2); line-height: 1.6; }
+    .pricing-details li::before { content: ''; position: absolute; left: 4px; top: .65em; width: 7px; height: 7px; border-radius: 50%; background: var(--gold); }
+    .pricing-card { margin-top: 56px; background: var(--bg2); border-radius: var(--radius-lg); padding: 36px 40px; }
+    .pricing-card h3 { color: var(--navy); margin: 10px 0 12px; }
+    .pricing-card .pricing-details { margin-top: 18px; }
+    .pricing-note { margin-top: 16px; font-size: .9375rem; font-style: italic; }
+    .pricing-included { margin-top: 64px; }
+    .pricing-included > p { margin-top: 14px; }
+    .pricing-checks { list-style: none; margin-top: 22px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px 28px; }
+    .pricing-checks li { position: relative; padding-left: 26px; color: var(--text2); line-height: 1.55; }
+    .pricing-checks li::before { content: '\2713'; position: absolute; left: 0; top: 0; color: var(--gold); font-weight: 700; }
+    .pricing-other { margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--border); }
+    .pricing-other h3 { color: var(--navy); margin-bottom: 10px; }
+    .faq-link { margin-top: 14px; }
+    .faq-link a { color: var(--navy); font-weight: 600; text-decoration: underline; text-decoration-color: var(--gold); text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
+    @media (max-width: 600px) {
+      .pricing-table-card { padding: 18px 16px; }
+      .pricing-card { padding: 28px 22px; }
+      .pricing-checks { grid-template-columns: 1fr; }
+    }
+
     /* ─── HOME: OPENING STATEMENT AND HOW WE THINK ───────────── */
     .on-track { text-align: center; }
     .on-track-lead { font-family: var(--font-display); font-size: clamp(1.3rem, 2.4vw, 1.7rem); line-height: 1.4; color: var(--text); max-width: 42ch; margin: 22px auto 0; text-wrap: balance; }
@@ -1150,7 +1179,7 @@
       .schedule-grid { grid-template-columns: 1fr; gap: 48px; }
     }
     /* Collapse to the mobile menu well before the desktop nav would wrap. */
-    @media (max-width: 1120px) {
+    @media (max-width: 1230px) {
       .nav-links { display: none; }
       .hamburger { display: flex; }
       .nav-drawer { display: flex; }
@@ -1208,6 +1237,7 @@
       <a href="#" onclick="go('about');return false;" id="nl-about" data-cms="global.nav.about">About</a>
       <a href="/blog" id="nl-blog" data-cms="global.nav.blog" data-blog-link style="display:none">Blog</a>
       <a href="#" onclick="go('resources');return false;" id="nl-resources" data-cms="global.nav.resources" data-cms-show="global.showResources">Resources</a>
+      <a href="#" onclick="go('pricing');return false;" id="nl-pricing" data-cms="global.nav.pricing">Pricing</a>
       <a href="#" onclick="go('faq');return false;" id="nl-faq" data-cms="global.nav.faq">FAQ</a>
       <a href="#" class="nav-login" title="Client portal login" data-cms-show="global.showClientLogin" data-cms-attr="href:global.clientLoginUrl">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
@@ -1227,6 +1257,7 @@
   <a href="#" onclick="go('about');closeMenu();return false;" data-cms="global.nav.about">About</a>
   <a href="/blog" data-cms="global.nav.blog" data-blog-link style="display:none">Blog</a>
   <a href="#" onclick="go('resources');closeMenu();return false;" data-cms="global.nav.resources" data-cms-show="global.showResources">Resources</a>
+  <a href="#" onclick="go('pricing');closeMenu();return false;" data-cms="global.nav.pricing">Pricing</a>
   <a href="#" onclick="go('faq');closeMenu();return false;" data-cms="global.nav.faq">FAQ</a>
   <a href="#" data-cms="global.clientLoginLabel" data-cms-show="global.showClientLogin" data-cms-attr="href:global.clientLoginUrl">Client Login</a>
   <a href="#" onclick="go('schedule');closeMenu();return false;" class="nav-cta" data-cms="global.navCta">Schedule a Clarity Call</a>
@@ -1961,6 +1992,69 @@
   <footer id="footer-about"></footer>
 </div>
 
+<!-- ── PRICING ───────────────────────────────────────────────────────────── -->
+<div class="page" id="page-pricing">
+  <section class="page-hero">
+    <div class="hero-bg"></div><div class="hero-atmos"></div><div class="hero-scrim"></div>
+    <div class="page-hero-inner">
+      <div class="hero-eyebrow anim" data-cms="pricing.heroEyebrow">Pricing</div>
+      <h1 class="reveal-mask anim-delay-1" data-cms="pricing.heroTitle">What it costs to work with us.</h1>
+      <p class="page-hero-sub anim anim-delay-2" data-cms="pricing.heroSub">How our fees work, and what they cover.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container-sm">
+
+      <!-- Investment management. The fee table is built from content/pricing.json (aum.table);
+           the FAQ shows this same table, so fees are edited in one place. -->
+      <div class="anim">
+        <div class="label" data-cms="pricing.aum.label">Investment management</div>
+        <div class="divider"></div>
+        <h2 data-cms="pricing.aum.heading">One fee for investment management and planning.</h2>
+        <div class="pricing-intro" data-cms-paras="pricing.aum.intro"></div>
+      </div>
+      <div class="pricing-table-card anim">
+        <div id="pricing-table"></div>
+        <p class="pricing-example" data-cms="pricing.aum.example"></p>
+      </div>
+      <ul class="pricing-details anim" id="pricing-details"></ul>
+
+      <!-- Planning only -->
+      <div class="pricing-card anim">
+        <div class="label" data-cms="pricing.planning.label">Financial planning only</div>
+        <h3 data-cms="pricing.planning.heading">Planning without investment management.</h3>
+        <p data-cms="pricing.planning.body"></p>
+        <ul class="pricing-details" id="pricing-planning-items"></ul>
+        <p class="pricing-note" data-cms="pricing.planning.note"></p>
+      </div>
+
+      <!-- What the fee covers -->
+      <div class="pricing-included anim">
+        <div class="label" data-cms="pricing.included.label">What's included</div>
+        <div class="divider"></div>
+        <h2 data-cms="pricing.included.heading">What the advisory fee covers.</h2>
+        <p data-cms="pricing.included.intro"></p>
+        <ul class="pricing-checks" id="pricing-included"></ul>
+      </div>
+
+      <!-- Other costs -->
+      <div class="pricing-other anim">
+        <h3 data-cms="pricing.otherCosts.heading">Other costs</h3>
+        <p data-cms="pricing.otherCosts.body"></p>
+      </div>
+
+    </div>
+  </section>
+  <section class="cta-band">
+    <div class="container-sm">
+      <h2 class="anim" style="margin-bottom:16px;" data-cms="pricing.closingHeading">Questions about pricing?</h2>
+      <p style="margin-bottom:28px;" data-cms="pricing.closingSub"></p>
+      <button class="btn btn-primary" onclick="go('schedule')" data-cms="pricing.closingButton">Schedule a Clarity Call</button>
+    </div>
+  </section>
+  <footer id="footer-pricing"></footer>
+</div>
+
 <!-- ── FAQ ───────────────────────────────────────────────────────────────── -->
 <div class="page" id="page-faq">
   <section class="page-hero">
@@ -2177,6 +2271,7 @@
         <a onclick="go('about')" data-cms="global.nav.about">About</a>
         <a href="/blog" data-cms="global.nav.blog" data-blog-link style="display:none">Blog</a>
         <a onclick="go('resources')" data-cms="global.nav.resources" data-cms-show="global.showResources">Resources</a>
+        <a onclick="go('pricing')" data-cms="global.nav.pricing">Pricing</a>
         <a onclick="go('faq')" data-cms="global.nav.faq">FAQ</a>
         <a onclick="go('schedule')" data-cms="global.navCta">Schedule a Clarity Call</a>
         <a href="#" data-cms="global.clientLoginLabel" data-cms-show="global.showClientLogin" data-cms-attr="href:global.clientLoginUrl">Client Login</a>
@@ -2225,6 +2320,7 @@
     'resources':    'page-resources',
     'privacy':      'page-privacy',
     'schedule':     'page-schedule',
+    'pricing':      'page-pricing',
     'blog':         'page-blog'
   };
 
@@ -2265,6 +2361,7 @@
       if (pageId === 'about') renderTeam();
       if (pageId === 'privacy') renderPrivacy();
       if (pageId === 'faq') renderFaq();
+      if (pageId === 'pricing') renderPricing();
       if (pageId === 'what-we-do') renderWhatWeDo();
     }
     // Trigger animations for elements in viewport
@@ -2319,6 +2416,7 @@
     renderTeam();
     renderPrivacy();
     renderFaq();
+    renderPricing();
     renderWhatWeDo();
   });
 
@@ -2346,7 +2444,7 @@
 
   // ── Footer injection ─────────────────────────────────────────────────────
   function populateFooter(pageId) {
-    const map = { home: 'footer-home', 'how-we-plan': 'footer-plan', 'what-we-do': 'footer-do', 'who-we-help': 'footer-who', about: 'footer-about', resources: 'footer-resources', privacy: 'footer-privacy', faq: 'footer-faq', schedule: 'footer-schedule' };
+    const map = { home: 'footer-home', 'how-we-plan': 'footer-plan', 'what-we-do': 'footer-do', 'who-we-help': 'footer-who', about: 'footer-about', resources: 'footer-resources', privacy: 'footer-privacy', faq: 'footer-faq', schedule: 'footer-schedule', pricing: 'footer-pricing' };
     const fid = map[pageId];
     if (!fid) return;
     const el = document.getElementById(fid);

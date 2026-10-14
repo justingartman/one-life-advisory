@@ -70,6 +70,7 @@ collections:
               - { name: about, label: "About", widget: string }
               - { name: blog, label: "Blog", widget: string, hint: "The Blog link appears in the menu and footer automatically once at least one post is Published." }
               - { name: resources, label: "Resources", widget: string }
+              - { name: pricing, label: "Pricing", widget: string }
               - { name: faq, label: "FAQ", widget: string }
           - { name: contactEmail, label: "Contact Email", widget: string }
           - { name: contactPhone, label: "Contact Phone", widget: string }
@@ -540,6 +541,8 @@ collections:
                   - { name: headers, label: "Column headings", widget: list, required: false, field: { name: text, label: Heading, widget: string } }
                   - { name: rows, label: "Rows", widget: list, required: false, field: { name: cells, label: "Row (one cell per column, comma separated)", widget: list } }
               - { name: aAfter, label: "Paragraphs after the table", widget: list, required: false, field: { name: text, label: Paragraph, widget: text } }
+              - { name: feeTable, label: "Show the fee table from the Pricing page", widget: boolean, required: false, hint: "Edit the fees on the Pricing page; this answer shows the same table." }
+              - { name: pricingLink, label: "Add a 'See full pricing' link", widget: boolean, required: false }
           - { name: closingNote, label: "Closing Note", widget: string }
           - { name: closingButton, label: "Closing Button", widget: string }
           - name: seo
@@ -551,6 +554,58 @@ collections:
             fields:
               - { name: title, label: "Page title", widget: string, required: false, hint: "About 50–60 characters, e.g. 'Retirement Income Planning | One Life Advisory'." }
               - { name: description, label: "Description", widget: text, required: false, hint: "One or two sentences, about 150 characters." }
+
+      # ---- PRICING ----
+      - name: "pricing"
+        label: "Pricing"
+        file: "content/pricing.json"
+        fields:
+          - { name: heroEyebrow, label: "Header — Eyebrow", widget: string }
+          - { name: heroTitle, label: "Header — Title", widget: string }
+          - { name: heroSub, label: "Header — Subtitle", widget: text }
+          - name: aum
+            label: "Investment Management (fee schedule)"
+            widget: object
+            fields:
+              - { name: label, label: "Eyebrow", widget: string }
+              - { name: heading, label: "Heading", widget: string }
+              - { name: intro, label: "Intro (blank line = new paragraph)", widget: text }
+              - name: table
+                label: "Fee schedule (also shown in the FAQ)"
+                widget: object
+                hint: "Keep this matching Item 5 of your Form ADV Part 2A."
+                fields:
+                  - { name: headers, label: "Column headings", widget: list, field: { name: text, label: Heading, widget: string } }
+                  - { name: rows, label: "Rows", widget: list, field: { name: cells, label: "Row (assets, rate; comma separated)", widget: list } }
+              - { name: example, label: "Worked example", widget: text }
+              - { name: details, label: "Details under the table", widget: list, field: { name: text, label: Line, widget: text } }
+          - name: planning
+            label: "Financial Planning Only"
+            widget: object
+            fields:
+              - { name: label, label: "Eyebrow", widget: string }
+              - { name: heading, label: "Heading", widget: string }
+              - { name: body, label: "Body", widget: text }
+              - { name: items, label: "Fee lines", widget: list, field: { name: text, label: Line, widget: text } }
+              - { name: note, label: "Note (italic)", widget: text }
+          - name: included
+            label: "What's Included"
+            widget: object
+            fields:
+              - { name: label, label: "Eyebrow", widget: string }
+              - { name: heading, label: "Heading", widget: string }
+              - { name: intro, label: "Intro", widget: text }
+              - { name: items, label: "Checklist", widget: list, field: { name: text, label: Item, widget: string } }
+          - name: otherCosts
+            label: "Other Costs"
+            widget: object
+            fields:
+              - { name: heading, label: "Heading", widget: string }
+              - { name: body, label: "Body", widget: text }
+          - { name: faqLinkLabel, label: "Text of the link from the FAQ", widget: string }
+          - { name: closingHeading, label: "Closing — Heading", widget: string }
+          - { name: closingSub, label: "Closing — Subtext", widget: text }
+          - { name: closingButton, label: "Closing — Button", widget: string }
 
       # ---- RESOURCES ----
       # Every list below grows to fit: add as many items as you like and the
