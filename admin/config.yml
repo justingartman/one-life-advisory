@@ -125,12 +125,10 @@ collections:
             fields:
               - { name: label, label: "Eyebrow", widget: string }
               - { name: heading, label: "Heading", widget: string }
-              - { name: body, label: "Body (blank line = new paragraph; the first paragraph is shown larger)", widget: text }
-          - name: fiveQuestions
-            label: "The Five Questions (shown in the Free Guide section)"
-            widget: object
-            fields:
-              - { name: items, label: "The Five Questions", widget: list, field: { name: text, label: Question, widget: string } }
+              - { name: lead, label: "Large line under the heading", widget: text }
+              - { name: pieces, label: "Pieces in the graphic", widget: list, hint: "The graphic shows five.", field: { name: text, label: Piece, widget: string } }
+              - { name: planLabel, label: "Navy label they connect to", widget: string }
+              - { name: body, label: "Closing sentence", widget: text }
           - name: leadMagnet
             label: "Lead Magnet (free guide)"
             widget: object

@@ -11,7 +11,16 @@
   "hook": {
     "label": "The question that matters most",
     "heading": "Is your current path on track?",
-    "body": "Most people have accounts, a 401(k), an insurance policy, Social Security, and maybe a pension. Few have a plan that connects them all.\n\nMoney problems rarely come from one bad decision. More often they come from reasonable decisions made one at a time, without a clear view of how each one affects the others.\n\nWe start with the life you want your money to support, look at whether your current direction gets you there, and build one plan where every piece works together."
+    "lead": "Most people have accounts, a 401(k), an insurance policy, Social Security, and maybe a pension. Few have a plan that connects them all.",
+    "pieces": [
+      "Accounts",
+      "401(k)",
+      "Insurance",
+      "Social Security",
+      "Pension"
+    ],
+    "planLabel": "One coordinated plan",
+    "body": "We start with the life you want your money to support, look at whether your current direction gets you there, and build one plan where every piece works together."
   },
   "whoWeServe": {
     "heading": "We help people live on purpose, not by default.",
@@ -120,17 +129,8 @@
   "leadMagnet": {
     "show": true,
     "label": "Free Guide",
-    "heading": "Not ready to talk? Start with five questions.",
-    "body": "Work through the five questions on your own before you ever get on a call. Our short, plain-language guide walks through each one, and you can finish it in ten minutes.",
+    "heading": "Not ready to talk? Start with the guide.",
+    "body": "Work through the five questions on your own before you ever get on a call. A short, plain-language guide you can finish in ten minutes.",
     "buttonLabel": "Send me the guide"
-  },
-  "fiveQuestions": {
-    "items": [
-      "Will your money last as long as you do?",
-      "What could go wrong?",
-      "Does your portfolio have a clear purpose?",
-      "Where are you losing money unnecessarily?",
-      "What happens to your money when you're gone?"
-    ]
   }
 }
