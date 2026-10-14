@@ -870,6 +870,33 @@
     }
     .philosophy cite { font-size: .875rem; color: rgba(255,255,255,.5); font-style: normal; letter-spacing: .06em; }
 
+    /* ─── HOME: TRUST LINE, HOOK, HOW WE THINK, FREE GUIDE ────── */
+    .hook-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 72px; align-items: start; }
+    .hook-heading { font-size: clamp(2.2rem, 4.2vw, 3.3rem); line-height: 1.08; max-width: 12ch; }
+    .hook-body p { font-size: 1.125rem; line-height: 1.8; }
+    .hook-body p + p { margin-top: 16px; }
+    .hook-body p:first-child { font-family: var(--font-display); font-size: clamp(1.35rem, 2.2vw, 1.6rem); line-height: 1.4; color: var(--text); }
+    .order-compact .order-step { padding: 22px 20px 24px; }
+    .order-compact .order-step h4 { margin: 0 0 6px; font-size: 1.3rem; }
+    .guide-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 64px; align-items: center; }
+    .guide-questions { list-style: none; counter-reset: q; margin-top: 26px; }
+    .guide-questions li { counter-increment: q; display: flex; gap: 14px; align-items: baseline; padding: 11px 0; border-bottom: 1px solid var(--border); font-weight: 600; color: var(--text); font-size: 1rem; }
+    .guide-questions li:last-child { border-bottom: none; }
+    .guide-questions li::before { content: counter(q); flex-shrink: 0; width: 1.2em; font-family: var(--font-display); font-weight: 500; font-size: 1.15rem; color: var(--gold); }
+    .guide-form { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 34px 32px; box-shadow: var(--shadow); }
+    .guide-form .lm-embed { margin: 0; max-width: none; }
+    @media (max-width: 900px) {
+      .hook-grid, .guide-grid { grid-template-columns: 1fr; gap: 28px; }
+      .hook-heading { max-width: none; }
+    }
+    @media (max-width: 600px) { .guide-form { padding: 26px 20px; } }
+    @media (max-width: 560px) {
+      .order-grid.order-compact { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+      .order-compact .order-step { padding: 18px 16px 20px; }
+      .order-compact .order-step h4 { font-size: 1.15rem; }
+      .order-compact .order-step p { font-size: .875rem; }
+    }
+
     /* ─── THE PIECES OF THE PLAN (What We Do) ────────────────── */
     .pieces-head { margin-bottom: 28px; }
     .pieces-head > p { max-width: 64ch; }
@@ -1237,46 +1264,21 @@
         <button class="btn btn-outline" onclick="go('how-we-plan')" data-cms="home.hero.ctaSecondary">See how we plan</button>
       </div>
     </div>
-    <div class="hero-scroll" onclick="document.querySelector('#five-questions').scrollIntoView({behavior:'smooth'})" aria-label="Scroll down">
+    <div class="hero-scroll" onclick="document.querySelector('#on-track').scrollIntoView({behavior:'smooth'})" aria-label="Scroll down">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
     </div>
   </section>
 
-  <!-- The Offer — Five Questions -->
-  <section class="section" id="five-questions">
-    <div class="container-sm">
-      <div class="anim">
-        <div class="label" data-cms="home.fiveQuestions.label">The Offer</div>
-        <div class="divider"></div>
-        <h2 data-cms="home.fiveQuestions.heading">Five questions.</h2>
-        <p style="margin-top:16px;" data-cms="home.fiveQuestions.body">Most of financial planning comes down to five questions. We answer them clearly, and we keep them answered.</p>
-      </div>
-      <div class="process-preview anim anim-delay-1" style="margin-top:36px;">
-        <div class="pp-step">
-          <div class="pp-num">1</div>
-          <div class="pp-body"><h4 data-cms="home.fiveQuestions.items.0">Will your money last as long as you do?</h4></div>
+  <!-- The hook: is your current path on track? -->
+  <section class="section" id="on-track">
+    <div class="container">
+      <div class="hook-grid">
+        <div class="anim">
+          <div class="label" data-cms="home.hook.label">The question that matters most</div>
+          <div class="divider"></div>
+          <h2 class="hook-heading" data-cms="home.hook.heading">Is your current path on track?</h2>
         </div>
-        <div class="pp-step">
-          <div class="pp-num">2</div>
-          <div class="pp-body"><h4 data-cms="home.fiveQuestions.items.1">What could go wrong?</h4></div>
-        </div>
-        <div class="pp-step">
-          <div class="pp-num">3</div>
-          <div class="pp-body"><h4 data-cms="home.fiveQuestions.items.2">Does your portfolio have a clear purpose?</h4></div>
-        </div>
-        <div class="pp-step">
-          <div class="pp-num">4</div>
-          <div class="pp-body"><h4 data-cms="home.fiveQuestions.items.3">Where are you losing money unnecessarily?</h4></div>
-        </div>
-        <div class="pp-step">
-          <div class="pp-num">5</div>
-          <div class="pp-body"><h4 data-cms="home.fiveQuestions.items.4">What happens to your money when you're gone?</h4></div>
-        </div>
-      </div>
-      <div class="anim">
-        <p style="margin-top:28px;" data-cms="home.fiveQuestions.body2">These aren't questions you answer once and file away. Markets move, tax law changes, and life doesn't hold still. So we answer them at the start, and we answer them again every year you're with us.</p>
-        <p style="margin-top:12px;font-style:italic;" data-cms="home.fiveQuestions.note">Still building toward retirement? The first question becomes: will you get where you want to go? The other four don't change.</p>
-        <button class="btn btn-outline" style="margin-top:28px;" onclick="go('how-we-plan')" data-cms="home.fiveQuestions.linkLabel">See how it works</button>
+        <div class="hook-body anim anim-delay-1" data-cms-paras="home.hook.body"><p>Most people have accounts. Few have a plan that connects them.</p></div>
       </div>
     </div>
   </section>
@@ -1344,6 +1346,28 @@
     </div>
   </section>
 
+  <!-- How we think: purpose first, then the order of operations -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header center anim" style="margin-bottom:36px;">
+        <div class="label" data-cms="home.order.label">How we think</div>
+        <div class="divider divider-center"></div>
+        <h3 style="color:var(--navy);" data-cms="home.order.heading">Purpose first. Then balance, protect, save, and grow.</h3>
+      </div>
+      <ul class="order-grid order-compact anim anim-delay-1">
+        <li class="order-step order-purpose"><h4 data-cms="home.order.items.0.title">Purpose</h4><p data-cms="home.order.items.0.desc"></p></li>
+        <li class="order-step"><h4 data-cms="home.order.items.1.title">Balance</h4><p data-cms="home.order.items.1.desc"></p></li>
+        <li class="order-step"><h4 data-cms="home.order.items.2.title">Protect</h4><p data-cms="home.order.items.2.desc"></p></li>
+        <li class="order-step"><h4 data-cms="home.order.items.3.title">Save</h4><p data-cms="home.order.items.3.desc"></p></li>
+        <li class="order-step"><h4 data-cms="home.order.items.4.title">Grow</h4><p data-cms="home.order.items.4.desc"></p></li>
+      </ul>
+      <div class="anim" style="text-align:center;margin-top:24px;">
+        <p class="order-note" data-cms="home.order.closing">We work on them together.</p>
+        <button class="btn btn-outline" style="margin-top:20px;" onclick="go('what-we-do')" data-cms="home.order.button">How we think about each piece</button>
+      </div>
+    </div>
+  </section>
+
   <!-- How We Plan Preview -->
   <section class="section bg-alt">
     <div class="container">
@@ -1403,43 +1427,56 @@
     </div>
   </section>
 
-  <!-- Lead Magnet — hidden until the email form is connected. Turn on in /admin → Pages → Home → Lead Magnet. -->
-  <section class="section-sm" style="display:none;" data-cms-show="home.leadMagnet.show">
-    <div class="container-sm" style="text-align:center;">
-      <div class="label anim" data-cms="home.leadMagnet.label">Free Guide</div>
-      <div class="divider divider-center"></div>
-      <h2 class="anim anim-delay-1" data-cms="home.leadMagnet.heading">Not ready to talk? Start with the guide.</h2>
-      <p class="anim anim-delay-2" style="max-width:560px;margin:16px auto 0;" data-cms="home.leadMagnet.body">Work through the five questions on your own before you ever get on a call. A short, plain-language guide you can finish in ten minutes.</p>
+  <!-- Not ready yet? The five questions and the free guide. Turn on/off in /admin → Pages → Home → Lead Magnet. -->
+  <section class="section-sm guide-section" style="display:none;" data-cms-show="home.leadMagnet.show">
+    <div class="container">
+      <div class="guide-grid">
+        <div class="anim">
+          <div class="label" data-cms="home.leadMagnet.label">Free Guide</div>
+          <div class="divider"></div>
+          <h2 data-cms="home.leadMagnet.heading">Not ready to talk? Start with five questions.</h2>
+          <p style="margin-top:16px;" data-cms="home.leadMagnet.body">Work through these five questions on your own before you ever get on a call.</p>
+          <ol class="guide-questions">
+            <li data-cms="home.fiveQuestions.items.0">Will your money last as long as you do?</li>
+            <li data-cms="home.fiveQuestions.items.1">What could go wrong?</li>
+            <li data-cms="home.fiveQuestions.items.2">Does your portfolio have a clear purpose?</li>
+            <li data-cms="home.fiveQuestions.items.3">Where are you losing money unnecessarily?</li>
+            <li data-cms="home.fiveQuestions.items.4">What happens to your money when you're gone?</li>
+          </ol>
+        </div>
+        <div class="guide-form">
       <!-- Kit (ConvertKit) form, form 9955665 / uid edac75023a.
-           Kit's own <style> block and inline styles were removed so the form
-           inherits the site's design; the brand styling lives in CSS under
-           "LEAD MAGNET FORM". Class names and data- attributes are kept as
-           Kit generated them because ck.5.js relies on them.
-           The heading and intro above come from /admin, so Kit's own header
-           and subheader are intentionally not included here. -->
-      <div class="lm-embed anim anim-delay-2" data-clarity-mask="true">
-        <form action="https://app.kit.com/forms/9955665/subscriptions"
-              class="seva-form formkit-form" method="post"
-              data-sv-form="9955665" data-uid="edac75023a"
-              data-format="inline" data-version="5"
-              data-options="{&quot;settings&quot;:{&quot;after_subscribe&quot;:{&quot;action&quot;:&quot;message&quot;,&quot;success_message&quot;:&quot;Success! Your guide is on the way!&quot;,&quot;redirect_url&quot;:&quot;&quot;},&quot;analytics&quot;:{&quot;google&quot;:null,&quot;fathom&quot;:null,&quot;facebook&quot;:null,&quot;segment&quot;:null,&quot;pinterest&quot;:null,&quot;sparkloop&quot;:null,&quot;googletagmanager&quot;:null},&quot;modal&quot;:{&quot;trigger&quot;:&quot;timer&quot;,&quot;scroll_percentage&quot;:null,&quot;timer&quot;:5,&quot;devices&quot;:&quot;all&quot;,&quot;show_once_every&quot;:15},&quot;powered_by&quot;:{&quot;show&quot;:false,&quot;url&quot;:&quot;https://kit.com/features/forms?utm_campaign=poweredby&amp;utm_content=form&amp;utm_medium=referral&amp;utm_source=dynamic&quot;},&quot;recaptcha&quot;:{&quot;enabled&quot;:false},&quot;return_visitor&quot;:{&quot;action&quot;:&quot;show&quot;,&quot;custom_content&quot;:&quot;&quot;},&quot;slide_in&quot;:{&quot;display_in&quot;:&quot;bottom_right&quot;,&quot;trigger&quot;:&quot;timer&quot;,&quot;scroll_percentage&quot;:null,&quot;timer&quot;:5,&quot;devices&quot;:&quot;all&quot;,&quot;show_once_every&quot;:15},&quot;sticky_bar&quot;:{&quot;display_in&quot;:&quot;top&quot;,&quot;trigger&quot;:&quot;timer&quot;,&quot;scroll_percentage&quot;:null,&quot;timer&quot;:5,&quot;devices&quot;:&quot;all&quot;,&quot;show_once_every&quot;:15}},&quot;version&quot;:&quot;5&quot;}">
-          <div data-style="minimal">
-            <ul class="formkit-alert formkit-alert-error" data-element="errors" data-group="alert"></ul>
-            <div data-element="fields" data-stacked="true" class="seva-fields formkit-fields">
-              <div class="formkit-field">
-                <input class="formkit-input" aria-label="First Name" name="fields[first_name]" required="" placeholder="First Name" type="text" autocomplete="given-name">
+             Kit's own <style> block and inline styles were removed so the form
+             inherits the site's design; the brand styling lives in CSS under
+             "LEAD MAGNET FORM". Class names and data- attributes are kept as
+             Kit generated them because ck.5.js relies on them.
+             The heading and intro above come from /admin, so Kit's own header
+             and subheader are intentionally not included here. -->
+        <div class="lm-embed anim anim-delay-2" data-clarity-mask="true">
+          <form action="https://app.kit.com/forms/9955665/subscriptions"
+                class="seva-form formkit-form" method="post"
+                data-sv-form="9955665" data-uid="edac75023a"
+                data-format="inline" data-version="5"
+                data-options="{&quot;settings&quot;:{&quot;after_subscribe&quot;:{&quot;action&quot;:&quot;message&quot;,&quot;success_message&quot;:&quot;Success! Your guide is on the way!&quot;,&quot;redirect_url&quot;:&quot;&quot;},&quot;analytics&quot;:{&quot;google&quot;:null,&quot;fathom&quot;:null,&quot;facebook&quot;:null,&quot;segment&quot;:null,&quot;pinterest&quot;:null,&quot;sparkloop&quot;:null,&quot;googletagmanager&quot;:null},&quot;modal&quot;:{&quot;trigger&quot;:&quot;timer&quot;,&quot;scroll_percentage&quot;:null,&quot;timer&quot;:5,&quot;devices&quot;:&quot;all&quot;,&quot;show_once_every&quot;:15},&quot;powered_by&quot;:{&quot;show&quot;:false,&quot;url&quot;:&quot;https://kit.com/features/forms?utm_campaign=poweredby&amp;utm_content=form&amp;utm_medium=referral&amp;utm_source=dynamic&quot;},&quot;recaptcha&quot;:{&quot;enabled&quot;:false},&quot;return_visitor&quot;:{&quot;action&quot;:&quot;show&quot;,&quot;custom_content&quot;:&quot;&quot;},&quot;slide_in&quot;:{&quot;display_in&quot;:&quot;bottom_right&quot;,&quot;trigger&quot;:&quot;timer&quot;,&quot;scroll_percentage&quot;:null,&quot;timer&quot;:5,&quot;devices&quot;:&quot;all&quot;,&quot;show_once_every&quot;:15},&quot;sticky_bar&quot;:{&quot;display_in&quot;:&quot;top&quot;,&quot;trigger&quot;:&quot;timer&quot;,&quot;scroll_percentage&quot;:null,&quot;timer&quot;:5,&quot;devices&quot;:&quot;all&quot;,&quot;show_once_every&quot;:15}},&quot;version&quot;:&quot;5&quot;}">
+            <div data-style="minimal">
+              <ul class="formkit-alert formkit-alert-error" data-element="errors" data-group="alert"></ul>
+              <div data-element="fields" data-stacked="true" class="seva-fields formkit-fields">
+                <div class="formkit-field">
+                  <input class="formkit-input" aria-label="First Name" name="fields[first_name]" required="" placeholder="First Name" type="text" autocomplete="given-name">
+                </div>
+                <div class="formkit-field">
+                  <input class="formkit-input" name="email_address" aria-label="Email Address" placeholder="Email Address" required="" type="email" autocomplete="email">
+                </div>
+                <button data-element="submit" class="formkit-submit">
+                  <div class="formkit-spinner"><div></div><div></div><div></div></div>
+                  <span data-cms="home.leadMagnet.buttonLabel">Send me the guide</span>
+                </button>
               </div>
-              <div class="formkit-field">
-                <input class="formkit-input" name="email_address" aria-label="Email Address" placeholder="Email Address" required="" type="email" autocomplete="email">
-              </div>
-              <button data-element="submit" class="formkit-submit">
-                <div class="formkit-spinner"><div></div><div></div><div></div></div>
-                <span data-cms="home.leadMagnet.buttonLabel">Send me the guide</span>
-              </button>
+              <div class="formkit-guarantee" data-element="guarantee">We won't send you spam. Unsubscribe at any time.</div>
             </div>
-            <div class="formkit-guarantee" data-element="guarantee">We won't send you spam. Unsubscribe at any time.</div>
-          </div>
-        </form>
+          </form>
+        </div>
+        </div>
       </div>
     </div>
   </section>

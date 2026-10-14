@@ -1,50 +1,21 @@
 {
   "heroImage": "/assets/hero.webp",
-  "whoWeServe": {
-    "heading": "We help people live on purpose, not by default.",
-    "body": "Whether you're approaching retirement, already there, or still building toward it, we help you make thoughtful decisions about how your money supports your life.\n\nThe work changes depending on where you are. The goal is a plan that helps you understand what comes next and how the pieces fit together."
-  },
-  "leadMagnet": {
-    "show": true,
-    "label": "Free Guide",
-    "heading": "Not ready to talk? Start with the guide.",
-    "body": "Work through the five questions on your own before you ever get on a call. A short, plain-language guide you can finish in ten minutes.",
-    "buttonLabel": "Send me the guide"
-  },
-  "philosophy": {
-    "label": "Why We Exist",
-    "quote": "Money on its own doesn't mean much. What matters is what it lets you do, who it lets you take care of, and the life it helps you live.",
-    "body": "We started One Life Advisory because we believe a financial plan should start with purpose, not products. One plan. Built around your purpose, designed to support the life you want. Not just until you retire, but for every year after.",
-    "button": "Our story →"
-  },
-  "finalCta": {
-    "label": "Get Started",
-    "heading": "Ready to talk?",
-    "sub": "The first step is a free Clarity Call. We'll spend 15 to 30 minutes talking about what's on your mind, what you're trying to accomplish, and whether we may be able to help.",
-    "button": "Schedule a Clarity Call"
-  },
   "hero": {
     "eyebrow": "Purposeful Financial Planning",
     "headlineLead": "Designed for your",
     "headlineAccent": "one life",
-    "sub": "We help you make thoughtful decisions about your money, from the years leading up to retirement through the years that follow. It starts with what you want your money to do, and a plan that keeps up as your life changes.",
+    "sub": "Financial planning for people approaching or living in retirement. We start with the life you want, show you whether you're on track, and build one coordinated plan to help get you there.",
     "ctaPrimary": "Schedule a Clarity Call",
     "ctaSecondary": "See how we plan"
   },
-  "fiveQuestions": {
-    "label": "Questions worth asking",
-    "heading": "5 questions",
-    "body": "Most of financial planning comes back to a handful of questions like these. They're a good place to start, whether or not we ever work together.",
-    "items": [
-      "Will your money last as long as you do?",
-      "What could go wrong?",
-      "Does your portfolio have a clear purpose?",
-      "Where are you losing money unnecessarily?",
-      "What happens to your money when you're gone?"
-    ],
-    "body2": "None of them has a one-time answer. Markets move, tax law changes, and life doesn't hold still, so a good plan keeps coming back to them.",
-    "note": "Still building toward retirement? The first question becomes: will you get where you want to go? The other four don't change.",
-    "linkLabel": "See how it works"
+  "hook": {
+    "label": "The question that matters most",
+    "heading": "Is your current path on track?",
+    "body": "Most people have accounts, a 401(k), an insurance policy, Social Security, and maybe a pension. Few have a plan that connects them all.\n\nMoney problems rarely come from one bad decision. More often they come from reasonable decisions made one at a time, without a clear view of how each one affects the others.\n\nWe start with the life you want your money to support, look at whether your current direction gets you there, and build one plan where every piece works together."
+  },
+  "whoWeServe": {
+    "heading": "We help people live on purpose, not by default.",
+    "body": "Whether you're approaching retirement, already there, or still building toward it, we help you make thoughtful decisions about how your money supports your life.\n\nThe work changes depending on where you are. The goal is a plan that helps you understand what comes next and how the pieces fit together."
   },
   "covers": {
     "label": "What We Do",
@@ -78,6 +49,34 @@
     ],
     "button": "See the full plan"
   },
+  "order": {
+    "label": "How we think",
+    "heading": "Purpose first. Then balance, protect, save, and grow.",
+    "items": [
+      {
+        "title": "Purpose",
+        "desc": "What you want your money to support."
+      },
+      {
+        "title": "Balance",
+        "desc": "Spending and saving that can sustain it."
+      },
+      {
+        "title": "Protect",
+        "desc": "Guarding against what could knock it off course."
+      },
+      {
+        "title": "Save",
+        "desc": "A reserve you can reach when life happens."
+      },
+      {
+        "title": "Grow",
+        "desc": "Long-term investing for the goals further out."
+      }
+    ],
+    "closing": "We work on them together, because each one affects the others.",
+    "button": "How we think about each piece"
+  },
   "planPreview": {
     "label": "How We Plan",
     "heading": "Our planning process starts with you, not your accounts.",
@@ -104,6 +103,34 @@
         "title": "Ongoing Support & Reviews",
         "desc": "Continuing to improve the plan as life changes."
       }
+    ]
+  },
+  "philosophy": {
+    "label": "Why We Exist",
+    "quote": "Money on its own doesn't mean much. What matters is what it lets you do, who it lets you take care of, and the life it helps you live.",
+    "body": "We started One Life Advisory because we believe a financial plan should start with purpose, not products. One plan. Built around your purpose, designed to support the life you want. Not just until you retire, but for every year after.",
+    "button": "Our story →"
+  },
+  "finalCta": {
+    "label": "Get Started",
+    "heading": "Ready to talk?",
+    "sub": "The first step is a free Clarity Call. We'll spend 15 to 30 minutes talking about what's on your mind, what you're trying to accomplish, and whether we may be able to help.",
+    "button": "Schedule a Clarity Call"
+  },
+  "leadMagnet": {
+    "show": true,
+    "label": "Free Guide",
+    "heading": "Not ready to talk? Start with five questions.",
+    "body": "Work through the five questions on your own before you ever get on a call. Our short, plain-language guide walks through each one, and you can finish it in ten minutes.",
+    "buttonLabel": "Send me the guide"
+  },
+  "fiveQuestions": {
+    "items": [
+      "Will your money last as long as you do?",
+      "What could go wrong?",
+      "Does your portfolio have a clear purpose?",
+      "Where are you losing money unnecessarily?",
+      "What happens to your money when you're gone?"
     ]
   }
 }
