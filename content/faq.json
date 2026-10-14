@@ -4,39 +4,6 @@
   "heroSub": "We've answered some of the questions that tend to come up before someone decides whether to work with us. If yours isn't here, reach out and we'll be happy to talk through it.",
   "items": [
     {
-      "q": "Who do you typically work with?",
-      "a": [
-        "Most of our clients are approaching retirement or already retired.",
-        "Some are still several years away and want to make sure they're making good decisions before retirement. Others are already retired and want help managing income, investments, taxes, insurance, and the other financial decisions that come with it.",
-        "We also work with some people earlier in the process when the relationship makes sense."
-      ]
-    },
-    {
-      "q": "Do you have a minimum?",
-      "a": [
-        "Our current minimum for investment management is $250,000 in assets available for us to manage.",
-        "If you are below that amount, we may be able to work together through our financial planning service instead."
-      ]
-    },
-    {
-      "q": "What does working with One Life Advisory include?",
-      "a": [
-        "For investment management clients, financial planning is included as part of the relationship.",
-        "We manage your investment portfolio based on your goals, time horizon, and comfort with risk. We also help with the broader decisions around your financial life.",
-        "Depending on your situation, that may include retirement income planning, cash flow, insurance, tax considerations, beneficiary decisions, and coordination with your estate plan.",
-        "The exact planning work depends on what is relevant to you."
-      ]
-    },
-    {
-      "q": "Can I work with you just for financial planning?",
-      "a": [
-        "Yes, if you are below our minimum for investment management.",
-        "Standalone financial planning is an ongoing relationship. We start by understanding your financial situation and building an initial written plan. From there, we continue to review and update the plan as things change.",
-        "There is a $400 initiation fee. The ongoing fee is based on the complexity of your situation and the planning work involved. We agree on that fee with you before you decide to move forward.",
-        "If you later have enough assets available for us to manage, we can discuss moving into an investment management relationship, where ongoing financial planning is included."
-      ]
-    },
-    {
       "q": "How much does it cost to work with One Life Advisory?",
       "a": [
         "For clients who have us manage their investments, our advisory fee is based on the amount we manage. The fee is tiered, so each portion of the portfolio is charged at the rate for that tier."
@@ -86,7 +53,40 @@
         "The minimum annual advisory fee is $2,400.",
         "Financial planning is included for investment management clients.",
         "For planning-only clients, there is a $400 initiation fee followed by an ongoing fee based on the complexity and scope of the planning relationship.",
-        "Depending on how your portfolio is invested, there may also be third-party platform, investment manager, or investment expenses. We explain those before anything is implemented."
+        "Depending on how your portfolio is invested, there may also be third-party platform or investment expenses which is separate from the One Life Advisory cost. We explain those before anything is implemented."
+      ]
+    },
+    {
+      "q": "Do you have a minimum?",
+      "a": [
+        "Our current minimum for investment management is $250,000 in assets available for us to manage.",
+        "If you are below that amount, we may be able to work together through our financial planning service instead."
+      ]
+    },
+    {
+      "q": "Can I work with you just for financial planning?",
+      "a": [
+        "Yes, if you are below our minimum for investment management.",
+        "Standalone financial planning is an ongoing relationship. We start by understanding your financial situation and building an initial written plan. From there, we continue to review and update the plan as things change.",
+        "There is a $400 initiation fee. The ongoing fee is based on the complexity of your situation and the planning work involved. We agree on that fee with you before you decide to move forward.",
+        "If you later have enough assets available for us to manage, we can discuss moving into an investment management relationship, where ongoing financial planning is included."
+      ]
+    },
+    {
+      "q": "What does working with One Life Advisory include?",
+      "a": [
+        "For investment management clients, financial planning is included as part of the relationship.",
+        "We manage your investment portfolio based on your goals, time horizon, and comfort with risk. We also help with the broader decisions around your financial life.",
+        "Depending on your situation, that may include retirement income planning, cash flow, insurance, tax considerations, beneficiary decisions, and coordination with your estate plan.",
+        "The exact planning work depends on what is relevant to you."
+      ]
+    },
+    {
+      "q": "Who do you typically work with?",
+      "a": [
+        "Most of our clients are approaching retirement or already retired.",
+        "Some are still several years away and want to make sure they're making good decisions before retirement. Others are already retired and want help managing income, investments, taxes, insurance, and the other financial decisions that come with it.",
+        "We also work with some people earlier in the process when the relationship makes sense."
       ]
     },
     {
