@@ -190,7 +190,9 @@ function loadPosts() {
       wantedSlug: slugify(fm.urlSlug),
       oldSlugs: list(fm.oldAddresses).map(a => slugify(a.replace(/^.*\/blog\//, ''))).filter(Boolean),
       title: String(fm.title).trim(),
+      seoTitle: String(fm.seoTitle || '').trim(),
       description: String(fm.description || '').trim() || truncate(text, 155),
+      excerpt: String(fm.excerpt || '').trim(),
       date,
       updated: updated && updated > date ? updated : null,
       status: STATUS_LABEL[String(fm.status || '').toLowerCase()] ? String(fm.status).toLowerCase() : 'draft',
@@ -443,7 +445,7 @@ function card(p, featured = false) {
     `<div class="blog-card-body">` +
     `<div class="blog-meta">${topic ? `<span class="blog-meta-topic">${esc(topic)}</span>` : ''}` +
     `<time datetime="${isoDate(p.date)}">${longDate(p.date)}</time>${draftBadge(p)}</div>` +
-    `<h3>${esc(p.title)}</h3><p>${esc(p.description)}</p>` +
+    `<h3>${esc(p.title)}</h3><p>${esc(p.excerpt || p.description)}</p>` +
     `<span class="blog-card-more">${esc(BLOG.readMoreLabel || 'Read article')} ${ARROW}</span>` +
     `</div></a></article>`;
 }
@@ -581,7 +583,7 @@ function buildPost(p) {
   const url = SITE + p.url;
   const image = p.image || DEFAULT_IMAGE;
   setHead(document, {
-    title: `${p.title} | ${SITE_NAME}`,
+    title: `${p.seoTitle || p.title} | ${SITE_NAME}`,
     description: truncate(p.description),
     url,
     image,

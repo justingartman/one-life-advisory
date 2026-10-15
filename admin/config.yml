@@ -814,7 +814,9 @@ collections:
         hint: "Only Published posts appear on the site, in blog search, in Google's sitemap, and in the feed Kit can email from."
       - { name: date, label: "Publish date", widget: datetime, format: "YYYY-MM-DD", date_format: "MMMM D, YYYY", time_format: false, picker_utc: true }
       - { name: updated, label: "Last updated", widget: datetime, format: "YYYY-MM-DD", date_format: "MMMM D, YYYY", time_format: false, picker_utc: true, required: false, default: "", hint: "Set this when you make a meaningful revision. It's shown on the post and to Google." }
-      - { name: description, label: "Summary", widget: text, hint: "One or two sentences, about 150 characters. Shown on the blog list, in Google results, and when the post is shared." }
+      - { name: seoTitle, label: "Google title (optional)", widget: string, required: false, hint: "A shorter title for Google results and browser tabs, about 60 characters. Leave blank to use the article title." }
+      - { name: description, label: "Google description", widget: text, hint: "One or two sentences, about 150 characters. Shown in Google results and when the post is shared, and on the blog list unless you fill in Card summary." }
+      - { name: excerpt, label: "Card summary (optional)", widget: text, required: false, hint: "A different summary for the blog list and related-post cards. Leave blank to use the Google description." }
       - name: topics
         label: "Topics"
         widget: relation
