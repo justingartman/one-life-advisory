@@ -143,7 +143,7 @@
           },
           {
             "name": "Transition planning",
-            "text": "Moving from what you own today to your new strategy while managing the tax cost of making changes (when needed)"
+            "text": "Moving from what you own today to your new strategy, while managing any tax cost of the change."
           },
           {
             "name": "Asset location",
@@ -160,11 +160,15 @@
         "items": [
           {
             "name": "Tax bracket management",
-            "text": "Actively planning across ordinary income, IRMAA, NIIT, capital gains, state taxes, and possible Roth conversions with the goal of minimizing lifetime tax burden."
+            "text": "Planning each year across ordinary income, capital gains, Roth conversions, and the net investment income tax, with the goal of lowering your lifetime tax bill, not just this year's."
+          },
+          {
+            "name": "Easy-to-miss retirement taxes",
+            "text": "Planning around required minimum distributions (RMDs), how Social Security is taxed, and income-based Medicare premiums (IRMAA)."
           },
           {
             "name": "Tax projections",
-            "text": "Modeling of your taxes with a forward looking projection to identify possible opportunities before they get here."
+            "text": "Projecting your taxes years ahead, so you can spot opportunities while there's still time to act on them."
           },
           {
             "name": "Charitable giving",
@@ -172,7 +176,7 @@
           },
           {
             "name": "CPA coordination",
-            "text": "Working from the same information as your CPA, who remains responsible for preparing and filing your returns. We can work together to make sure we are on the same page."
+            "text": "Working from the same information as your CPA, so your planning and tax work stay on the same page. Your CPA remains responsible for preparing and filing your returns."
           }
         ]
       },
@@ -193,7 +197,7 @@
           },
           {
             "name": "Insurance as an asset",
-            "text": "Reviewing if life insurance cash value or annuities can be used to enhance the other areas of your plan."
+            "text": "Insurance is one of our specialties, and it's often overlooked in planning. We look at how life insurance cash value and annuities could support your income, taxes, or legacy, starting with what you already own and adding to it only when it makes sense."
           }
         ]
       },
