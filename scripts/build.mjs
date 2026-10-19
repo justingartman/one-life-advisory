@@ -50,7 +50,7 @@ const PAGES = {
   'resources':   { el: 'page-resources',   content: 'resources',   nav: 'resources' },
   'privacy':     { el: 'page-privacy',     content: 'privacy',     label: 'Privacy Policy' },
   'schedule':    { el: 'page-schedule',    content: 'schedule',    label: 'Schedule a Clarity Call' },
-  'pricing':     { el: 'page-pricing',     content: 'pricing',     nav: 'pricing' },
+  'services-and-fees': { el: 'page-pricing', content: 'pricing', nav: 'pricing' },
 };
 const pageHref = id => (id === 'home' ? '/' : '/' + id);
 

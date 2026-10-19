@@ -1,7 +1,7 @@
 {
-  "heroEyebrow": "Pricing",
-  "heroTitle": "What it costs to work with us.",
-  "heroSub": "Our fees are published, so you can see how they work before we ever meet. Here's what you'd pay, and what it covers.",
+  "heroEyebrow": "Services & Fees",
+  "heroTitle": "What you get, and what it costs.",
+  "heroSub": "Here's what working with us includes, and what you'd pay for it. Our fees are published, so you can see how they work before we ever meet.",
   "aum": {
     "label": "Investment management",
     "heading": "One fee for investment management and planning.",
@@ -64,7 +64,7 @@
     "note": "We agree on the fee with you before you decide to move forward."
   },
   "included": {
-    "label": "What's included",
+    "label": "What you get",
     "heading": "What the advisory fee covers.",
     "intro": "For investment management clients, financial planning is part of the relationship. Depending on your situation, that can include:",
     "items": [
@@ -82,8 +82,8 @@
     "heading": "Other costs",
     "body": "Depending on how your portfolio is invested, there may also be third-party platform or investment expenses, which are separate from the One Life Advisory fee. We explain those before anything is implemented."
   },
-  "faqLinkLabel": "See full pricing",
-  "closingHeading": "Questions about pricing?",
+  "faqLinkLabel": "See services and fees",
+  "closingHeading": "Questions about our services or fees?",
   "closingSub": "Bring them to the Clarity Call. We'll walk through what working together would look like for your situation.",
   "closingButton": "Schedule a Clarity Call"
 }

@@ -82,7 +82,7 @@ function buildTable(t) {
   return scroll;
 }
 
-// ── Pricing page (built from content/pricing.json) ───────────────────────
+// ── Services & Fees page (built from content/pricing.json) ───────────────────────
 // The fee table here is the only copy; the FAQ shows the same one.
 function renderPricing() {
   const data = (window.__cmsContent || {}).pricing;
@@ -134,7 +134,7 @@ function renderFaq() {
     };
     addParas(item.a);
 
-    // The fee schedule lives on the Pricing page; an answer can show it with feeTable.
+    // The fee schedule lives on the Services & Fees page; an answer can show it with feeTable.
     const pricing = (window.__cmsContent || {}).pricing || {};
     const tableData = item.feeTable ? (pricing.aum || {}).table : item.table;
     const table = buildTable(tableData);
@@ -143,8 +143,8 @@ function renderFaq() {
     addParas(item.aAfter);
     if (item.pricingLink) {
       const p = document.createElement('p'); p.className = 'faq-link';
-      const a = document.createElement('a'); a.setAttribute('href', '/pricing');
-      a.textContent = pricing.faqLinkLabel || 'See full pricing';
+      const a = document.createElement('a'); a.setAttribute('href', '/services-and-fees');
+      a.textContent = pricing.faqLinkLabel || 'See services and fees';
       p.appendChild(a); inner.appendChild(p);
     }
     ans.appendChild(inner); wrap.appendChild(ans);

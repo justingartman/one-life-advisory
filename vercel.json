@@ -9,7 +9,19 @@
   "headers": [
     {
       "source": "/admin/(.*)",
-      "headers": [{ "key": "X-Robots-Tag", "value": "noindex" }]
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/pricing",
+      "destination": "/services-and-fees",
+      "permanent": true
     }
   ]
 }

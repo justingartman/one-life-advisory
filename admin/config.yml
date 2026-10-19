@@ -70,7 +70,7 @@ collections:
               - { name: about, label: "About", widget: string }
               - { name: blog, label: "Blog", widget: string, hint: "The Blog link appears in the menu and footer automatically once at least one post is Published." }
               - { name: resources, label: "Resources", widget: string }
-              - { name: pricing, label: "Pricing", widget: string }
+              - { name: pricing, label: "Services & Fees", widget: string }
               - { name: faq, label: "FAQ", widget: string }
           - { name: contactEmail, label: "Contact Email", widget: string }
           - { name: contactPhone, label: "Contact Phone", widget: string }
@@ -541,8 +541,8 @@ collections:
                   - { name: headers, label: "Column headings", widget: list, required: false, field: { name: text, label: Heading, widget: string } }
                   - { name: rows, label: "Rows", widget: list, required: false, field: { name: cells, label: "Row (one cell per column, comma separated)", widget: list } }
               - { name: aAfter, label: "Paragraphs after the table", widget: list, required: false, field: { name: text, label: Paragraph, widget: text } }
-              - { name: feeTable, label: "Show the fee table from the Pricing page", widget: boolean, required: false, hint: "Edit the fees on the Pricing page; this answer shows the same table." }
-              - { name: pricingLink, label: "Add a 'See full pricing' link", widget: boolean, required: false }
+              - { name: feeTable, label: "Show the fee table from the Services & Fees page", widget: boolean, required: false, hint: "Edit the fees on the Services & Fees page; this answer shows the same table." }
+              - { name: pricingLink, label: "Add a 'See services and fees' link", widget: boolean, required: false }
           - { name: closingNote, label: "Closing Note", widget: string }
           - { name: closingButton, label: "Closing Button", widget: string }
           - name: seo
@@ -555,9 +555,9 @@ collections:
               - { name: title, label: "Page title", widget: string, required: false, hint: "About 50–60 characters, e.g. 'Retirement Income Planning | One Life Advisory'." }
               - { name: description, label: "Description", widget: text, required: false, hint: "One or two sentences, about 150 characters." }
 
-      # ---- PRICING ----
+      # ---- SERVICES & FEES (content file is still pricing.json) ----
       - name: "pricing"
-        label: "Pricing"
+        label: "Services & Fees"
         file: "content/pricing.json"
         fields:
           - { name: heroEyebrow, label: "Header — Eyebrow", widget: string }
