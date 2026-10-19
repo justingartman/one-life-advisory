@@ -22,6 +22,11 @@
       "source": "/pricing",
       "destination": "/services-and-fees",
       "permanent": true
+    },
+    {
+      "source": "/blog/topics/tax-aware-planning",
+      "destination": "/blog/topics/forward-looking-tax-planning",
+      "permanent": true
     }
   ]
 }

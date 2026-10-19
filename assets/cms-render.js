@@ -95,8 +95,54 @@ function renderPricing() {
     (items || []).filter(Boolean).forEach(text => { const li = document.createElement('li'); li.textContent = text; ul.appendChild(li); });
   };
   fill('pricing-details', (data.aum || {}).details);
-  fill('pricing-planning-items', (data.planning || {}).items);
-  fill('pricing-included', (data.included || {}).items);
+  const planning = data.planning || {};
+  fill('pricing-ongoing-items', (planning.ongoing || {}).items);
+  fill('pricing-onetime-items', (planning.oneTime || {}).items);
+  // The one-time plan card can be switched off in the CMS.
+  const showOneTime = (planning.oneTime || {}).show === true;
+  const oneTimeCard = document.getElementById('pricing-onetime');
+  if (oneTimeCard && !showOneTime) oneTimeCard.remove();
+  renderServices(data.included);
+  // The comparison section shows only when it's switched on in the CMS.
+  const compareSection = document.getElementById('pricing-compare-section');
+  if (compareSection && (data.compare || {}).show !== true) compareSection.remove();
+  else renderCompare(data.compare);
+}
+
+// "What you get": groups of services, each a name and a short description.
+function renderServices(inc) {
+  const wrap = document.getElementById('pricing-included');
+  if (!wrap || !inc) return;
+  wrap.innerHTML = '';
+  (inc.groups || []).filter(g => g && g.title).forEach(g => {
+    const group = document.createElement('div'); group.className = 'svc-group';
+    const h = document.createElement('h3'); h.textContent = g.title; group.appendChild(h);
+    (g.items || []).filter(i => i && i.name).forEach(i => {
+      const p = document.createElement('p'); p.className = 'svc-item';
+      const b = document.createElement('strong'); b.textContent = i.name; p.appendChild(b);
+      if (i.text) { const t = document.createElement('span'); t.textContent = i.text; p.appendChild(t); }
+      group.appendChild(p);
+    });
+    wrap.appendChild(group);
+  });
+}
+
+// "How we compare": a description of our approach next to a traditional one
+// for each row. On phones each cell shows its column name above the text.
+function renderCompare(c) {
+  const wrap = document.getElementById('pricing-compare');
+  if (!wrap || !c) return;
+  const esc = s => String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  const cols = c.columns || {};
+  const CHECK = '<span class="cmp-yes" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11"/><path d="M7 12.5l3.2 3.2L17 9"/></svg></span>';
+  let html = '<table class="cmp"><thead><tr><td class="cmp-corner"></td>' +
+    '<th scope="col" class="cmp-us">' + esc(cols.us) + '</th><th scope="col">' + esc(cols.them) + '</th></tr></thead><tbody>';
+  (c.rows || []).filter(r => r && r.label).forEach(r => {
+    html += '<tr><th scope="row">' + esc(r.label) + '</th>' +
+      '<td class="cmp-us" data-label="' + esc(cols.us) + '">' + CHECK + esc(r.us) + '</td>' +
+      '<td data-label="' + esc(cols.them) + '">' + esc(r.them) + '</td></tr>';
+  });
+  wrap.innerHTML = html + '</tbody></table>';
 }
 
 // ── FAQ (built from content/faq.json → items[]) ─────────────────────────

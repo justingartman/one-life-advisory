@@ -2,6 +2,135 @@
   "heroEyebrow": "Services & Fees",
   "heroTitle": "What you get, and what it costs.",
   "heroSub": "Here's what working with us includes, and what you'd pay for it. Our fees are published, so you can see how they work before we ever meet.",
+  "included": {
+    "label": "What you get",
+    "heading": "What the advisory fee covers.",
+    "intro": "Here's what working with us can include for investment management clients. What we focus on depends on your situation.",
+    "groups": [
+      {
+        "title": "Cash Flow & Retirement Income",
+        "items": [
+          {
+            "name": "Your Future Cash Flow",
+            "text": "A year-by-year picture of the income your plan is designed to support, and where it may come from."
+          },
+          {
+            "name": "Income planning",
+            "text": "Coordinating Social Security, pensions, and other income, including when each one starts, and what your portfolio needs to provide."
+          },
+          {
+            "name": "Withdrawal strategy",
+            "text": "Which accounts to draw from, and when, planned year by year instead of by a fixed rule."
+          },
+          {
+            "name": "Reserves",
+            "text": "Keeping the right amount available for emergencies and opportunities, so a surprise doesn't force you to sell investments at a bad time."
+          }
+        ]
+      },
+      {
+        "title": "Investments",
+        "items": [
+          {
+            "name": "A portfolio with a purpose",
+            "text": "Investments built around what each dollar needs to do, when you may need it, and how much risk makes sense for you."
+          },
+          {
+            "name": "Transition planning",
+            "text": "Moving from what you own today to your new strategy while managing the tax cost of making changes."
+          },
+          {
+            "name": "Asset location",
+            "text": "Choosing which accounts should hold which investments, with taxes in mind."
+          },
+          {
+            "name": "Ongoing management",
+            "text": "Monitoring your portfolio and adjusting it as markets, tax rules, and your life change."
+          }
+        ]
+      },
+      {
+        "title": "Forward-Looking Tax Planning",
+        "items": [
+          {
+            "name": "Multi-year tax projections",
+            "text": "Looking at your taxes across retirement, not just this year's return, so opportunities can be planned for before they pass."
+          },
+          {
+            "name": "Roth conversions and capital gains",
+            "text": "Weighing them together each year, since they often compete for the same room in your tax bracket."
+          },
+          {
+            "name": "Easy-to-miss retirement taxes",
+            "text": "Planning around how Social Security is taxed, income-based Medicare premiums (IRMAA), and required minimum distributions (RMDs)."
+          },
+          {
+            "name": "Charitable giving",
+            "text": "Using approaches like qualified charitable distributions and donor-advised funds when giving is part of your life."
+          },
+          {
+            "name": "CPA coordination",
+            "text": "Working from the same information as your CPA, who remains responsible for preparing and filing your returns."
+          }
+        ]
+      },
+      {
+        "title": "Protection",
+        "items": [
+          {
+            "name": "Coverage review",
+            "text": "Reviewing the life, disability, and other insurance you already have, and where there may be gaps."
+          },
+          {
+            "name": "Long-term care planning",
+            "text": "Deciding whether to insure it, set aside assets for it, or combine the two."
+          },
+          {
+            "name": "Healthcare before Medicare",
+            "text": "Planning for coverage in the years before Medicare, and how your income choices can affect what you pay."
+          }
+        ]
+      },
+      {
+        "title": "Legacy",
+        "items": [
+          {
+            "name": "Beneficiaries and account titling",
+            "text": "Checking that who's listed, and how each account is owned, matches what you want."
+          },
+          {
+            "name": "Estate plan coordination",
+            "text": "Reviewing how your accounts fit with your will, trusts, and other documents, alongside your attorney."
+          },
+          {
+            "name": "Giving while you're alive",
+            "text": "Building in the support you want to give family or causes during your lifetime."
+          }
+        ]
+      },
+      {
+        "title": "The Ongoing Relationship",
+        "items": [
+          {
+            "name": "Regular reviews",
+            "text": "A full review at least once a year, and help when decisions come up in between."
+          },
+          {
+            "name": "Plan updates",
+            "text": "Revisiting your plan as life, markets, and tax law change."
+          },
+          {
+            "name": "Spending guidance",
+            "text": "Knowing what your plan can support, so you can enjoy what you've built."
+          },
+          {
+            "name": "Professional coordination",
+            "text": "Working alongside your CPA, attorney, and insurance professionals, and helping you find one if you need it."
+          }
+        ]
+      }
+    ]
+  },
   "aum": {
     "label": "Investment management",
     "heading": "One fee for investment management and planning.",
@@ -54,33 +183,79 @@
     ]
   },
   "planning": {
-    "label": "Financial planning only",
+    "label": "Planning only",
     "heading": "Planning without investment management.",
-    "body": "If you're below our minimum for investment management, we can work together through ongoing financial planning. We start by understanding your situation and building an initial written plan, then continue to review and update it as things change.",
-    "items": [
-      "A one-time initiation fee of $400.",
-      "An ongoing annual fee of $3,600 to $15,000, billed monthly, based on the complexity of your situation and the scope of the work."
-    ],
+    "intro": "Our full relationship brings investment management and planning together, and it's how we prefer to work. If that isn't the right fit, we also offer planning on its own.",
+    "ongoing": {
+      "name": "Ongoing planning",
+      "body": "If you're below our minimum for investment management, we can work together through ongoing financial planning. We start by understanding your situation and building an initial written plan, then continue to review and update it as things change.",
+      "items": [
+        "A one-time initiation fee of $400.",
+        "An ongoing annual fee of $3,600 to $15,000, billed monthly, based on the complexity of your situation and the scope of the work."
+      ]
+    },
+    "oneTime": {
+      "show": true,
+      "name": "One-time plan",
+      "body": "We learn your situation, build a written plan around what you want to accomplish, and walk through it with you. From there, you put it into action on your own.",
+      "items": [
+        "A one-time fee of $3,600 to $15,000, based on the complexity of your situation and the scope of the work."
+      ],
+      "note": "A plan is a starting point. Life happens, tax rules change, and priorities shift, and the decisions that come up after the plan is written are often where an advisor matters most. That's why we prefer to work with clients on an ongoing basis."
+    },
     "note": "We agree on the fee with you before you decide to move forward."
-  },
-  "included": {
-    "label": "What you get",
-    "heading": "What the advisory fee covers.",
-    "intro": "For investment management clients, financial planning is part of the relationship. Depending on your situation, that can include:",
-    "items": [
-      "Investment management based on your goals, time horizon, and comfort with risk",
-      "Retirement income planning",
-      "Cash flow planning",
-      "Insurance and protection review",
-      "Tax-aware planning",
-      "Beneficiary decisions and coordination with your estate plan",
-      "Coordination with your CPA, attorney, and other professionals",
-      "A full review at least once a year, and help when decisions come up in between"
-    ]
   },
   "otherCosts": {
     "heading": "Other costs",
     "body": "Depending on how your portfolio is invested, there may also be third-party platform or investment expenses, which are separate from the One Life Advisory fee. We explain those before anything is implemented."
+  },
+  "compare": {
+    "show": false,
+    "label": "How we compare",
+    "heading": "How our investment management compares.",
+    "intro": "Many advisors do some of these things well. Here's how our approach to managing your investments compares with a more traditional one.",
+    "columns": {
+      "us": "One Life Advisory",
+      "them": "A traditional approach"
+    },
+    "rows": [
+      {
+        "label": "Where it starts",
+        "us": "What each dollar needs to do, when you'll need it, and how much risk makes sense for you.",
+        "them": "Often a risk questionnaire that points to a model portfolio."
+      },
+      {
+        "label": "Planning",
+        "us": "Included in the advisory fee, and connected to how your money is invested.",
+        "them": "May be limited, billed separately, or handled apart from the investments."
+      },
+      {
+        "label": "Taxes",
+        "us": "Which accounts hold which investments, and the tax cost of making changes, are part of each decision.",
+        "them": "Often handled separately from the investment decisions."
+      },
+      {
+        "label": "Cash for spending",
+        "us": "A reserve sized to your needs, so a downturn is less likely to force you to sell investments at a bad time.",
+        "them": "Withdrawals often come from whatever the portfolio holds when you need cash."
+      },
+      {
+        "label": "Investment approach",
+        "us": "Broad diversification and close attention to cost, instead of trying to predict what will lead next.",
+        "them": "May lean on market forecasts, or on a firm's own investment products."
+      },
+      {
+        "label": "Accounts held elsewhere",
+        "us": "Your 401(k) and other accounts are part of the plan, even if they stay where they are.",
+        "them": "Advice may focus only on the accounts under management."
+      },
+      {
+        "label": "Fees",
+        "us": "Published on this page, so you can see them before we ever meet.",
+        "them": "Not always published, which can make them hard to compare."
+      }
+    ],
+    "footnote": "“A traditional approach” describes common practices in our industry, not any particular firm. Every advisor works differently, so it's worth asking any advisor you're considering how they handle each of these."
   },
   "faqLinkLabel": "See services and fees",
   "closingHeading": "Questions about our services or fees?",

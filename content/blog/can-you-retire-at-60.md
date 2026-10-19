@@ -7,7 +7,7 @@ description: "Can you retire at 60 with $1.5 million? Compare two hypothetical c
 excerpt: "Two couples have $1.5 million saved and want to retire at 60. Their spending, pensions, and Social Security income create very different demands on their investments. Here's how to evaluate the decision."
 topics:
   - Retirement Income
-  - Tax-Aware Planning
+  - Forward-Looking Tax Planning
   - Social Security
 image: ""
 imageAlt: ""

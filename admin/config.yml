@@ -399,7 +399,7 @@ collections:
                     ] },
                   { name: walkaway, label: "What you walk away with (checklist)", widget: list, required: false, field: { name: text, label: Item, widget: string } }
                 ] }
-              - { name: tax, label: "Tax-Aware Planning", widget: object, collapsed: true, fields: [
+              - { name: tax, label: "Forward-Looking Tax Planning", widget: object, collapsed: true, fields: [
                   { name: title, label: Title, widget: string },
                   { name: sub, label: Subtitle, widget: string },
                   { name: paras, label: "Paragraphs", widget: list, field: { name: text, label: Paragraph, widget: text } },
@@ -563,6 +563,28 @@ collections:
           - { name: heroEyebrow, label: "Header — Eyebrow", widget: string }
           - { name: heroTitle, label: "Header — Title", widget: string }
           - { name: heroSub, label: "Header — Subtitle", widget: text }
+          - name: included
+            label: "What You Get (service groups)"
+            widget: object
+            fields:
+              - { name: label, label: "Eyebrow", widget: string }
+              - { name: heading, label: "Heading", widget: string }
+              - { name: intro, label: "Intro", widget: text }
+              - name: groups
+                label: "Groups"
+                label_singular: "Group"
+                widget: list
+                summary: "{{fields.title}}"
+                fields:
+                  - { name: title, label: "Group title", widget: string }
+                  - name: items
+                    label: "Services"
+                    label_singular: "Service"
+                    widget: list
+                    summary: "{{fields.name}}"
+                    fields:
+                      - { name: name, label: "Name (bold)", widget: string }
+                      - { name: text, label: "Description", widget: text }
           - name: aum
             label: "Investment Management (fee schedule)"
             widget: object
@@ -580,32 +602,72 @@ collections:
               - { name: example, label: "Worked example", widget: text }
               - { name: details, label: "Details under the table", widget: list, field: { name: text, label: Line, widget: text } }
           - name: planning
-            label: "Financial Planning Only"
-            widget: object
-            fields:
-              - { name: label, label: "Eyebrow", widget: string }
-              - { name: heading, label: "Heading", widget: string }
-              - { name: body, label: "Body", widget: text }
-              - { name: items, label: "Fee lines", widget: list, field: { name: text, label: Line, widget: text } }
-              - { name: note, label: "Note (italic)", widget: text }
-          - name: included
-            label: "What's Included"
+            label: "Planning Only (ongoing and one-time)"
             widget: object
             fields:
               - { name: label, label: "Eyebrow", widget: string }
               - { name: heading, label: "Heading", widget: string }
               - { name: intro, label: "Intro", widget: text }
-              - { name: items, label: "Checklist", widget: list, field: { name: text, label: Item, widget: string } }
+              - name: ongoing
+                label: "Ongoing planning card"
+                widget: object
+                fields:
+                  - { name: name, label: "Title", widget: string }
+                  - { name: body, label: "Body", widget: text }
+                  - { name: items, label: "Fee lines", widget: list, field: { name: text, label: Line, widget: text } }
+              - name: oneTime
+                label: "One-time plan card"
+                widget: object
+                fields:
+                  - { name: show, label: "Show the one-time plan on the website", widget: boolean, default: false, required: false, hint: "Turn off to hide the one-time plan card." }
+                  - { name: name, label: "Title", widget: string }
+                  - { name: body, label: "Body", widget: text }
+                  - { name: items, label: "Fee lines", widget: list, field: { name: text, label: Line, widget: text } }
+                  - { name: note, label: "Note (italic)", widget: text }
+              - { name: note, label: "Note under the cards (italic)", widget: text }
           - name: otherCosts
             label: "Other Costs"
             widget: object
             fields:
               - { name: heading, label: "Heading", widget: string }
               - { name: body, label: "Body", widget: text }
+          - name: compare
+            label: "How We Compare (vs. a traditional approach)"
+            widget: object
+            fields:
+              - { name: show, label: "Show this section on the website", widget: boolean, default: false, required: false, hint: "Turn on to add the comparison to the bottom of the page." }
+              - { name: label, label: "Eyebrow", widget: string }
+              - { name: heading, label: "Heading", widget: string }
+              - { name: intro, label: "Intro", widget: text }
+              - name: columns
+                label: "Column titles"
+                widget: object
+                fields:
+                  - { name: us, label: "Our column", widget: string }
+                  - { name: them, label: "Comparison column", widget: string }
+              - name: rows
+                label: "Rows"
+                label_singular: "Row"
+                widget: list
+                summary: "{{fields.label}}"
+                fields:
+                  - { name: label, label: "Topic", widget: string }
+                  - { name: us, label: "One Life Advisory", widget: text }
+                  - { name: them, label: "Traditional approach", widget: text, hint: "Describe common practice in general terms (often, may), not any specific firm." }
+              - { name: footnote, label: "Footnote (italic)", widget: text }
           - { name: faqLinkLabel, label: "Text of the link from the FAQ", widget: string }
           - { name: closingHeading, label: "Closing — Heading", widget: string }
           - { name: closingSub, label: "Closing — Subtext", widget: text }
           - { name: closingButton, label: "Closing — Button", widget: string }
+          - name: seo
+            label: "Google & Sharing"
+            widget: object
+            collapsed: true
+            required: false
+            hint: "How this page appears in Google results and when it's shared. Leave blank to use the page's own heading and subtitle."
+            fields:
+              - { name: title, label: "Page title", widget: string, required: false, hint: "About 50–60 characters, e.g. 'Services & Fees | One Life Advisory'." }
+              - { name: description, label: "Description", widget: text, required: false, hint: "One or two sentences, about 150 characters." }
 
       # ---- RESOURCES ----
       # Every list below grows to fit: add as many items as you like and the

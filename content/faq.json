@@ -13,6 +13,7 @@
         "The minimum annual advisory fee is $2,400.",
         "Financial planning is included for investment management clients.",
         "For planning-only clients, there is a $400 initiation fee followed by an ongoing annual fee of $3,600 to $15,000, based on the complexity and scope of the planning relationship.",
+        "We also offer a one-time plan, with a one-time fee of $3,600 to $15,000, based on the complexity of your situation and the scope of the work.",
         "Depending on how your portfolio is invested, there may also be third-party platform or investment expenses, which are separate from the One Life Advisory cost. We explain those before anything is implemented."
       ],
       "feeTable": true,
@@ -28,9 +29,10 @@
     {
       "q": "Can I work with you just for financial planning?",
       "a": [
-        "Yes, if you are below our minimum for investment management.",
-        "Standalone financial planning is an ongoing relationship. We start by understanding your financial situation and building an initial written plan. From there, we continue to review and update the plan as things change.",
-        "There is a $400 initiation fee, and the ongoing annual fee ranges from $3,600 to $15,000, based on the complexity of your situation and the planning work involved. We agree on that fee with you before you decide to move forward.",
+        "Yes, if you are below our minimum for investment management. There are two ways to do it.",
+        "Ongoing planning is a continuing relationship. We start by understanding your financial situation and building an initial written plan. From there, we continue to review and update the plan as things change. There is a $400 initiation fee, and the ongoing annual fee ranges from $3,600 to $15,000, based on the complexity of your situation and the planning work involved.",
+        "A one-time plan means we build a written plan around what you want to accomplish and walk through it with you, and you put it into action on your own. The one-time fee ranges from $3,600 to $15,000, based on the complexity of your situation and the scope of the work.",
+        "We agree on the fee with you before you decide to move forward. We prefer to work with clients on an ongoing basis, because the decisions that come up after a plan is written are often where an advisor matters most.",
         "If you later have enough assets available for us to manage, we can discuss moving into an investment management relationship, where ongoing financial planning is included."
       ]
     },

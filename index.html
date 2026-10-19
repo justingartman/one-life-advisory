@@ -880,24 +880,62 @@
     .pricing-details { list-style: none; margin-top: 22px; display: grid; gap: 10px; }
     .pricing-details li { position: relative; padding-left: 22px; color: var(--text2); line-height: 1.6; }
     .pricing-details li::before { content: ''; position: absolute; left: 4px; top: .65em; width: 7px; height: 7px; border-radius: 50%; background: var(--gold); }
-    .pricing-card { margin-top: 56px; background: var(--bg2); border-radius: var(--radius-lg); padding: 36px 40px; }
-    .pricing-card h3 { color: var(--navy); margin: 10px 0 12px; }
+    .pricing-planning { margin-top: 64px; }
+    .pricing-planning > p { margin-top: 14px; }
+    .pricing-options { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 28px; }
+    .pricing-options > :only-child { grid-column: 1 / -1; }
+    .pricing-card { background: var(--bg2); border-radius: var(--radius-lg); padding: 30px 30px 28px; }
+    .pricing-card h3 { color: var(--navy); margin: 0 0 12px; }
     .pricing-card .pricing-details { margin-top: 18px; }
     .pricing-note { margin-top: 16px; font-size: .9375rem; font-style: italic; }
+    .pricing-card .pricing-note { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--border); }
     #page-pricing .page-hero h1 { text-wrap: balance; }
-    .pricing-included { margin-bottom: 72px; }
-    .pricing-included > p { margin-top: 14px; }
-    .pricing-checks { list-style: none; margin-top: 22px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px 28px; }
-    .pricing-checks li { position: relative; padding-left: 26px; color: var(--text2); line-height: 1.55; }
-    .pricing-checks li::before { content: '\2713'; position: absolute; left: 0; top: 0; color: var(--gold); font-weight: 700; }
+    /* What you get: service groups */
+    .svc-head > p { margin-top: 14px; max-width: 640px; }
+    .svc-groups { display: grid; grid-template-columns: repeat(3, 1fr); gap: 44px 48px; margin-top: 44px; }
+    .svc-group h3 { font-size: 1.3rem; color: var(--navy); padding-bottom: 12px; margin-bottom: 4px; border-bottom: 1px solid var(--gold-lt); }
+    .svc-item { margin-top: 14px; color: var(--text2); line-height: 1.55; font-size: .9688rem; }
+    .svc-item strong { display: block; color: var(--text); font-weight: 600; margin-bottom: 2px; }
+    /* How we compare: our approach next to a traditional one */
+    .cmp-wrap { margin-top: 36px; background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); box-shadow: var(--shadow); overflow: hidden; }
+    .cmp { width: 100%; border-collapse: collapse; table-layout: fixed; }
+    .cmp th, .cmp td { padding: 18px 24px; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; line-height: 1.55; }
+    .cmp .cmp-corner { width: 22%; }
+    .cmp thead th { font-family: var(--font-display); font-size: 1.2rem; font-weight: 500; color: var(--navy); padding-top: 22px; padding-bottom: 18px; }
+    .cmp tbody th { font-weight: 600; color: var(--text); }
+    .cmp td { color: var(--text2); font-size: .9688rem; }
+    .cmp .cmp-us { background: rgba(184,149,106,.1); }
+    .cmp td.cmp-us { position: relative; padding-left: 56px; color: var(--text); }
+    .cmp-yes { position: absolute; left: 24px; top: 19px; display: inline-flex; color: var(--gold); }
+    .cmp-yes svg { width: 20px; height: 20px; }
+    .cmp-yes circle { fill: currentColor; }
+    .cmp-yes path { fill: none; stroke: #fff; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+    .cmp tbody tr:last-child th, .cmp tbody tr:last-child td { border-bottom: 0; }
+    .cmp-foot { margin-top: 16px; max-width: 760px; font-size: .875rem; font-style: italic; color: var(--text2); }
+    @media (max-width: 1000px) {
+      .svc-groups { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 700px) {
+      .pricing-options { grid-template-columns: 1fr; }
+      .svc-groups { grid-template-columns: 1fr; gap: 36px; }
+      /* Each row becomes a small stack: the topic, then each column with its name. */
+      .cmp, .cmp tbody, .cmp tr, .cmp th, .cmp td { display: block; width: auto; }
+      .cmp thead { display: none; }
+      .cmp tr { padding: 6px 0 10px; border-bottom: 1px solid var(--border); }
+      .cmp tbody tr:last-child { border-bottom: 0; }
+      .cmp th, .cmp td { border-bottom: 0; padding: 8px 16px; }
+      .cmp tbody th { padding-top: 14px; }
+      .cmp td::before { content: attr(data-label); display: block; margin-bottom: 3px; font-size: .6875rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); }
+      .cmp td.cmp-us { margin: 0 10px; padding-left: 44px; border-radius: var(--radius); }
+      .cmp-yes { left: 14px; top: 30px; }
+    }
     .pricing-other { margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--border); }
     .pricing-other h3 { color: var(--navy); margin-bottom: 10px; }
     .faq-link { margin-top: 14px; }
     .faq-link a { color: var(--navy); font-weight: 600; text-decoration: underline; text-decoration-color: var(--gold); text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
     @media (max-width: 600px) {
       .pricing-table-card { padding: 18px 16px; }
-      .pricing-card { padding: 28px 22px; }
-      .pricing-checks { grid-template-columns: 1fr; }
+      .pricing-card { padding: 26px 22px; }
     }
 
     /* ─── HOME: OPENING STATEMENT AND HOW WE THINK ───────────── */
@@ -1361,7 +1399,7 @@
           <div class="card-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>
           </div>
-          <h4 data-cms="home.covers.cards.4.title">Tax-Aware Planning</h4>
+          <h4 data-cms="home.covers.cards.4.title">Forward-Looking Tax Planning</h4>
           <p data-cms="home.covers.cards.4.desc">Most planning decisions carry tax consequences. We weigh them every step of the way so they're built into the plan, not handled after the fact.</p>
         </div>
         <div class="card anim anim-delay-3" onclick="goAccordion('legacy')">
@@ -1783,7 +1821,7 @@
         <div class="accordion anim" id="acc-tax">
           <button class="acc-trigger" onclick="toggleAcc('tax')">
             <div>
-              <div class="acc-title" data-cms="what_we_do.acc.tax.title">Tax-Aware Planning</div>
+              <div class="acc-title" data-cms="what_we_do.acc.tax.title">Forward-Looking Tax Planning</div>
               <div class="acc-sub" data-cms="what_we_do.acc.tax.sub">Most planning decisions have a tax impact. We treat them that way.</div>
             </div>
             <div class="acc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
@@ -2003,17 +2041,20 @@
       <p class="page-hero-sub anim anim-delay-2" data-cms="pricing.heroSub">What working with us includes, and how our fees work.</p>
     </div>
   </section>
-  <section class="section">
-    <div class="container-sm">
-
-      <!-- What you get (leads the page) -->
-      <div class="pricing-included anim">
+  <!-- What you get: the service groups are built from content/pricing.json (included.groups). -->
+  <section class="section bg-alt">
+    <div class="container">
+      <div class="svc-head anim">
         <div class="label" data-cms="pricing.included.label">What you get</div>
         <div class="divider"></div>
         <h2 data-cms="pricing.included.heading">What the advisory fee covers.</h2>
         <p data-cms="pricing.included.intro"></p>
-        <ul class="pricing-checks" id="pricing-included"></ul>
       </div>
+      <div class="svc-groups anim" id="pricing-included"></div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container-sm">
 
       <!-- Investment management. The fee table is built from content/pricing.json (aum.table);
            the FAQ shows this same table, so fees are edited in one place. -->
@@ -2029,14 +2070,27 @@
       </div>
       <ul class="pricing-details anim" id="pricing-details"></ul>
 
-      <!-- Planning only -->
-      <div class="pricing-card anim">
-        <div class="label" data-cms="pricing.planning.label">Financial planning only</div>
-        <h3 data-cms="pricing.planning.heading">Planning without investment management.</h3>
-        <p data-cms="pricing.planning.body"></p>
-        <ul class="pricing-details" id="pricing-planning-items"></ul>
-        <p class="pricing-note" data-cms="pricing.planning.note"></p>
+      <!-- Planning only. The one-time plan card is removed unless it's switched on in the CMS. -->
+      <div class="pricing-planning anim">
+        <div class="label" data-cms="pricing.planning.label">Planning only</div>
+        <div class="divider"></div>
+        <h2 data-cms="pricing.planning.heading">Planning without investment management.</h2>
+        <p data-cms="pricing.planning.intro"></p>
       </div>
+      <div class="pricing-options anim">
+        <div class="pricing-card">
+          <h3 data-cms="pricing.planning.ongoing.name">Ongoing planning</h3>
+          <p data-cms="pricing.planning.ongoing.body"></p>
+          <ul class="pricing-details" id="pricing-ongoing-items"></ul>
+        </div>
+        <div class="pricing-card" id="pricing-onetime">
+          <h3 data-cms="pricing.planning.oneTime.name">One-time plan</h3>
+          <p data-cms="pricing.planning.oneTime.body"></p>
+          <ul class="pricing-details" id="pricing-onetime-items"></ul>
+          <p class="pricing-note" data-cms="pricing.planning.oneTime.note"></p>
+        </div>
+      </div>
+      <p class="pricing-note" data-cms="pricing.planning.note"></p>
 
       <!-- Other costs -->
       <div class="pricing-other anim">
@@ -2044,6 +2098,19 @@
         <p data-cms="pricing.otherCosts.body"></p>
       </div>
 
+    </div>
+  </section>
+  <!-- How we compare: built from content/pricing.json (compare); removed unless switched on in the CMS. -->
+  <section class="section bg-alt" id="pricing-compare-section">
+    <div class="container">
+      <div class="svc-head anim">
+        <div class="label" data-cms="pricing.compare.label">How we compare</div>
+        <div class="divider"></div>
+        <h2 data-cms="pricing.compare.heading">How our investment management compares.</h2>
+        <p data-cms="pricing.compare.intro"></p>
+      </div>
+      <div class="cmp-wrap anim" id="pricing-compare"></div>
+      <p class="cmp-foot" data-cms="pricing.compare.footnote"></p>
     </div>
   </section>
   <section class="cta-band">
