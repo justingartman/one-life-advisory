@@ -173,10 +173,6 @@
           {
             "name": "Charitable giving",
             "text": "Using gifting strategies like qualified charitable distributions and donor-advised funds when giving is part of your life. Support what you care about while reducing taxable income."
-          },
-          {
-            "name": "CPA coordination",
-            "text": "Working from the same information as your CPA, so your planning and tax work stay on the same page. Your CPA remains responsible for preparing and filing your returns."
           }
         ]
       },
@@ -190,10 +186,6 @@
           {
             "name": "Long-term care planning",
             "text": "Deciding whether to insure it, set aside assets for it, or combine the two."
-          },
-          {
-            "name": "Healthcare before Medicare",
-            "text": "Planning for coverage in the years before Medicare, and how your income choices can affect what you pay."
           },
           {
             "name": "Insurance as an asset",
@@ -210,7 +202,7 @@
           },
           {
             "name": "Estate plan coordination",
-            "text": "Reviewing how your accounts fit with your will, trusts, and other documents, alongside your attorney."
+            "text": "Reviewing how your accounts fit with your will, trusts, and other documents, alongside what your goals are for what you want to leave behind."
           },
           {
             "name": "Giving while you're alive",
