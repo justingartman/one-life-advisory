@@ -578,6 +578,7 @@
     .acc-body-inner { padding: 32px 28px; }
     .acc-body p { margin-bottom: 16px; max-width: 76ch; }
     .acc-body p:last-child { margin-bottom: 0; }
+    .acc-body p strong { color: var(--text); font-weight: 600; }
     .acc-subhead {
       font-weight: 600; color: var(--navy); font-size: .9375rem;
       margin: 24px 0 8px;
@@ -1435,6 +1436,86 @@
     }
     ::view-transition-old(root), ::view-transition-new(root) { animation-duration: 280ms; animation-timing-function: cubic-bezier(.22,1,.36,1); }
     #nav { view-transition-name: site-nav; }
+
+    /* Services & Fees ─────────────────────────────────────────────
+       "What you get": the item under the pointer comes forward (darker text,
+       a touch larger, a hair-thin outline that reads as bold, a gold marker)
+       while the rest of its group steps back. The font itself never changes
+       weight, so the text never reflows. */
+    .svc-item {
+      position: relative; transform-origin: left center;
+      transition: color var(--dur-2) var(--ease-out), opacity var(--dur-2) var(--ease-out), transform var(--dur-3) var(--ease-out);
+    }
+    .svc-item strong { transition: color var(--dur-2) var(--ease-out); }
+    .svc-item::before {
+      content: ''; position: absolute; left: -14px; top: .25em; bottom: .25em; width: 2px; border-radius: 2px;
+      background: var(--gold); transform: scaleY(0); transition: transform var(--dur-3) var(--ease-out);
+    }
+    .svc-group h3 { position: relative; }
+    .svc-group h3::after {
+      content: ''; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; background: var(--gold);
+      transform: scaleX(0); transform-origin: left center; transition: transform var(--dur-3) var(--ease-out);
+    }
+    @media (hover: hover) {
+      .svc-item:hover { color: var(--text); transform: scale(1.03); -webkit-text-stroke: .3px currentColor; }
+      .svc-item:hover strong { color: var(--navy); }
+      .svc-item:hover::before { transform: scaleY(1); }
+      .svc-group:hover .svc-item:not(:hover) { opacity: .7; }
+      .svc-group:hover h3::after { transform: scaleX(1); }
+    }
+
+    /* Fee table: rows arrive in order, and a gold bar beside each rate shows
+       the fee stepping down tier by tier (bar length = rate vs. the top rate) */
+    :is(#pricing-table, .cmp) tbody tr:nth-child(2) { --r: 1; }
+    :is(#pricing-table, .cmp) tbody tr:nth-child(3) { --r: 2; }
+    :is(#pricing-table, .cmp) tbody tr:nth-child(4) { --r: 3; }
+    :is(#pricing-table, .cmp) tbody tr:nth-child(5) { --r: 4; }
+    :is(#pricing-table, .cmp) tbody tr:nth-child(6) { --r: 5; }
+    :is(#pricing-table, .cmp) tbody tr:nth-child(7) { --r: 6; }
+    :is(#pricing-table, .cmp) tbody tr:nth-child(8) { --r: 7; }
+    :is(#pricing-table, .cmp) tbody tr:nth-child(n+9) { --r: 8; }
+    #pricing-table td:last-child { white-space: nowrap; }
+    #pricing-table tr[style*="--rate"] td:last-child::before {
+      content: ''; display: inline-block; vertical-align: middle; margin: -2px 14px 0 0;
+      width: calc(var(--rate) * 96px); height: 4px; border-radius: 2px;
+      background: linear-gradient(90deg, var(--gold-lt), var(--gold));
+      transform-origin: right center;
+    }
+    #pricing-table tbody td { transition: background-color var(--dur-2) var(--ease-out); }
+    @media (hover: hover) {
+      #pricing-table tbody tr:hover td { background-color: rgba(184,149,106,.07); }
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .pricing-table-card.visible #pricing-table tbody tr {
+        animation: ola-rise 700ms var(--ease-expo) backwards; animation-delay: calc(160ms + var(--r, 0) * 60ms);
+      }
+      .pricing-table-card:not(.visible) #pricing-table tr[style*="--rate"] td:last-child::before { transform: scaleX(0); }
+      #pricing-table tr[style*="--rate"] td:last-child::before {
+        transition: transform 900ms var(--ease-expo); transition-delay: calc(380ms + var(--r, 0) * 70ms);
+      }
+    }
+    @media (max-width: 600px) {
+      #pricing-table tr[style*="--rate"] td:last-child::before { width: calc(var(--rate) * 44px); margin-right: 10px; }
+    }
+
+    /* Planning cards: the same soft light and shadow as the site's other information cards */
+    .pricing-card {
+      background-image: radial-gradient(320px circle at var(--mx, 50%) var(--my, 0%), rgba(184,149,106, calc(var(--glow) * .12)), transparent 70%);
+      transition: box-shadow var(--dur-3) var(--ease-out), --glow var(--dur-3) var(--ease-out);
+    }
+    @media (hover: hover) { .pricing-card:hover { --glow: 1; box-shadow: var(--shadow-hover); } }
+
+    /* Comparison (when switched on): rows arrive in order and highlight on hover */
+    .cmp tbody :is(th, td) { transition: background-color var(--dur-2) var(--ease-out); }
+    .cmp-yes { transition: transform var(--dur-3) var(--ease-out); }
+    @media (hover: hover) {
+      .cmp tbody tr:hover :is(th, td) { background-color: rgba(184,149,106,.05); }
+      .cmp tbody tr:hover td.cmp-us { background-color: rgba(184,149,106,.17); }
+      .cmp tbody tr:hover .cmp-yes { transform: scale(1.12); }
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .cmp-wrap.visible tbody tr { animation: ola-rise 700ms var(--ease-expo) backwards; animation-delay: calc(160ms + var(--r, 0) * 60ms); }
+    }
 
     /* Reduced motion: everything still works, nothing moves */
     @media (prefers-reduced-motion: reduce) {
@@ -2306,7 +2387,7 @@
         <div id="pricing-table"></div>
         <p class="pricing-example" data-cms="pricing.aum.example"></p>
       </div>
-      <ul class="pricing-details anim" id="pricing-details"></ul>
+      <ul class="pricing-details stagger" id="pricing-details"></ul>
 
       <!-- Planning only. The one-time plan card is removed unless it's switched on in the CMS. -->
       <div class="pricing-planning anim">
@@ -3041,7 +3122,7 @@
         queued = true;
         requestAnimationFrame(() => {
           queued = false;
-          const c = last.target.closest && last.target.closest('.card, .who-card, .order-step, .honest-item, .blog-card');
+          const c = last.target.closest && last.target.closest('.card, .who-card, .order-step, .honest-item, .blog-card, .pricing-card');
           if (!c) return;
           const r = c.getBoundingClientRect();
           c.style.setProperty('--mx', Math.round(last.clientX - r.left) + 'px');

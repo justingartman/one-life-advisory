@@ -17,6 +17,17 @@ function jumpToSection(id) {
 // ── What We Do accordions (built from content/what-we-do.json → acc) ────
 // The accordion shells stay in the markup; only their contents are built
 // here, so each area can have any number of paragraphs.
+// A paragraph of plain text, where **words like this** come out bold.
+function textPara(t) {
+  const p = document.createElement('p');
+  String(t).split(/\*\*(.+?)\*\*/).forEach((part, i) => {
+    if (!part) return;
+    if (i % 2) { const b = document.createElement('strong'); b.textContent = part; p.appendChild(b); }
+    else p.appendChild(document.createTextNode(part));
+  });
+  return p;
+}
+
 function renderWhatWeDo() {
   const data = (window.__cmsContent || {}).what_we_do;
   if (!data || !data.acc) return;
@@ -26,7 +37,7 @@ function renderWhatWeDo() {
     if (!body || !item) return;
     body.innerHTML = '';
     (item.paras || []).filter(Boolean).forEach(t => {
-      const p = document.createElement('p'); p.textContent = t; body.appendChild(p);
+      body.appendChild(textPara(t));
     });
     // "How we think about it": the philosophy behind this piece of the plan
     if (item.think && item.think.head) {
@@ -34,7 +45,7 @@ function renderWhatWeDo() {
       th.className = 'acc-subhead'; th.textContent = item.think.head;
       body.appendChild(th);
       (item.think.paras || []).filter(Boolean).forEach(t => {
-        const p = document.createElement('p'); p.textContent = t; body.appendChild(p);
+        body.appendChild(textPara(t));
       });
     }
     if (item.extra && item.extra.head) {
@@ -42,7 +53,7 @@ function renderWhatWeDo() {
       h.className = 'acc-subhead'; h.textContent = item.extra.head;
       body.appendChild(h);
       (item.extra.paras || []).filter(Boolean).forEach(t => {
-        const p = document.createElement('p'); p.textContent = t; body.appendChild(p);
+        body.appendChild(textPara(t));
       });
     }
     // "What you walk away with" checklist
@@ -88,7 +99,14 @@ function renderPricing() {
   const data = (window.__cmsContent || {}).pricing;
   if (!data) return;
   const wrap = document.getElementById('pricing-table');
-  if (wrap) { wrap.innerHTML = ''; const t = buildTable((data.aum || {}).table); if (t) wrap.appendChild(t); }
+  if (wrap) {
+    wrap.innerHTML = ''; const t = buildTable((data.aum || {}).table); if (t) wrap.appendChild(t);
+    // Each tier's rate as a share of the top rate, for the bars beside the rates (CSS draws them).
+    const rows = [...wrap.querySelectorAll('tbody tr')];
+    const rates = rows.map(r => parseFloat((r.lastElementChild || {}).textContent));
+    const top = Math.max(0, ...rates.filter(n => n > 0));
+    rows.forEach((r, i) => { if (rates[i] > 0 && top > 0) r.setAttribute('style', '--rate:' + (rates[i] / top).toFixed(3)); });
+  }
   const fill = (id, items) => {
     const ul = document.getElementById(id); if (!ul) return;
     ul.innerHTML = '';
