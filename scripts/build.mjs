@@ -374,6 +374,9 @@ function setNavState(document, pageId) {
   if (nav) nav.classList.add(pageId === 'home' ? 'over-hero' : 'scrolled');
   const link = document.getElementById('nl-' + pageId);
   if (link) link.classList.add('active');
+  document.querySelectorAll('.nav-drawer a[href]').forEach(a => {
+    if (a.getAttribute('href') === pageHref(pageId)) a.classList.add('active');
+  });
 }
 
 // ── 4. Site pages ──────────────────────────────────────────────────────────

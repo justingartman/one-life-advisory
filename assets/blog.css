@@ -51,12 +51,22 @@
 .blog-card {
   background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg);
   overflow: hidden;
-  transition: transform 250ms var(--ease), box-shadow 250ms var(--ease), border-color 250ms;
+  transition: transform var(--dur-3) var(--ease-out), box-shadow var(--dur-3) var(--ease-out),
+              border-color var(--dur-2) var(--ease-out), --glow var(--dur-3) var(--ease-out);
 }
-.blog-card:hover {
-  transform: translateY(-4px); box-shadow: var(--shadow-lg);
-  border-color: rgba(184,149,106,.3);
+/* The same pointer light as the site's cards (the navy featured card keeps its own background) */
+.blog-card:not(.featured) {
+  background-image: radial-gradient(320px circle at var(--mx, 50%) var(--my, 0%), rgba(184,149,106, calc(var(--glow) * .1)), transparent 70%);
 }
+@media (hover: hover) {
+  .blog-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); border-color: rgba(184,149,106,.38); --glow: 1; }
+}
+.blog-card:focus-within { box-shadow: var(--shadow-hover); border-color: rgba(184,149,106,.38); }
+.blog-card-link:focus-visible { outline-offset: -4px; border-radius: var(--radius-lg); }
+.blog-card:active { transform: scale(.99); transition-duration: 90ms; }
+/* Cards in a row arrive one after another */
+.blog-grid > .anim:nth-child(3n+2) { --d: 90ms; }
+.blog-grid > .anim:nth-child(3n) { --d: 180ms; }
 .blog-card-link { display: flex; flex-direction: column; height: 100%; }
 .blog-card-img { aspect-ratio: 16 / 9; background: var(--bg2); overflow: hidden; }
 .blog-card-img img { width: 100%; height: 100%; object-fit: cover; }
@@ -70,7 +80,8 @@
   display: inline-flex; align-items: center; gap: 7px; margin-top: auto; padding-top: 18px;
   font-size: .875rem; font-weight: 600; color: var(--navy);
 }
-.blog-card-more svg { width: 15px; height: 15px; transition: transform 220ms var(--ease); }
+.blog-card-more svg { width: 15px; height: 15px; transition: transform var(--dur-3) var(--ease-out); }
+.blog-card:focus-within .blog-card-more svg { transform: translateX(3px); }
 .blog-card:hover .blog-card-more { color: var(--gold); }
 .blog-card:hover .blog-card-more svg { transform: translateX(3px); }
 
@@ -293,4 +304,11 @@
   .post-author { grid-template-columns: 1fr; padding: 26px 22px; gap: 18px; }
   .post-author-photo { width: 80px; height: 80px; }
   .next-card { padding: 36px 22px; }
+}
+
+/* ─── READING PROGRESS (articles) ───────────────────────────── */
+.read-progress {
+  position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 101;
+  background: linear-gradient(90deg, var(--gold), var(--gold-lt));
+  transform: scaleX(0); transform-origin: left center; pointer-events: none;
 }

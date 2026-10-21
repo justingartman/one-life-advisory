@@ -106,3 +106,26 @@ function playYouTube(btn) {
   var initial = new URLSearchParams(location.search).get('q');
   if (initial) { input.value = initial; run(); }
 })();
+
+// Articles: a thin gold bar along the top shows how far through the post you are.
+(function () {
+  var body = document.querySelector('.post .prose');
+  if (!body) return;
+  var bar = document.createElement('div');
+  bar.className = 'read-progress';
+  bar.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(bar);
+  var queued = false;
+  function update() {
+    queued = false;
+    var r = body.getBoundingClientRect();
+    var span = r.height - window.innerHeight * 0.5;
+    var p = span > 0 ? (window.innerHeight * 0.5 - r.top) / span : 1;
+    bar.style.transform = 'scaleX(' + Math.min(1, Math.max(0, p)).toFixed(4) + ')';
+  }
+  window.addEventListener('scroll', function () {
+    if (!queued) { queued = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();

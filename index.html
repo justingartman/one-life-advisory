@@ -60,6 +60,13 @@
       --shadow-lg: 0 8px 40px rgba(27,48,84,.11);
       --ease:      cubic-bezier(.4,0,.2,1);
       --ease-expo: cubic-bezier(.16,1,.3,1);   /* slow, refined settle for reveals */
+      /* Motion system: every hover, press and reveal uses these */
+      --ease-out:  cubic-bezier(.22,1,.36,1);  /* quick start, soft landing */
+      --dur-1: 160ms;   /* color and small state changes */
+      --dur-2: 240ms;   /* standard hover */
+      --dur-3: 420ms;   /* movement: lifts, slides, draws */
+      --dur-reveal: 900ms;
+      --shadow-hover: 0 16px 38px rgba(27,48,84,.12), 0 3px 8px rgba(27,48,84,.05);
       --font-display: 'Newsreader', Georgia, 'Times New Roman', serif;
       --font-body:    'Hanken Grotesk', system-ui, -apple-system, sans-serif;
       --hero-image: url('assets/hero.webp');
@@ -224,31 +231,42 @@
     .page.active { display: block; }
 
     /* ─── ANIMATIONS ─────────────────────────────────────────── */
-    @media (prefers-reduced-motion: no-preference) {
-      /* Default reveal: a quiet rise on a slow expo curve (not a generic fade-up). */
-      .anim {
-        opacity: 0; transform: translateY(16px);
-        transition: opacity 1500ms var(--ease-expo), transform 1500ms var(--ease-expo);
-        will-change: opacity, transform;
-      }
-      .anim.visible { opacity: 1; transform: translateY(0); }
-      .anim-delay-1 { transition-delay: 160ms; }
-      .anim-delay-2 { transition-delay: 320ms; }
-      .anim-delay-3 { transition-delay: 480ms; }
-      .anim-delay-4 { transition-delay: 640ms; }
-      .anim-delay-5 { transition-delay: 800ms; }
-
-      /* Headline mask-reveal: type rises from behind an edge instead of fading. */
-      .reveal-mask {
-        clip-path: inset(0 -8% 102% -8%);
-        transform: translateY(0.18em);
-        transition: clip-path 1800ms var(--ease-expo), transform 1800ms var(--ease-expo), opacity 1000ms var(--ease-expo);
-        will-change: clip-path, transform;
-      }
-      .reveal-mask.visible { clip-path: inset(-12% -8% -12% -8%); transform: translateY(0); }
+    /* Reveals are one-time keyframe animations on opacity and translate only,
+       so they finish cleanly and never get in the way of hover effects.
+       Anything already on screen reveals at once; nothing waits on a scroll.
+       .stagger reveals its children one after another (groups of cards). */
+    @keyframes ola-rise { from { opacity: 0; translate: 0 14px; } }
+    @keyframes ola-pop  { from { opacity: 0; scale: .94; } }
+    @keyframes ola-mask {
+      from { clip-path: inset(0 -8% 102% -8%); translate: 0 .18em; }
+      to   { clip-path: inset(-12% -8% -12% -8%); translate: 0 0; }
     }
-    @media (prefers-reduced-motion: reduce) {
-      .anim, .reveal-mask { opacity: 1; transform: none; clip-path: none; }
+    @keyframes ola-draw-x {
+      from { clip-path: inset(0 50% 0 50%); }
+      to   { clip-path: inset(-20% -2% -400% -2%); }
+    }
+    .anim-delay-1 { --d: 90ms; }
+    .anim-delay-2 { --d: 180ms; }
+    .anim-delay-3 { --d: 270ms; }
+    .anim-delay-4 { --d: 360ms; }
+    .anim-delay-5 { --d: 450ms; }
+    :is(.stagger, .connect-pieces) > :nth-child(2)  { --i: 1; }
+    :is(.stagger, .connect-pieces) > :nth-child(3)  { --i: 2; }
+    :is(.stagger, .connect-pieces) > :nth-child(4)  { --i: 3; }
+    :is(.stagger, .connect-pieces) > :nth-child(5)  { --i: 4; }
+    :is(.stagger, .connect-pieces) > :nth-child(6)  { --i: 5; }
+    :is(.stagger, .connect-pieces) > :nth-child(7)  { --i: 6; }
+    :is(.stagger, .connect-pieces) > :nth-child(8)  { --i: 7; }
+    :is(.stagger, .connect-pieces) > :nth-child(n+9) { --i: 8; }
+    @media (prefers-reduced-motion: no-preference) {
+      .anim:not(.visible), .stagger:not(.visible) > * { opacity: 0; }
+      .reveal-mask:not(.visible) { clip-path: inset(0 -8% 102% -8%); }
+      .anim.visible { animation: ola-rise var(--dur-reveal) var(--ease-expo) backwards; animation-delay: var(--d, 0ms); }
+      .stagger.visible > * {
+        animation: ola-rise var(--dur-reveal) var(--ease-expo) backwards;
+        animation-delay: calc(var(--d, 0ms) + var(--i, 0) * 80ms);
+      }
+      .reveal-mask.visible { animation: ola-mask 1100ms var(--ease-expo) backwards; animation-delay: var(--d, 0ms); }
     }
 
     /* ─── PAGE FADE ──────────────────────────────────────────── */
@@ -310,10 +328,12 @@
     /* Home hero: photo sits above the atmospheric layer (atmos = automatic fallback if image fails). */
     /* Interior page heroes: no photo — show the colored atmospheric background only. */
     .page-hero .hero-bg { display: none; }
-    @media (prefers-reduced-motion: no-preference) {
-      .hero-bg, .hero-atmos {
+    /* A slow drift on the home photo only, on larger screens. Interior headers
+       and phones stay still: calmer, and easier on battery. */
+    @media (prefers-reduced-motion: no-preference) and (min-width: 769px) {
+      .hero .hero-bg, .hero .hero-atmos {
         animation: kenburns 30s ease-in-out infinite alternate;
-        transform-origin: 62% 42%; will-change: transform;
+        transform-origin: 62% 42%;
       }
     }
     @keyframes kenburns {
@@ -374,7 +394,7 @@
     .hero h1 .accent path { stroke-dasharray: 1; stroke-dashoffset: 1; }
     @media (prefers-reduced-motion: no-preference) {
       /* Slow, deliberate hand-drawn underline — starts after the headline settles */
-      .hero h1 .accent path { transition: stroke-dashoffset 2200ms cubic-bezier(.45,.05,.25,1) 1900ms; }
+      .hero h1 .accent path { transition: stroke-dashoffset 1500ms cubic-bezier(.45,.05,.25,1) 1000ms; }
     }
     .hero h1.visible .accent path { stroke-dashoffset: 0; }
     .hero-sub {
@@ -392,7 +412,7 @@
     }
     .hero-scroll svg { width: 24px; height: 24px; }
     @media (prefers-reduced-motion: no-preference) {
-      .hero-scroll { animation: bob 2.4s ease-in-out infinite; }
+      .hero-scroll { animation: bob 2.4s ease-in-out 1.4s 3; }  /* a few gentle bobs, then still */
     }
     @keyframes bob { 0%,100% { transform: translate(-50%, 0); } 50% { transform: translate(-50%, 8px); } }
 
@@ -1215,9 +1235,9 @@
 
     /* ─── HEADING UNDERLINE DRAW ─────────────────────────────── */
     @media (prefers-reduced-motion: no-preference) {
-      .divider { width: 0; transition: width 700ms var(--ease) 200ms; }
-      .anim.visible .divider,
-      .divider.anim.visible { width: 48px; }
+      .divider { transform: scaleX(0); transform-origin: left center; transition: transform 800ms var(--ease-expo) 150ms; }
+      .divider-center { transform-origin: center; }
+      .divider.visible, .visible .divider { transform: scaleX(1); }
     }
 
     /* ─── TIMELINE LINE-DRAW ─────────────────────────────────── */
@@ -1229,6 +1249,200 @@
     /* ─── PARALLAX ───────────────────────────────────────────── */
     @media (prefers-reduced-motion: reduce) {
       .parallax { transform: none !important; }
+    }
+
+    /* ─── INTERACTION SYSTEM ─────────────────────────────────────
+       One set of timings and treatments for everything you can hover, tap,
+       or tab to. Lifts and the pointer light run only on devices that really
+       hover (mouse, trackpad); touch gets a quick press response instead, and
+       keyboard focus mirrors hover. Movement uses transform and opacity only. */
+    html { scroll-padding-top: 100px; }
+    ::selection { background: rgba(184,149,106,.24); }
+    a, button, .card, .chip, [role="link"], [role="button"] { -webkit-tap-highlight-color: transparent; }
+
+    /* Buttons: lift on hover, press on click, the arrow steps forward */
+    .btn {
+      transition: background-color var(--dur-2) var(--ease-out), color var(--dur-2) var(--ease-out),
+                  border-color var(--dur-2) var(--ease-out), box-shadow var(--dur-3) var(--ease-out),
+                  transform var(--dur-3) var(--ease-out);
+    }
+    .btn:hover { transform: none; }
+    .btn-primary::after { content: '\2192'; display: inline-block; margin-left: -2px; }
+    .btn-primary::after, .btn-outline::after { transition: transform var(--dur-3) var(--ease-out); }
+    .btn-outline:hover::after { transform: none; }
+    @media (hover: hover) {
+      .btn:hover { transform: translateY(-2px); }
+      .btn-ghost:hover { transform: none; }
+      .btn-primary:hover::after, .btn-outline:hover::after { transform: translateX(4px); }
+    }
+    .btn:focus-visible::after { transform: translateX(4px); }
+    .btn:active { transform: translateY(0) scale(.98); transition-duration: 90ms; }
+
+    /* Header: settles into a slimmer, frosted bar once you scroll */
+    .nav-inner { transition: height var(--dur-3) var(--ease-out); }
+    .nav-logo-img { transition: height var(--dur-3) var(--ease-out); }
+    #nav.compact .nav-inner { height: 76px; }
+    #nav.compact .nav-logo-img { height: 60px; }
+    #nav.compact { box-shadow: 0 1px 0 var(--border), 0 10px 30px rgba(27,48,84,.06); }
+    #nav.compact + .nav-drawer { top: 76px; }
+    @media (min-width: 1025px) {
+      #nav.scrolled {
+        background: rgba(255,255,255,.9);
+        -webkit-backdrop-filter: saturate(1.6) blur(14px); backdrop-filter: saturate(1.6) blur(14px);
+      }
+    }
+    @media (max-width: 768px) {
+      #nav.compact .nav-inner { height: 70px; }
+      #nav.compact .nav-logo-img { height: 46px; }
+      #nav.compact + .nav-drawer { top: 70px; }
+    }
+    .nav-links a:not(.nav-cta):not(.nav-login):focus-visible::after { transform: scaleX(1); }
+    .nav-cta {
+      transition: background-color var(--dur-2) var(--ease-out), color var(--dur-2) var(--ease-out),
+                  box-shadow var(--dur-3) var(--ease-out), transform var(--dur-3) var(--ease-out) !important;
+    }
+    @media (hover: hover) { .nav-cta:hover { box-shadow: 0 8px 22px rgba(27,48,84,.22); } }
+    .nav-cta:active { transform: scale(.98); }
+
+    /* Mobile menu: slides in, links follow one after another, current page in gold */
+    .nav-drawer { transition: transform var(--dur-3) var(--ease-out); }
+    .nav-drawer a { transition: color var(--dur-2) var(--ease-out), opacity var(--dur-3) var(--ease-out), translate var(--dur-3) var(--ease-out); }
+    .nav-drawer a.active { color: var(--gold); }
+    @media (prefers-reduced-motion: no-preference) {
+      .nav-drawer:not(.open) a { opacity: 0; translate: 14px 0; }
+      .nav-drawer.open a:nth-child(1) { transition-delay: 60ms; }
+      .nav-drawer.open a:nth-child(2) { transition-delay: 95ms; }
+      .nav-drawer.open a:nth-child(3) { transition-delay: 130ms; }
+      .nav-drawer.open a:nth-child(4) { transition-delay: 165ms; }
+      .nav-drawer.open a:nth-child(5) { transition-delay: 200ms; }
+      .nav-drawer.open a:nth-child(6) { transition-delay: 235ms; }
+      .nav-drawer.open a:nth-child(7) { transition-delay: 270ms; }
+      .nav-drawer.open a:nth-child(8) { transition-delay: 305ms; }
+      .nav-drawer.open a:nth-child(n+9) { transition-delay: 340ms; }
+    }
+
+    /* Cards: a warm light that follows the pointer, a gold rule that draws in
+       along the top, and a lift for cards you can click. Cards that are only
+       information get the light and a soft shadow, but don't lift. */
+    @property --glow { syntax: '<number>'; inherits: false; initial-value: 0; }
+    .card, .who-card, .team-card, .order-step, .honest-item, .res-row {
+      transition: transform var(--dur-3) var(--ease-out), box-shadow var(--dur-3) var(--ease-out),
+                  border-color var(--dur-2) var(--ease-out), background-color var(--dur-2) var(--ease-out),
+                  --glow var(--dur-3) var(--ease-out);
+    }
+    .card, .who-card, .order-step, .honest-item {
+      background-image: radial-gradient(320px circle at var(--mx, 50%) var(--my, 0%), rgba(184,149,106, calc(var(--glow) * .1)), transparent 70%);
+    }
+    .card { position: relative; }
+    .card::after {
+      content: ''; position: absolute; left: 24px; right: 24px; top: -1px; height: 2px; border-radius: 2px;
+      background: var(--gold); transform: scaleX(0); transform-origin: left center;
+      transition: transform var(--dur-3) var(--ease-out);
+    }
+    .card-icon { transition: background-color var(--dur-2) var(--ease-out), transform var(--dur-3) var(--ease-out); }
+    /* Cards that open something carry a small arrow */
+    .card[onclick]::before {
+      content: ''; position: absolute; top: 45px; right: 30px; width: 18px; height: 18px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23B8956A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E") center / contain no-repeat;
+      opacity: .45; transition: opacity var(--dur-2) var(--ease-out), transform var(--dur-3) var(--ease-out);
+    }
+    .card:hover, .who-card:hover, .team-card:hover { transform: none; }
+    @media (hover: hover) {
+      .card:hover, .team-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); border-color: rgba(184,149,106,.38); }
+      .who-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+      .order-step:hover, .honest-item:hover { box-shadow: var(--shadow-hover); border-color: rgba(184,149,106,.38); }
+      .order-purpose:hover { border-color: var(--navy); }
+      :is(.card, .who-card, .order-step, .honest-item):hover { --glow: 1; }
+      .card:hover::after { transform: scaleX(1); }
+      .card:hover .card-icon { background: rgba(184,149,106,.14); transform: translateY(-2px); }
+      .card[onclick]:hover::before { opacity: 1; transform: translateX(3px); }
+    }
+    .card:focus-visible { box-shadow: var(--shadow-hover); border-color: rgba(184,149,106,.38); }
+    .card:focus-visible::after { transform: scaleX(1); }
+    .card[onclick]:focus-visible::before { opacity: 1; transform: translateX(3px); }
+    .card[onclick]:active, a.card:active { transform: scale(.985); transition-duration: 90ms; }
+
+    /* The "pieces → one plan" graphic: the pieces arrive one by one, the
+       bracket draws them together, and the plan settles in beneath */
+    .connect-pieces li {
+      transition: border-color var(--dur-2) var(--ease-out), color var(--dur-2) var(--ease-out),
+                  translate var(--dur-3) var(--ease-out), box-shadow var(--dur-3) var(--ease-out);
+    }
+    @media (hover: hover) {
+      .connect-pieces li:hover { translate: 0 -2px; border-color: rgba(184,149,106,.55); color: var(--navy); box-shadow: var(--shadow-hover); }
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .connect.visible .connect-pieces li { animation: ola-rise 700ms var(--ease-expo) backwards; animation-delay: calc(160ms + var(--i, 0) * 80ms); }
+      .connect.visible .connect-bracket { animation: ola-draw-x 900ms var(--ease-expo) 620ms backwards; }
+      .connect.visible .connect-plan { animation: ola-pop 800ms var(--ease-expo) 1080ms backwards; }
+    }
+
+    /* Planning stages: the stage you're reading lights up, and the ones
+       you've passed turn gold, so you can feel your place in the process */
+    .step-num {
+      transition: background-color var(--dur-3) var(--ease-out), color var(--dur-3) var(--ease-out),
+                  border-color var(--dur-3) var(--ease-out), box-shadow var(--dur-3) var(--ease-out);
+    }
+    .step.is-past .step-num { border-color: var(--gold); }
+    .step.is-current .step-num { background: var(--navy); border-color: var(--navy); color: #fff; box-shadow: 0 0 0 6px rgba(184,149,106,.18); }
+    .step:not(:last-child)::before { transition: transform 700ms var(--ease-expo), background-color var(--dur-3) var(--ease-out); }
+    .step.is-past:not(:last-child)::before { background: var(--gold-lt); }
+    .pp-num {
+      transition: background-color var(--dur-2) var(--ease-out), color var(--dur-2) var(--ease-out),
+                  border-color var(--dur-2) var(--ease-out), transform var(--dur-3) var(--ease-out);
+    }
+    @media (hover: hover) {
+      .pp-step:hover .pp-num { background: var(--navy); border-color: var(--navy); color: #fff; transform: scale(1.06); }
+    }
+
+    /* Accordions: answers glide open to their exact height */
+    .faq-a { display: grid; grid-template-rows: 0fr; max-height: none; transition: grid-template-rows var(--dur-3) var(--ease-out); }
+    .faq-a.open { grid-template-rows: 1fr; max-height: none; }
+    /* The answer's bottom spacing lives inside the clipped area, so a closed answer is truly 0px tall */
+    .faq-a > .faq-a-inner { min-height: 0; overflow: hidden; padding-bottom: 0; }
+    .faq-a-inner::after { content: ''; display: block; height: 20px; }
+    .faq-q { transition: color var(--dur-2) var(--ease-out); }
+    .acc-trigger { transition: background-color var(--dur-2) var(--ease-out); }
+    .acc-trigger:focus-visible { outline-offset: -3px; }
+    .acc-body { transition: max-height var(--dur-3) var(--ease-out); }
+
+    /* Forms */
+    .lm-embed .formkit-input:hover { border-color: rgba(184,149,106,.5); }
+    .lm-embed .formkit-input:focus { border-color: var(--gold); }
+    .lm-embed .formkit-submit {
+      transition: background-color var(--dur-2) var(--ease-out), transform var(--dur-3) var(--ease-out), box-shadow var(--dur-3) var(--ease-out);
+    }
+    .lm-embed .formkit-submit:hover { transform: none; }
+    @media (hover: hover) { .lm-embed .formkit-submit:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(27,48,84,.2); } }
+    .lm-embed .formkit-submit:active { transform: scale(.985); transition-duration: 90ms; }
+    @media (prefers-reduced-motion: no-preference) {
+      .lm-embed .formkit-alert-success { animation: ola-rise 600ms var(--ease-expo) both; }
+    }
+
+    /* Footer */
+    .footer-col a { transition: color var(--dur-2) var(--ease-out), translate var(--dur-3) var(--ease-out); }
+    @media (hover: hover) { .footer-col a:hover { translate: 3px 0; } }
+    .footer-links a {
+      text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 3px;
+      transition: color var(--dur-2) var(--ease-out), text-decoration-color var(--dur-2) var(--ease-out);
+    }
+    .footer-links a:hover { text-decoration-color: rgba(184,149,106,.7); }
+
+    /* Page to page: a quick cross-fade with the header held still
+       (browsers that support it; others simply load the next page) */
+    @media (prefers-reduced-motion: no-preference) {
+      @view-transition { navigation: auto; }
+    }
+    ::view-transition-old(root), ::view-transition-new(root) { animation-duration: 280ms; animation-timing-function: cubic-bezier(.22,1,.36,1); }
+    #nav { view-transition-name: site-nav; }
+
+    /* Reduced motion: everything still works, nothing moves */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 1ms !important; animation-iteration-count: 1 !important;
+        transition-duration: 1ms !important; transition-delay: 0s !important;
+      }
     }
 
     /* ─── RESPONSIVE ─────────────────────────────────────────── */
@@ -1309,7 +1523,7 @@
       </a>
       <a href="#" onclick="go('schedule');return false;" class="nav-cta" data-cms="global.navCta">Schedule a Clarity Call</a>
     </div>
-    <button class="hamburger" id="hamburger" aria-label="Open menu" onclick="toggleMenu()">
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer" onclick="toggleMenu()">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -1452,7 +1666,7 @@
         <div class="divider divider-center"></div>
         <h3 style="color:var(--navy);" data-cms="home.order.heading">Purpose first. Then balance, protect, save, and grow.</h3>
       </div>
-      <ul class="order-grid order-compact anim anim-delay-1">
+      <ul class="order-grid order-compact stagger">
         <li class="order-step order-purpose"><h4 data-cms="home.order.items.0.title">Purpose</h4><p data-cms="home.order.items.0.desc"></p></li>
         <li class="order-step"><h4 data-cms="home.order.items.1.title">Balance</h4><p data-cms="home.order.items.1.desc"></p></li>
         <li class="order-step"><h4 data-cms="home.order.items.2.title">Protect</h4><p data-cms="home.order.items.2.desc"></p></li>
@@ -1478,7 +1692,7 @@
           <button class="btn btn-outline" style="margin-top:28px;" onclick="go('how-we-plan')" data-cms="home.planPreview.button">See the full process</button>
           </div>
         </div>
-        <div class="process-preview anim anim-delay-1">
+        <div class="process-preview stagger">
           <div class="pp-step">
             <div class="pp-num">1</div>
             <div class="pp-body"><h4 data-cms="home.planPreview.steps.0.title">Clarify Your Vision</h4><p data-cms="home.planPreview.steps.0.desc">What you want this life and this next season to look like.</p></div>
@@ -1586,7 +1800,7 @@
       <div class="anim">
         <h2 data-cms="how_we_plan.fiveQ.heading">The five questions.</h2>
       </div>
-      <div class="process-preview anim anim-delay-1" style="margin-top:32px;">
+      <div class="process-preview stagger" style="margin-top:32px;">
         <div class="pp-step">
           <div class="pp-num">1</div>
           <div class="pp-body"><h4 data-cms="how_we_plan.fiveQ.items.0">Will your money last as long as you do?</h4></div>
@@ -1675,7 +1889,7 @@
         <div class="label" data-cms="how_we_plan.honest.label">Keeping the numbers honest</div>
         <h2 style="margin-top:12px;" data-cms="how_we_plan.honest.heading">A plan is only as good as its assumptions.</h2>
       </div>
-      <div class="honest-grid anim anim-delay-1">
+      <div class="honest-grid stagger">
         <div class="honest-item"><h4 data-cms="how_we_plan.honest.items.0.title">We won't stretch the return.</h4><p data-cms="how_we_plan.honest.items.0.desc"></p></div>
         <div class="honest-item"><h4 data-cms="how_we_plan.honest.items.1.title">We plan for a long life.</h4><p data-cms="how_we_plan.honest.items.1.desc"></p></div>
         <div class="honest-item"><h4 data-cms="how_we_plan.honest.items.2.title">We don't assume spending drops.</h4><p data-cms="how_we_plan.honest.items.2.desc"></p></div>
@@ -1711,7 +1925,7 @@
       <div class="anim" style="margin-top:72px;" data-cms-show="how_we_plan.rhythm.show">
         <h2 data-cms="how_we_plan.rhythm.heading">What a year with us looks like</h2>
         <div style="margin-top:16px;" data-cms-paras="how_we_plan.rhythm.intro"><p>Your investment strategy and financial plan are reviewed regularly, with a full review at least annually.</p><p>A typical year might look something like this.</p></div>
-        <div class="process-preview" style="margin-top:32px;">
+        <div class="process-preview stagger" style="margin-top:32px;">
           <div class="pp-step">
             <div class="pp-num">1</div>
             <div class="pp-body"><h4 data-cms="how_we_plan.rhythm.items.0.title">Spring — the annual review</h4><p data-cms="how_we_plan.rhythm.items.0.desc">The full deep-dive. We re-run your plan through all five questions and adjust for what's changed.</p></div>
@@ -1770,7 +1984,7 @@
         <div class="label" data-cms="what_we_do.order.label">The order of operations</div>
         <h3 style="color:var(--navy);margin:12px 0 12px;" data-cms="what_we_do.order.heading">Purpose first. Then balance, protect, save, and grow.</h3>
         <p data-cms="what_we_do.order.intro">Once we know what the plan is for, we look at four areas in order of priority.</p>
-        <ul class="order-grid">
+        <ul class="order-grid stagger">
           <li class="order-step order-purpose"><span class="order-tag" data-cms="what_we_do.order.items.0.tag">Always first</span><h4 data-cms="what_we_do.order.items.0.title">Purpose</h4><p data-cms="what_we_do.order.items.0.desc"></p></li>
           <li class="order-step"><span class="order-tag" data-cms="what_we_do.order.items.1.tag">Cash flow</span><h4 data-cms="what_we_do.order.items.1.title">Balance</h4><p data-cms="what_we_do.order.items.1.desc"></p></li>
           <li class="order-step"><span class="order-tag" data-cms="what_we_do.order.items.2.tag">Risk</span><h4 data-cms="what_we_do.order.items.2.title">Protect</h4><p data-cms="what_we_do.order.items.2.desc"></p></li>
@@ -2074,7 +2288,7 @@
         <h2 data-cms="pricing.included.heading">What the advisory fee covers.</h2>
         <p data-cms="pricing.included.intro"></p>
       </div>
-      <div class="svc-groups anim" id="pricing-included"></div>
+      <div class="svc-groups stagger" id="pricing-included"></div>
     </div>
   </section>
   <section class="section">
@@ -2101,7 +2315,7 @@
         <h2 data-cms="pricing.planning.heading">Planning without investment management.</h2>
         <p data-cms="pricing.planning.intro"></p>
       </div>
-      <div class="pricing-options anim">
+      <div class="pricing-options stagger">
         <div class="pricing-card">
           <h3 data-cms="pricing.planning.ongoing.name">Ongoing planning</h3>
           <p data-cms="pricing.planning.ongoing.body"></p>
@@ -2449,9 +2663,13 @@
     }
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     target.classList.add('active');
-    target.classList.remove('page-fade');
-    void target.offsetWidth;
-    target.classList.add('page-fade');
+    // Fade only when switching pages in place; on first load the page shows
+    // at once (faster to appear, and browsers cross-fade between pages).
+    if (!initial) {
+      target.classList.remove('page-fade');
+      void target.offsetWidth;
+      target.classList.add('page-fade');
+    }
     // On first load, leave scrolling to the browser so Back returns you to
     // where you were on the previous page.
     if (!initial) window.scrollTo({ top: 0 });
@@ -2539,6 +2757,7 @@
     activeId = activeId || (document.querySelector('.page.active') || {}).id?.replace('page-', '');
     const isHome = activeId === 'home';
     const atTop = window.scrollY < 60;
+    nav.classList.toggle('compact', !atTop);
     if (isHome && atTop) {
       nav.classList.remove('scrolled');
       nav.classList.add('over-hero');
@@ -2567,19 +2786,23 @@
   function toggleMenu() {
     const h = document.getElementById('hamburger');
     const d = document.getElementById('nav-drawer');
-    h.classList.toggle('open');
-    d.classList.toggle('open');
-    if (d.classList.contains('open')) {
-      d.style.display = 'flex';
-    } else {
-      setTimeout(() => { if (!d.classList.contains('open')) d.style.display = 'none'; }, 300);
-    }
+    const opening = !d.classList.contains('open');
+    // Show the drawer first, then open it on the next frame so it always slides in.
+    if (opening) { d.style.display = 'flex'; void d.offsetWidth; }
+    h.classList.toggle('open', opening);
+    d.classList.toggle('open', opening);
+    h.setAttribute('aria-expanded', String(opening));
+    h.setAttribute('aria-label', opening ? 'Close menu' : 'Open menu');
+    if (!opening) setTimeout(() => { if (!d.classList.contains('open')) d.style.display = 'none'; }, 420);
   }
   function closeMenu() {
-    document.getElementById('hamburger').classList.remove('open');
+    const h = document.getElementById('hamburger');
+    h.classList.remove('open');
+    h.setAttribute('aria-expanded', 'false');
+    h.setAttribute('aria-label', 'Open menu');
     const d = document.getElementById('nav-drawer');
     d.classList.remove('open');
-    setTimeout(() => { d.style.display = 'none'; }, 300);
+    setTimeout(() => { if (!d.classList.contains('open')) d.style.display = 'none'; }, 420);
   }
 
   // ── Scroll animations (Intersection Observer) ────────────────────────────
@@ -2598,7 +2821,7 @@
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
-    document.querySelectorAll('.page.active .anim, .page.active .reveal-mask').forEach(el => {
+    document.querySelectorAll('.page.active :is(.anim, .reveal-mask, .stagger, .divider)').forEach(el => {
       if (el.classList.contains('visible')) return;
       // Already on screen (e.g. the hero) → reveal immediately so it never waits on a scroll.
       if (el.getBoundingClientRect().top < window.innerHeight * 0.95) {
@@ -2793,6 +3016,56 @@
   window.addEventListener('resize', applyResponsive);
   applyResponsive();
 
+  // ── Interaction details ───────────────────────────────────────────────────
+  function enhanceInteractions() {
+    // Clickable cards and the scroll cue work from the keyboard too.
+    document.querySelectorAll('.card[onclick]').forEach(c => { c.tabIndex = 0; c.setAttribute('role', 'link'); });
+    const cue = document.querySelector('.hero-scroll');
+    if (cue) { cue.tabIndex = 0; cue.setAttribute('role', 'button'); }
+    document.addEventListener('keydown', e => {
+      const drawer = document.getElementById('nav-drawer');
+      if (e.key === 'Escape' && drawer && drawer.classList.contains('open')) {
+        closeMenu(); document.getElementById('hamburger').focus(); return;
+      }
+      const t = e.target;
+      if (!t.matches || !t.matches('[onclick][role="link"], [onclick][role="button"]')) return;
+      if (e.key === 'Enter' || (e.key === ' ' && t.getAttribute('role') === 'button')) { e.preventDefault(); t.click(); }
+    });
+
+    // A soft light that follows the pointer across cards (mouse and trackpad only).
+    if (!reduceMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      let last = null, queued = false;
+      document.addEventListener('pointermove', e => {
+        last = e;
+        if (queued) return;
+        queued = true;
+        requestAnimationFrame(() => {
+          queued = false;
+          const c = last.target.closest && last.target.closest('.card, .who-card, .order-step, .honest-item, .blog-card');
+          if (!c) return;
+          const r = c.getBoundingClientRect();
+          c.style.setProperty('--mx', Math.round(last.clientX - r.left) + 'px');
+          c.style.setProperty('--my', Math.round(last.clientY - r.top) + 'px');
+        });
+      }, { passive: true });
+    }
+
+    // Planning stages: the one you're reading is current; the ones above it are done.
+    if ('IntersectionObserver' in window) {
+      document.querySelectorAll('.steps').forEach(list => {
+        const items = [...list.children].filter(el => el.classList.contains('step'));
+        const io = new IntersectionObserver(entries => {
+          entries.forEach(en => {
+            if (!en.isIntersecting) return;
+            const i = items.indexOf(en.target);
+            items.forEach((s, j) => { s.classList.toggle('is-current', j === i); s.classList.toggle('is-past', j < i); });
+          });
+        }, { rootMargin: '-38% 0px -52% 0px' });
+        items.forEach(s => io.observe(s));
+      });
+    }
+  }
+
   // ── Init ──────────────────────────────────────────────────────────────────
   document.addEventListener('DOMContentLoaded', () => {
     const hash = window.location.hash.slice(1);
@@ -2805,6 +3078,7 @@
     const currentId = current && Object.keys(PAGES).find(k => PAGES[k] === current.id);
     const startPage = PAGES[hash] ? hash : (currentId || 'home');
     go(startPage, true);
+    enhanceInteractions();
     // /what-we-do#tax opens that section (the cards on the home page link here).
     // Wait for the web fonts so the page doesn't shift after it scrolls.
     if (startPage === 'what-we-do' && hash && document.getElementById('acc-' + hash)) {
