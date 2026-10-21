@@ -1,8 +1,8 @@
 {
   "heroImage": "/assets/hero.webp",
   "hook": {
-    "label": "The question that matters most",
-    "heading": "Is your current path on track?",
+    "label": "The question we help answer.",
+    "heading": "Is your current path on track for where you want to go?",
     "lead": "Most people have a variety of financial pieces: an IRA, a 401(k), an insurance policy, Social Security, and maybe a pension. Few have a plan that connects them all.",
     "pieces": [
       "IRA",
