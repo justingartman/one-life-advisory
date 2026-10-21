@@ -426,6 +426,7 @@ function renderResources() {
       ' data-format="inline" data-version="5" data-options="' + q(JSON.stringify(opts)) + '">' +
       '<div data-style="minimal"><ul class="formkit-alert formkit-alert-error" data-element="errors" data-group="alert"></ul>' +
       '<div data-element="fields" data-stacked="true" class="seva-fields formkit-fields">' +
+      '<div class="formkit-field"><input class="formkit-input" aria-label="First Name" name="fields[first_name]" required placeholder="First Name" type="text" autocomplete="given-name"></div>' +
       '<div class="formkit-field"><input class="formkit-input" name="email_address" aria-label="Email Address" placeholder="Email Address" required type="email" autocomplete="email"></div>' +
       '<button data-element="submit" class="formkit-submit"><div class="formkit-spinner"><div></div><div></div><div></div></div>' +
       '<span>' + q(nl.buttonLabel || 'Subscribe') + '</span></button></div>' +

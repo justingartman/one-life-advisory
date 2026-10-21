@@ -764,7 +764,7 @@ collections:
                   - { name: author, label: "Author", widget: string, required: false }
                   - { name: why, label: "Why it's worth reading", widget: text, required: false }
           - name: glossary
-            label: "Plain-Language Glossary"
+            label: "Glossary"
             widget: object
             fields:
               - { name: show, label: "Show this section?", widget: boolean }
@@ -776,7 +776,7 @@ collections:
                 widget: list
                 fields:
                   - { name: term, label: "Term", widget: string }
-                  - { name: definition, label: "Plain-language definition", widget: text }
+                  - { name: definition, label: "Definition", widget: text }
           - { name: closingHeading, label: "Closing — Heading", widget: string }
           - { name: closingSub, label: "Closing — Subtext", widget: text }
           - { name: closingButton, label: "Closing — Button", widget: string }

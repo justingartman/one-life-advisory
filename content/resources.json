@@ -1,7 +1,7 @@
 {
   "heroEyebrow": "Resources",
   "heroTitle": "Resources to help you make better financial decisions.",
-  "heroSub": "Articles, videos, guides, and other resources to help you understand the decisions you're facing and think through your options in plain language.",
+  "heroSub": "Articles, videos, guides, and other resources to help you understand the decisions you're facing and think through your options.",
   "featured": {
     "show": true,
     "label": "Free guide",
@@ -15,7 +15,7 @@
     "show": true,
     "label": "Read",
     "heading": "Latest articles",
-    "intro": "Written to help you think through the money decisions that matter most, in plain language.",
+    "intro": "Written to help you think through the money decisions that matter most.",
     "count": 3,
     "allLabel": "See all articles"
   },
@@ -45,15 +45,15 @@
     ]
   },
   "newsletter": {
-    "show": false,
+    "show": true,
     "label": "Newsletter",
-    "heading": "Get new articles by email.",
-    "body": "When a new article is published, we'll send it your way.",
-    "kitFormId": "",
-    "kitFormUid": "",
-    "buttonLabel": "Subscribe",
-    "successMessage": "You're subscribed. Thanks for reading!",
-    "note": "No spam. Unsubscribe anytime."
+    "heading": "Get new articles in your inbox.",
+    "body": "Practical insights on retirement, investing, and how all the pieces of your financial life fit together.",
+    "kitFormId": "10078902",
+    "kitFormUid": "8f2bc3e008",
+    "buttonLabel": "Send me new articles",
+    "successMessage": "You're signed up. Look for the next article in your inbox.",
+    "note": "Unsubscribe anytime."
   },
   "guides": {
     "show": false,
@@ -77,17 +77,37 @@
   },
   "glossary": {
     "show": true,
-    "label": "Plain Language",
-    "heading": "Jargon, translated",
-    "intro": "The industry has a language problem. Here are the terms you'll actually hear, in words that mean something.",
+    "label": "Glossary",
+    "heading": "Common terms, explained",
+    "intro": "Terms that come up often in retirement planning, and what they actually mean for you.",
     "items": [
+      {
+        "term": "Annuity",
+        "definition": "A contract with an insurance company. Depending on the type, it can grow your money tax-deferred or turn savings into a stream of income for a set number of years or for life. Any guarantees depend on the insurance company's ability to pay its claims."
+      },
+      {
+        "term": "Asset location",
+        "definition": "Deciding which accounts hold which investments. Taxable, tax-deferred, and Roth accounts are taxed differently, so where an investment sits can change how much of its return you keep."
+      },
+      {
+        "term": "Basis",
+        "definition": "What you originally paid for an investment. It determines how much of a sale is taxable gain and how much is simply your own money coming back."
+      },
       {
         "term": "Fiduciary",
         "definition": "A legal obligation to act in your best interest, not merely to recommend something suitable. It is a standard of care, not a marketing term."
       },
       {
-        "term": "Sequence of returns risk",
-        "definition": "The risk that poor market returns arrive early in retirement, while you are drawing income. The same average return can produce very different outcomes depending on when the bad years land."
+        "term": "Full retirement age",
+        "definition": "The age when you can collect your full Social Security retirement benefit. It's 67 for anyone born in 1960 or later. Claiming earlier lowers your monthly benefit, and waiting longer, up to age 70, raises it."
+      },
+      {
+        "term": "IRMAA",
+        "definition": "Short for income-related monthly adjustment amount. It's an extra charge on Medicare Part B and Part D premiums for people with higher incomes, based on your tax return from two years earlier. That's why income decisions at 63 can affect what you pay for Medicare at 65."
+      },
+      {
+        "term": "Qualified charitable distribution (QCD)",
+        "definition": "A gift sent directly from your IRA to a charity, available starting at age 70½. The amount isn't counted as taxable income, and once you're required to take RMDs, it can count toward them."
       },
       {
         "term": "Required Minimum Distribution (RMD)",
@@ -98,8 +118,8 @@
         "definition": "Moving money from a pre-tax retirement account into a Roth account and paying the tax now, so that qualified withdrawals later, including the growth, can come out tax-free."
       },
       {
-        "term": "Basis",
-        "definition": "What you originally paid for an investment. It determines how much of a sale is taxable gain and how much is simply your own money coming back."
+        "term": "Sequence of returns risk",
+        "definition": "The risk that poor market returns arrive early in retirement, while you are drawing income. The same average return can produce very different outcomes depending on when the bad years land."
       }
     ]
   },
