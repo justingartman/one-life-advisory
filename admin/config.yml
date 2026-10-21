@@ -679,17 +679,20 @@ collections:
           - { name: heroEyebrow, label: "Header — Eyebrow", widget: string }
           - { name: heroTitle, label: "Header — Title", widget: string }
           - { name: heroSub, label: "Header — Subtitle", widget: text }
-          - name: featured
-            label: "Featured Resource (top callout)"
+          - name: newsletter
+            label: "Newsletter Sign-up (top of the page)"
             widget: object
+            hint: "Create a form in Kit, open its embed code (HTML option), and copy two values from it: the number after data-sv-form= and the code after data-uid=."
             fields:
-              - { name: show, label: "Show this section?", widget: boolean }
+              - { name: show, label: "Show this section?", widget: boolean, required: false, hint: "Shows only once both Kit values below are filled in." }
               - { name: label, label: "Eyebrow", widget: string }
               - { name: heading, label: "Heading", widget: string }
-              - { name: body, label: "Body", widget: text }
-              - { name: useGuideForm, label: "Show the guide sign-up form", widget: boolean, required: false, hint: "Uses the same Kit form as the home page guide (its button text is edited there, under Home → Lead Magnet). Turn off to show the button below instead." }
-              - { name: buttonLabel, label: "Button text", widget: string, required: false }
-              - { name: buttonUrl, label: "Button link", widget: string, required: false, hint: "Used only when the sign-up form is off." }
+              - { name: body, label: "Body", widget: text, required: false }
+              - { name: kitFormId, label: "Kit form number (data-sv-form)", widget: string, required: false }
+              - { name: kitFormUid, label: "Kit form code (data-uid)", widget: string, required: false }
+              - { name: buttonLabel, label: "Button text", widget: string }
+              - { name: successMessage, label: "Message after someone subscribes", widget: string }
+              - { name: note, label: "Small print under the button", widget: string, required: false }
           - name: articles
             label: "Latest Articles (from the blog)"
             widget: object
@@ -718,20 +721,17 @@ collections:
                   - { name: title, label: "Title", widget: string }
                   - { name: url, label: "YouTube link", widget: string, required: false, hint: "Paste the video's link from YouTube; the thumbnail fills in automatically." }
                   - { name: description, label: "Description", widget: text, required: false }
-          - name: newsletter
-            label: "Newsletter Sign-up"
+          - name: featured
+            label: "Free Guide (lower on the page)"
             widget: object
-            hint: "Create a form in Kit, open its embed code (HTML option), and copy two values from it: the number after data-sv-form= and the code after data-uid=."
             fields:
-              - { name: show, label: "Show this section?", widget: boolean, required: false, hint: "Shows only once both Kit values below are filled in." }
+              - { name: show, label: "Show this section?", widget: boolean }
               - { name: label, label: "Eyebrow", widget: string }
               - { name: heading, label: "Heading", widget: string }
-              - { name: body, label: "Body", widget: text, required: false }
-              - { name: kitFormId, label: "Kit form number (data-sv-form)", widget: string, required: false }
-              - { name: kitFormUid, label: "Kit form code (data-uid)", widget: string, required: false }
-              - { name: buttonLabel, label: "Button text", widget: string }
-              - { name: successMessage, label: "Message after someone subscribes", widget: string }
-              - { name: note, label: "Small print under the button", widget: string, required: false }
+              - { name: body, label: "Body", widget: text }
+              - { name: useGuideForm, label: "Show the guide sign-up form", widget: boolean, required: false, hint: "Uses the same Kit form as the home page guide (its button text is edited there, under Home → Lead Magnet). Turn off to show the button below instead." }
+              - { name: buttonLabel, label: "Button text", widget: string, required: false }
+              - { name: buttonUrl, label: "Button link", widget: string, required: false, hint: "Used only when the sign-up form is off." }
           - name: guides
             label: "Guides & Checklists"
             widget: object
