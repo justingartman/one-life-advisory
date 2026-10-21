@@ -1,9 +1,23 @@
 {
-  "heroEyebrow": "Resources",
-  "heroTitle": "Resources to help you make better financial decisions.",
   "heroSub": "Articles, videos, guides, and other resources to help you understand the decisions you're facing and think through your options.",
+  "closingButton": "Schedule a Clarity Call",
+  "closingSub": "Bring it to a Clarity Call. We'll talk through what's on your mind and help you understand whether we may be able to help.",
+  "reading": {
+    "show": false,
+    "label": "Bookshelf",
+    "heading": "Worth reading",
+    "intro": "Books we find ourselves recommending. No affiliate links, no kickbacks.",
+    "items": [
+      {
+        "title": "[Book title]",
+        "author": "[Author]",
+        "why": "One or two sentences on why this book is worth your time."
+      }
+    ]
+  },
+  "closingHeading": "Have a question these resources didn't answer?",
   "featured": {
-    "show": true,
+    "show": false,
     "label": "Free guide",
     "heading": "Start with the guide.",
     "body": "A short guide to help you evaluate whether your money is working together the way you intend, especially as retirement gets closer.",
@@ -11,13 +25,13 @@
     "buttonLabel": "Get the guide",
     "buttonUrl": ""
   },
-  "articles": {
-    "show": true,
-    "label": "Read",
-    "heading": "Latest articles",
-    "intro": "Written to help you think through the money decisions that matter most.",
-    "count": 3,
-    "allLabel": "See all articles"
+  "heroEyebrow": "Resources",
+  "guides": {
+    "show": false,
+    "label": "Download",
+    "heading": "Guides and checklists",
+    "intro": "Practical tools you can use on your own, whether or not we ever work together.",
+    "items": []
   },
   "videos": {
     "show": true,
@@ -45,35 +59,23 @@
     ]
   },
   "newsletter": {
-    "show": true,
-    "label": "Newsletter",
-    "heading": "Get new articles in your inbox.",
     "body": "Practical insights on retirement, investing, and how all the pieces of your financial life fit together.",
-    "kitFormId": "10078902",
-    "kitFormUid": "8f2bc3e008",
+    "heading": "Get new articles in your inbox.",
     "buttonLabel": "Send me new articles",
     "successMessage": "You're signed up. Look for the next article in your inbox.",
-    "note": "Unsubscribe anytime."
+    "note": "Unsubscribe anytime.",
+    "label": "Newsletter",
+    "kitFormId": "10078902",
+    "kitFormUid": "8f2bc3e008",
+    "show": true
   },
-  "guides": {
-    "show": false,
-    "label": "Download",
-    "heading": "Guides and checklists",
-    "intro": "Practical tools you can use on your own, whether or not we ever work together.",
-    "items": []
-  },
-  "reading": {
-    "show": false,
-    "label": "Bookshelf",
-    "heading": "Worth reading",
-    "intro": "Books we find ourselves recommending. No affiliate links, no kickbacks.",
-    "items": [
-      {
-        "title": "[Book title]",
-        "author": "[Author]",
-        "why": "One or two sentences on why this book is worth your time."
-      }
-    ]
+  "articles": {
+    "show": true,
+    "label": "Read",
+    "heading": "Latest articles",
+    "intro": "Written to help you think through the money decisions that matter most.",
+    "count": 3,
+    "allLabel": "See all articles"
   },
   "glossary": {
     "show": true,
@@ -123,7 +125,5 @@
       }
     ]
   },
-  "closingHeading": "Have a question these resources didn't answer?",
-  "closingSub": "Bring it to a Clarity Call. We'll talk through what's on your mind and help you understand whether we may be able to help.",
-  "closingButton": "Schedule a Clarity Call"
+  "heroTitle": "Resources to help you make better financial decisions."
 }
