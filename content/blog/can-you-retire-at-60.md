@@ -18,8 +18,6 @@ If you’re 58 or 59 and seriously considering retiring at 60, you’ve probably
 
 It’s a fair question, and the balance does tell you something. It just can’t settle the decision by itself. Two households with the same savings can be asking their money to do very different things, and those differences determine whether retiring at 60 looks comfortable, tight, or premature.
 
-{{< youtube url="https://youtu.be/BD-7o1fwYT8" title="Can I Retire at 60? Run These Numbers First" >}}
-
 ## Two hypothetical couples with $1.5 million
 
 Consider two hypothetical couples. Both are 60, both want to retire now, and both have $1.5 million invested.

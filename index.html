@@ -126,7 +126,7 @@
     #nav.scrolled { background: var(--white); box-shadow: 0 1px 0 var(--border); }
     .nav-inner {
       display: flex; align-items: center; justify-content: space-between;
-      max-width: 1300px; margin: 0 auto; padding: 0 32px; height: 92px;
+      max-width: 1360px; margin: 0 auto; padding: 0 32px; height: 92px;
     }
     .nav-logo {
       font-family: var(--font-display);
@@ -137,8 +137,8 @@
     .nav-links { display: flex; align-items: center; gap: 6px; flex-wrap: nowrap; }
     .nav-links a {
       position: relative; white-space: nowrap; flex-shrink: 0;
-      font-size: .8125rem; font-weight: 500; letter-spacing: .01em; color: var(--text2);
-      padding: 8px 4px; margin: 0 8px;
+      font-size: .9375rem; font-weight: 500; letter-spacing: .01em; color: var(--text2);
+      padding: 8px 4px; margin: 0 6px;
       transition: color 220ms var(--ease);
     }
     /* hand-drawn-feeling underline that wipes in from the left */
@@ -151,7 +151,7 @@
     .nav-links a.active::after { transform: scaleX(1); }
     .nav-links a:hover, .nav-links a.active { color: var(--navy); }
     .nav-cta {
-      font-size: .875rem; font-weight: 600; color: var(--white) !important;
+      font-size: .9375rem; font-weight: 600; color: var(--white) !important;
       background: var(--navy) !important; padding: 10px 20px !important;
       border-radius: var(--radius) !important;
       transition: background 200ms, transform 150ms !important;
@@ -610,6 +610,32 @@
     .res-featured p { color: rgba(255,255,255,.72); max-width: 540px; margin: 0 auto; }
     .res-featured .label { color: var(--gold-lt); }
     .res-featured .btn { margin-top: 26px; }
+    /* Kit sign-up forms on the navy cards */
+    .res-featured .lm-embed { margin-top: 26px; }
+    .res-featured .lm-embed .formkit-submit { background: var(--gold); }
+    .res-featured .lm-embed .formkit-submit:hover { background: #A6845A; }
+    .res-featured .formkit-guarantee, .res-featured .formkit-alert { color: rgba(255,255,255,.6); }
+    .res-newsletter { background: var(--bg2); }
+    .res-newsletter h3 { color: var(--navy); }
+    .res-newsletter p, .res-newsletter .formkit-guarantee { color: var(--text2); }
+    .res-newsletter .label { color: var(--gold); }
+    .res-newsletter .lm-embed .formkit-submit { background: var(--navy); }
+    .res-newsletter .lm-embed .formkit-submit:hover { background: var(--navy2); }
+    /* Video cards: YouTube thumbnail with a play button */
+    .res-thumb { position: relative; aspect-ratio: 16 / 9; margin-bottom: 20px; border-radius: var(--radius); overflow: hidden; background: var(--navy); }
+    .res-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 400ms var(--ease); }
+    .card:hover .res-thumb img { transform: scale(1.03); }
+    .res-thumb-play {
+      position: absolute; left: 50%; top: 50%; width: 54px; height: 54px; margin: -27px 0 0 -27px;
+      border-radius: 50%; background: rgba(27,48,84,.82); color: #fff;
+      display: flex; align-items: center; justify-content: center; transition: background 250ms var(--ease);
+    }
+    .card:hover .res-thumb-play { background: var(--gold); }
+    .res-thumb-play svg { width: 20px; height: 20px; margin-left: 3px; }
+    /* "Resources / Articles" trail in the blog's header */
+    .hero-eyebrow a { color: inherit; transition: color 200ms var(--ease); }
+    .hero-eyebrow a:hover { color: #fff; }
+    .hero-eyebrow .crumb-sep { opacity: .6; }
     .res-meta {
       font-size: .75rem; font-weight: 600; letter-spacing: .08em;
       text-transform: uppercase; color: var(--gold); margin-bottom: 10px;
@@ -1218,7 +1244,7 @@
       .schedule-grid { grid-template-columns: 1fr; gap: 48px; }
     }
     /* Collapse to the mobile menu well before the desktop nav would wrap. */
-    @media (max-width: 1230px) {
+    @media (max-width: 1330px) {
       .nav-links { display: none; }
       .hamburger { display: flex; }
       .nav-drawer { display: flex; }
@@ -1274,7 +1300,6 @@
       <a href="#" onclick="go('what-we-do');return false;" id="nl-what-we-do" data-cms="global.nav.whatWeDo">What We Do</a>
       <a href="#" onclick="go('who-we-help');return false;" id="nl-who-we-help" data-cms="global.nav.whoWeHelp">Who We Help</a>
       <a href="#" onclick="go('about');return false;" id="nl-about" data-cms="global.nav.about">About</a>
-      <a href="/blog" id="nl-blog" data-cms="global.nav.blog" data-blog-link style="display:none">Blog</a>
       <a href="#" onclick="go('resources');return false;" id="nl-resources" data-cms="global.nav.resources" data-cms-show="global.showResources">Resources</a>
       <a href="#" onclick="go('services-and-fees');return false;" id="nl-services-and-fees" data-cms="global.nav.pricing">Services &amp; Fees</a>
       <a href="#" onclick="go('faq');return false;" id="nl-faq" data-cms="global.nav.faq">FAQ</a>
@@ -1294,7 +1319,6 @@
   <a href="#" onclick="go('what-we-do');closeMenu();return false;" data-cms="global.nav.whatWeDo">What We Do</a>
   <a href="#" onclick="go('who-we-help');closeMenu();return false;" data-cms="global.nav.whoWeHelp">Who We Help</a>
   <a href="#" onclick="go('about');closeMenu();return false;" data-cms="global.nav.about">About</a>
-  <a href="/blog" data-cms="global.nav.blog" data-blog-link style="display:none">Blog</a>
   <a href="#" onclick="go('resources');closeMenu();return false;" data-cms="global.nav.resources" data-cms-show="global.showResources">Resources</a>
   <a href="#" onclick="go('services-and-fees');closeMenu();return false;" data-cms="global.nav.pricing">Services &amp; Fees</a>
   <a href="#" onclick="go('faq');closeMenu();return false;" data-cms="global.nav.faq">FAQ</a>
@@ -2172,9 +2196,11 @@
       <!-- Featured resource -->
       <div class="anim" id="res-featured-wrap" style="margin-top:40px;">
         <div class="res-featured">
-          <div class="label" id="res-featured-label">Start Here</div>
-          <h3 id="res-featured-heading">The Five Questions Self-Check</h3>
-          <p id="res-featured-body">Work through the five questions on your own, at your own pace, before you ever get on a call.</p>
+          <div class="label" id="res-featured-label">Free guide</div>
+          <h3 id="res-featured-heading">Start with the guide.</h3>
+          <p id="res-featured-body"></p>
+          <!-- The home page's guide sign-up form is copied in here when "Show the guide sign-up form" is on. -->
+          <div id="res-featured-form"></div>
           <a class="btn btn-primary" id="res-featured-btn" href="#">Get the guide</a>
         </div>
       </div>
@@ -2188,6 +2214,9 @@
           <p id="res-articles-intro" style="margin:12px auto 0;"></p>
         </div>
         <div class="cards-grid" id="res-articles-grid"></div>
+        <div class="anim" style="text-align:center;margin-top:32px;">
+          <a class="btn btn-outline" id="res-articles-all" href="/blog">See all articles</a>
+        </div>
       </div>
 
       <!-- Videos -->
@@ -2201,6 +2230,16 @@
         <div class="cards-grid" id="res-videos-grid"></div>
         <div class="anim" style="text-align:center;margin-top:32px;">
           <a class="btn btn-outline" id="res-videos-channel" href="#" target="_blank" rel="noopener">See all videos on YouTube</a>
+        </div>
+      </div>
+
+      <!-- Newsletter sign-up: shows once a Kit form is connected in /admin -->
+      <div id="res-newsletter-wrap" style="margin-top:80px;">
+        <div class="res-featured res-newsletter anim">
+          <div class="label" id="res-newsletter-label">Newsletter</div>
+          <h3 id="res-newsletter-heading">Get new articles by email.</h3>
+          <p id="res-newsletter-body"></p>
+          <div id="res-newsletter-form"></div>
         </div>
       </div>
 

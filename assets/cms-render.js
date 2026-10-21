@@ -325,29 +325,40 @@ function renderResources() {
     setText('res-featured-label', f.label);
     setText('res-featured-heading', f.heading);
     setText('res-featured-body', f.body);
+    // The guide sign-up form is copied from the home page, so there's one form to maintain.
+    const lead = ((window.__cmsContent || {}).home || {}).leadMagnet || {};
+    const src = f.useGuideForm && lead.show !== false ? document.querySelector('#page-home .lm-embed') : null;
+    const formWrap = el('res-featured-form');
+    if (formWrap) { formWrap.innerHTML = ''; if (src) formWrap.appendChild(src.cloneNode(true)); }
     const btn = el('res-featured-btn');
-    if (btn) { btn.textContent = f.buttonLabel || 'Get the guide'; linkAttrs(btn, f.buttonUrl); }
+    if (btn) {
+      btn.textContent = f.buttonLabel || 'Get the guide'; linkAttrs(btn, f.buttonUrl);
+      btn.style.display = src || !f.buttonUrl ? 'none' : '';
+    }
   }
 
   // Articles -------------------------------------------------------------
   const a = data.articles || {};
-  const aItems = (a.items || []).filter(i => i && i.title);
+  // The build fills in the newest blog posts (articles.latest).
+  const aItems = (a.latest || a.items || []).filter(i => i && i.title);
   if (showSection('res-articles-wrap', a, aItems.length)) {
     setText('res-articles-label', a.label); setText('res-articles-heading', a.heading);
     setText('res-articles-intro', a.intro);
     const grid = el('res-articles-grid'); grid.innerHTML = '';
     aItems.forEach((item, i) => {
-      const card = document.createElement(isExternal(item.url) ? 'a' : 'div');
+      const card = document.createElement(item.url && item.url !== '#' ? 'a' : 'div');
       card.className = 'card anim' + (i % 3 ? ' anim-delay-' + (i % 3) : '');
       if (card.tagName === 'A') linkAttrs(card, item.url);
       if (item.date) { const m = document.createElement('div'); m.className = 'res-meta'; m.textContent = item.date; card.appendChild(m); }
       const h = document.createElement('h4'); h.textContent = item.title; card.appendChild(h);
       if (item.summary) { const p = document.createElement('p'); p.textContent = item.summary; card.appendChild(p); }
       const link = document.createElement('span'); link.className = 'res-card-link';
-      link.appendChild(document.createTextNode('Read')); link.appendChild(arrow());
+      link.appendChild(document.createTextNode('Read article')); link.appendChild(arrow());
       card.appendChild(link);
       grid.appendChild(card);
     });
+    const all = el('res-articles-all');
+    if (all) all.textContent = a.allLabel || 'See all articles';
     jumps.push([a.heading || 'Writing', 'res-articles-wrap']);
   }
 
@@ -362,16 +373,24 @@ function renderResources() {
       const card = document.createElement(isExternal(item.url) ? 'a' : 'div');
       card.className = 'card anim' + (i % 3 ? ' anim-delay-' + (i % 3) : '');
       if (card.tagName === 'A') linkAttrs(card, item.url);
-      const play = document.createElement('div'); play.className = 'res-play';
+      // YouTube links get their thumbnail automatically.
+      const id = (String(item.url || '').match(/(?:youtube(?:-nocookie)?\.com\/(?:watch\?(?:[^#]*&)?v=|embed\/|shorts\/|live\/|v\/)|youtu\.be\/)([\w-]{11})/) || [])[1];
+      const play = document.createElement(id ? 'span' : 'div'); play.className = id ? 'res-thumb-play' : 'res-play';
       const psvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
       psvg.setAttribute('viewBox', '0 0 24 24'); psvg.setAttribute('fill', 'currentColor');
       const tri = document.createElementNS('http://www.w3.org/2000/svg', 'path');
       tri.setAttribute('d', 'M8 5v14l11-7z'); psvg.appendChild(tri); play.appendChild(psvg);
-      card.appendChild(play);
+      if (id) {
+        const thumb = document.createElement('div'); thumb.className = 'res-thumb';
+        const img = document.createElement('img');
+        img.setAttribute('src', 'https://i.ytimg.com/vi/' + id + '/hqdefault.jpg');
+        img.setAttribute('alt', ''); img.setAttribute('loading', 'lazy'); img.setAttribute('decoding', 'async');
+        thumb.appendChild(img); thumb.appendChild(play); card.appendChild(thumb);
+      } else card.appendChild(play);
       const h = document.createElement('h4'); h.textContent = item.title; card.appendChild(h);
       if (item.description) { const p = document.createElement('p'); p.textContent = item.description; card.appendChild(p); }
       const link = document.createElement('span'); link.className = 'res-card-link';
-      link.appendChild(document.createTextNode('Watch')); link.appendChild(arrow());
+      link.appendChild(document.createTextNode('Watch on YouTube')); link.appendChild(arrow());
       card.appendChild(link);
       grid.appendChild(card);
     });
@@ -382,6 +401,36 @@ function renderResources() {
       ch.parentElement.style.display = isExternal(v.channelUrl) ? '' : 'none';
     }
     jumps.push([v.heading || 'Video', 'res-videos-wrap']);
+  }
+
+  // Newsletter: a Kit form built from the form number and code in /admin ---
+  const nl = data.newsletter || {};
+  const nlId = String(nl.kitFormId || '').replace(/\D/g, '');
+  const nlUid = String(nl.kitFormUid || '').replace(/[^\w]/g, '');
+  if (showSection('res-newsletter-wrap', nl, !!(nlId && nlUid))) {
+    setText('res-newsletter-label', nl.label); setText('res-newsletter-heading', nl.heading);
+    setText('res-newsletter-body', nl.body);
+    const q = s => String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    const opts = { settings: {
+      after_subscribe: { action: 'message', success_message: nl.successMessage || "You're subscribed.", redirect_url: '' },
+      analytics: { google: null, fathom: null, facebook: null, segment: null, pinterest: null, sparkloop: null, googletagmanager: null },
+      modal: { trigger: 'timer', scroll_percentage: null, timer: 5, devices: 'all', show_once_every: 15 },
+      powered_by: { show: false, url: '' }, recaptcha: { enabled: false },
+      return_visitor: { action: 'show', custom_content: '' },
+      slide_in: { display_in: 'bottom_right', trigger: 'timer', scroll_percentage: null, timer: 5, devices: 'all', show_once_every: 15 },
+      sticky_bar: { display_in: 'top', trigger: 'timer', scroll_percentage: null, timer: 5, devices: 'all', show_once_every: 15 } },
+      version: '5' };
+    el('res-newsletter-form').innerHTML =
+      '<div class="lm-embed" data-clarity-mask="true"><form action="https://app.kit.com/forms/' + nlId + '/subscriptions"' +
+      ' class="seva-form formkit-form" method="post" data-sv-form="' + nlId + '" data-uid="' + nlUid + '"' +
+      ' data-format="inline" data-version="5" data-options="' + q(JSON.stringify(opts)) + '">' +
+      '<div data-style="minimal"><ul class="formkit-alert formkit-alert-error" data-element="errors" data-group="alert"></ul>' +
+      '<div data-element="fields" data-stacked="true" class="seva-fields formkit-fields">' +
+      '<div class="formkit-field"><input class="formkit-input" name="email_address" aria-label="Email Address" placeholder="Email Address" required type="email" autocomplete="email"></div>' +
+      '<button data-element="submit" class="formkit-submit"><div class="formkit-spinner"><div></div><div></div><div></div></div>' +
+      '<span>' + q(nl.buttonLabel || 'Subscribe') + '</span></button></div>' +
+      (nl.note ? '<div class="formkit-guarantee" data-element="guarantee">' + q(nl.note) + '</div>' : '') +
+      '</div></form></div>';
   }
 
   // Guides ---------------------------------------------------------------

@@ -68,7 +68,7 @@ collections:
               - { name: whatWeDo, label: "What We Do", widget: string }
               - { name: whoWeHelp, label: "Who We Help", widget: string }
               - { name: about, label: "About", widget: string }
-              - { name: blog, label: "Blog", widget: string, hint: "The Blog link appears in the menu and footer automatically once at least one post is Published." }
+              - { name: blog, label: "Blog", widget: string, hint: "The Blog link appears in the footer once a post is Published. The menu links to Resources, which leads to the blog." }
               - { name: resources, label: "Resources", widget: string }
               - { name: pricing, label: "Services & Fees", widget: string }
               - { name: faq, label: "FAQ", widget: string }
@@ -687,24 +687,20 @@ collections:
               - { name: label, label: "Eyebrow", widget: string }
               - { name: heading, label: "Heading", widget: string }
               - { name: body, label: "Body", widget: text }
-              - { name: buttonLabel, label: "Button text", widget: string }
-              - { name: buttonUrl, label: "Button link", widget: string, hint: "Where the button goes. Upload a PDF below or paste any link." }
+              - { name: useGuideForm, label: "Show the guide sign-up form", widget: boolean, required: false, hint: "Uses the same Kit form as the home page guide (its button text is edited there, under Home → Lead Magnet). Turn off to show the button below instead." }
+              - { name: buttonLabel, label: "Button text", widget: string, required: false }
+              - { name: buttonUrl, label: "Button link", widget: string, required: false, hint: "Used only when the sign-up form is off." }
           - name: articles
-            label: "Articles / Blog"
+            label: "Latest Articles (from the blog)"
             widget: object
+            hint: "Your newest published blog posts appear here automatically."
             fields:
               - { name: show, label: "Show this section?", widget: boolean }
               - { name: label, label: "Eyebrow", widget: string }
               - { name: heading, label: "Heading", widget: string }
               - { name: intro, label: "Intro line", widget: text, required: false }
-              - name: items
-                label: "Articles"
-                widget: list
-                fields:
-                  - { name: title, label: "Title", widget: string }
-                  - { name: date, label: "Date / status line", widget: string, required: false, hint: "e.g. 'March 2026' or 'Coming soon'." }
-                  - { name: summary, label: "Summary", widget: text, required: false }
-                  - { name: url, label: "Link", widget: string, required: false, hint: "Full https:// link. Leave blank or # and the card won't be clickable." }
+              - { name: count, label: "How many recent articles to show", widget: number, value_type: int, min: 1, max: 9, default: 3 }
+              - { name: allLabel, label: "Button text (to all articles)", widget: string }
           - name: videos
             label: "Videos"
             widget: object
@@ -720,8 +716,22 @@ collections:
                 widget: list
                 fields:
                   - { name: title, label: "Title", widget: string }
+                  - { name: url, label: "YouTube link", widget: string, required: false, hint: "Paste the video's link from YouTube; the thumbnail fills in automatically." }
                   - { name: description, label: "Description", widget: text, required: false }
-                  - { name: url, label: "YouTube link", widget: string, required: false }
+          - name: newsletter
+            label: "Newsletter Sign-up"
+            widget: object
+            hint: "Create a form in Kit, open its embed code (HTML option), and copy two values from it: the number after data-sv-form= and the code after data-uid=."
+            fields:
+              - { name: show, label: "Show this section?", widget: boolean, required: false, hint: "Shows only once both Kit values below are filled in." }
+              - { name: label, label: "Eyebrow", widget: string }
+              - { name: heading, label: "Heading", widget: string }
+              - { name: body, label: "Body", widget: text, required: false }
+              - { name: kitFormId, label: "Kit form number (data-sv-form)", widget: string, required: false }
+              - { name: kitFormUid, label: "Kit form code (data-uid)", widget: string, required: false }
+              - { name: buttonLabel, label: "Button text", widget: string }
+              - { name: successMessage, label: "Message after someone subscribes", widget: string }
+              - { name: note, label: "Small print under the button", widget: string, required: false }
           - name: guides
             label: "Guides & Checklists"
             widget: object

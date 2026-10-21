@@ -295,6 +295,12 @@ function showBlogLinks(root) {
     if (hasBlog) a.removeAttribute('style'); else a.remove();
   });
 }
+// The Resources page lists the newest articles.
+if (renderData.resources && renderData.resources.articles) {
+  const a = renderData.resources.articles;
+  a.latest = posts.slice(0, Math.max(1, Number(a.count) || 3)).map(p => ({
+    title: p.title, date: longDate(p.date), summary: p.excerpt || p.description, url: p.url }));
+}
 const FILLED = buildFilledSource();
 
 // A fresh copy of the filled page, keeping only `keepId` (or no page at all).
@@ -450,11 +456,13 @@ function card(p, featured = false) {
     `</div></a></article>`;
 }
 
+// The blog lives under Resources: its header and breadcrumbs lead back there.
+const resourcesCrumb = `<a href="/resources">${esc((G.nav && G.nav.resources) || 'Resources')}</a>`;
 function pageHero(eyebrow, title, sub) {
   return `<section class="page-hero">` +
     `<div class="hero-bg"></div><div class="hero-atmos"></div><div class="hero-scrim"></div>` +
     `<div class="page-hero-inner">` +
-    `<div class="hero-eyebrow anim">${esc(eyebrow)}</div>` +
+    `<div class="hero-eyebrow anim">${resourcesCrumb}<span class="crumb-sep" aria-hidden="true">/</span>${esc(eyebrow)}</div>` +
     `<h1 class="reveal-mask anim-delay-1">${esc(title)}</h1>` +
     (sub ? `<p class="page-hero-sub anim anim-delay-2">${esc(sub)}</p>` : '') +
     `</div></section>`;
@@ -470,7 +478,7 @@ function mountBlogPage(document, anchor, fillFooter, inner) {
   const script = document.createElement('script');
   script.setAttribute('src', '/assets/blog.js');
   document.body.appendChild(script);
-  setNavState(document, 'blog');
+  setNavState(document, 'resources');
   document.head.querySelectorAll('link[rel="preload"][href="/assets/hero.webp"]').forEach(l => l.remove());
 }
 
@@ -534,6 +542,7 @@ function buildPost(p) {
     `<div class="hero-bg"></div><div class="hero-atmos"></div><div class="hero-scrim"></div>` +
     `<div class="page-hero-inner">` +
     `<nav class="post-crumbs anim" aria-label="Breadcrumb" data-pagefind-ignore>` +
+    resourcesCrumb + `<span aria-hidden="true">/</span>` +
     `<a href="/blog">${esc(BLOG.heroEyebrow || 'Blog')}</a>` +
     (topic ? `<span aria-hidden="true">/</span><a href="${topic.url}">${esc(topic.name)}</a>` : '') +
     `</nav>` +

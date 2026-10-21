@@ -172,9 +172,3 @@ Ultimately, the balance tells you what you've built. The cash-flow plan tells yo
 
 If you'd like a more structured way to work through these decisions, our Retirement Income Planning Guide walks through the same questions in more detail.
 
-
-
-
-
-
-{{< youtube url="https://youtu.be/sRejXZt3VME" title="" >}}

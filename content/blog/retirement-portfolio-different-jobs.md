@@ -23,8 +23,6 @@ Put another way, what life do you want retirement to make possible, and how can 
 
 Once the paycheck stops, your savings and investments usually take on several different responsibilities. Giving your money a defined purpose before deciding how to invest it helps connect those decisions to the life you're trying to support.
 
-{{< youtube url="https://youtu.be/5CmUObqY-Uo" title="Your Retirement Portfolio Has More Jobs Than You Think" >}}
-
 ## One pool of money becomes several assignments
 
 While you're still earning a paycheck, it's natural to think of your retirement savings as one big pool. You contribute, you invest, and the goal is mostly to help it grow.

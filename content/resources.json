@@ -4,75 +4,74 @@
   "heroSub": "Articles, videos, guides, and other resources to help you understand the decisions you're facing and think through your options in plain language.",
   "featured": {
     "show": true,
-    "label": "Start Here",
-    "heading": "The Five Questions Self-Check",
-    "body": "Work through the five questions on your own, at your own pace, before you ever get on a call. A short, plain-language guide you can finish in about ten minutes.",
+    "label": "Free guide",
+    "heading": "Start with the guide.",
+    "body": "A short guide to help you evaluate whether your money is working together the way you intend, especially as retirement gets closer.",
+    "useGuideForm": true,
     "buttonLabel": "Get the guide",
-    "buttonUrl": "#"
+    "buttonUrl": ""
   },
   "articles": {
     "show": true,
-    "label": "Writing",
-    "heading": "Notes on planning",
-    "intro": "Short pieces on the decisions that actually move the needle.",
-    "items": [
-      {
-        "title": "The retirement question nobody asks until it's late",
-        "date": "Coming soon",
-        "summary": "Everyone plans for the number. Almost nobody plans for the paycheck that has to come out of it. Here's why the order you draw matters as much as the amount you saved.",
-        "url": "#"
-      },
-      {
-        "title": "Sequence of returns, explained without the math",
-        "date": "Coming soon",
-        "summary": "Two people can average the same return over thirty years and end up in completely different places. The difference is when the bad years show up.",
-        "url": "#"
-      },
-      {
-        "title": "What forward-looking tax planning actually looks like",
-        "date": "Coming soon",
-        "summary": "Tax planning isn't a season. It's a lens on every decision you make, from which account you fund to which one you spend first.",
-        "url": "#"
-      }
-    ]
+    "label": "Read",
+    "heading": "Latest articles",
+    "intro": "Written to help you think through the money decisions that matter most, in plain language.",
+    "count": 3,
+    "allLabel": "See all articles"
   },
   "videos": {
     "show": true,
     "label": "Watch",
-    "heading": "Video",
-    "intro": "Short explainers on the same questions, if you'd rather watch than read.",
+    "heading": "Videos",
+    "intro": "Short videos on the same questions, if you'd rather watch than read.",
     "channelLabel": "See all videos on YouTube",
-    "channelUrl": "#",
+    "channelUrl": "https://www.youtube.com/@JustinAtOneLifeAdvisory",
     "items": [
       {
-        "title": "The five questions, in five minutes",
-        "description": "A quick walkthrough of the questions we build every plan around, and why these five.",
-        "url": "#"
+        "title": "Your Retirement Portfolio Has More Jobs Than You Think",
+        "url": "https://youtu.be/5CmUObqY-Uo",
+        "description": "Why it helps to decide what each dollar is for before choosing investments."
       },
       {
-        "title": "When should I take Social Security?",
-        "description": "The honest answer is that it depends, and here is exactly what it depends on.",
-        "url": "#"
+        "title": "Can I Retire at 60? Run These Numbers First",
+        "url": "https://youtu.be/BD-7o1fwYT8",
+        "description": "Two couples, the same $1.5 million, and what changes the answer."
+      },
+      {
+        "title": "Where Does Your Retirement Paycheck Actually Come From?",
+        "url": "https://youtu.be/sRejXZt3VME",
+        "description": "What goes into turning your savings into a retirement paycheck."
       }
     ]
   },
+  "newsletter": {
+    "show": false,
+    "label": "Newsletter",
+    "heading": "Get new articles by email.",
+    "body": "When a new article is published, we'll send it your way.",
+    "kitFormId": "",
+    "kitFormUid": "",
+    "buttonLabel": "Subscribe",
+    "successMessage": "You're subscribed. Thanks for reading!",
+    "note": "No spam. Unsubscribe anytime."
+  },
   "guides": {
-    "show": true,
+    "show": false,
     "label": "Download",
     "heading": "Guides and checklists",
     "intro": "Practical tools you can use on your own, whether or not we ever work together.",
+    "items": []
+  },
+  "reading": {
+    "show": false,
+    "label": "Bookshelf",
+    "heading": "Worth reading",
+    "intro": "Books we find ourselves recommending. No affiliate links, no kickbacks.",
     "items": [
       {
-        "title": "Retirement Readiness Checklist",
-        "description": "The documents, decisions, and deadlines worth handling in the five years before you retire.",
-        "buttonLabel": "Download",
-        "url": "#"
-      },
-      {
-        "title": "Annual Financial Review Checklist",
-        "description": "What to look at once a year, in the order that makes it painless.",
-        "buttonLabel": "Download",
-        "url": "#"
+        "title": "[Book title]",
+        "author": "[Author]",
+        "why": "One or two sentences on why this book is worth your time."
       }
     ]
   },
@@ -96,24 +95,11 @@
       },
       {
         "term": "Roth conversion",
-        "definition": "Moving money from a pre-tax retirement account into a Roth account and paying the tax now, so that future growth and withdrawals can come out tax-free."
+        "definition": "Moving money from a pre-tax retirement account into a Roth account and paying the tax now, so that qualified withdrawals later, including the growth, can come out tax-free."
       },
       {
         "term": "Basis",
         "definition": "What you originally paid for an investment. It determines how much of a sale is taxable gain and how much is simply your own money coming back."
-      }
-    ]
-  },
-  "reading": {
-    "show": false,
-    "label": "Bookshelf",
-    "heading": "Worth reading",
-    "intro": "Books we find ourselves recommending. No affiliate links, no kickbacks.",
-    "items": [
-      {
-        "title": "[Book title]",
-        "author": "[Author]",
-        "why": "One or two sentences on why this book is worth your time."
       }
     ]
   },
