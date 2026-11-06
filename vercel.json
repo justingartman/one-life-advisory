@@ -34,6 +34,11 @@
       "permanent": false
     },
     {
+      "source": "/yt/:code/p",
+      "destination": "/schedule?utm_source=podcast&utm_medium=episode_notes&utm_campaign=:code",
+      "permanent": false
+    },
+    {
       "source": "/yt/:code",
       "destination": "/schedule?utm_source=youtube&utm_medium=video_description&utm_campaign=:code",
       "permanent": false
