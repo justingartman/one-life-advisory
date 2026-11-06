@@ -29,83 +29,13 @@
       "permanent": true
     },
     {
-      "source": "/yt/55",
-      "destination": "/schedule?utm_source=youtube&utm_medium=video_description&utm_campaign=2026-11-retire-55-2m",
+      "source": "/yt/:code/c",
+      "destination": "/schedule?utm_source=youtube&utm_medium=pinned_comment&utm_campaign=:code",
       "permanent": false
     },
     {
-      "source": "/yt/55c",
-      "destination": "/schedule?utm_source=youtube&utm_medium=pinned_comment&utm_campaign=2026-11-retire-55-2m",
-      "permanent": false
-    },
-    {
-      "source": "/yt/final",
-      "destination": "/schedule?utm_source=youtube&utm_medium=video_description&utm_campaign=2026-11-final-year",
-      "permanent": false
-    },
-    {
-      "source": "/yt/finalc",
-      "destination": "/schedule?utm_source=youtube&utm_medium=pinned_comment&utm_campaign=2026-11-final-year",
-      "permanent": false
-    },
-    {
-      "source": "/yt/rmds",
-      "destination": "/schedule?utm_source=youtube&utm_medium=video_description&utm_campaign=2026-10-rmds-problem",
-      "permanent": false
-    },
-    {
-      "source": "/yt/rmdsc",
-      "destination": "/schedule?utm_source=youtube&utm_medium=pinned_comment&utm_campaign=2026-10-rmds-problem",
-      "permanent": false
-    },
-    {
-      "source": "/yt/60",
-      "destination": "/schedule?utm_source=youtube&utm_medium=video_description&utm_campaign=2026-10-retire-60-1m",
-      "permanent": false
-    },
-    {
-      "source": "/yt/60c",
-      "destination": "/schedule?utm_source=youtube&utm_medium=pinned_comment&utm_campaign=2026-10-retire-60-1m",
-      "permanent": false
-    },
-    {
-      "source": "/yt/roth",
-      "destination": "/schedule?utm_source=youtube&utm_medium=video_description&utm_campaign=2026-10-roth-conversion-timing",
-      "permanent": false
-    },
-    {
-      "source": "/yt/rothc",
-      "destination": "/schedule?utm_source=youtube&utm_medium=pinned_comment&utm_campaign=2026-10-roth-conversion-timing",
-      "permanent": false
-    },
-    {
-      "source": "/yt/jobs",
-      "destination": "/schedule?utm_source=youtube&utm_medium=video_description&utm_campaign=2026-10-portfolio-jobs",
-      "permanent": false
-    },
-    {
-      "source": "/yt/jobsc",
-      "destination": "/schedule?utm_source=youtube&utm_medium=pinned_comment&utm_campaign=2026-10-portfolio-jobs",
-      "permanent": false
-    },
-    {
-      "source": "/yt/1-5m",
-      "destination": "/schedule?utm_source=youtube&utm_medium=video_description&utm_campaign=2026-10-retire-1-5m",
-      "permanent": false
-    },
-    {
-      "source": "/yt/1-5mc",
-      "destination": "/schedule?utm_source=youtube&utm_medium=pinned_comment&utm_campaign=2026-10-retire-1-5m",
-      "permanent": false
-    },
-    {
-      "source": "/yt/paycheck",
-      "destination": "/schedule?utm_source=youtube&utm_medium=video_description&utm_campaign=2026-09-retirement-paycheck",
-      "permanent": false
-    },
-    {
-      "source": "/yt/paycheckc",
-      "destination": "/schedule?utm_source=youtube&utm_medium=pinned_comment&utm_campaign=2026-09-retirement-paycheck",
+      "source": "/yt/:code",
+      "destination": "/schedule?utm_source=youtube&utm_medium=video_description&utm_campaign=:code",
       "permanent": false
     }
   ]
