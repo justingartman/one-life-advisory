@@ -74,6 +74,7 @@ collections:
               - { name: faq, label: "FAQ", widget: string }
           - { name: contactEmail, label: "Contact Email", widget: string }
           - { name: contactPhone, label: "Contact Phone", widget: string }
+          - { name: socialProfiles, label: "Firm profiles elsewhere (for Google and AI search)", widget: list, required: false, field: { name: url, label: "Profile link", widget: string }, hint: "The firm's YouTube channel, podcast, LinkedIn and so on. Not shown on the page; tells search engines they belong to One Life Advisory." }
           - { name: throughlineCap, label: "Throughline Label (gold line on home)", widget: string, hint: "The small vertical label beside the gold line on the homepage." }
           - { name: footerTagline, label: "Footer Tagline", widget: string }
           - name: footerCols
@@ -505,6 +506,8 @@ collections:
               - { name: role, label: Role / Credentials, widget: string }
               - { name: bio, label: Bio, widget: text }
               - { name: photo, label: Photo, widget: image, required: false }
+              - { name: sameAs, label: "Profiles elsewhere (for Google and AI search)", widget: list, required: false, field: { name: url, label: "Profile link", widget: string }, hint: "Links to this person's profiles on other sites (YouTube channel, LinkedIn, podcast). Not shown on the page; tells search engines these are the same person." }
+              - { name: knowsAbout, label: "Topics they write about (for Google and AI search)", widget: list, required: false, field: { name: topic, label: "Topic", widget: string }, hint: "Not shown on the page. Helps search engines connect articles to the author's expertise." }
           - { name: closingHeading, label: "Closing — Heading", widget: string }
           - { name: closingSub, label: "Closing — Subtext", widget: text }
           - { name: closingButton, label: "Closing — Button", widget: string }
