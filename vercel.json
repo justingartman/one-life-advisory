@@ -39,6 +39,11 @@
       "permanent": false
     },
     {
+      "source": "/yt/:code/b",
+      "destination": "/schedule?utm_source=blog&utm_medium=article&utm_campaign=:code",
+      "permanent": false
+    },
+    {
       "source": "/yt/:code",
       "destination": "/schedule?utm_source=youtube&utm_medium=video_description&utm_campaign=:code",
       "permanent": false
