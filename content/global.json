@@ -58,5 +58,8 @@
   "logoNav": "/assets/logos/logo-nav.svg",
   "throughlineCap": "The path forward",
   "faviconUrl": "/assets/logos/favicon.svg",
-  "contactEmail": "info@onelifeadvisory.com"
+  "contactEmail": "info@onelifeadvisory.com",
+  "socialProfiles": [
+    "https://www.youtube.com/@JustinAtOneLifeAdvisory"
+  ]
 }

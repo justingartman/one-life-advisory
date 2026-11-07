@@ -32,6 +32,10 @@ const require = createRequire(import.meta.url);
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = path.resolve(ROOT, process.env.OUT_DIR || 'dist');
 const SHOW_DRAFTS = process.argv.includes('--drafts');
+const NOW = new Date();
+// IndexNow (Bing, Yandex and others; Bing feeds ChatGPT search and Copilot): this key is public by design. It lives at /<key>.txt
+// and lets the publish step tell search engines a page changed. Change it only together with the publish script's copy.
+const INDEXNOW_KEY = '1953df1b1eb50d297afd4db0efe92700';
 
 const SITE = 'https://onelifeadvisory.com';
 const SITE_NAME = 'One Life Advisory';
@@ -183,6 +187,8 @@ function loadPosts() {
     const file = f.slice(0, -3); // the post's id: related-post picks refer to this
     const date = toDate(fm.date) || fs.statSync(path.join(dir, f)).mtime;
     const updated = toDate(fm.updated);
+    const publishAt = fm.publishAt ? new Date(fm.publishAt) : null;   // optional exact release time (ISO with offset)
+    const video = String(fm.video || '').trim().replace(/^.*(?:v=|youtu\.be\/|embed\/)([\w-]{11}).*$/, '$1');
     const html = renderMarkdown(m[2]);
     const text = stripTags(html);
     posts.push({
@@ -200,12 +206,15 @@ function loadPosts() {
       related: list(fm.related),
       image: String(fm.image || '').trim(),
       imageAlt: String(fm.imageAlt || '').trim(),
+      publishAt: publishAt && !isNaN(publishAt) ? publishAt : null,
+      video: /^[\w-]{11}$/.test(video) ? video : '',
       html,
       minutes: Math.max(1, Math.round(text.split(' ').length / 225)),
     });
   }
   return posts
-    .filter(p => p.status === 'published' || SHOW_DRAFTS)
+    // Scheduled posts (publishAt in the future) stay off the live site until a build runs after that time.
+    .filter(p => (p.status === 'published' && !(p.publishAt && p.publishAt > NOW)) || SHOW_DRAFTS)
     .sort((a, b) => b.date - a.date || a.title.localeCompare(b.title));
 }
 
@@ -390,6 +399,7 @@ const ORG = {
   email: G.contactEmail || undefined,
   telephone: G.contactPhone || undefined,
   areaServed: { '@type': 'Country', name: 'United States' },
+  sameAs: list(G.socialProfiles).length ? list(G.socialProfiles) : undefined,
 };
 const sitemap = [];
 
@@ -528,6 +538,31 @@ function buildBlogList(topic) {
   sitemap.push({ loc: url, lastmod: shown[0] && isoDate(shown[0].updated || shown[0].date) });
 }
 
+// The post's video (front matter `video: <YouTube ID or URL>`) sits just before the first section heading, as a
+// privacy-friendly embed that loads only when it scrolls into view.
+function withVideo(p) {
+  if (!p.video) return p.html;
+  const embed = `<figure class="post-video" style="margin:2rem 0"><div style="position:relative;aspect-ratio:16/9;width:100%">` +
+    `<iframe src="https://www.youtube-nocookie.com/embed/${p.video}" title="${esc(p.title)} (video)" loading="lazy" ` +
+    `allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ` +
+    `style="position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:12px"></iframe></div>` +
+    `<figcaption style="font-size:.9rem;opacity:.75;margin-top:.5rem">Watch the video version of this article.</figcaption></figure>`;
+  const i = p.html.indexOf('<h2');
+  return i > 0 ? p.html.slice(0, i) + embed + p.html.slice(i) : embed + p.html;
+}
+
+// The author as a schema.org Person: name, role, the firm they work for, where else they publish (sameAs) and what
+// they write about (knowsAbout). Filled from /content/about.json (team[0]); empty fields are left out.
+function authorSchema() {
+  if (!author) return undefined;
+  return { '@type': 'Person', '@id': SITE + '/about#' + slugify(author.name), name: author.name,
+    jobTitle: author.role || undefined, honorificSuffix: author.credentials || undefined,
+    url: SITE + '/about', image: authorPhoto ? absUrl(authorPhoto) : undefined,
+    worksFor: { '@id': SITE + '/#organization' },
+    sameAs: list(author.sameAs).length ? list(author.sameAs) : undefined,
+    knowsAbout: list(author.knowsAbout).length ? list(author.knowsAbout) : undefined };
+}
+
 function buildPost(p) {
   const { document, anchor, fillFooter } = shell(null);
   const topic = topics.find(t => t.name === p.topics[0]);
@@ -556,7 +591,7 @@ function buildPost(p) {
     (p.status !== 'published' ? `<div class="draft-banner" data-pagefind-ignore><strong>${STATUS_LABEL[p.status]}:</strong> ` +
       `this post isn't on the live site. Set its Status to Published in /admin when it's approved.</div>` : '') +
     (p.image ? `<figure class="post-figure"><img src="${esc(p.image)}" alt="${esc(p.imageAlt)}" decoding="async"></figure>` : '') +
-    `<div class="prose">${p.html}</div>` +
+    `<div class="prose">${withVideo(p)}</div>` +
     (disclosure ? `<p class="post-disclosure" data-pagefind-ignore>${esc(disclosure)}</p>` : '') +
     (p.topics.length ? `<div class="post-tags" data-pagefind-ignore><span class="post-tags-label">Filed under</span>` +
       p.topics.map(t => `<a class="chip" href="/blog/topics/${slugify(t)}">${esc(t)}</a>`).join('') + `</div>` : '') +
@@ -616,10 +651,20 @@ function buildPost(p) {
       url,
       mainEntityOfPage: url,
       keywords: p.topics.join(', ') || undefined,
-      author: author ? { '@type': 'Person', name: author.name, jobTitle: author.role || undefined, url: SITE + '/about' } : undefined,
+      author: authorSchema(),
       publisher: { '@id': SITE + '/#organization', '@type': 'Organization', name: SITE_NAME,
         logo: { '@type': 'ImageObject', url: SITE + '/assets/logos/favicon-180.png' } },
-    }, {
+    }, ...(p.video ? [{
+      '@context': 'https://schema.org',
+      '@type': 'VideoObject',
+      name: p.title,
+      description: p.description,
+      thumbnailUrl: [`https://i.ytimg.com/vi/${p.video}/maxresdefault.jpg`, `https://i.ytimg.com/vi/${p.video}/hqdefault.jpg`],
+      uploadDate: (p.videoDate || p.date).toISOString(),
+      embedUrl: `https://www.youtube.com/embed/${p.video}`,
+      url: `https://www.youtube.com/watch?v=${p.video}`,
+      publisher: { '@id': SITE + '/#organization' },
+    }] : []), {
       '@context': 'https://schema.org',
       '@type': 'BreadcrumbList',
       itemListElement: [
@@ -726,11 +771,34 @@ write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>
 ${sitemap.map(u => `  <url><loc>${u.loc}</loc>${u.lastmod ? `<lastmod>${u.lastmod}</lastmod>` : ''}</url>`).join('\n')}
 </urlset>
 `);
-write('robots.txt', `User-agent: *
-Disallow: /admin/
+// Search and AI crawlers are welcome everywhere except the CMS. Each named group repeats the rule because a named
+// group replaces the * group for that crawler.
+const CRAWLERS = ['Googlebot', 'Bingbot', 'GPTBot', 'OAI-SearchBot', 'ChatGPT-User', 'ClaudeBot', 'Claude-SearchBot', 'Claude-User',
+  'PerplexityBot', 'Perplexity-User', 'Google-Extended', 'Applebot', 'Applebot-Extended', 'DuckDuckBot'];
+write('robots.txt', [...CRAWLERS, '*'].map(b => `User-agent: ${b}\nAllow: /\nDisallow: /admin/\n`).join('\n') +
+  `\nSitemap: ${SITE}/sitemap.xml\n`);
 
-Sitemap: ${SITE}/sitemap.xml
+// llms.txt: a plain-language map of the site for AI assistants (llmstxt.org): who we are, the main pages, and every
+// published article with its one-line summary.
+const pageLines = Object.keys(PAGES).filter(id => !(id === 'resources' && G.showResources === false)).map(id => {
+  const c = data[PAGES[id].content] || {}; const seo = c.seo || {};
+  const name = (PAGES[id].nav && G.nav && G.nav[PAGES[id].nav]) || (id === 'schedule' && G.navCta) || PAGES[id].label ||
+    (id === 'home' ? 'Home' : id.replace(/-/g, ' ').replace(/^./, s => s.toUpperCase()));
+  return `- [${name}](${SITE}${pageHref(id)})${seo.description || c.heroSub ? ': ' + truncate(seo.description || c.heroSub) : ''}`;
+});
+write('llms.txt', `# ${SITE_NAME}
+
+> ${truncate((data.home && data.home.seo && data.home.seo.description) || 'Retirement and financial planning for people approaching and in retirement.', 300)}
+
+${SITE_NAME} is a registered investment adviser. Articles are educational, use hypothetical examples, and are not individualized advice. Written by ${author ? author.name + (author.role ? ', ' + author.role : '') : SITE_NAME}.
+
+## Pages
+${pageLines.join('\n')}
+
+## Articles
+${posts.filter(p => p.status === 'published').map(p => `- [${p.title}](${SITE}/blog/${p.slug}): ${p.description}`).join('\n')}
 `);
+write(`${INDEXNOW_KEY}.txt`, INDEXNOW_KEY);
 
 const counts = posts.reduce((a, p) => ((a[p.status] = (a[p.status] || 0) + 1), a), {});
 console.log(`Built ${Object.keys(PAGES).length} pages and ${posts.length} blog post(s)` +

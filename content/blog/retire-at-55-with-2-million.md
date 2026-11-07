@@ -11,6 +11,7 @@ topics:
   - Liquidity & Cash Flow
 image: ""
 imageAlt: ""
+video: Ch0TBnWpcI4
 related:
   - can-you-retire-at-60
   - will-your-money-last-as-long-as-you-do

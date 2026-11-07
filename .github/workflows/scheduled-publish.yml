@@ -1,0 +1,46 @@
+# Releases scheduled blog posts. A post with `publishAt` in its front matter stays off the live site until a build
+# runs after that time (scripts/build.mjs). This runs twice a day around 4 PM Central (21:05 and 22:05 UTC cover both
+# daylight and standard time), and only asks Vercel to rebuild when a post's publishAt fell in the last 2 hours.
+# Then it tells search engines (IndexNow: Bing, which feeds ChatGPT search and Copilot) about the new page.
+# Needs one repository secret: VERCEL_DEPLOY_HOOK (Vercel > Project > Settings > Git > Deploy Hooks).
+name: Scheduled publish
+on:
+  schedule:
+    - cron: '5 21,22 * * *'
+  workflow_dispatch:
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Find posts due now
+        id: due
+        run: |
+          python3 - <<'PY' >> "$GITHUB_OUTPUT"
+          import re, glob, datetime as dt
+          now = dt.datetime.now(dt.timezone.utc); due = []
+          for f in glob.glob('content/blog/*.md'):
+              t = open(f).read(); m = re.search(r'(?m)^publishAt:\s*["\']?([^"\'\n]+)', t)
+              if not m or not re.search(r'(?m)^status:\s*published', t): continue
+              try: at = dt.datetime.fromisoformat(m.group(1).strip().replace('Z', '+00:00'))
+              except ValueError: continue
+              if at.tzinfo and now - dt.timedelta(hours=2) < at <= now:
+                  s = re.search(r'(?m)^urlSlug:\s*["\']?([^"\'\n]+)', t)
+                  due.append('https://onelifeadvisory.com/blog/' + (s.group(1).strip() if s else f.split('/')[-1][:-3]))
+          print('urls=' + ' '.join(due))
+          PY
+      - name: Rebuild the site
+        if: steps.due.outputs.urls != ''
+        env:
+          HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
+        run: |
+          test -n "$HOOK" || { echo "Add the VERCEL_DEPLOY_HOOK secret"; exit 1; }
+          curl -fsS -X POST "$HOOK"
+      - name: Tell search engines (IndexNow)
+        if: steps.due.outputs.urls != ''
+        run: |
+          sleep 180
+          KEY=$(grep -o "INDEXNOW_KEY = '[0-9a-f]*'" scripts/build.mjs | grep -o "[0-9a-f]\{32\}")
+          LIST=$(printf '"%s",' ${{ steps.due.outputs.urls }} | sed 's/,$//')
+          curl -fsS -X POST https://api.indexnow.org/indexnow -H 'Content-Type: application/json' \
+            -d "{\"host\":\"onelifeadvisory.com\",\"key\":\"$KEY\",\"keyLocation\":\"https://onelifeadvisory.com/$KEY.txt\",\"urlList\":[$LIST]}" || true
