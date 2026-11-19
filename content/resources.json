@@ -16,6 +16,13 @@
     ]
   },
   "closingHeading": "Have a question these resources didn't answer?",
+  "reference": {
+    "show": true,
+    "label": "Reference",
+    "heading": "Numbers to reference",
+    "body": "This year's and next year's tax brackets, Social Security and Medicare figures, and retirement account limits, each linked to its official source.",
+    "buttonLabel": "See the numbers"
+  },
   "featured": {
     "show": false,
     "label": "Free guide",

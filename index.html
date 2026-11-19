@@ -730,6 +730,71 @@
       font-size: .8125rem; line-height: 1.7; color: var(--text3);
     }
 
+    /* ─── NUMBERS TO REFERENCE ───────────────────────────────── */
+    .ref-meta {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 20px;
+      margin: 24px 0 28px; padding-bottom: 22px; border-bottom: 1px solid var(--border);
+    }
+    .ref-asof { font-size: .875rem; color: var(--text3); }
+    .ref-print {
+      display: inline-flex; align-items: center; gap: 8px; font: inherit;
+      font-size: .8125rem; font-weight: 600; letter-spacing: .04em; color: var(--navy);
+      background: var(--white); border: 1px solid var(--border); border-radius: 100px;
+      padding: 9px 18px; cursor: pointer;
+      transition: border-color var(--dur-1) var(--ease-out), color var(--dur-1) var(--ease-out);
+    }
+    .ref-print:hover { border-color: var(--gold); color: var(--gold); }
+    .ref-print svg { width: 16px; height: 16px; flex-shrink: 0; }
+    .ref-jump { justify-content: flex-start; margin-bottom: 0; }
+    .ref-section { margin-top: 72px; scroll-margin-top: 108px; }
+    .ref-section-head .divider { margin-bottom: 16px; }
+    .ref-section-head p { margin-top: 10px; }
+    .ref-card {
+      margin-top: 24px; background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 24px 28px 22px; box-shadow: var(--shadow);
+    }
+    .ref-card h3 { font-size: 1.15rem; color: var(--navy); }
+    .ref-intro { font-size: .9375rem; margin-top: 6px; }
+    .ref-card .faq-table-wrap { margin: 14px 0 0; }
+    .ref-table td:not(:first-child), .ref-table th:not(:first-child) {
+      text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums;
+    }
+    .ref-table td:not(:first-child) { color: var(--navy); font-weight: 600; }
+    .ref-table th:last-child, .ref-table td:last-child { padding-right: 0; }
+    .ref-table.ref-text td:not(:first-child), .ref-table.ref-text th:not(:first-child) {
+      text-align: left; white-space: normal; font-weight: 400; color: var(--text2);
+    }
+    .ref-table.ref-text td:first-child { width: 42%; color: var(--navy); font-weight: 600; }
+    .ref-table.ref-wide { min-width: 560px; }
+    .ref-table.ref-wide th:nth-child(2), .ref-table.ref-wide td:nth-child(2) { text-align: left; }
+    .ref-table.ref-wide td:nth-child(2) { font-weight: 400; color: var(--text2); }
+    .ref-note {
+      margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--border);
+      font-size: .875rem; line-height: 1.65; color: var(--text2);
+    }
+    .ref-source { margin-top: 10px; font-size: .8125rem; line-height: 1.6; color: var(--text3); }
+    .ref-source a { color: var(--navy); text-decoration: underline; text-underline-offset: 2px; }
+    .ref-source a:hover { color: var(--gold); }
+    @media (max-width: 600px) {
+      .ref-section { margin-top: 56px; }
+      .ref-card { padding: 20px 16px 18px; }
+      .ref-table td:not(:first-child) { white-space: normal; }
+      .ref-table.ref-text td:first-child { width: 38%; }
+    }
+    @media print {
+      body:has(#page-reference.active) :is(#nav, .nav-drawer, footer, .ref-print, .ref-jump, .ref-closing,
+        .hero-bg, .hero-atmos, .hero-scrim) { display: none !important; }
+      #page-reference .page-hero { min-height: 0; display: block; }
+      #page-reference .page-hero-inner { padding: 0 0 8px; }
+      #page-reference .page-hero * { color: #1B3054 !important; }
+      #page-reference .section { padding: 0; }
+      #page-reference .anim, #page-reference .reveal-mask { opacity: 1 !important; animation: none !important; clip-path: none !important; }
+      .ref-section { margin-top: 28px; break-before: auto; }
+      .ref-card { box-shadow: none; break-inside: avoid; padding: 14px 0 10px; border: none; border-top: 1px solid var(--border); border-radius: 0; }
+      .ref-table.ref-wide { min-width: 0; }
+      .ref-source a { text-decoration: none; }
+    }
+
     /* ─── LEAD MAGNET FORM (Kit / ConvertKit, styled natively) ──────────
        Kit's own stylesheet and inline styles were removed from the markup,
        so these are plain rules with no overrides needed. */
@@ -2579,6 +2644,16 @@
         </div>
       </div>
 
+      <!-- Numbers to reference: a link card to /reference -->
+      <div id="res-reference-wrap" style="margin-top:80px;">
+        <div class="res-featured res-light anim">
+          <div class="label" id="res-reference-label">Reference</div>
+          <h3 id="res-reference-heading">Numbers to reference</h3>
+          <p id="res-reference-body"></p>
+          <a class="btn btn-primary" id="res-reference-btn" href="/reference">See the numbers</a>
+        </div>
+      </div>
+
       <!-- Articles -->
       <div id="res-articles-wrap" style="margin-top:80px;">
         <div class="section-header center anim" style="margin-bottom:40px;">
@@ -2664,6 +2739,42 @@
     </div>
   </section>
   <footer id="footer-resources"></footer>
+</div>
+
+<!-- ── NUMBERS TO REFERENCE ───────────────────────────────────────────────── -->
+<!-- Tables are built by renderReference() from content/reference.json.
+     Edit in /admin → Pages → Numbers to Reference. -->
+<div class="page" id="page-reference">
+  <section class="page-hero">
+    <div class="hero-bg"></div><div class="hero-atmos"></div><div class="hero-scrim"></div>
+    <div class="page-hero-inner">
+      <div class="hero-eyebrow anim" data-cms="reference.heroEyebrow">Resources</div>
+      <h1 class="reveal-mask anim-delay-1" data-cms="reference.heroTitle">Numbers to reference</h1>
+      <p class="page-hero-sub anim anim-delay-2" data-cms="reference.heroSub">The tax, Social Security, Medicare and retirement account figures that come up most in planning.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container-sm">
+      <p class="legal-intro anim" data-cms="reference.intro"></p>
+      <div class="ref-meta anim">
+        <span class="ref-asof" data-cms="reference.asOf"></span>
+        <button type="button" class="ref-print" onclick="window.print()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M7 9V3h10v6M7 17H4v-8h16v8h-3M7 13h10v8H7z"/></svg><span data-cms="reference.printLabel">Print or save as PDF</span></button>
+      </div>
+      <nav class="res-jump ref-jump anim" id="ref-jump" aria-label="Sections on this page"></nav>
+      <div id="ref-sections"></div>
+      <p class="legal-reg-note anim" data-cms="reference.disclaimer"></p>
+    </div>
+  </section>
+
+  <section class="section-sm ref-closing">
+    <div class="container-sm" style="text-align:center;">
+      <h2 class="anim" data-cms="reference.closingHeading">Wondering how these numbers apply to you?</h2>
+      <p class="anim anim-delay-1" style="margin:16px auto 28px;" data-cms="reference.closingSub">That's what the Clarity Call is for. No pressure. No pitch.</p>
+      <button class="btn btn-primary anim anim-delay-2" onclick="go('schedule')" data-cms="reference.closingButton">Schedule a Clarity Call</button>
+    </div>
+  </section>
+  <footer id="footer-reference"></footer>
 </div>
 
 <!-- ── PRIVACY POLICY ─────────────────────────────────────────────────────── -->
@@ -2800,6 +2911,7 @@
     'about':        'page-about',
     'faq':          'page-faq',
     'resources':    'page-resources',
+    'reference':    'page-reference',
     'privacy':      'page-privacy',
     'schedule':     'page-schedule',
     'services-and-fees': 'page-pricing',
@@ -2844,6 +2956,7 @@
     // pages generated by the build)
     if (!PRERENDERED) {
       if (pageId === 'resources') renderResources();
+      if (pageId === 'reference') renderReference();
       if (pageId === 'about') renderTeam();
       if (pageId === 'privacy') renderPrivacy();
       if (pageId === 'faq') renderFaq();
@@ -2899,6 +3012,7 @@
     if (active && active.id === 'page-schedule') initCalendly();
     if (PRERENDERED) return;
     renderResources();
+    renderReference();
     renderTeam();
     renderPrivacy();
     renderFaq();
@@ -2931,7 +3045,7 @@
 
   // ── Footer injection ─────────────────────────────────────────────────────
   function populateFooter(pageId) {
-    const map = { home: 'footer-home', 'how-we-plan': 'footer-plan', 'what-we-do': 'footer-do', 'who-we-help': 'footer-who', about: 'footer-about', resources: 'footer-resources', privacy: 'footer-privacy', faq: 'footer-faq', schedule: 'footer-schedule', 'services-and-fees': 'footer-pricing' };
+    const map = { home: 'footer-home', 'how-we-plan': 'footer-plan', 'what-we-do': 'footer-do', 'who-we-help': 'footer-who', about: 'footer-about', resources: 'footer-resources', reference: 'footer-reference', privacy: 'footer-privacy', faq: 'footer-faq', schedule: 'footer-schedule', 'services-and-fees': 'footer-pricing' };
     const fid = map[pageId];
     if (!fid) return;
     const el = document.getElementById(fid);

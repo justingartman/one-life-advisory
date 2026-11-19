@@ -355,6 +355,16 @@ function renderResources() {
     }
   }
 
+  // Numbers to reference (link card) ------------------------------------
+  const rf = data.reference || {};
+  if (showSection('res-reference-wrap', rf, true)) {
+    setText('res-reference-label', rf.label); setText('res-reference-heading', rf.heading);
+    setText('res-reference-body', rf.body);
+    const rb = el('res-reference-btn');
+    if (rb) { rb.textContent = rf.buttonLabel || 'See the numbers'; rb.setAttribute('href', '/reference'); }
+    jumps.push([rf.heading || 'Numbers to reference', 'res-reference-wrap']);
+  }
+
   // Articles -------------------------------------------------------------
   const a = data.articles || {};
   // The build fills in the newest blog posts (articles.latest).
@@ -532,5 +542,88 @@ function renderResources() {
     jn.style.display = jumps.length > 1 ? '' : 'none';
   }
 
+  if (typeof observeAnimations === 'function') setTimeout(observeAnimations, 30);
+}
+
+// ── Numbers to reference (built from content/reference.json) ────────────
+// Each section becomes a heading plus a card per table; the jump links at the
+// top follow the sections. Tables whose values are sentences (not figures)
+// align left; wide tables scroll sideways on phones.
+function renderReference() {
+  const data = (window.__cmsContent || {}).reference;
+  const wrap = document.getElementById('ref-sections');
+  if (!data || !wrap) return;
+  const make = (tag, cls, text) => {
+    const e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text != null) e.textContent = text;
+    return e;
+  };
+  const slug = s => 'ref-' + String(s).toLowerCase().replace(/&/g, ' and ')
+    .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  const jump = document.getElementById('ref-jump');
+  wrap.innerHTML = '';
+  if (jump) jump.innerHTML = '';
+  (data.sections || []).filter(s => s && s.title).forEach(s => {
+    const id = slug(s.title);
+    const sec = make('section', 'ref-section'); sec.id = id;
+    const head = make('div', 'ref-section-head anim');
+    head.appendChild(make('div', 'divider'));
+    head.appendChild(make('h2', null, s.title));
+    if (s.intro) head.appendChild(make('p', null, s.intro));
+    sec.appendChild(head);
+    (s.tables || []).filter(t => t && (t.rows || []).length).forEach(t => {
+      const card = make('div', 'ref-card anim');
+      if (t.title) card.appendChild(make('h3', null, t.title));
+      if (t.intro) card.appendChild(make('p', 'ref-intro', t.intro));
+      const cols = (t.columns || []).map(c => String(c == null ? '' : c).trim());
+      const rows = t.rows.map(r => ((r && r.cells) || []).map(c => String(c == null ? '' : c)));
+      const n = Math.max(cols.length, ...rows.map(r => r.length));
+      const textual = rows.some(r => r.slice(1).some(c => c.length > 28));
+      // Wide tables (like IRMAA): the first two columns are income ranges, styled as labels.
+      const wide = n > 3 && rows.some(r => r.join('').length > 40);
+      const tw = make('div', 'faq-table-wrap');
+      if (wide) { tw.setAttribute('role', 'region'); tw.setAttribute('aria-label', t.title || 'Table'); tw.setAttribute('tabindex', '0'); }
+      const table = make('table', 'faq-table ref-table' + (textual ? ' ref-text' : '') + (wide ? ' ref-wide' : ''));
+      if (cols.some(Boolean)) {
+        const thead = make('thead'); const tr = make('tr');
+        for (let i = 0; i < n; i++) {
+          const th = make('th', null, cols[i] || '');
+          th.setAttribute('scope', 'col');
+          tr.appendChild(th);
+        }
+        thead.appendChild(tr); table.appendChild(thead);
+      }
+      const tbody = make('tbody');
+      rows.forEach(r => {
+        const tr = make('tr');
+        for (let i = 0; i < n; i++) tr.appendChild(make('td', null, r[i] || ''));
+        tbody.appendChild(tr);
+      });
+      table.appendChild(tbody); tw.appendChild(table); card.appendChild(tw);
+      if (t.note) card.appendChild(make('p', 'ref-note', t.note));
+      const srcs = (t.sources || []).filter(x => x && x.label);
+      if (srcs.length) {
+        const p = make('p', 'ref-source');
+        p.appendChild(document.createTextNode(srcs.length > 1 ? 'Sources: ' : 'Source: '));
+        srcs.forEach((x, i) => {
+          if (i) p.appendChild(document.createTextNode('; '));
+          const a = make(x.url ? 'a' : 'span', null, x.label);
+          if (x.url) { a.setAttribute('href', x.url); a.setAttribute('target', '_blank'); a.setAttribute('rel', 'noopener noreferrer'); }
+          p.appendChild(a);
+        });
+        card.appendChild(p);
+      }
+      sec.appendChild(card);
+    });
+    wrap.appendChild(sec);
+    if (jump) {
+      const a = make('a', null, s.title);
+      a.setAttribute('href', '#' + id);
+      a.setAttribute('onclick', "jumpToSection('" + id + "'); return false;");
+      jump.appendChild(a);
+    }
+  });
+  if (jump) jump.style.display = jump.children.length > 1 ? '' : 'none';
   if (typeof observeAnimations === 'function') setTimeout(observeAnimations, 30);
 }

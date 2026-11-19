@@ -52,6 +52,7 @@ const PAGES = {
   'about':       { el: 'page-about',       content: 'about',       nav: 'about' },
   'faq':         { el: 'page-faq',         content: 'faq',         nav: 'faq' },
   'resources':   { el: 'page-resources',   content: 'resources',   nav: 'resources' },
+  'reference':   { el: 'page-reference',   content: 'reference',   label: 'Numbers to Reference' },
   'privacy':     { el: 'page-privacy',     content: 'privacy',     label: 'Privacy Policy' },
   'schedule':    { el: 'page-schedule',    content: 'schedule',    label: 'Schedule a Clarity Call' },
   'services-and-fees': { el: 'page-pricing', content: 'pricing', nav: 'pricing' },
@@ -276,7 +277,7 @@ function buildFilledSource() {
 
   const ctx = vm.createContext({ window: { __cmsContent: renderData }, document, console });
   vm.runInContext(fs.readFileSync(path.join(ROOT, 'assets/cms-render.js'), 'utf8'), ctx);
-  for (const fn of ['renderWhatWeDo', 'renderFaq', 'renderPricing', 'renderPrivacy', 'renderTeam', 'renderResources']) ctx[fn]();
+  for (const fn of ['renderWhatWeDo', 'renderFaq', 'renderPricing', 'renderPrivacy', 'renderTeam', 'renderResources', 'renderReference']) ctx[fn]();
   // Heights are measured in the browser; drop the placeholders the build can't know.
   document.querySelectorAll('[style*="undefinedpx"], [style*="NaNpx"]').forEach(el => {
     el.setAttribute('style', el.getAttribute('style').replace(/max-height:\s*(undefined|NaN)px;?\s*/g, ''));

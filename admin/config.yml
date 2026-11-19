@@ -749,6 +749,15 @@ collections:
                   - { name: title, label: "Title", widget: string }
                   - { name: url, label: "YouTube link", widget: string, required: false, hint: "Paste the video's link from YouTube; the thumbnail fills in automatically." }
                   - { name: description, label: "Description", widget: text, required: false }
+          - name: reference
+            label: "Numbers to Reference link"
+            widget: object
+            fields:
+              - { name: show, label: "Show this section?", widget: boolean }
+              - { name: label, label: "Eyebrow", widget: string }
+              - { name: heading, label: "Heading", widget: string }
+              - { name: body, label: "Body", widget: text }
+              - { name: buttonLabel, label: "Button text", widget: string }
           - name: featured
             label: "Free Guide (lower on the page)"
             widget: object
@@ -807,6 +816,63 @@ collections:
                   - { name: definition, label: "Definition", widget: text }
           - { name: closingHeading, label: "Closing — Heading", widget: string }
           - { name: closingSub, label: "Closing — Subtext", widget: text }
+          - { name: closingButton, label: "Closing — Button", widget: string }
+          - name: seo
+            label: "Google & Sharing"
+            widget: object
+            collapsed: true
+            required: false
+            hint: "How this page appears in Google results and when it's shared. Leave blank to use the page's own heading and subtitle."
+            fields:
+              - { name: title, label: "Page title", widget: string, required: false, hint: "About 50–60 characters, e.g. 'Retirement Income Planning | One Life Advisory'." }
+              - { name: description, label: "Description", widget: text, required: false, hint: "One or two sentences, about 150 characters." }
+
+      # ---- NUMBERS TO REFERENCE ----
+      # Figures change every year. Each table names its source: check it when
+      # you change a number, and update the "Checked-on line" date. Claude can
+      # refresh every table from the dashboard (_revision-scripts/reference-content.py).
+      - name: "reference"
+        label: "Numbers to Reference"
+        file: "content/reference.json"
+        fields:
+          - { name: heroEyebrow, label: "Header — Eyebrow", widget: string }
+          - { name: heroTitle, label: "Header — Title", widget: string }
+          - { name: heroSub, label: "Header — Subtitle", widget: text }
+          - { name: intro, label: "Opening paragraph", widget: text }
+          - { name: asOf, label: "Checked-on line", widget: string, hint: "Update the date whenever you check the figures." }
+          - { name: printLabel, label: "Print button text", widget: string }
+          - name: sections
+            label: "Sections"
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { name: title, label: "Section heading", widget: string }
+              - { name: intro, label: "Section intro", widget: text, required: false }
+              - name: tables
+                label: "Tables"
+                widget: list
+                summary: "{{fields.title}}"
+                fields:
+                  - { name: title, label: "Table heading", widget: string }
+                  - { name: intro, label: "Text above the table", widget: text, required: false }
+                  - { name: columns, label: "Column headings", widget: list, required: false, hint: "One per column, left to right. Leave the first one blank if the first column needs no heading.", field: { name: column, label: "Heading", widget: string, required: false } }
+                  - name: rows
+                    label: "Rows"
+                    widget: list
+                    fields:
+                      - { name: cells, label: "Cells (left to right)", widget: list, field: { name: cell, label: "Cell", widget: string, required: false } }
+                  - { name: note, label: "Note below the table", widget: text, required: false }
+                  - name: sources
+                    label: "Sources"
+                    widget: list
+                    required: false
+                    summary: "{{fields.label}}"
+                    fields:
+                      - { name: label, label: "Source name", widget: string }
+                      - { name: url, label: "Link", widget: string, required: false }
+          - { name: disclaimer, label: "Disclaimer (fine print)", widget: text }
+          - { name: closingHeading, label: "Closing — Heading", widget: string }
+          - { name: closingSub, label: "Closing — Text", widget: text }
           - { name: closingButton, label: "Closing — Button", widget: string }
           - name: seo
             label: "Google & Sharing"

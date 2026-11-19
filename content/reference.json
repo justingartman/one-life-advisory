@@ -1,0 +1,1350 @@
+{
+  "heroEyebrow": "Resources",
+  "heroTitle": "Numbers to reference",
+  "heroSub": "The tax, Social Security, Medicare and retirement account figures that come up most in planning, for 2026 and 2027, with the official source for each.",
+  "intro": "Most of these numbers change every year, and each agency publishes on its own schedule. We update this page as new figures come out. Every table links to the source it comes from, so you can check a number before you rely on it.",
+  "asOf": "Figures checked against official sources on November 19, 2026.",
+  "printLabel": "Print or save as PDF",
+  "disclaimer": "This page is for education only. It isn't tax, legal or investment advice, and it doesn't account for your situation. Figures can change, and rules have exceptions this page doesn't cover. Check the linked source, and talk with a tax professional or advisor, before you act on any number here.",
+  "closingHeading": "Wondering how these numbers apply to you?",
+  "closingSub": "That's what the Clarity Call is for. No pressure. No pitch.",
+  "closingButton": "Schedule a Clarity Call",
+  "seo": {
+    "title": "Numbers to Reference: 2026 and 2027 Tax, Social Security and Medicare Figures | One Life Advisory",
+    "description": "Federal tax brackets, Social Security, Medicare and IRMAA, retirement plan limits and RMD figures for 2026 and 2027, each linked to its official source."
+  },
+  "sections": [
+    {
+      "title": "Social Security",
+      "intro": "",
+      "tables": [
+        {
+          "title": "Key figures",
+          "intro": "",
+          "columns": [
+            "",
+            "2026",
+            "2027"
+          ],
+          "rows": [
+            {
+              "cells": [
+                "Cost-of-living adjustment",
+                "2.8%",
+                "3.6%"
+              ]
+            },
+            {
+              "cells": [
+                "Maximum benefit at 62 (monthly)",
+                "$2,969",
+                "$3,094"
+              ]
+            },
+            {
+              "cells": [
+                "Maximum benefit at full retirement age (monthly)",
+                "$4,152",
+                "$4,188"
+              ]
+            },
+            {
+              "cells": [
+                "Maximum benefit at 70 (monthly)",
+                "$5,181",
+                "$5,358"
+              ]
+            },
+            {
+              "cells": [
+                "Earnings limit, under full retirement age all year",
+                "$24,480",
+                "$25,560"
+              ]
+            },
+            {
+              "cells": [
+                "Earnings limit, year you reach full retirement age",
+                "$65,160",
+                "$67,920"
+              ]
+            },
+            {
+              "cells": [
+                "Maximum wages taxed for Social Security",
+                "$184,500",
+                "$192,300"
+              ]
+            },
+            {
+              "cells": [
+                "Earnings for one credit (quarter of coverage)",
+                "$1,890",
+                "$1,970"
+              ]
+            }
+          ],
+          "note": "Over the earnings limit, Social Security holds back $1 of benefits for every $2 you earn before the year you reach full retirement age, and $1 for every $3 in that year (counting only the months before you reach it). Held-back benefits are added back once you reach full retirement age.",
+          "sources": [
+            {
+              "label": "SSA, 2027 Social Security changes fact sheet",
+              "url": "https://www.ssa.gov/news/en/cola/factsheets/2027.html"
+            },
+            {
+              "label": "SSA, maximum benefit examples",
+              "url": "https://www.ssa.gov/oact/cola/examplemax.html"
+            }
+          ]
+        },
+        {
+          "title": "Full retirement age",
+          "intro": "",
+          "columns": [
+            "Year of birth",
+            "Full retirement age"
+          ],
+          "rows": [
+            {
+              "cells": [
+                "1943–1954",
+                "66"
+              ]
+            },
+            {
+              "cells": [
+                "1955",
+                "66 and 2 months"
+              ]
+            },
+            {
+              "cells": [
+                "1956",
+                "66 and 4 months"
+              ]
+            },
+            {
+              "cells": [
+                "1957",
+                "66 and 6 months"
+              ]
+            },
+            {
+              "cells": [
+                "1958",
+                "66 and 8 months"
+              ]
+            },
+            {
+              "cells": [
+                "1959",
+                "66 and 10 months"
+              ]
+            },
+            {
+              "cells": [
+                "1960 and later",
+                "67"
+              ]
+            }
+          ],
+          "note": "If you were born on January 1, use the year before your birth year.",
+          "sources": [
+            {
+              "label": "SSA, normal retirement age by year of birth",
+              "url": "https://www.ssa.gov/oact/progdata/nra.html"
+            }
+          ]
+        },
+        {
+          "title": "How claiming age changes your benefit",
+          "intro": "For anyone born in 1960 or later, whose full retirement age is 67. Each figure is a percentage of the benefit you would get at full retirement age.",
+          "columns": [
+            "Claiming age",
+            "Your own benefit",
+            "Spousal benefit"
+          ],
+          "rows": [
+            {
+              "cells": [
+                "62",
+                "70%",
+                "32.5%"
+              ]
+            },
+            {
+              "cells": [
+                "63",
+                "75%",
+                "35%"
+              ]
+            },
+            {
+              "cells": [
+                "64",
+                "80%",
+                "37.5%"
+              ]
+            },
+            {
+              "cells": [
+                "65",
+                "86.7%",
+                "41.7%"
+              ]
+            },
+            {
+              "cells": [
+                "66",
+                "93.3%",
+                "45.8%"
+              ]
+            },
+            {
+              "cells": [
+                "67",
+                "100%",
+                "50%"
+              ]
+            },
+            {
+              "cells": [
+                "68",
+                "108%",
+                "50%"
+              ]
+            },
+            {
+              "cells": [
+                "69",
+                "116%",
+                "50%"
+              ]
+            },
+            {
+              "cells": [
+                "70",
+                "124%",
+                "50%"
+              ]
+            }
+          ],
+          "note": "A spousal benefit can be up to half of the other spouse's full retirement age benefit; the spousal column shows that share. Spousal benefits stop growing at full retirement age; your own benefit grows 8% a year until 70.",
+          "sources": [
+            {
+              "label": "SSA, benefit reduction for early retirement",
+              "url": "https://www.ssa.gov/benefits/retirement/planner/agereduction.html"
+            },
+            {
+              "label": "SSA, delayed retirement credits",
+              "url": "https://www.ssa.gov/oact/ProgData/ar_drc.html"
+            }
+          ]
+        },
+        {
+          "title": "How benefits are taxed",
+          "intro": "Up to 85% of benefits can be taxable, depending on \"provisional income\": your adjusted gross income, plus tax-exempt interest, plus half of your Social Security benefits.",
+          "columns": [
+            "Filing status",
+            "Up to 50% taxable above",
+            "Up to 85% taxable above"
+          ],
+          "rows": [
+            {
+              "cells": [
+                "Single, head of household",
+                "$25,000",
+                "$34,000"
+              ]
+            },
+            {
+              "cells": [
+                "Married filing jointly",
+                "$32,000",
+                "$44,000"
+              ]
+            },
+            {
+              "cells": [
+                "Married filing separately, lived with spouse",
+                "—",
+                "$0"
+              ]
+            }
+          ],
+          "note": "These thresholds are set in the tax code and aren't adjusted for inflation.",
+          "sources": [
+            {
+              "label": "IRS Publication 915",
+              "url": "https://www.irs.gov/publications/p915"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Medicare",
+      "intro": "",
+      "tables": [
+        {
+          "title": "Premiums and deductibles",
+          "intro": "",
+          "columns": [
+            "",
+            "2026",
+            "2027"
+          ],
+          "rows": [
+            {
+              "cells": [
+                "Part B standard premium (monthly)",
+                "$202.90",
+                "$209.40"
+              ]
+            },
+            {
+              "cells": [
+                "Part B annual deductible",
+                "$283",
+                "$292"
+              ]
+            },
+            {
+              "cells": [
+                "Part A hospital deductible (each benefit period)",
+                "$1,736",
+                "$1,776"
+              ]
+            },
+            {
+              "cells": [
+                "Part A premium, 30 to 39 work quarters (monthly)",
+                "$311",
+                "$328"
+              ]
+            },
+            {
+              "cells": [
+                "Part A premium, under 30 work quarters (monthly)",
+                "$565",
+                "$597"
+              ]
+            },
+            {
+              "cells": [
+                "Part D deductible (maximum)",
+                "$615",
+                "$700"
+              ]
+            },
+            {
+              "cells": [
+                "Part D out-of-pocket cap (yearly)",
+                "$2,100",
+                "$2,400"
+              ]
+            }
+          ],
+          "note": "Most people pay no Part A premium because they or their spouse worked at least 40 quarters.",
+          "sources": [
+            {
+              "label": "CMS fact sheet, 2027 Medicare Parts A & B premiums and deductibles (Nov 17, 2026)",
+              "url": "https://www.cms.gov/newsroom/fact-sheets/2027-medicare-parts-b-premiums-deductibles"
+            },
+            {
+              "label": "CMS fact sheet, 2026 Medicare Parts A & B premiums and deductibles",
+              "url": "https://www.cms.gov/newsroom/fact-sheets/2026-medicare-parts-b-premiums-deductibles"
+            },
+            {
+              "label": "CMS, 2027 Part D rate announcement",
+              "url": "https://www.cms.gov/files/document/2027-announcement.pdf"
+            }
+          ]
+        },
+        {
+          "title": "Income-related premiums (IRMAA), 2027",
+          "intro": "Higher-income enrollees pay more for Parts B and D. 2027 premiums are based on income from your 2025 tax return: adjusted gross income plus tax-exempt interest.",
+          "columns": [
+            "Single filers",
+            "Joint filers",
+            "Part B (monthly)",
+            "Part D add-on (monthly)"
+          ],
+          "rows": [
+            {
+              "cells": [
+                "$112,000 or less",
+                "$224,000 or less",
+                "$209.40",
+                "$0.00"
+              ]
+            },
+            {
+              "cells": [
+                "$112,001 – $141,000",
+                "$224,001 – $282,000",
+                "$293.10",
+                "$15.40"
+              ]
+            },
+            {
+              "cells": [
+                "$141,001 – $177,000",
+                "$282,001 – $354,000",
+                "$418.80",
+                "$39.70"
+              ]
+            },
+            {
+              "cells": [
+                "$177,001 – $212,000",
+                "$354,001 – $424,000",
+                "$544.40",
+                "$64.00"
+              ]
+            },
+            {
+              "cells": [
+                "$212,001 – $499,999",
+                "$424,001 – $749,999",
+                "$670.00",
+                "$88.30"
+              ]
+            },
+            {
+              "cells": [
+                "$500,000 or more",
+                "$750,000 or more",
+                "$711.80",
+                "$96.40"
+              ]
+            }
+          ],
+          "note": "Married filing separately, if you lived with your spouse during the year: $209.40 up to $112,000; $670.00 (Part D add-on $88.30) from $112,001 to $387,999; $711.80 (Part D add-on $96.40) at $388,000 or more. The Part D add-on is paid on top of your plan premium.",
+          "sources": [
+            {
+              "label": "CMS fact sheet, 2027 Medicare Parts A & B premiums and deductibles (Nov 17, 2026)",
+              "url": "https://www.cms.gov/newsroom/fact-sheets/2027-medicare-parts-b-premiums-deductibles"
+            }
+          ]
+        },
+        {
+          "title": "Income-related premiums (IRMAA), 2026",
+          "intro": "2026 premiums are based on income from your 2024 tax return.",
+          "columns": [
+            "Single filers",
+            "Joint filers",
+            "Part B (monthly)",
+            "Part D add-on (monthly)"
+          ],
+          "rows": [
+            {
+              "cells": [
+                "$109,000 or less",
+                "$218,000 or less",
+                "$202.90",
+                "$0.00"
+              ]
+            },
+            {
+              "cells": [
+                "$109,001 – $137,000",
+                "$218,001 – $274,000",
+                "$284.10",
+                "$14.50"
+              ]
+            },
+            {
+              "cells": [
+                "$137,001 – $171,000",
+                "$274,001 – $342,000",
+                "$405.80",
+                "$37.50"
+              ]
+            },
+            {
+              "cells": [
+                "$171,001 – $205,000",
+                "$342,001 – $410,000",
+                "$527.50",
+                "$60.40"
+              ]
+            },
+            {
+              "cells": [
+                "$205,001 – $499,999",
+                "$410,001 – $749,999",
+                "$649.20",
+                "$83.30"
+              ]
+            },
+            {
+              "cells": [
+                "$500,000 or more",
+                "$750,000 or more",
+                "$689.90",
+                "$91.00"
+              ]
+            }
+          ],
+          "note": "Married filing separately, if you lived with your spouse during the year: $202.90 for $109,000 or less; $649.20 (Part D add-on $83.30) for $109,001 – $390,999; $689.90 (Part D add-on $91.00) for $391,000 or more. If your income has dropped because of a life-changing event, such as retirement, you can ask Social Security to use a more recent year (Form SSA-44).",
+          "sources": [
+            {
+              "label": "CMS fact sheet, 2026 Medicare Parts A & B premiums and deductibles",
+              "url": "https://www.cms.gov/newsroom/fact-sheets/2026-medicare-parts-b-premiums-deductibles"
+            },
+            {
+              "label": "SSA, premiums for higher-income beneficiaries",
+              "url": "https://www.ssa.gov/medicare/lower-irmaa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Federal income tax",
+      "intro": "",
+      "tables": [
+        {
+          "title": "Tax brackets: married filing jointly",
+          "intro": "Each figure is the top of the bracket, in taxable income (income after deductions).",
+          "columns": [
+            "Rate",
+            "2026",
+            "2027"
+          ],
+          "rows": [
+            {
+              "cells": [
+                "10%",
+                "$24,800",
+                "$25,600"
+              ]
+            },
+            {
+              "cells": [
+                "12%",
+                "$100,800",
+                "$104,050"
+              ]
+            },
+            {
+              "cells": [
+                "22%",
+                "$211,400",
+                "$218,250"
+              ]
+            },
+            {
+              "cells": [
+                "24%",
+                "$403,550",
+                "$416,650"
+              ]
+            },
+            {
+              "cells": [
+                "32%",
+                "$512,450",
+                "$529,100"
+              ]
+            },
+            {
+              "cells": [
+                "35%",
+                "$768,700",
+                "$793,650"
+              ]
+            },
+            {
+              "cells": [
+                "37%",
+                "Over $768,700",
+                "Over $793,650"
+              ]
+            }
+          ],
+          "note": "",
+          "sources": [
+            {
+              "label": "IRS Rev. Proc. 2025-32 (2026) and Rev. Proc. 2026-35 (2027)",
+              "url": "https://www.irs.gov/pub/irs-drop/rp-26-35.pdf"
+            }
+          ]
+        },
+        {
+          "title": "Tax brackets: single",
+          "intro": "Each figure is the top of the bracket, in taxable income (income after deductions).",
+          "columns": [
+            "Rate",
+            "2026",
+            "2027"
+          ],
+          "rows": [
+            {
+              "cells": [
+                "10%",
+                "$12,400",
+                "$12,800"
+              ]
+            },
+            {
+              "cells": [
+                "12%",
+                "$50,400",
+                "$52,025"
+              ]
+            },
+            {
+              "cells": [
+                "22%",
+                "$105,700",
+                "$109,125"
+              ]
+            },
+            {
+              "cells": [
+                "24%",
+                "$201,775",
+                "$208,325"
+              ]
+            },
+            {
+              "cells": [
+                "32%",
+                "$256,225",
+                "$264,550"
+              ]
+            },
+            {
+              "cells": [
+                "35%",
+                "$640,600",
+                "$661,375"
+              ]
+            },
+            {
+              "cells": [
+                "37%",
+                "Over $640,600",
+                "Over $661,375"
+              ]
+            }
+          ],
+          "note": "",
+          "sources": [
+            {
+              "label": "IRS Rev. Proc. 2025-32 (2026) and Rev. Proc. 2026-35 (2027)",
+              "url": "https://www.irs.gov/pub/irs-drop/rp-26-35.pdf"
+            }
+          ]
+        },
+        {
+          "title": "Tax brackets: head of household",
+          "intro": "Each figure is the top of the bracket, in taxable income (income after deductions).",
+          "columns": [
+            "Rate",
+            "2026",
+            "2027"
+          ],
+          "rows": [
+            {
+              "cells": [
+                "10%",
+                "$17,700",
+                "$18,250"
+              ]
+            },
+            {
+              "cells": [
+                "12%",
+                "$67,450",
+                "$69,650"
+              ]
+            },
+            {
+              "cells": [
+                "22%",
+                "$105,700",
+                "$109,100"
+              ]
+            },
+            {
+              "cells": [
+                "24%",
+                "$201,750",
+                "$208,300"
+              ]
+            },
+            {
+              "cells": [
+                "32%",
+                "$256,200",
+                "$264,550"
+              ]
+            },
+            {
+              "cells": [
+                "35%",
+                "$640,600",
+                "$661,350"
+              ]
+            },
+            {
+              "cells": [
+                "37%",
+                "Over $640,600",
+                "Over $661,350"
+              ]
+            }
+          ],
+          "note": "",
+          "sources": [
+            {
+              "label": "IRS Rev. Proc. 2025-32 (2026) and Rev. Proc. 2026-35 (2027)",
+              "url": "https://www.irs.gov/pub/irs-drop/rp-26-35.pdf"
+            }
+          ]
+        },
+        {
+          "title": "Standard deduction",
+          "intro": "",
+          "columns": [
+            "",
+            "2026",
+            "2027"
+          ],
+          "rows": [
+            {
+              "cells": [
+                "Married filing jointly",
+                "$32,200",
+                "$33,200"
+              ]
+            },
+            {
+              "cells": [
+                "Single",
+                "$16,100",
+                "$16,600"
+              ]
+            },
+            {
+              "cells": [
+                "Head of household",
+                "$24,150",
+                "$24,925"
+              ]
+            },
+            {
+              "cells": [
+                "Extra for 65+ or blind: married (each)",
+                "$1,650",
+                "$1,700"
+              ]
+            },
+            {
+              "cells": [
+                "Extra for 65+ or blind: unmarried",
+                "$2,050",
+                "$2,100"
+              ]
+            },
+            {
+              "cells": [
+                "Senior deduction, per person 65+",
+                "$6,000",
+                "$6,000"
+              ]
+            }
+          ],
+          "note": "The senior deduction is available for 2025 through 2028, whether or not you itemize. It phases out by 6% of income above $75,000 ($150,000 for joint filers) and is not available to married couples filing separately.",
+          "sources": [
+            {
+              "label": "IRS Rev. Proc. 2025-32 (2026) and Rev. Proc. 2026-35 (2027)",
+              "url": "https://www.irs.gov/pub/irs-drop/rp-26-35.pdf"
+            },
+            {
+              "label": "P.L. 119-21, section 70103",
+              "url": "https://www.govinfo.gov/content/pkg/PLAW-119publ21/html/PLAW-119publ21.htm"
+            }
+          ]
+        },
+        {
+          "title": "Long-term capital gains and qualified dividends",
+          "intro": "Taxed at 0%, 15% or 20%, based on taxable income. Between the two figures shown, the rate is 15%.",
+          "columns": [
+            "",
+            "2026",
+            "2027"
+          ],
+          "rows": [
+            {
+              "cells": [
+                "Married filing jointly: 0% up to",
+                "$98,900",
+                "$102,100"
+              ]
+            },
+            {
+              "cells": [
+                "Married filing jointly: 20% over",
+                "$613,700",
+                "$633,600"
+              ]
+            },
+            {
+              "cells": [
+                "Single: 0% up to",
+                "$49,450",
+                "$51,050"
+              ]
+            },
+            {
+              "cells": [
+                "Single: 20% over",
+                "$545,500",
+                "$563,200"
+              ]
+            },
+            {
+              "cells": [
+                "Head of household: 0% up to",
+                "$66,200",
+                "$68,350"
+              ]
+            },
+            {
+              "cells": [
+                "Head of household: 20% over",
+                "$579,600",
+                "$598,400"
+              ]
+            }
+          ],
+          "note": "",
+          "sources": [
+            {
+              "label": "IRS Rev. Proc. 2025-32 (2026) and Rev. Proc. 2026-35 (2027)",
+              "url": "https://www.irs.gov/pub/irs-drop/rp-26-35.pdf"
+            }
+          ]
+        },
+        {
+          "title": "Other thresholds",
+          "intro": "",
+          "columns": [
+            "",
+            "2026",
+            "2027"
+          ],
+          "rows": [
+            {
+              "cells": [
+                "Net investment income tax (3.8%): joint filers, income over",
+                "$250,000",
+                "$250,000"
+              ]
+            },
+            {
+              "cells": [
+                "Net investment income tax (3.8%): single, head of household, income over",
+                "$200,000",
+                "$200,000"
+              ]
+            },
+            {
+              "cells": [
+                "State and local tax (SALT) deduction cap",
+                "$40,400",
+                "$40,804"
+              ]
+            },
+            {
+              "cells": [
+                "SALT cap starts to shrink at income over",
+                "$505,000",
+                "$510,050"
+              ]
+            }
+          ],
+          "note": "The net investment income tax thresholds aren't adjusted for inflation. Above its threshold, the SALT cap shrinks by 30% of the excess income, but not below $10,000. The higher cap is scheduled to return to $10,000 in 2030.",
+          "sources": [
+            {
+              "label": "26 U.S.C. 1411 (net investment income tax)",
+              "url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title26/html/USCODE-2023-title26-subtitleA-chap2A-sec1411.htm"
+            },
+            {
+              "label": "P.L. 119-21 (SALT cap)",
+              "url": "https://www.govinfo.gov/content/pkg/PLAW-119publ21/html/PLAW-119publ21.htm"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Retirement accounts",
+      "intro": "",
+      "tables": [
+        {
+          "title": "Contribution limits",
+          "intro": "",
+          "columns": [
+            "",
+            "2026",
+            "2027"
+          ],
+          "rows": [
+            {
+              "cells": [
+                "401(k), 403(b), 457(b), TSP: employee contributions",
+                "$24,500",
+                "$25,500"
+              ]
+            },
+            {
+              "cells": [
+                "Catch-up, age 50+",
+                "$8,000",
+                "$8,500"
+              ]
+            },
+            {
+              "cells": [
+                "Catch-up, ages 60 to 63 (instead of the 50+ amount)",
+                "$11,250",
+                "$11,750"
+              ]
+            },
+            {
+              "cells": [
+                "Catch-up must go to Roth if last year's wages from that employer topped",
+                "$150,000",
+                "$155,000"
+              ]
+            },
+            {
+              "cells": [
+                "Total from you and your employer",
+                "$72,000",
+                "$75,000"
+              ]
+            },
+            {
+              "cells": [
+                "IRA (traditional and Roth combined)",
+                "$7,500",
+                "$7,500"
+              ]
+            },
+            {
+              "cells": [
+                "IRA catch-up, age 50+",
+                "$1,100",
+                "$1,100"
+              ]
+            },
+            {
+              "cells": [
+                "SIMPLE IRA: employee contributions",
+                "$17,000",
+                "$17,500"
+              ]
+            },
+            {
+              "cells": [
+                "SIMPLE IRA catch-up, age 50+",
+                "$4,000",
+                "$4,000"
+              ]
+            },
+            {
+              "cells": [
+                "HSA: self-only coverage",
+                "$4,400",
+                "$4,500"
+              ]
+            },
+            {
+              "cells": [
+                "HSA: family coverage",
+                "$8,750",
+                "$9,000"
+              ]
+            },
+            {
+              "cells": [
+                "HSA catch-up, age 55+",
+                "$1,000",
+                "$1,000"
+              ]
+            }
+          ],
+          "note": "Some SIMPLE plans allow higher limits.",
+          "sources": [
+            {
+              "label": "IRS Notice 2026-66 (2027 plan limits)",
+              "url": "https://www.irs.gov/pub/irs-drop/n-26-66.pdf"
+            },
+            {
+              "label": "IRS Notice 2025-67 (2026 plan limits)",
+              "url": "https://www.irs.gov/irb/2025-49_IRB"
+            },
+            {
+              "label": "IRS, 2027 HSA limits (Rev. Proc. 2026-25)",
+              "url": "https://www.irs.gov/irb/2026-25_irb"
+            }
+          ]
+        },
+        {
+          "title": "Roth IRA income limits",
+          "intro": "The amount you can contribute phases out across these income ranges (modified adjusted gross income).",
+          "columns": [
+            "Filing status",
+            "2026",
+            "2027"
+          ],
+          "rows": [
+            {
+              "cells": [
+                "Married filing jointly",
+                "$242,000 – $252,000",
+                "$250,000 – $260,000"
+              ]
+            },
+            {
+              "cells": [
+                "Single, head of household",
+                "$153,000 – $168,000",
+                "$158,000 – $173,000"
+              ]
+            },
+            {
+              "cells": [
+                "Married filing separately",
+                "$0 – $10,000",
+                "$0 – $10,000"
+              ]
+            }
+          ],
+          "note": "Roth conversions have no income limit.",
+          "sources": [
+            {
+              "label": "IRS Notice 2026-66 (2027 plan limits)",
+              "url": "https://www.irs.gov/pub/irs-drop/n-26-66.pdf"
+            },
+            {
+              "label": "IRS Notice 2025-67 (2026 plan limits)",
+              "url": "https://www.irs.gov/irb/2025-49_IRB"
+            }
+          ]
+        },
+        {
+          "title": "Traditional IRA deduction limits",
+          "intro": "If you or your spouse are covered by a retirement plan at work, the deduction phases out across these income ranges.",
+          "columns": [
+            "",
+            "2026",
+            "2027"
+          ],
+          "rows": [
+            {
+              "cells": [
+                "Single or head of household, covered at work",
+                "$81,000 – $91,000",
+                "$83,000 – $93,000"
+              ]
+            },
+            {
+              "cells": [
+                "Married filing jointly, you are covered",
+                "$129,000 – $149,000",
+                "$133,000 – $153,000"
+              ]
+            },
+            {
+              "cells": [
+                "Married filing jointly, only your spouse is covered",
+                "$242,000 – $252,000",
+                "$250,000 – $260,000"
+              ]
+            },
+            {
+              "cells": [
+                "Married filing separately, covered",
+                "$0 – $10,000",
+                "$0 – $10,000"
+              ]
+            }
+          ],
+          "note": "If neither spouse is covered at work, the full deduction is allowed at any income.",
+          "sources": [
+            {
+              "label": "IRS Notice 2026-66 (2027 plan limits)",
+              "url": "https://www.irs.gov/pub/irs-drop/n-26-66.pdf"
+            },
+            {
+              "label": "IRS Notice 2025-67 (2026 plan limits)",
+              "url": "https://www.irs.gov/irb/2025-49_IRB"
+            }
+          ]
+        },
+        {
+          "title": "When required minimum distributions (RMDs) start",
+          "intro": "",
+          "columns": [
+            "Year of birth",
+            "RMDs start at"
+          ],
+          "rows": [
+            {
+              "cells": [
+                "1951 to 1958",
+                "73"
+              ]
+            },
+            {
+              "cells": [
+                "1959",
+                "73*"
+              ]
+            },
+            {
+              "cells": [
+                "1960 or later",
+                "75"
+              ]
+            }
+          ],
+          "note": "*Under proposed IRS rules; final rules have not settled the age for 1959. Your first RMD can wait until April 1 of the following year; after that, each is due by December 31. A missed RMD can bring a 25% excise tax (10% if corrected in time). Roth IRAs, and Roth 401(k)s since 2024, have no RMDs for the original owner.",
+          "sources": [
+            {
+              "label": "26 CFR 1.401(a)(9)-2",
+              "url": "https://www.ecfr.gov/current/title-26/chapter-I/subchapter-A/part-1/subject-group-ECFR6f8bfd5bba3d0ea/section-1.401(a)(9)-2"
+            },
+            {
+              "label": "IRS, RMD FAQs",
+              "url": "https://www.irs.gov/retirement-plans/retirement-plan-and-ira-required-minimum-distributions-faqs"
+            }
+          ]
+        },
+        {
+          "title": "Uniform Lifetime Table",
+          "intro": "To estimate an RMD, divide the account balance on December 31 of last year by the factor for the age you reach this year.",
+          "columns": [
+            "Age",
+            "Factor",
+            "Age",
+            "Factor"
+          ],
+          "rows": [
+            {
+              "cells": [
+                "72",
+                "27.4",
+                "87",
+                "14.4"
+              ]
+            },
+            {
+              "cells": [
+                "73",
+                "26.5",
+                "88",
+                "13.7"
+              ]
+            },
+            {
+              "cells": [
+                "74",
+                "25.5",
+                "89",
+                "12.9"
+              ]
+            },
+            {
+              "cells": [
+                "75",
+                "24.6",
+                "90",
+                "12.2"
+              ]
+            },
+            {
+              "cells": [
+                "76",
+                "23.7",
+                "91",
+                "11.5"
+              ]
+            },
+            {
+              "cells": [
+                "77",
+                "22.9",
+                "92",
+                "10.8"
+              ]
+            },
+            {
+              "cells": [
+                "78",
+                "22.0",
+                "93",
+                "10.1"
+              ]
+            },
+            {
+              "cells": [
+                "79",
+                "21.1",
+                "94",
+                "9.5"
+              ]
+            },
+            {
+              "cells": [
+                "80",
+                "20.2",
+                "95",
+                "8.9"
+              ]
+            },
+            {
+              "cells": [
+                "81",
+                "19.4",
+                "96",
+                "8.4"
+              ]
+            },
+            {
+              "cells": [
+                "82",
+                "18.5",
+                "97",
+                "7.8"
+              ]
+            },
+            {
+              "cells": [
+                "83",
+                "17.7",
+                "98",
+                "7.3"
+              ]
+            },
+            {
+              "cells": [
+                "84",
+                "16.8",
+                "99",
+                "6.8"
+              ]
+            },
+            {
+              "cells": [
+                "85",
+                "16.0",
+                "100",
+                "6.4"
+              ]
+            },
+            {
+              "cells": [
+                "86",
+                "15.2",
+                "",
+                ""
+              ]
+            }
+          ],
+          "note": "Most account owners use this table. A different table applies if your spouse is your only beneficiary and is more than 10 years younger than you.",
+          "sources": [
+            {
+              "label": "26 CFR 1.401(a)(9)-9",
+              "url": "https://www.ecfr.gov/current/title-26/chapter-I/subchapter-A/part-1/subject-group-ECFR6f8bfd5bba3d0ea/section-1.401(a)(9)-9"
+            }
+          ]
+        },
+        {
+          "title": "Qualified charitable distributions (QCDs)",
+          "intro": "Gifts sent straight from an IRA to a charity. They count toward your RMD and stay out of your taxable income.",
+          "columns": [
+            "",
+            "2026",
+            "2027"
+          ],
+          "rows": [
+            {
+              "cells": [
+                "Minimum age",
+                "70½",
+                "70½"
+              ]
+            },
+            {
+              "cells": [
+                "Yearly limit, per IRA owner",
+                "$111,000",
+                "$114,000"
+              ]
+            },
+            {
+              "cells": [
+                "One-time gift to a charitable trust or gift annuity",
+                "$55,000",
+                "$57,000"
+              ]
+            }
+          ],
+          "note": "",
+          "sources": [
+            {
+              "label": "IRS Notice 2026-66 (2027 plan limits)",
+              "url": "https://www.irs.gov/pub/irs-drop/n-26-66.pdf"
+            },
+            {
+              "label": "IRS Notice 2025-67 (2026 plan limits)",
+              "url": "https://www.irs.gov/irb/2025-49_IRB"
+            }
+          ]
+        },
+        {
+          "title": "Inherited IRAs",
+          "intro": "",
+          "columns": [
+            "",
+            "Rule"
+          ],
+          "rows": [
+            {
+              "cells": [
+                "Most non-spouse beneficiaries",
+                "Must empty the account by December 31 of the 10th year after the year of death"
+              ]
+            },
+            {
+              "cells": [
+                "Beneficiaries not held to the 10-year rule",
+                "A spouse; the owner's minor child (until 21); someone disabled or chronically ill; someone not more than 10 years younger than the owner"
+              ]
+            },
+            {
+              "cells": [
+                "If the owner had already started RMDs",
+                "Yearly RMDs are also required during the 10 years"
+              ]
+            }
+          ],
+          "note": "",
+          "sources": [
+            {
+              "label": "26 CFR 1.401(a)(9)-3 to -5",
+              "url": "https://www.ecfr.gov/current/title-26/chapter-I/subchapter-A/part-1/subject-group-ECFR6f8bfd5bba3d0ea/section-1.401(a)(9)-3"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
