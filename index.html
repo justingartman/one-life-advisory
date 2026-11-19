@@ -804,6 +804,33 @@
       color: var(--navy); font-size: 1.0625rem; padding: 20px 24px;
     }
 
+
+    /* ─── STAGE DOORS (home: "Where are you?") ───────────────── */
+    .stage-doors-wrap { margin-top: 40px; text-align: center; }
+    .stage-doors-label { margin-bottom: 20px; }
+    .stage-doors { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; text-align: left; }
+    .stage-door {
+      display: flex; flex-direction: column; text-decoration: none; color: inherit;
+      background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg);
+      padding: 28px 26px; position: relative; overflow: hidden;
+      transition: transform var(--dur-2) var(--ease-out), border-color var(--dur-2) var(--ease-out);
+    }
+    .stage-door::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: var(--navy); transition: background var(--dur-2) var(--ease-out);
+    }
+    .stage-door h4 { color: var(--navy); margin-bottom: 10px; }
+    .stage-door p { margin-bottom: 18px; flex: 1; }
+    .stage-door-link { font-weight: 600; font-size: .9375rem; color: var(--navy); }
+    @media (hover: hover) {
+      .stage-door:hover { transform: translateY(-4px); border-color: rgba(184,149,106,.35); }
+      .stage-door:hover::before { background: var(--gold); }
+    }
+    .stage-door:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+    @media (prefers-reduced-motion: reduce) { .stage-door:hover { transform: none; } }
+    @media (max-width: 1024px) { .stage-doors { grid-template-columns: 1fr; } }
+    .who-card { scroll-margin-top: 110px; }
+
     /* ─── WHO WE HELP CARDS ──────────────────────────────────── */
     .who-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 32px; }
     .who-card {
@@ -1736,6 +1763,26 @@
         <h2 data-cms="home.whoWeServe.heading">We help people live on purpose, not by default.</h2>
         <div style="margin:20px auto 0;font-size:1.125rem;" data-cms-paras="home.whoWeServe.body"></div>
       </div>
+      <div class="stage-doors-wrap anim">
+        <div class="label stage-doors-label" data-cms="home.whoWeServe.doorsLabel">Where are you?</div>
+        <div class="stage-doors">
+          <a class="stage-door" href="/who-we-help#still-building">
+            <h4 data-cms="home.whoWeServe.doors.0.title">Still building</h4>
+            <p data-cms="home.whoWeServe.doors.0.desc"></p>
+            <span class="stage-door-link"><span data-cms="home.whoWeServe.doors.0.link">See how we help</span> &rarr;</span>
+          </a>
+          <a class="stage-door" href="/who-we-help#approaching-retirement">
+            <h4 data-cms="home.whoWeServe.doors.1.title">Approaching retirement</h4>
+            <p data-cms="home.whoWeServe.doors.1.desc"></p>
+            <span class="stage-door-link"><span data-cms="home.whoWeServe.doors.1.link">See how we help</span> &rarr;</span>
+          </a>
+          <a class="stage-door" href="/who-we-help#in-retirement">
+            <h4 data-cms="home.whoWeServe.doors.2.title">In retirement</h4>
+            <p data-cms="home.whoWeServe.doors.2.desc"></p>
+            <span class="stage-door-link"><span data-cms="home.whoWeServe.doors.2.link">See how we help</span> &rarr;</span>
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -2192,7 +2239,7 @@
     <div class="container">
 
       <div class="who-grid">
-        <div class="who-card anim">
+        <div class="who-card anim" id="in-retirement">
           <div class="card-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 10V2"/><path d="m4.93 10.93 1.41 1.41"/><path d="M2 18h2"/><path d="M20 18h2"/><path d="m19.07 10.93-1.41 1.41"/><path d="M22 22H2"/><path d="m16 6-4 4-4-4"/><path d="M16 18a4 4 0 0 0-8 0"/></svg>
           </div>
@@ -2208,7 +2255,7 @@
           </ul>
         </div>
 
-        <div class="who-card anim anim-delay-1">
+        <div class="who-card anim anim-delay-1" id="approaching-retirement">
           <div class="card-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
           </div>
@@ -2224,7 +2271,7 @@
           </ul>
         </div>
 
-        <div class="who-card anim anim-delay-2">
+        <div class="who-card anim anim-delay-2" id="still-building">
           <div class="card-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
           </div>

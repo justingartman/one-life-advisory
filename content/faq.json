@@ -22,14 +22,14 @@
     {
       "q": "Do you have a minimum?",
       "a": [
-        "Our current minimum for investment management is $250,000 in assets available for us to manage.",
-        "If you are below that amount, we may be able to work together through our financial planning service instead."
+        "There's no minimum to start a conversation or a plan.",
+        "For investment management, our typical starting point is $250,000 in assets available for us to manage. It may be waived, and many younger households begin with planning and add investment management later."
       ]
     },
     {
       "q": "Can I work with you just for financial planning?",
       "a": [
-        "Yes, if you are below our minimum for investment management. There are two ways to do it.",
+        "Yes. There are two ways to do it.",
         "Ongoing planning is a continuing relationship. We start by understanding your financial situation and building an initial written plan. From there, we continue to review and update the plan as things change. There is a $400 initiation fee, and the ongoing annual fee ranges from $3,600 to $15,000, based on the complexity of your situation and the planning work involved.",
         "A one-time plan means we build a written plan around what you want to accomplish and walk through it with you, and you put it into action on your own. The one-time fee ranges from $3,600 to $15,000, based on the complexity of your situation and the scope of the work.",
         "We agree on the fee with you before you decide to move forward. We prefer to work with clients on an ongoing basis, because the decisions that come up after a plan is written are often where an advisor matters most.",
@@ -48,9 +48,16 @@
     {
       "q": "Who do you typically work with?",
       "a": [
-        "Most of our clients are approaching retirement or already retired.",
-        "Some are still several years away and want to make sure they're making good decisions before retirement. Others are already retired and want help managing income, investments, taxes, insurance, and the other financial decisions that come with it.",
-        "We also work with some people earlier in the process when the relationship makes sense."
+        "Most of our clients are approaching retirement or already retired. Retirement planning and retirement income are our specialty.",
+        "We also work with younger households, often in their 30s and 40s, who are earning well, saving seriously, and want a plan for where it's all going.",
+        "It's the same process at every stage. What changes is where we spend the time."
+      ]
+    },
+    {
+      "q": "Do you work with people who aren't close to retirement?",
+      "a": [
+        "Yes. Many of the decisions you make while you're building, about saving, protection, taxes, and debt, shape how well your money can turn into income later. Planning now is retirement planning, done early.",
+        "Many younger households start with ongoing planning and add investment management as their savings grow. We'll talk through what fits on a Clarity Call."
       ]
     },
     {

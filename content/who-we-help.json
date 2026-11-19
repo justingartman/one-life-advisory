@@ -1,7 +1,7 @@
 {
   "heroEyebrow": "Who We Help",
-  "heroTitle": "Planning for retirement, through retirement, and the years leading up to it.",
-  "heroSub": "The questions change depending on where you are. Someone twenty years from retirement has different decisions to make than someone who's already there. We help you understand where you are today and make a plan for what comes next.",
+  "heroTitle": "From building wealth to living on it.",
+  "heroSub": "Whether you're in your 30s or 40s and still building, getting close to retirement, or already there, we take you through the same process: the One Life Process. What changes is where we spend the time. The decisions you make along the way shape the retirement you end up with, so we plan with that in mind from the start.",
   "groups": [
     {
       "title": "In Retirement",
@@ -29,19 +29,19 @@
     },
     {
       "title": "Still Building",
-      "body": "The best time to prepare for retirement is early, and you're already thinking about it.\n\nStarting now gives you the biggest advantage there is: time. Time to build savings, let your investments work, put the right protection in place, and adjust as life changes.\n\nWe help make sure your saving, investing, cash flow, and protection are moving you toward the future you want, and that you have a plan for getting there.",
+      "body": "You're earning well, saving seriously, and juggling a lot: a career, maybe kids, a house, and money decisions that are starting to run into each other.\n\nMost of what you decide now shapes how well your money can turn into income later. Roth or traditional. Paying down debt or investing. College savings or retirement. How to protect your family if something happens to you. We help you make those calls on purpose, with the life you want, and the retirement it leads to, in mind.\n\nMany younger households start with planning and add investment management as their savings grow.",
       "listIntro": "What we may work through includes:",
       "items": [
-        "Saving and cash flow",
-        "Investment strategy",
-        "Employer retirement plans",
-        "Insurance and protection",
-        "Building toward the income you may want later"
+        "Saving, cash flow, and how much to keep in reserve",
+        "Roth or traditional savings in your peak earning years",
+        "Protecting your family with life and disability insurance",
+        "College savings alongside retirement saving",
+        "Equity compensation, a home purchase, or an inheritance"
       ]
     }
   ],
   "notFitHeading": "Who we work best with",
-  "notFitBody": "We tend to work best with people who have been thoughtful with their money and want to make the most of what they've built.\n\nThey like understanding the why behind a decision, want every part of their financial life working together, and value a long-term relationship with someone who knows their situation.\n\nIf that sounds like you, a Clarity Call is an easy way to find out whether we're a good fit.",
+  "notFitBody": "We tend to work best with people who have been thoughtful with their money, whether they're still building or already living on what they've built.\n\nThey like understanding the why behind a decision, want every part of their financial life working together, and value a long-term relationship with someone who knows their situation.\n\nIf that sounds like you, a Clarity Call is an easy way to find out whether we're a good fit.",
   "closingHeading": "Want to see if we're a fit?",
   "closingSub": "A Clarity Call is a 15 to 30 minute conversation about where you are, what you're trying to accomplish, and whether the work we do fits what you're looking for.",
   "closingButton": "Schedule a Clarity Call"

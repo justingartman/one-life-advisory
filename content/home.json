@@ -16,13 +16,31 @@
   },
   "whoWeServe": {
     "heading": "We help people live on purpose, not by default.",
-    "body": "Whether you're approaching retirement, already there, or still building toward it, we help you make thoughtful decisions about how your money supports your life.\n\nThe work changes depending on where you are. The goal is a plan that helps you understand what comes next and how the pieces fit together."
+    "body": "Whether you're still building, getting close to retirement, or already there, we help you make thoughtful decisions about how your money supports your life.\n\nIt's the same process at every stage. What changes is where we spend the time.",
+    "doorsLabel": "Where are you?",
+    "doors": [
+      {
+        "title": "Still building",
+        "desc": "Earning well, saving seriously, and making decisions that will shape the retirement you're building toward.",
+        "link": "See how we help"
+      },
+      {
+        "title": "Approaching retirement",
+        "desc": "Retirement is coming into view. Time to see how it will actually work, while you still have the most options.",
+        "link": "See how we help"
+      },
+      {
+        "title": "In retirement",
+        "desc": "Turning what you've built into income you can count on, and enjoying the life it supports.",
+        "link": "See how we help"
+      }
+    ]
   },
   "leadMagnet": {
     "show": true,
     "label": "Free Guide",
     "heading": "Not ready to talk? Start with the guide.",
-    "body": "A short guide to help you evaluate whether your money is working together the way you intend, especially as retirement gets closer.",
+    "body": "A short guide to help you evaluate whether your money is working together the way you intend, wherever you are on the way to retirement.",
     "buttonLabel": "Send me the guide"
   },
   "order": {

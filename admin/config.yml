@@ -146,6 +146,15 @@ collections:
             fields:
               - { name: heading, label: "Heading", widget: string }
               - { name: body, label: "Body", widget: text }
+              - { name: doorsLabel, label: "\"Where are you?\" label", widget: string }
+              - name: doors
+                label: "Life-stage cards (keep 3, in this order: still building, approaching, in retirement)"
+                widget: list
+                allow_add: false
+                fields:
+                  - { name: title, label: "Title", widget: string }
+                  - { name: desc, label: "Description", widget: text }
+                  - { name: link, label: "Link text", widget: string }
           - name: covers
             label: "What a Plan Covers"
             widget: object
