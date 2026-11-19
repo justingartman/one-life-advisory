@@ -125,29 +125,29 @@
   },
   "planPreview": {
     "label": "The One Life Process",
-    "heading": "One process for every stage of life. It starts with you, not your accounts.",
-    "body": "Whether you're just building or already retired, it's the same five stages, from the first conversation through the years that follow. You'll see where you stand and how we plan before you decide anything.",
+    "heading": "Getting your money aligned with your life.",
+    "body": "We call it the One Life Process. Five steps that spell ALIGN, and the same process whether you're just building or already retired. You'll see where you stand and how we plan before you decide anything.",
     "button": "See the full process",
     "steps": [
       {
-        "title": "Clarity Call",
-        "desc": "A short call to see whether we're a good fit."
+        "title": "A · Ask what your money is for",
+        "desc": "The life you want, now and later. Every decision gets measured against it."
       },
       {
-        "title": "Discovery Meeting",
-        "desc": "What you want from your life, and your financial picture."
+        "title": "L · Lay it all out",
+        "desc": "Everything in one picture, so you can see where you stand and whether your current path gets you there."
       },
       {
-        "title": "Planning Conversation",
-        "desc": "Where you stand, how we plan, and the direction we'd suggest."
+        "title": "I · Identify the gaps and opportunities",
+        "desc": "What could knock the plan off course, how to protect against it, and where your money could work harder."
       },
       {
-        "title": "Onboarding & Implementation",
-        "desc": "Putting strategies in place, some now and some over time."
+        "title": "G · Give every dollar a job",
+        "desc": "First balance, then protect, then save, then grow. Each dollar gets a purpose, then we find the right tool for it."
       },
       {
-        "title": "Ongoing Support & Reviews",
-        "desc": "Continuing to improve the plan as life changes."
+        "title": "N · Navigate as life happens",
+        "desc": "We keep reviewing and adjusting the plan with you as your life, the markets, and the rules change."
       }
     ]
   },

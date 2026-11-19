@@ -2,7 +2,7 @@
   "groupAHeading": "Before you decide",
   "clarityLabel": "Start Here",
   "clarityButton": "Schedule a Clarity Call",
-  "heroSub": "We call how we work the One Life Process. It's the same whether you're 35 and building or 70 and retired; what changes is where we spend the time. We start with what you want your money to do, lay everything out in one picture, and look at what could knock the plan off course and how to protect against it. Then we give every dollar a job and keep reviewing the plan as your life changes.",
+  "heroSub": "We call how we work the One Life Process: getting your money aligned with your life. It's the same whether you're 35 and building or 70 and retired. What changes is where we spend the time.",
   "closingButton": "Schedule a Clarity Call",
   "closingQuote": "\"This is your one life. Let's design the future income to support it — with confidence, clarity, and intention.\"",
   "steps": [
@@ -101,6 +101,39 @@
       {
         "title": "We test the hard years.",
         "desc": "A bad market early in retirement, higher inflation, a longer life, a major health or care expense. We look at what each would do, and what you could do about it, before you face it."
+      }
+    ]
+  },
+  "align": {
+    "show": true,
+    "label": "The One Life Process",
+    "heading": "Getting your money aligned with your life.",
+    "intro": "Five steps, and they spell ALIGN.",
+    "items": [
+      {
+        "letter": "A",
+        "title": "Ask what your money is for",
+        "desc": "The life you want, now and later. Every decision gets measured against it."
+      },
+      {
+        "letter": "L",
+        "title": "Lay it all out",
+        "desc": "Everything in one picture, so you can see where you stand and whether your current path gets you there."
+      },
+      {
+        "letter": "I",
+        "title": "Identify the gaps and opportunities",
+        "desc": "What could knock the plan off course, how to protect against it, and where your money could work harder."
+      },
+      {
+        "letter": "G",
+        "title": "Give every dollar a job",
+        "desc": "First balance, then protect, then save, then grow. Each dollar gets a purpose, then we find the right tool for it."
+      },
+      {
+        "letter": "N",
+        "title": "Navigate as life happens",
+        "desc": "We keep reviewing and adjusting the plan with you as your life, the markets, and the rules change."
       }
     ]
   }
