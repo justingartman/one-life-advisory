@@ -108,7 +108,7 @@
     "show": true,
     "label": "The One Life Process",
     "heading": "Getting your money aligned with your life.",
-    "intro": "Five steps, and they spell ALIGN.",
+    "intro": "It has five basic steps, and one word to remember them by: ALIGN.",
     "items": [
       {
         "letter": "A",
@@ -128,12 +128,12 @@
       {
         "letter": "G",
         "title": "Give every dollar a job",
-        "desc": "First balance, then protect, then save, then grow. Each dollar gets a purpose, then we find the right tool for it."
+        "desc": "Protect, save, and grow. Each dollar gets a job that moves you closer to your goals, and we pick the best tool for that job."
       },
       {
         "letter": "N",
         "title": "Navigate as life happens",
-        "desc": "We keep reviewing and adjusting the plan with you as your life, the markets, and the rules change."
+        "desc": "Life doesn't happen on a set schedule, so we review, adjust as things change, and help you think through the financial decisions along the way."
       }
     ]
   }

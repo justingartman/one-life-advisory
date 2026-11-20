@@ -3,7 +3,7 @@
   "hook": {
     "label": "The question we help answer.",
     "heading": "Is your current path on track for where you want to go?",
-    "lead": "Most people have a variety of financial pieces: an IRA, a 401(k), an insurance policy, Social Security, and maybe a pension. Few have a plan that connects them all.",
+    "lead": "Most people have a variety of financial pieces: an IRA, a 401(k), an insurance policy, Social Security, and maybe a pension. Few have a plan that aligns them all.",
     "pieces": [
       "IRA",
       "401(k)",
@@ -126,7 +126,7 @@
   "planPreview": {
     "label": "The One Life Process",
     "heading": "Getting your money aligned with your life.",
-    "body": "We call it the One Life Process. Five steps that spell ALIGN, and the same process whether you're just building or already retired. You'll see where you stand and how we plan before you decide anything.",
+    "body": "We call it the One Life Process. It has five basic steps, and one word to remember them by: ALIGN. It's the same process whether you're just building or already retired, and you'll see where you stand and how we plan before you decide anything.",
     "button": "See the full process",
     "steps": [
       {
@@ -143,11 +143,11 @@
       },
       {
         "title": "G · Give every dollar a job",
-        "desc": "First balance, then protect, then save, then grow. Each dollar gets a purpose, then we find the right tool for it."
+        "desc": "Protect, save, and grow. Each dollar gets a job that moves you closer to your goals, and we pick the best tool for that job."
       },
       {
         "title": "N · Navigate as life happens",
-        "desc": "We keep reviewing and adjusting the plan with you as your life, the markets, and the rules change."
+        "desc": "Life doesn't happen on a set schedule, so we review, adjust as things change, and help you think through the financial decisions along the way."
       }
     ]
   },
